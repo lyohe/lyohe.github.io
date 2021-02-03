@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> Hugo &#43; GitHub Pages でブログを作った話 | ここにかく</title>
+    
+    
+    
+    <link rel="stylesheet" href="/sass/main.min.96090b4177a3194fa2de0860f2c55524d6582b68a41222fe4030905ef033075a.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        🦥
+                    </span>
+                    
+                    ここにかく
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Hugo &#43; GitHub Pages でブログを作った話</h1>
+                    <div class="post-meta">
+                        <div>
+                            By lyohe on <time>February 03, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/hugo/">hugo</a>
+                            
+                            <a href="/tags/blog/">blog</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>このブログは Hugo + GitHub Pages で作った。</p>
+<h2 id="hugo">Hugo</h2>
+<p>Hugo は Go 製の静的サイトジェネレータで、 Markdown 等で書いた文章から Web サイトを生成してくれる。
+生成した Web サイトの中身はただの静的なファイルなので、 <a href="https://www.netlify.com/">Netlify</a> や <a href="https://pages.github.com/">GitHub Pages</a> その他さまざまなサービスで Hosting できる。</p>
+<p>Hugo には様々なテーマが用意されていて、見た目を簡単にカスタマイズできる。このブログでは <a href="https://themes.gohugo.io/hugo-tania/">Tania</a> というテーマを利用している。テーマの適用は非常にかんたんで、 Hugo のプロジェクト内の themes ディレクトリにテーマをダウンロード（多くは GitHub で提供されてるので普通に clone してくればよい）し、設定ファイルで使用するテーマを指定するだけでよい。</p>
+<p>Hugo の仕組みや設定ファイルの書き方についてはさくらインターネットさんが公開している記事が分かりやすかったので、これを読んでから<a href="https://gohugo.io/documentation/">公式ドキュメント</a>を読めば大抵のことは分かると思う。</p>
+<ul>
+<li><a href="https://knowledge.sakura.ad.jp/22908/">【さくらのナレッジ】静的サイトジェネレータ「Hugo」と技術文書公開向けテーマ「Docsy」でOSSサイトを作る</a></li>
+</ul>
+<p>ちなみに上記のサイトでは設定ファイルとして config.toml を使っているが、 TOML だけでなく YAML も設定ファイルとして使うことができる。</p>
+<h2 id="github-pages-に-deploy-するまで">GitHub Pages に deploy するまで</h2>
+<p>GitHub Pages を始めるのは非常に簡単で、ここに書いてある通りにやるだけでよい。</p>
+<p><a href="https://pages.github.com/">https://pages.github.com/</a></p>
+<p>リポジトリを作ったら <code>hugo new post/ファイル名</code> で新しくファイルを作り、 Markdown 等でコンテンツを書く。テーマによって書き方が異なるケースがあるので、テーマごとの Demo サイトと自分のサイトを見比べたり <code>hugo server</code> でローカルで動かしてチェックするのがよい。</p>
+<p>コンテンツを格納する場所は設定ファイルで変更できる。また、記事のひな形を作りたいときは <code>archetypes/default.md</code> を編集すると <code>hugo new</code> で生成するファイルの中身を変えることができる。</p>
+<p>デプロイするときは <code>hugo</code> コマンドで public/ 内に Web サイトを生成できるので、それを GitHub Pages 用に作った <code>username.github.io</code> という名前の repository に push すればよい（username のところには GitHub のユーザー名を入れる）。</p>
+<p>GitHub アカウントに二要素認証を設定している方は push するときにユーザー名とパスワードで認証できない場合があるので、 <a href="https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token">personal access token</a> を作って password の代わりにそれを入力する。</p>
+<p>Hugo の公式ドキュメントにはデプロイ用のスクリプトの例もある。</p>
+<p><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">https://gohugo.io/hosting-and-deployment/hosting-on-github/</a></p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/2021-02-02-introduction/" title="Previous post (older)">
+            <span>Previous</span>
+            ブログを作りました
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>
