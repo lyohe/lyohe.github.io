@@ -8,7 +8,24 @@
     <meta name="theme-color" content="dark">
     <title> Hugo &#43; GitHub Pages でブログを作った話 | ここにかく</title>
     
-    <link rel="icon" type="image/png" sizes="" href="favicon.ico" />
+    <meta property="og:title" content="Hugo &#43; GitHub Pages でブログを作った話" />
+<meta property="og:description" content="このブログは Hugo &#43; GitHub Pages で作った。
+Hugo Hugo は Go 製の静的サイトジェネレータで、 Markdown 等で書いた文章から Web サイトを生成してくれる。 生成した Web サイトの中身はただの静的なファイルなので、 Netlify や GitHub Pages その他さまざまなサービスで Hosting できる。
+Hugo には様々なテーマが用意されていて、見た目を簡単にカスタマイズできる。このブログでは Tania というテーマを利用している。テーマの適用は非常にかんたんで、 Hugo のプロジェクト内の themes ディレクトリにテーマをダウンロード（多くは GitHub で提供されてるので普通に clone してくればよい）し、設定ファイルで使用するテーマを指定するだけでよい。
+Hugo の仕組みや設定ファイルの書き方についてはさくらインターネットさんが公開している記事が分かりやすかったので、これを読んでから公式ドキュメントを読めば大抵のことは分かると思う。
+ 【さくらのナレッジ】静的サイトジェネレータ「Hugo」と技術文書公開向けテーマ「Docsy」でOSSサイトを作る  ちなみに上記のサイトでは設定ファイルとして config.toml を使っているが、 TOML だけでなく YAML も設定ファイルとして使うことができる。
+GitHub Pages に deploy するまで GitHub Pages を始めるのは非常に簡単で、ここに書いてある通りにやるだけでよい。
+https://pages.github.com/
+リポジトリを作ったら hugo new post/ファイル名 で新しくファイルを作り、 Markdown 等でコンテンツを書く。テーマによって書き方が異なるケースがあるので、テーマごとの Demo サイトと自分のサイトを見比べたり hugo server でローカルで動かしてチェックするのがよい。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyohe.github.io/post/2021-02-03-hugo-to-github-pages/" />
+<meta property="og:image" content="https://lyohe.github.io/tori.JPG"/>
+<meta property="article:published_time" content="2021-02-03T09:27:07+09:00" />
+<meta property="article:modified_time" content="2021-02-03T09:27:07+09:00" /><meta property="og:site_name" content="ここにかく" />
+
+    
+    
+    <link rel="icon" href="favicon.ico" />
     
     <link rel="stylesheet" href="/sass/main.min.96090b4177a3194fa2de0860f2c55524d6582b68a41222fe4030905ef033075a.css">
 </head>
