@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GCP on ここにかく</title>
+    <link>https://lyohe.github.io/tags/gcp/</link>
+    <description>Recent content in GCP on ここにかく</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sat, 06 Feb 2021 11:56:34 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/gcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google クラウド巨大赤字の話</title>
+      <link>https://lyohe.github.io/post/2021-02-06-google-cloud-comprehensive-loss/</link>
+      <pubDate>Sat, 06 Feb 2021 11:56:34 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-02-06-google-cloud-comprehensive-loss/</guid>
+      <description>Google の Cloud セグメントが約5,880億円の巨額損失を出したというニュースを見かけた。
+[TechCrunch] Google Cloudは2020年に約5880億円の損失 https://jp.techcrunch.com/2021/02/03/2021-02-02-google-cloud-lost-5-6b-in-2020/
+Form 10-K はこちら。
+これについて様々な意見を見かけたが、自分の印象と異なる意見が多かったので自分の意見を書いておきたい。
+以下、 $ 1B = $ 1 Billion（10億ドル）とする。
+GCP は大丈夫か？ このニュースを見て GCP 大丈夫かな？続くのかな？というのが気になる人がいると思う。むしろ何千億円の赤字なんて大丈夫かと思うのが普通だろう。
+しかしながら、Cloud で何千億円の赤字を出したところで Google がどうにかなるわけではない。Alphabet, Inc は純資産が $222B あって2020年12月期の包括利益は$ 40B 以上あるし、 Cloud セグメントは高い成長率のクラウド業界で全体の平均より大幅に高い成長率（YoY +47%）を出している。
+Cloud の売上は下記の通り増加し、2年間で2倍以上に成長している。
+ 2018 -&amp;gt; 2019: $5.8B -&amp;gt; $8.9B（YoY+53%） 2019 -&amp;gt; 2020: $8.9B -&amp;gt; $13.0B（YoY+47%）  なお、今週行われた Conference call では CEO によって Revenue backlog が Q3 -&amp;gt; Q4 で $19B -&amp;gt; $30B 1に増加し、増加要因のほぼ全てが Cloud セグメントであると述べられている。 backlog は未認識の収益で、つまり先の期でそれくらい収益を得られる契約があるということになる。これは GCP がプラットフォームとして多くの企業から信頼されていることを表しているし、今後の成長も期待できる。</description>
+    </item>
+    
+  </channel>
+</rss>
