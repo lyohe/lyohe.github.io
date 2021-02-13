@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fusuma on ここにかく</title>
+    <link>https://lyohe.github.io/tags/fusuma/</link>
+    <description>Recent content in Fusuma on ここにかく</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sat, 13 Feb 2021 17:33:47 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/fusuma/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fusuma でスライドを作るスライドを Fusuma で作る</title>
+      <link>https://lyohe.github.io/post/2021-02-13-made-slides-with-fusuma-make-slides-with-fusuma/</link>
+      <pubDate>Sat, 13 Feb 2021 17:33:47 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-02-13-made-slides-with-fusuma-make-slides-with-fusuma/</guid>
+      <description>Fusuma は Markdown でスライドを作る OSS で、最近大きなアップデートが行われた。
+ Markdownでスライドを作るツールのFusumaのv2をリリースをしました  上記の記事で Fusuma の存在を知り、自分でも試しに使ってみた。
+思ったより楽に良さげなスライドができたのでスライドを作る際の選択肢の一つとしてお勧めしたい。しかしながら、自分が作ったスライドが公開できないやつなので、別に Fusuma を使ってスライドを作る方法を説明するスライドを作りそれをブログに書くことにした。
+なお、本記事の Fusuma に関する情報のほぼ全ては README と公式サイトの intro 、site/docs/guides を読めば書いてあることしか書いていない。そちらの方が正確かつ詳しいので、使ってみようかと思った方はそちらを読んだ方が有益だ。
+この記事には主に自分の動機や印象に残ったことを書いた。
+（Fusuma は Slide door だから Fusuma っていう名前なのかな&amp;hellip;）
+自分の動機 何故スライドを Markdown で作るのか？
+多くの人はスライドを作るとき Microsoft PowerPoint / Keynote / Google Slides を使うと思う。これらの製品は GUI で多彩な操作ができ、直感的でとても便利だ。人によって好みは分かれるだろうが、私は Google Slides が大好きでよく使っていた。
+既製のスライド作成ソフトへのちょっとした不満 Google スライドの機能に関しては大きな不満はないのだが、起動してスライドの体裁を整えて&amp;hellip;みたいなのがちょっと面倒だなーと感じていた。
+そこで Markdown でやれば手軽にスライド作れるのでは！？と思ったのが Fusuma に手を出した理由だ。また、テキストなので Git 等の VCS でバージョン管理しやすいというメリットもある。
+スライドを作るスライド 完成品はこちら ↓ で、ここの GitHub Pages にディレクトリ分けてデプロイした。
+https://lyohe.github.io/slide/fusuma-example
+iframe で埋め込むこともできる（自分側の都合でサイズの調整がちょっと難しかった）。</description>
+    </item>
+    
+  </channel>
+</rss>
