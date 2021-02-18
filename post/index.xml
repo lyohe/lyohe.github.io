@@ -6,7 +6,25 @@
     <description>Recent content in Posts on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 13 Feb 2021 17:33:47 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 18 Feb 2021 20:26:08 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>「フロントエンド開発入門」を読んだ話</title>
+      <link>https://lyohe.github.io/post/2021-02-18-frontend-beginner/</link>
+      <pubDate>Thu, 18 Feb 2021 20:26:08 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-02-18-frontend-beginner/</guid>
+      <description>雰囲気でプログラムを書いてきたのでちゃんとフロントエンドの勉強をせねば…と思って読んだ。とても良い本だったので紹介したい。
+ フロントエンド開発入門 プロフェッショナルな開発ツールと設計・実装（秀和システム）  自分のレベル  プログラミングを始めて1年くらい TypeScript とか React とか Node.js とかその辺のやつを使うことが多い フロントエンドのツール群については名前を聞いたことあるレベル 大抵は既に導入されておりその恩恵を享受しているが、自分で設定を触ったことは無い  本書の概要 全体で三段階に分かれている。
+第一部: 導入編（1章〜4章） 現在「フロントエンド」と呼ばれている領域の歴史から始まり、どのようなスキルが求められておりプロジェクト内でどういう働き方をするのかを取り上げる。
+個人的に素晴らしいと思ったのは第三章の「フロントエンドにおける一般的なツール群」で、 Node.js 周辺のツールやフレームワークについて簡単に基礎の基礎の説明がされていてよかった。
+ Babel webpack TypeScript Vue.js, React, Angular クライアントサイド MVC と Flux Redux CSS と CSS-in-JS フォーマッターとリンターPrettier と ESLint ユニットテストMocha, Jest, Karma  これらの一つ一つを解説するとそれなりの分量になってしまうが、80ページくらいの間に「何をしてくれるツールなのか、なぜ求められているのか、最初の最初はこうやって使う」という紹介が書かれていて、使い始める前に読む文章として分かりやすいと思った。
+実際に使うときは公式ドキュメントを読めばいいので、まずこういう書籍でまとめて全体像に触れるのが良さそうだ。一つ一つを習得しようとすると時間かかりそうなので、まずは感覚を掴むのが大事。
+第二部: 実践編（5章〜7章） jQuery で作られた簡単な書籍のレビューサイトを TypeScript + React で置き換えながら、ユニットテストや CI/CD の導入、パフォーマンスの計測と改善を進めていく。
+第一部で簡単なツールの使い方を知って、第二部でそれを実践していくという内容になっている。サンプルアプリは GitHub で公開されている。
+https://github.com/n05-frontend/shuwa-frontend-book-app
+これを clone してきて docker-compose で環境構築し、章ごとに branch を切り替えながら進めることで自分の手元で本と同じ環境を動かせる。</description>
+    </item>
+    
     <item>
       <title>Fusuma でスライドを作るスライドを Fusuma で作る</title>
       <link>https://lyohe.github.io/post/2021-02-13-made-slides-with-fusuma-make-slides-with-fusuma/</link>
