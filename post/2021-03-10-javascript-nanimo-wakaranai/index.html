@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> JavaScript の参照について何も理解していなかった話 | ここにかく</title>
+    
+    <meta property="og:title" content="JavaScript の参照について何も理解していなかった話" />
+<meta property="og:description" content="以前ブログに偉そうなドヤ顔で「JavaScript は文法そのものはそれほど難しくないと思う」と書いたがそんなことはなかったぜ！！
+発端 React と Redux のドキュメントや関連するブログを読んでいると、しつこいくらい immutable や immutability という単語が登場する。
+immutable は mutable の対義語で「不変性」を意味しており、要は「変数やオブジェクトの中身を直接書き換えるんじゃなくてコピーして使え」ということを指している（と認識しています）のだが、私は深く理解しないまま「はいはいイミュータブルイミュータブル」と思ってやり過ごしてきた。
+しかし、どうも気になる&hellip;なんでわざわざこんな事をしなければならんのか。直接書き換えてはいかんのか？
+React-Redux における immutability // This creates a variable, crayon, that points to a box (unnamed), // which holds the object { color: &#39;red&#39; } let crayon = { color: &lsquo;red&rsquo; };
+// Changing a property of crayon does NOT change the box it points to crayon.color = &lsquo;blue&rsquo;;
+// Assigning an object or array to another variable merely points // that new variable at the old variable&rsquo;s box in memory let crayon2 = crayon; console." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyohe.github.io/post/2021-03-10-javascript-nanimo-wakaranai/" />
+<meta property="og:image" content="https://lyohe.github.io/tori.JPG"/>
+<meta property="article:published_time" content="2021-03-10T11:10:20+09:00" />
+<meta property="article:modified_time" content="2021-03-10T11:10:20+09:00" /><meta property="og:site_name" content="ここにかく" />
+
+    
+    
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes=180x180 />
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes=192x192 />
+    <link rel="icon" type="image/png" href="android-chrome-512x512.png" sizes=512x512 />
+    
+    <link rel="stylesheet" href="/sass/main.min.96090b4177a3194fa2de0860f2c55524d6582b68a41222fe4030905ef033075a.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        🦥
+                    </span>
+                    
+                    ここにかく
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="https://lyohe.medium.com/">medium</a>
+                
+                <a href="https://twitter.com/rtsudar">twitter</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>JavaScript の参照について何も理解していなかった話</h1>
+                    <div class="post-meta">
+                        <div>
+                            By lyohe on <time>March 10, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/javascript/">JavaScript</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p><a href="https://lyohe.github.io/post/2021-02-04-programming-taihenda/">以前ブログに偉そうなドヤ顔で「JavaScript は文法そのものはそれほど難しくないと思う」と書いた</a>がそんなことはなかったぜ！！</p>
+<h2 id="発端">発端</h2>
+<p>React と Redux のドキュメントや関連するブログを読んでいると、しつこいくらい <code>immutable</code> や <code>immutability</code> という単語が登場する。</p>
+<p>immutable は mutable の対義語で「不変性」を意味しており、要は「変数やオブジェクトの中身を直接書き換えるんじゃなくてコピーして使え」ということを指している（と認識しています）のだが、私は深く理解しないまま「はいはいイミュータブルイミュータブル」と思ってやり過ごしてきた。</p>
+<p>しかし、どうも気になる&hellip;なんでわざわざこんな事をしなければならんのか。直接書き換えてはいかんのか？</p>
+<h2 id="react-redux-における-immutability">React-Redux における immutability</h2>
+<p>// This creates a variable, <code>crayon</code>, that points to a box (unnamed),
+// which holds the object <code>{ color: 'red' }</code>
+let crayon = { color: &lsquo;red&rsquo; };</p>
+<p>// Changing a property of <code>crayon</code> does NOT change the box it points to
+crayon.color = &lsquo;blue&rsquo;;</p>
+<p>// Assigning an object or array to another variable merely points
+// that new variable at the old variable&rsquo;s box in memory
+let crayon2 = crayon;
+console.log(crayon2 === crayon); // true. both point to the same box.</p>
+<p>// Niw, any further changes to <code>crayon2</code> will also affect <code>crayon1</code>
+crayon2.color = &lsquo;green&rsquo;;
+console.log(crayon.color); // changed to green!
+console.log(crayon2.color); // also green!</p>
+<p>// &hellip;because these two variables refer to the same object in memory
+console.log(crayon2 === crayon);</p>
+<p><a href="https://daveceddia.com/react-redux-immutability-guide/">https://daveceddia.com/react-redux-immutability-guide/</a></p>
+<h2 id="javascript-のメモリ管理">JavaScript のメモリ管理</h2>
+<p>プログラミングを始めたばかりの頃 libc の再実装をやっていた時期があって、その頃はC言語を使って malloc でメモリを管理したり free で解放したりしていた。</p>
+<p>普段は JavaScript（や TypeScript）を書くことが多いが、そういえばメモリ管理って意識したことないな&hellip;と思い、どうなっているのか調べてみた。</p>
+<p><a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management">https://developer.mozilla.org/ja/docs/Web/JavaScript/Memory_Management</a></p>
+<h2 id="javascript-は奥が深い">JavaScript は奥が深い</h2>
+<p>このまま一生わからないかもしれない。</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/2021-02-21-sigoto/" title="Previous post (older)">
+            <span>Previous</span>
+            会計とプログラミングの仕事をやっていきたい話
+            </a>
+        
+        
+        
+        <a rel="next" href="/post/2021-03-11-ten-years-after/" title="Next post (newer)">
+            <span>Next</span>
+            東日本大震災から10年
+            </a> 
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.a94f58a30ad2560de728e080d87f75c60cf806fd1b3d5f4815f1a1a02c0d1859.js"></script>
+</footer>
+    </body>
+</html>

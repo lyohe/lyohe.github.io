@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JavaScript on ここにかく</title>
+    <link>https://lyohe.github.io/tags/javascript/</link>
+    <description>Recent content in JavaScript on ここにかく</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Wed, 10 Mar 2021 11:10:20 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JavaScript の参照について何も理解していなかった話</title>
+      <link>https://lyohe.github.io/post/2021-03-10-javascript-nanimo-wakaranai/</link>
+      <pubDate>Wed, 10 Mar 2021 11:10:20 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-03-10-javascript-nanimo-wakaranai/</guid>
+      <description>以前ブログに偉そうなドヤ顔で「JavaScript は文法そのものはそれほど難しくないと思う」と書いたがそんなことはなかったぜ！！
+発端 React と Redux のドキュメントや関連するブログを読んでいると、しつこいくらい immutable や immutability という単語が登場する。
+immutable は mutable の対義語で「不変性」を意味しており、要は「変数やオブジェクトの中身を直接書き換えるんじゃなくてコピーして使え」ということを指している（と認識しています）のだが、私は深く理解しないまま「はいはいイミュータブルイミュータブル」と思ってやり過ごしてきた。
+しかし、どうも気になる&amp;hellip;なんでわざわざこんな事をしなければならんのか。直接書き換えてはいかんのか？
+React-Redux における immutability // This creates a variable, crayon, that points to a box (unnamed), // which holds the object { color: &#39;red&#39; } let crayon = { color: &amp;lsquo;red&amp;rsquo; };
+// Changing a property of crayon does NOT change the box it points to crayon.color = &amp;lsquo;blue&amp;rsquo;;
+// Assigning an object or array to another variable merely points // that new variable at the old variable&amp;rsquo;s box in memory let crayon2 = crayon; console.</description>
+    </item>
+    
+  </channel>
+</rss>
