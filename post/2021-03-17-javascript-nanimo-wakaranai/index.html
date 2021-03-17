@@ -133,14 +133,10 @@ primitive は以下の7種類のデータ型で、これらに該当しない値
 </div><p>上記のコードで変数 immutableString の update 時には</p>
 <ol>
 <li>変数 immutableString の値 <code>Hello</code> を取得し</li>
-<li><code>, World!</code> という値を 1. の値に追加し</li>
-<li>
-<ol start="2">
-<li>の結果を新しく確保されたメモリに割当て</li>
-</ol>
-</li>
-<li>変数 immutableString が 3. のメモリを参照し</li>
-<li>ガベージコレクション（以下 GC と呼ぶ）が update 前の参照先である 1. のメモリを解放して利用可能にする</li>
+<li><code>, World!</code> という値を <code>1.</code> の値に追加し</li>
+<li><code>2.</code> の結果を新しく確保されたメモリに割当て</li>
+<li>変数 immutableString が <code>3.</code> のメモリを参照し</li>
+<li>ガベージコレクション（以下 GC と呼ぶ）が update 前の参照先である <code>1.</code> のメモリを解放して利用可能にする</li>
 </ol>
 <p>という処理が行われる。</p>
 <p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Mutable">https://developer.mozilla.org/en-US/docs/Glossary/Mutable</a></p>
@@ -214,11 +210,7 @@ primitive は以下の7種類のデータ型で、これらに該当しない値
 <ol>
 <li>変更履歴を活用するような機能を簡単に実装できる</li>
 <li>（React が）簡単にオブジェクトの変更を検出できる</li>
-<li>
-<ol start="2">
-<li>によって（React が）コンポーネントをいつ再描画するかを決定しやすくなる</li>
-</ol>
-</li>
+<li><code>2.</code> によって（React が）コンポーネントをいつ再描画するかを決定しやすくなる</li>
 </ol>
 <p>というメリットがあるそうだ。</p>
 <p><a href="https://ja.reactjs.org/tutorial/tutorial.html#why-immutability-is-important">https://ja.reactjs.org/tutorial/tutorial.html#why-immutability-is-important</a></p>
