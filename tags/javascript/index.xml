@@ -6,11 +6,11 @@
     <description>Recent content in JavaScript on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 14 Mar 2021 14:14:14 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Mar 2021 14:14:14 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話</title>
       <link>https://lyohe.github.io/post/2021-03-17-javascript-nanimo-wakaranai/</link>
-      <pubDate>Sun, 14 Mar 2021 14:14:14 +0900</pubDate>
+      <pubDate>Wed, 17 Mar 2021 14:14:14 +0900</pubDate>
       
       <guid>https://lyohe.github.io/post/2021-03-17-javascript-nanimo-wakaranai/</guid>
       <description>JavaScript は奥が深い。以前このブログに「JavaScript はそれほど難しくないと思う」と書いたが、全くそんなことはなかった。
