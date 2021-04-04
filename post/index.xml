@@ -6,7 +6,24 @@
     <description>Recent content in Posts on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 17 Mar 2021 14:14:14 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 13:02:58 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UiPath が上場するので Form S-1 をさらっと読む</title>
+      <link>https://lyohe.github.io/post/2021-04-04-uipath-ipo/</link>
+      <pubDate>Sun, 04 Apr 2021 13:02:58 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-04-04-uipath-ipo/</guid>
+      <description>有名な RPA のユニコーン1 である UiPath が上場するらしい。
+https://jp.techcrunch.com/2021/03/29/2021-03-26-a-first-look-at-uipaths-ipo-filing/
+自分は UiPath を使ったことがない（Zapier はよく使う）のだが、せっかくなので Form S-1 を軽く読んでみた。
+https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/d98556ds1.htm
+主要な指標 2021年1月期の主要な指標は以下の通り。
+ARR （Annualized Renewal Run-Rate または Annual Reccurring Revenue の略）は毎年繰り越される収益のことで、一般的には以下を意味する。
+ARR = 前年の収益 + 新規契約やアップグレードで得る収益 - 解約やダウングレードで失う収益 新規顧客を獲得しつつ既存顧客との関係を維持・拡大する能力を示す指標なので、収益の積み上げが重要になる SaaS 企業の開示でよく使われる。
+UiPath における ARR の定義は Form S-1 の 75 ページに書いてある（実は同じ ARR という用語を使っていても各社定義が異なるので単純比較は難しい）。クソ長いので一部だけ引用すると
+ We define ARR as annualized invoiced amounts per solution sku from subscription licenses and maintenance obligations assuming no increases or reductions in their subscriptions.</description>
+    </item>
+    
     <item>
       <title>React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話</title>
       <link>https://lyohe.github.io/post/2021-03-17-javascript-nanimo-wakaranai/</link>
