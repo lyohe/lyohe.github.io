@@ -6,7 +6,20 @@
     <description>Recent content in Posts on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Wed, 12 May 2021 22:59:32 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 02 Jul 2021 09:12:09 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>プログラミングを初めて1年ちょっとで指摘されたこと、ミスしたこと</title>
+      <link>https://lyohe.github.io/post/2021-07-02-review-comment/</link>
+      <pubDate>Fri, 02 Jul 2021 09:12:09 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-07-02-review-comment/</guid>
+      <description>去年の4月頃からプログラマーとして働きはじめて1年と3ヶ月が経ち、2021年も半分が終わった。今でも会社で経理や労務の仕事をしたりビールサーバーを洗ったりする仕事も続けているが、プログラムを書く時間は次第に増え楽しくなってきた。
+未経験で転職したこともあり自分が（趣味以外で）書いたコードのほぼ 100% が上司にレビューされているのだが、振り返るといろいろ初歩的なミスをやらかしてきたような気がする。
+せっかく時間を割いてもらっているので、印象に残ったコードレビューやプログラミング、仕事に取り組む姿勢に関する指摘を書き残しておくことにした。
+この記録がいつかどこかで誰かの役に立つと嬉しい。なお、この記事は私自分の認識に基づいているので、上司の知識や情報を完全に反映していない、もしくは誤った解釈をしている可能性がある。
+基本  何をするにしても公式ドキュメントを読む  よくある落とし穴（例: Nginx）とかだいたい書いてある 初学者が踏みそうな穴は既に誰かが踏んでいると考えてよい   タスクを分解し、変更を確実に動作する小さな単位で積み重ねていく  例えば React でフォームを作るなら…  クライアント  ボタンを押したときにモーダルが出るようにする モーダルが出たらフォームを表示してみる フォームを submit したら console.log するだけの Hook を作ってみる   サーバー  フォームの送付先のルーティングを追加し、 ok だけを返す API を作る ↑ が動いていることを curl 等で確認   再びクライアント  console.log を↑で作った API に切り替える レスポンスが ok であることを確認する   ↑ここまでできたら一通り動いたことになるので、フォームの要件に応じてビジネスロジックを作り込んでいく      Git/GitHub  コミットや PR は小さな単位で行う  Diff が大きすぎるとレビューに大きな時間的・精神的コストがかかる 指摘があったときに軌道修正しやすい   不要なコミットは squash でまとめてから出すべし  基本は所属する開発チームの流儀に従うのがいいらしい   コミットメッセージは命令形で書く  流派はいろいろあるので開発チームの流儀に従うのがいいらしい 参考: Git は命令形でやっている https://git.</description>
+    </item>
+    
     <item>
       <title>Real World HTTP（第2版）を読んだ話</title>
       <link>https://lyohe.github.io/post/2021-05-12-real-world-http2/</link>

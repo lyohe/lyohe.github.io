@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> プログラミングを初めて1年ちょっとで指摘されたこと、ミスしたこと | ここにかく</title>
+    
+    <meta property="og:title" content="プログラミングを初めて1年ちょっとで指摘されたこと、ミスしたこと" />
+<meta property="og:description" content="去年の4月頃からプログラマーとして働きはじめて1年と3ヶ月が経ち、2021年も半分が終わった。今でも会社で経理や労務の仕事をしたりビールサーバーを洗ったりする仕事も続けているが、プログラムを書く時間は次第に増え楽しくなってきた。
+未経験で転職したこともあり自分が（趣味以外で）書いたコードのほぼ 100% が上司にレビューされているのだが、振り返るといろいろ初歩的なミスをやらかしてきたような気がする。
+せっかく時間を割いてもらっているので、印象に残ったコードレビューやプログラミング、仕事に取り組む姿勢に関する指摘を書き残しておくことにした。
+この記録がいつかどこかで誰かの役に立つと嬉しい。なお、この記事は私自分の認識に基づいているので、上司の知識や情報を完全に反映していない、もしくは誤った解釈をしている可能性がある。
+基本  何をするにしても公式ドキュメントを読む  よくある落とし穴（例: Nginx）とかだいたい書いてある 初学者が踏みそうな穴は既に誰かが踏んでいると考えてよい   タスクを分解し、変更を確実に動作する小さな単位で積み重ねていく  例えば React でフォームを作るなら…  クライアント  ボタンを押したときにモーダルが出るようにする モーダルが出たらフォームを表示してみる フォームを submit したら console.log するだけの Hook を作ってみる   サーバー  フォームの送付先のルーティングを追加し、 ok だけを返す API を作る ↑ が動いていることを curl 等で確認   再びクライアント  console.log を↑で作った API に切り替える レスポンスが ok であることを確認する   ↑ここまでできたら一通り動いたことになるので、フォームの要件に応じてビジネスロジックを作り込んでいく      Git/GitHub  コミットや PR は小さな単位で行う  Diff が大きすぎるとレビューに大きな時間的・精神的コストがかかる 指摘があったときに軌道修正しやすい   不要なコミットは squash でまとめてから出すべし  基本は所属する開発チームの流儀に従うのがいいらしい   コミットメッセージは命令形で書く  流派はいろいろあるので開発チームの流儀に従うのがいいらしい 参考: Git は命令形でやっている https://git." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyohe.github.io/post/2021-07-02-review-comment/" /><meta property="og:image" content="https://lyohe.github.io/tori.JPG"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-07-02T09:12:09&#43;09:00" />
+<meta property="article:modified_time" content="2021-07-02T09:12:09&#43;09:00" /><meta property="og:site_name" content="ここにかく" />
+
+
+    
+    
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes=180x180 />
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes=192x192 />
+    <link rel="icon" type="image/png" href="android-chrome-512x512.png" sizes=512x512 />
+    
+    <link rel="stylesheet" href="/sass/main.min.6cf277af42bb4b7ead78c6f3fdfab3baf2b8f6afd8d346796018bfcb96bde18c.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        🦥
+                    </span>
+                    
+                    ここにかく
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="https://lyohe.medium.com/">medium</a>
+                
+                <a href="https://twitter.com/rtsudar">twitter</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>プログラミングを初めて1年ちょっとで指摘されたこと、ミスしたこと</h1>
+                    <div class="post-meta">
+                        <div>
+                            By lyohe on <time>July 02, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>去年の4月頃からプログラマーとして働きはじめて1年と3ヶ月が経ち、2021年も半分が終わった。今でも会社で経理や労務の仕事をしたりビールサーバーを洗ったりする仕事も続けているが、プログラムを書く時間は次第に増え楽しくなってきた。</p>
+<p>未経験で転職したこともあり自分が（趣味以外で）書いたコードのほぼ 100% が上司にレビューされているのだが、振り返るといろいろ初歩的なミスをやらかしてきたような気がする。</p>
+<p>せっかく時間を割いてもらっているので、印象に残ったコードレビューやプログラミング、仕事に取り組む姿勢に関する指摘を書き残しておくことにした。</p>
+<p>この記録がいつかどこかで誰かの役に立つと嬉しい。なお、この記事は私自分の認識に基づいているので、上司の知識や情報を完全に反映していない、もしくは誤った解釈をしている可能性がある。</p>
+<h2 id="基本">基本</h2>
+<ul>
+<li><strong>何をするにしても公式ドキュメントを読む</strong>
+<ul>
+<li>よくある落とし穴（例: <a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/config_pitfalls/">Nginx</a>）とかだいたい書いてある</li>
+<li>初学者が踏みそうな穴は既に誰かが踏んでいると考えてよい</li>
+</ul>
+</li>
+<li><strong>タスクを分解し、変更を確実に動作する小さな単位で積み重ねていく</strong>
+<ul>
+<li>例えば React でフォームを作るなら…
+<ol>
+<li>クライアント
+<ul>
+<li>ボタンを押したときにモーダルが出るようにする</li>
+<li>モーダルが出たらフォームを表示してみる</li>
+<li>フォームを submit したら <code>console.log</code> するだけの Hook を作ってみる</li>
+</ul>
+</li>
+<li>サーバー
+<ul>
+<li>フォームの送付先のルーティングを追加し、 ok だけを返す API を作る</li>
+<li>↑ が動いていることを curl 等で確認</li>
+</ul>
+</li>
+<li>再びクライアント
+<ul>
+<li><code>console.log</code> を↑で作った API に切り替える</li>
+<li>レスポンスが ok であることを確認する</li>
+</ul>
+</li>
+<li>↑ここまでできたら一通り動いたことになるので、フォームの要件に応じてビジネスロジックを作り込んでいく</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="gitgithub">Git/GitHub</h2>
+<ul>
+<li><strong>コミットや PR は小さな単位で行う</strong>
+<ul>
+<li>Diff が大きすぎるとレビューに大きな時間的・精神的コストがかかる</li>
+<li>指摘があったときに軌道修正しやすい</li>
+</ul>
+</li>
+<li><strong>不要なコミットは <code>squash</code> でまとめてから出すべし</strong>
+<ul>
+<li>基本は所属する開発チームの流儀に従うのがいいらしい</li>
+</ul>
+</li>
+<li><strong>コミットメッセージは命令形で書く</strong>
+<ul>
+<li>流派はいろいろあるので開発チームの流儀に従うのがいいらしい</li>
+<li>参考: Git は命令形でやっている <a href="https://git.kernel.org/pub/scm/git/git.git/tree/Documentation/SubmittingPatches?id=HEAD">https://git.kernel.org/pub/scm/git/git.git/tree/Documentation/SubmittingPatches?id=HEAD</a></li>
+</ul>
+</li>
+<li><strong>原則的に履歴改変はしない</strong>
+<ul>
+<li>例えば <code>rebase</code> して履歴を書き換えると、その branch を他の人が触ってた場合 pull できなくなる</li>
+<li>改変はその branch を誰も触ってないという確信があるときのみやっても可
+<ul>
+<li>例えばまだ remote に <code>push</code> してないとき</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>OSS に PR を出すときはまず Fork して自分のアカウント配下で修正版を作り、 upstream に PR を出す</strong>
+<ul>
+<li>「Pull」を「Request」するから PR</li>
+<li>GitLab だと Merge Request と呼ばれている
+<ul>
+<li>ワークフローが GitHub と違い、同一リポジトリ内でブランチを作成するから（GitHub も同じリポジトリでブランチ作る場合はあるけど、それはまぁ気にしなくていいらしい）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>上司の Git のワークフローの基本的な考え方は下記の記事に近いので読むようにと言われた。</p>
+<p><a href="https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html">https://songmu.jp/riji/entry/2021-05-19-my-git-workflow.html</a></p>
+<h2 id="セキュリティ">セキュリティ</h2>
+<ul>
+<li><strong>パスワードは何があろうと平文で保存してはいけない</strong>
+<ul>
+<li>入力を受け取ってからできるだけ早い段階で暗号化しなければならない</li>
+<li>世間的に実績のあるハッシュ関数を使って暗号化・ストレッチングする</li>
+</ul>
+</li>
+<li><strong>SSH の port は well known port を避ける</strong>
+<ul>
+<li>本質的にはめちゃくちゃ有効な対策ではない（パスワードログイン禁止して強度の高い rsa 鍵をきちんと管理するとかの方がよほど重要だ）が、余計な口を開けておく必要はない
+<ul>
+<li>けど、 SSH はだいたい何でもできてしまうので特に気をつける</li>
+<li>他にも使わない port があったら積極的に閉じる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>あえて自分の開発環境で脆弱性を作ってそれを攻撃してみる</strong>
+<ul>
+<li>気づかぬ内に脆弱性を作り込んでしまう可能性はいたるところにあるので、基本的な概念やどういう状態が危険かは理解しておく
+<ul>
+<li>たとえば SQL 組み立てるときにはプレースホルダを使うべき、とか</li>
+<li>ログインが必要なページでは CSRF トークンを作るべき、とか</li>
+</ul>
+</li>
+<li>一見ちゃんと動いているように見えて実は穴だらけ、というケースはよくある
+<ul>
+<li>脆弱性のあるバージョンの WordPress で動いているウェブサイトとか…</li>
+</ul>
+</li>
+<li>きちんと対策をするには HTTP/HTTPS の仕組みとかブラウザが何をするかとか基本的な知識が重要</li>
+</ul>
+</li>
+</ul>
+<h2 id="命名">命名</h2>
+<ul>
+<li><strong>プログラミング言語ごとの習慣やチームのやり方に合わせる</strong>
+<ul>
+<li>JavaScript であれば変数や関数の名は基本的に lowerCamelCase でクラス名は UpperCamelCase</li>
+<li>他の人が読んで感じる「この関数はこう動きそう、この変数にはこういうデータが入ってそう」という直感を裏切らないような名前にする
+<ul>
+<li>プロジェクト内で命名の法則に整合性がないと、読みづらいコードになってしまう</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="設計">設計</h2>
+<ul>
+<li><strong>利用者が UI 上で何らかの入力をしてデータを取得・変更するまでの流れを意識しながら、責務ごとに層を分割する</strong>
+<ul>
+<li>例えば…
+<ul>
+<li>認証や入力値のチェックを行う層</li>
+<li>実現したいビジネスロジックを書く層</li>
+<li>ビジネスロジックからデータを受け取ってデータベースに save する層</li>
+</ul>
+</li>
+<li>実装にあたっては層ごとに何を引数として受け取って何を解決するかの役割を常に意識する</li>
+</ul>
+</li>
+<li><strong>設計の早い段階でレビューを受ける</strong>
+<ul>
+<li>例えば&hellip;
+<ul>
+<li>データベースや API のスキーマを作ったらレビューしてもらう</li>
+<li>ビジネスロジックやデータの操作をする関数をシグネチャだけ作ってレビューしてもらう</li>
+<li>こうしておけば、何か見落としや勘違いがあったとき早めに軌道修正できる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="コーディング">コーディング</h2>
+<ul>
+<li><strong>エディタやシェル、ターミナル環境は自分で使いやすいようにカスタマイズする</strong>
+<ul>
+<li>使い込んでる人の様子を後ろから、もしくは画面共有してもらって眺める</li>
+<li>他人の設定ファイル（.vimrc とか .zshrc とか .tmux.conf のようにdot <code>.</code> で始まるので dot files と呼ばれる）を参考にして自分のをメンテナンスしていく</li>
+</ul>
+</li>
+<li><strong>キーボードから手を離さずにあらゆる操作ができることを目指す</strong>
+<ul>
+<li>次の単語や特定の行にジャンプするとか、n行削除するとか</li>
+</ul>
+</li>
+</ul>
+<p>上司は Vim を使っていたので当初は Vim を使うことにした。Vim には <code>vimtutor</code> というターミナルから起動できる公式チュートリアルがあって、30分くらいで基本的な操作を学ぶことができる。</p>
+<p>いまは VSCode を Vim キーバインドで使っているが、コードを編集するスピードをどうやって上げるかを考えるとき「Vim を少しでも触っててよかった」と思うことが多い。Vim にしろ他のエディタにしろ無限に機能があるので、自分が使うところから学んでいくのがよさそう。</p>
+<h2 id="デバッグ">デバッグ</h2>
+<ul>
+<li><strong>エラーで動かないときは Stack Trace から自分が書いた行を拾う</strong>
+<ul>
+<li>ライブラリがバグってるより自分の書いたコードがバグってる可能性の方が高いので、まずは自分が書いた行を読む</li>
+</ul>
+</li>
+<li><strong>開発中は変数に何が入っているかをコンソールに出しながら進めるとよい</strong>
+<ul>
+<li>JavaScript なら <a href="https://www.npmjs.com/package/debug">debug</a> を使うとどこで出してるデバッグのログなのかがコンソール上できれいに色分けされて見られるので便利</li>
+</ul>
+</li>
+</ul>
+<h2 id="テスト">テスト</h2>
+<ul>
+<li><strong>カバレッジを目的にしない</strong>
+<ul>
+<li>全ての行にテストを書く必要はないけど、テストを書いたほうが変更しやすいのは間違いないのでどんどん書きましょう</li>
+</ul>
+</li>
+<li><strong>ミスした箇所や複雑なビジネスロジックのテストを重点的に書く</strong></li>
+</ul>
+<h2 id="css">CSS</h2>
+<ul>
+<li><strong>画面のレイアウトには flexbox を使う</strong>
+<ul>
+<li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">この記事</a>が分かりやすい</li>
+</ul>
+</li>
+<li><strong>とにかく練習あるのみ</strong>
+<ul>
+<li>Chrome Dev Tools で既存の Web サイトの CSS を書き換えたりすると楽しい</li>
+<li>デザインに自信が無い場合はルールだけ覚えておくとよい（xxとyyの間はzz以上開ける…とか）</li>
+</ul>
+</li>
+</ul>
+<h2 id="javascripttypescriptその他一般的なプログラミングに関する指摘">JavaScript/TypeScript、その他一般的なプログラミングに関する指摘</h2>
+<ul>
+<li><strong>配列の繰り返し処理をするときは C 言語っぽい for 文ではなく map や filter 等の Array インスタンスに用意されたメソッドを使う</strong></li>
+<li><strong>非同期処理を書くときは Promise そのままではなく async/await を使う</strong>
+<ul>
+<li>Promise 自体を理解しているという前提</li>
+<li>ほぼ async/await でいいけど、何でもかんでも async/await で書けばよいという訳ではない
+<ul>
+<li>複数の非同期処理を並列で実行したい場合は Promise.all を使うだろうし</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>繰り返し処理の中で SQL を発行するようなコードは N+1 Problem という典型的なアンチパターンなので避けるべき</strong>
+<ul>
+<li>例えば、あるオブジェクトの配列から id というフィールドを取り出してそれで SELECT するなら、オブジェクトの map で SQL を発行するのではなく、まず id を map で取り出してからそれをまとめて一つの文で SELECT するのがよい</li>
+<li>このケースに限らず、無駄に効率の悪い SQL 文を発行してないかは常に気にした方がよい</li>
+</ul>
+</li>
+</ul>
+<h2 id="react">React</h2>
+<ul>
+<li><strong>コンポーネントは原則的にクラスではなく関数で書く</strong>
+<ul>
+<li>つまり、引数 props を受け取って JSX を返す関数として実装する</li>
+<li>クラスが有効なケースは例外的・限定的（ほぼ無いと考えてよい）なので、それを理解できるまでは関数で書く</li>
+<li>バケツリレーしない（特定の範囲に閉じている）状態の管理は Hooks を使う
+<ul>
+<li>グローバルの状態管理には Context API や Redux 等のライブラリを使う</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>データは基本的にコンポーネントの階層関係における「上」から渡していく</strong>
+<ul>
+<li>Flux Architecture と呼ばれている体系的な考え方があるらしい
+<ul>
+<li>以下のようにデータを管理して流れる方向を統一する
+<ul>
+<li>何かしらのユーザーの行動（ボタンをクリックしたり）に応じて何らかの処理を行う</li>
+<li>それにより何かしらのデータが更新される</li>
+<li>更新されたデータに応じて画面の見た目を更新する</li>
+</ul>
+</li>
+<li>機能的にはこの方針に従わなくても実現は可能だが、 Flux Architecture に従うことで、どこで何をやってるかが分かりやすくなる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>コンポーネントはその役割や責務に応じて適切なサイズに分割する</strong>
+<ul>
+<li>例えば&hellip;
+<ul>
+<li>同じ画面を構成するコンポーネントであっても、「ビジネスロジックを呼び出すコンポーネント」と「データを受け取って描画するコンポーネント」は分ける</li>
+<li>ちょっと古い記事だけど<a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0">この記事</a>が分かりやすい</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="その他">その他</h2>
+<ul>
+<li><strong>できるだけスペックの高いマシンを使う</strong>
+<ul>
+<li>例えば Docker for Mac はデフォルトで 2GB のメモリ（変更可）が割り当てられておりその範囲内で動くけど、メモリが足りなくてコンテナやサービスの起動に失敗するケースがあったりする</li>
+<li>アプリやコンテナをたくさん立ち上げても余裕で動くような高いスペックのマシンを求めましょう</li>
+</ul>
+</li>
+</ul>
+<h2 id="いい資料">いい資料</h2>
+<p>ここ1年半くらいで特に勉強になった本や資料を挙げておく。いいエンジニアの人はいい資料を知っているのでどんどん教えてほしい。</p>
+<p>まず MDN Web Docs。Web に関係することがだいたい何でも書いてある。</p>
+<p><a href="https://developer.mozilla.org/ja/">https://developer.mozilla.org/ja/</a></p>
+<p>転職当初、これは絶対に読めと言われた「ふつうのLinuxプログラミング」という本。強く勧められたので印象に残っている。 <code>head</code> とか <code>grep</code> のコマンドを作るのが楽しかった。</p>
+<p><a href="https://www.amazon.co.jp/dp/4797386479/">https://www.amazon.co.jp/dp/4797386479/</a></p>
+<p>IPA（情報処理推進機構）の「安全なウェブサイトの作り方」という資料。 XSS、CSRF、SQL インジェクション等の一般的な脆弱性の仕組みやそれを防ぐ方法が書かれている。</p>
+<p><a href="https://www.ipa.go.jp/security/vuln/websecurity.html">https://www.ipa.go.jp/security/vuln/websecurity.html</a></p>
+<p>JavaScript の Promise が全く理解できなかったときに読んだ「Promise の本」という Web サイト。これが無かったら挫折していたかもしれない。<a href="https://github.com/azu">著者の azu さんという方</a>に細々と毎月 GitHub Sponsor しています。</p>
+<p><a href="https://azu.github.io/promises-book/#introduction">https://azu.github.io/promises-book/#introduction</a></p>
+<p>↑と同じ著者の方が書いている JavaScript Primer という Web サイトも素晴らしい。 JavaScript はアップデートが早いので、ググって出てきた情報が古いことがよくあり、初心者にとって信頼できる情報源はとても重要。これ無料でいいのか！？という気持ちが強い。</p>
+<p><a href="https://jsprimer.net/">https://jsprimer.net/</a></p>
+<p>React の公式ドキュメント。単に API の仕様だけでなく、 React がどのように動作するかの仕組み（例えばコンポーネントのライフサイクル等）が詳しく記述されている。</p>
+<p><a href="https://reactjs.org/docs/getting-started.html">https://reactjs.org/docs/getting-started.html</a></p>
+<p>Shopify の GraphQL Design Tutorial。 GraphQL のスキーマをどうやって作ればいいか全く分かってなかったので勉強になった。</p>
+<p><a href="https://github.com/Shopify/graphql-design-tutorial/blob/master/TUTORIAL.md">https://github.com/Shopify/graphql-design-tutorial/blob/master/TUTORIAL.md</a></p>
+<p>最近みつけた「仕事ですぐに使えるTypeScript」という Web サイト。1日で一通り読める分量で、一般的な JavaScript 周りの環境構築（テスト、フォーマッター/リンター、CI、Docker イメージ作成、React/Vue/Electron などの環境）の情報がまとまっているのがよい。</p>
+<p><a href="https://future-architect.github.io/typescript-guide/">https://future-architect.github.io/typescript-guide/</a></p>
+<p>HTTP の進化をたどる「Real World HTTP」。Go で簡単なクライアント/サーバーを実装しながら HTTP/HTTPS の仕組みを一通り学べる。分厚い本なので、連休中などで一気に進めてどこに何が書いてあるかを把握してから辞書的に使うのがよさそう。<a href="https://lyohe.github.io/post/2021-05-12-real-world-http2/">感想を前回のブログで書いた</a>。</p>
+<p><a href="https://www.amazon.co.jp/dp/4873119030">https://www.amazon.co.jp/dp/4873119030</a></p>
+<h2 id="印象に残ったミス">印象に残ったミス</h2>
+<p>自分が開発中にやった恥ずかしいミスたちの例。これ以外にも無限にあるけど思い出したやつを書いた。</p>
+<ul>
+<li>Array.prototype.find メソッドを使って配列から特定の条件を満たす要素だけを返す処理を実装していたときに比較（<code>===</code>）を代入（<code>=</code>）で書いてしまった
+<ul>
+<li>if や while であれば ESLint の <a href="https://eslint.org/docs/rules/no-cond-assign">no-cond-assign</a> で気づける</li>
+</ul>
+</li>
+<li>練習用の Web サイトを .dev ドメインで作ったが HTTPS 専用であることを知らず、強制的に HTTPS にされるのをがんばって HTTP でアクセスできるようにしようとした（できなかった）</li>
+<li>Node.js の LTS （偶数バージョンの Long Term Support）の概念を理解しておらず、数字が大きいほど良いやつだと勘違いして LTS でない奇数バージョンを積極的に使っていた</li>
+</ul>
+<h2 id="終わりに">終わりに</h2>
+<p>何とかクビにならずにやっています。リモートワークで物理的に人間に会うのが2週間に1回くらいなので、もともと低い社会性が更に落ちてきました。</p>
+<p>これからもがんばります。</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/2021-05-12-real-world-http2/" title="Previous post (older)">
+            <span>Previous</span>
+            Real World HTTP（第2版）を読んだ話
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.c5d8f3350f5a652f526b982306299353824299adb7a3bd261ecffacc47087f66.js"></script>
+</footer>
+    </body>
+</html>
