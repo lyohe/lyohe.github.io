@@ -6,7 +6,25 @@
     <description>Recent content in Posts on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 02 Jul 2021 09:12:09 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jul 2021 00:00:00 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fastly の財務諸表を読んだ話 その2</title>
+      <link>https://lyohe.github.io/post/2021-07-11-fastly-2/</link>
+      <pubDate>Tue, 13 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-07-11-fastly-2/</guid>
+      <description>昨年の年始に「Fastly の財務諸表を読んだ話」というブログを書いたことを思い出し、その続きを書くことにした。
+ちょっと前に例の件で話題になって「そういえば上場から2年経ったけど調達した資金は何に使ったのかな？」と気になったことがきっかけである。
+数字は主に FY2020 の Form 10-K から拾っていく。以下、数字を省略する記号として M = millions（100万）、 B = billions（10億）とする。
+資産と負債 まずは Fastly のバランスシートを同一縮尺で FY2017 ~ FY2020 の4年分並べてみる。
+資産の伸び 上記のバランスシート推移を見ると、 FY2019 と FY2020 に大きな変化が見てとれる。FY2019 は原因が分かりやすく、2019年5月に IPO したことで多額の現金（$192M）を市場から調達し、それで市場性のある有価証券を購入していたため、流動資産と純資産が増えている。
+一方で FY2020 を見ると、固定資産が物凄い伸び方をしている。これはなぜだろうか。
+Fastly のような CDN ビジネスを運営するには、地理的に分散したエッジサーバーやネットワーク機器、それらを管理するデータセンターのような施設が必要になる。
+もちろんそれらの固定資産も加わっているだろうが、実際に中身を見るとこの大幅な資産の増加の8割以上は Signal Sciences という会社を買収したことによる無形資産（のれん含む）の増加だった。
+Signal Sciences Fastly は2020年10月1日付けで Signal Sciences という会社を $759.4M （約800億円）で買収している。このとき現金で $223.0M を支出しており、残りは Fastly の Class A 普通株式の新規発行で賄われた。
+実は Fastly が2019年5月21日に IPO した時に調達した資金が underwriting discount を除いて $192.5M なので、上場時に調達した額以上の現金 + 残りは株式をつぎ込んで買収したということになる1。何も知らない部外者である自分から見ると、経営陣はなかなか大胆な決断をしたと思う。それだけこの買収が Fastly という会社にとって重要だと言えそうだ。</description>
+    </item>
+    
     <item>
       <title>プログラミングを初めて1年ちょっとで指摘されたこと、ミスしたこと</title>
       <link>https://lyohe.github.io/post/2021-07-02-review-comment/</link>
