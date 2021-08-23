@@ -6,7 +6,19 @@
     <description>Recent content in Posts on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sat, 21 Aug 2021 10:18:21 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Aug 2021 12:15:34 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ウォルマートの財務諸表を読んだ話</title>
+      <link>https://lyohe.github.io/post/2021-08-22-walmart-financial-statements/</link>
+      <pubDate>Mon, 23 Aug 2021 12:15:34 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-08-22-walmart-financial-statements/</guid>
+      <description>最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。
+https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html
+中国を除く小売最大の企業といえばウォルマートというイメージがあったので、この記事は強く印象に残った。「コロナの影響やオンライン対応の遅れ等が重なってアマゾンに抜かれたんだろうな」とありきたりな感想を抱いたが、冒頭の記事の最後の方を読むと気になることが書いてある。
+ During the pandemic, Walmart honed its ability to use its stores as mini-distribution centers, where shoppers drive to retrieve their purchase “curbside,” a far less costly way to fulfill online orders than delivery. On Tuesday, Walmart said it expected to generate $75 billion in total online sales this year. The company has been expanding its effort to build its own marketplace, but the vast majority of its online sales still come from its own inventory, Mr.</description>
+    </item>
+    
     <item>
       <title>非技術者がテック企業でプログラミングとか SQL とかを始めることの価値</title>
       <link>https://lyohe.github.io/post/2021-08-21-programming-tanosii/</link>

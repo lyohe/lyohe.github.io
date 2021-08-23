@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> ウォルマートの財務諸表を読んだ話 | ここにかく</title>
+    
+    <meta property="og:title" content="ウォルマートの財務諸表を読んだ話" />
+<meta property="og:description" content="最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。
+https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html
+中国を除く小売最大の企業といえばウォルマートというイメージがあったので、この記事は強く印象に残った。「コロナの影響やオンライン対応の遅れ等が重なってアマゾンに抜かれたんだろうな」とありきたりな感想を抱いたが、冒頭の記事の最後の方を読むと気になることが書いてある。
+ During the pandemic, Walmart honed its ability to use its stores as mini-distribution centers, where shoppers drive to retrieve their purchase “curbside,” a far less costly way to fulfill online orders than delivery. On Tuesday, Walmart said it expected to generate $75 billion in total online sales this year. The company has been expanding its effort to build its own marketplace, but the vast majority of its online sales still come from its own inventory, Mr." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyohe.github.io/post/2021-08-22-walmart-financial-statements/" /><meta property="og:image" content="https://lyohe.github.io/tori.JPG"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-23T12:15:34&#43;09:00" />
+<meta property="article:modified_time" content="2021-08-23T12:15:34&#43;09:00" /><meta property="og:site_name" content="ここにかく" />
+
+
+    
+    
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes=180x180 />
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes=192x192 />
+    <link rel="icon" type="image/png" href="android-chrome-512x512.png" sizes=512x512 />
+    
+    <link rel="stylesheet" href="/sass/main.min.6cf277af42bb4b7ead78c6f3fdfab3baf2b8f6afd8d346796018bfcb96bde18c.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        🦥
+                    </span>
+                    
+                    ここにかく
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="https://lyohe.medium.com/">medium</a>
+                
+                <a href="https://twitter.com/rtsudar">twitter</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>ウォルマートの財務諸表を読んだ話</h1>
+                    <div class="post-meta">
+                        <div>
+                            By lyohe on <time>August 23, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E6%B1%BA%E7%AE%97/">決算</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。</p>
+<p><a href="https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html">https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html</a></p>
+<p>中国を除く小売最大の企業といえばウォルマートというイメージがあったので、この記事は強く印象に残った。「コロナの影響やオンライン対応の遅れ等が重なってアマゾンに抜かれたんだろうな」とありきたりな感想を抱いたが、冒頭の記事の最後の方を読むと気になることが書いてある。</p>
+<blockquote>
+<p>During the pandemic, Walmart honed its ability to use its stores as mini-distribution centers, where shoppers drive to retrieve their purchase “curbside,” a far less costly way to fulfill online orders than delivery. On Tuesday, Walmart said it expected to generate $75 billion in total online sales this year. The company has been expanding its effort to build its own marketplace, but the vast majority of its online sales still come from its own inventory, Mr. Kaziukenas said.</p>
+</blockquote>
+<p>ウォルマートはパンデミックの間、店舗を物流拠点として整備しており、顧客は購入した商品を curbside と呼ばれる場所に車で取りに来る。今年のオンライン販売総額は<strong>750億ドル</strong>と予想している…とある。これは日本円にすると8兆円を超える金額で、<a href="https://www.meti.go.jp/press/2020/07/20200722003/20200722003.html">日本全体の BtoC - EC 市場</a>の約8割に相当する規模だ。</p>
+<p>つまり、アマゾンが凄すぎるだけでウォルマートもオンラインのビジネスを十分に成長させていると言える。ウォルマートの事業がどうなっているのかが気になったので、決算を読んでみることにした。</p>
+<p>数字は基本的に Form 10-K と 四半期の Presentation から拾っていく。以下、金額の単位として $1M = $1Million（百万ドル）、 $1B = $1Billion（十億ドル）とする。</p>
+<h2 id="ウォルマートの決算概況">ウォルマートの決算概況</h2>
+<p>ウォルマートは決算期を1月にしている。日本の小売業は2月決算が多いが、これは日本と US で繁忙期が少しだけずれているからかもしれない。US だと11月-12月、日本だと12月-1月が忙しいのでその後に決算期を置いていると考えられる。</p>
+<h3 id="財政状態">財政状態</h3>
+<p>まずは BS を FY2017-FY2021 の5年分並べてみた。金額の単位は $1M。</p>
+<p><img src="/post/2021-08-22/walmart-bs.png" alt="walmart-bs"></p>
+<p>流動資産は現金を除くとほぼ全てが在庫で、固定資産は大部分（8割以上）が店舗等の設備となっている。</p>
+<p>典型的な小売業の BS の特徴として、売上に対する売掛金の額が小さいことがある（顧客はその場で対価を支払うため）。一方で、取引先に対して仕入の対価を支払うときは月締め翌月末払いという支払いサイクルが一般的なので、その分だけ会社は現金を留保できる。</p>
+<p>ウォルマートでは売上に対する売掛金の割合は 1% 強であるのに対し、仕入に対する買掛金の割合は 11~12% 程度となっている。たかが 1~2 ヶ月分とはいえウォルマートの規模だと $30B ~ $40B という大金になる。</p>
+<p><img src="/post/2021-08-22/receivable-payable.png" alt="receivable-payable"></p>
+<h3 id="損益">損益</h3>
+<p>PL を FY2017 - FY2021/1 の5年分並べてみた。金額の単位は $1M。</p>
+<p>FY2021 の売上は $559,151M で、2020年度の日本の税収（608,216億円）とほぼ等しい。</p>
+<p><img src="/post/2021-08-22/walmart-pl.png" alt="walmart-pl"></p>
+<p>BS よりも PL の方が金額が大きい典型的な小売業の PL と言える。在庫の金額が売上高の 8~9% なので、平均して1ヶ月で1回転する計算になる。売上高営業利益率は 4% 程度であり、特別マージンが大きいわけではない。</p>
+<p>売上は毎年 YoY で +2~3% を維持していたが、 FY2021/1 はコロナ禍の中で +6.7% と大きく伸びた。日本ではセブン&amp;アイグループが FY2021/2 で前年比 ▲13.2%、イオングループが同期間で ▲0.0% なので、ウォルマートは日本の小売業よりも COVID-19 の感染拡大にうまく対応していると言えそうだ。</p>
+<p>なお、ウォルマートの連結売上高では +6.7% だが、ウォルマート US とサムズクラブ（主に US で展開している）の売上は +10% 近く伸びている。</p>
+<p><img src="/post/2021-08-22/4-5-4-compare-sales.png" alt="4-5-4-compare-sales"></p>
+<p>上図は <a href="https://s2.q4cdn.com/056532643/files/doc_downloads/Factbook/2021/FY21-Fact-Book-FINAL.pdf">FY2021 の Financial Factbook</a> の5ページより引用した<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>。</p>
+<h4 id="covid-19-の影響">COVID-19 の影響</h4>
+<p>より詳しく見ていくと、事業セグメントごとに COVID-19 の影響が異なることが分かる。</p>
+<p>ウォルマート US では Transactions（取引数）が大きく減っているが、 Average Ticket（平均単価）はそれ以上に増えており、結果として 10% 近く売上が伸びている。サムズクラブ（コストコみたいなやつ）の方は平均単価よりも取引数の伸びの方が大きい。</p>
+<p>つまり、それだけまとめてたくさん買う人が増えたということになる。サムズクラブは元々まとめ買いする人が行くところなので。</p>
+<p><img src="/post/2021-08-22/4-5-4-covid-effect.png" alt="4-5-4-covid-effect"></p>
+<p>上図は Financial Factbook の7ページより引用した。</p>
+<h4 id="売上の-ec-比率">売上の EC 比率</h4>
+<p>ウォルマートは EC の売上を直接開示してはいない（見逃してたらすみません）ものの、既に開示されている数値からある程度推測することができる。</p>
+<p>最新の四半期決算である <a href="https://s2.q4cdn.com/056532643/files/doc_financials/2022/q2/CORRECTED-TRANSCRIPT_-Walmart,-Inc.(WMT-US),-Q2-2022-Earnings-Call.pdf">FY2022/Q2 の Management Call</a> において、ウォルマート CFO の Brett M. Biggs 氏はこう述べている。</p>
+<blockquote>
+<p>&hellip; eCommerce sales grew 6% in Q2 and 103% on a two-year stack. We continue to build a very sizable eCommerce business around the world. In fact, we&rsquo;re on track to deliver $75 billion in global eCommerce sales this year and on our way to $100 billion in the near term.</p>
+</blockquote>
+<p>FY2022 の年間 EC 売上が連結で $75B に達する見込みであるとのこと。FY2020/Q2 → FY2022/Q2 の2年間の比較では成長率が +103%（最初の1年で +97%, 次の1年で +6%）だった。</p>
+<p>決算説明会資料（Financial Presentation）で開示されているここ3年の四半期ごとの EC 売上成長率を並べると次のグラフになる。ここには含めなかったがウォルマートの海外事業の EC 成長率はこれより高く、例えば FY2021/Q4 はメキシコ/中央アメリカで前年比 +171% 、カナダで +229% と急激に成長している。</p>
+<p><img src="/post/2021-08-22/walmart-ec-growth.png" alt="walmart-ec-growth"></p>
+<p>FY2021 に年平均で +80% 程度の成長、 FY2022 の Q1/Q2 で平均 +20% 程度の成長があって $75B に達するということは、FY2020 の GMV は $35B くらいで FY2021 の GMV は $63B くらいと推測することができる。</p>
+<p>なお、<a href="https://www.forbes.com/sites/greatspeculations/2020/03/02/how-much-in-online-revenue-can-walmart-generate-in-2020/">Forbes はウォルマートの FY2020 における EC の GMV を $37.6B と推測している</a>ので、上記の予測は少し控えめかもしれない。</p>
+<p>ここで、自分の予測をウォルマート全体の売上高と比較してみる。金額単位は $1B（10億ドル）。</p>
+<p><img src="/post/2021-08-22/walmart-ec-rate.png" alt="walmart-ec-rate"></p>
+<p>このように、 FY2021 にはウォルマートの売上の約 11% が EC から生まれたと考えられる。 EC の成長率は売上全体の成長率を上回っているので、この比率はさらに上がっていくことが予想される<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>。</p>
+<h4 id="walmart-connect">Walmart Connect</h4>
+<p>ウォルマートは店舗や EC を通じて商品を販売する以外にも様々な事業をやろうとしているようだが、その中でも <a href="https://walmartconnect.com/">Walmart Connect</a> という広告事業<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>が急激に成長している。売上の数字は開示されていないものの、 Management Call の Transcript を読むと前年比で +95% の成長をしているとのことだった。</p>
+<p>Walmart Connect において、広告主が出した広告が表示される場所は大きく分けて3つある。</p>
+<ol>
+<li>ウォルマートの EC サイトやアプリのトップ画面や商品一覧、検索結果などの画面。</li>
+<li>実店舗に設置されたディスプレイ。実店舗のディスプレイとしては、 4,700+ 店（US 国内の店舗の約 88%）に 170,000+ 個のデジタルスクリーンがある。</li>
+<li>Facebook や Instagram, Pinterest 等の SNS で、ウォルマートが自社の顧客情報を基にリタゲ・リエンゲージメントする。</li>
+</ol>
+<p>よく考えれば合理的な話で、ウォルマートはアメリカ最大の小売企業であり、会員カードや EC サイトのアカウントと紐づいた豊富な購買データを保有している。消費者に商品を売りたい会社にとってはとても魅力的な情報なので、広告事業をやるというのは理にかなっている。</p>
+<p>広告事業としては Walmart Connect に加えて The Trade Desk 社と協同して DSP の立ち上げを進めており、2021年末のホリデーシーズンに間に合うように提供する予定らしい。ウォルマートの購買データを基に顧客のセグメントを行うというのは中々おもしろい取り組みだと思う。</p>
+<p>ちなみにウォルマートもしくはその EC サイトで買い物をする顧客は毎週 1.5 億人いるそうで、アメリカ人の9割が直近1年でウォルマートで買い物したことがあるらしい。売上規模はまだまだ開示するほどでもないようだが、今後が楽しみな分野といえそう。</p>
+<h4 id="収益構造">収益構造</h4>
+<p>ウォルマートの FY2021 の PL を見ると売上原価が $420B あり、売上の 75% 程度を占めている。これは製品の原価と物流施設・店舗への輸送費が含まれている。</p>
+<p>販管費には店舗や配送拠点の維持費用および人件費が含まれている。ウォルマートは売上原価および販管費の詳細な内訳を公開していないが、主にこの2つが含まれていると考えてよさそうだ。インターネットのサービス業だと広告宣伝費が販管費の中で大きな位置を占めることが多いが、 Form 10-K によればウォルマートの FY2021 の広告宣伝費は $3.2B なので販管費の 3% 程度に過ぎない。</p>
+<p><img src="/post/2021-08-22/walmart-pl-breakdown.png" alt="walmart-pl-breakdown"></p>
+<p>人件費については気になる傾向がある。</p>
+<p><a href="https://s2.q4cdn.com/056532643/files/doc_financials/2021/q4/CORRECTED-TRANSCRIPT_-Walmart,-Inc.(WMT-US),-Investment-Community-Meeting,-18-February-2021-8_00-AM-ET_.pdf">FY2021 決算の投資家向け Meeting の Transcript</a> によれば、ウォルマートは段階的に US 国内の賃金を上げていっており、 FY2022 には平均賃金が $15.25/hour になるらしい。FY2015 は $10 程度だったので、6年で 50% 以上も上昇するということになる。</p>
+<h4 id="販売カテゴリ">販売カテゴリ</h4>
+<p>ウォルマート US では売上の約 56% が Grocery と呼ばれる生鮮食品や飲料、紙製品などの日用品から構成されている。ウォルマートが別のブランドとして運営しているサムズクラブというコストコのような超大型スーパーでは、燃料とタバコの売上割合が高いようだ。</p>
+<p><img src="/post/2021-08-22/sales-by-categories.png" alt="sales-by-categories"></p>
+<p>上図は Financial Factbook の8ページより引用した。</p>
+<h3 id="キャッシュフロー">キャッシュフロー</h3>
+<p>PL を FY2017 - FY2021/1 の5年分並べてみた。金額の単位は $1M。</p>
+<p><img src="/post/2021-08-22/walmart-cf.png" alt="walmart-cf"></p>
+<p>税引後利益 + 店舗設備の減価償却がそのまま営業 CF になり、毎年 $20B - $40B 程度のキャッシュフローが生まれている。</p>
+<p>投資 CF は毎年店舗設備など BS 上の資産となる支出におよそ $10B をつぎ込んでいる。また、 FY2019 にはインドの EC 企業である Flipkart の株式の 77% を $16B で取得した<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>。</p>
+<p>財務 CF は主に社債での調達と償還で、大規模な投資にあわせて調達を行っている。Flipkart を買収した FY2019 には買収に要した金額とほぼ同じ <a href="https://www.bloomberg.co.jp/news/articles/2018-06-21/PANHGG6K50XZ01">$16B を社債で調達した</a>。また、毎年 $7B ~ $8B 程度の自己株式の買い入れを行っている。</p>
+<p>これらのキャッシュフローを足し引きしてだいたい毎年 $7B ~ $8B の現預金が手元に残るという運用がされているようだ。</p>
+<h4 id="capital-expenditures">Capital expenditures</h4>
+<p>ウォルマートが毎年およそ $10B をつぎ込んでいる資本支出（Capital expenditures）については、 Factbook に大まかな内訳が記載されている。</p>
+<p>これを見ると、FY19 までは Remodel （店舗改装: 什器の導入、搬入、設置などを指している）と eCommerce/supply chain にほぼ同額の $4B 程度が使われているが、 FY20 以降は前者がほぼ半分になり、その分が後者に充てられている。</p>
+<p>これだけでも日本円にすると毎年 2,000 ~ 3,000 億円程度の投資がされているということになる。なおこれは BS 上の資産になる支出のみなので、 EC に関わる運用コストや大部分の EC 開発者の人件費は含まれていない<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>。</p>
+<p><img src="/post/2021-08-22/capital-expenditures.png" alt="capital-expenditures"></p>
+<p>上図は Financial Factbook の10ページより引用した。</p>
+<h2 id="amazon">Amazon</h2>
+<p>ウォルマートの FY2021/1 の BS/PL とアマゾンの FY2020/12 の BS/PL を並べてみた。</p>
+<p>商品取扱高ではアマゾンが上回ったようだが、アマゾンはマーケットプレイスの商品売上のうち手数料のみを売上として計上しているので、売上はウォルマートの方が大きい。しかし、アマゾンの FY2019/12 の売上は $280,522M で FY2020/12 は $386,064M（+37.6%）なので、ウォルマートよりも遥かに早く成長している。ここまで成長率に差があると、3年くらいで追いつきそうだ。</p>
+<p><img src="/post/2021-08-22/amazon-vs-walmart.png" alt="amazon-vs-walmart"></p>
+<p>アマゾンの事業セグメント別売上構成は以下の通り。</p>
+<p><img src="/post/2021-08-22/amazon-segment.png" alt="amazon-segment"></p>
+<p>Third-party seller services（マーケットプレイスの手数料や梱包・配送に関する収入）が前年比 +50.5% で Other（そのほか全ての事業、主に広告）が前年比 +52.3% と急激な成長をしている。主力の Online stores セグメントも前年比で +39.7% と大きく成長した。</p>
+<p><img src="/post/2021-08-22/amazon-seg-sheet.png" alt="amazon-seg-sheet"></p>
+<p>FY2020 に限っては、 AWS は社内で Physical stores の次に成長率の低いセグメントになっている。しかし、これは他が高すぎるだけで事業として大きな問題があるわけではない。</p>
+<p>AWS の事業については以前書いた記事「<a href="https://lyohe.github.io/post/2021-02-06-google-cloud-comprehensive-loss/">Google クラウド巨大赤字の話</a>」で少し触れたのだが、長期間にわたって安定して成長し単体で利益を出している。</p>
+<h3 id="amazon-の広告事業">Amazon の広告事業</h3>
+<p>実はアマゾンも広告事業をやっている。上図だと「Other」にまとめられているがこの中身はほぼ（Primarily）広告事業とのことなので、だいたい $20B の売上があると考えることができそうだ。</p>
+<p>これがどれくらい凄いかというと、 Facebook の FY2020/12 の連結売上が $86B なので、 Facebook/Instagram 等から生じる広告売上の合計の 1/4 に相当する金額を稼いでいるということになる。なお、 Facebook の売上が年間で 20% 程度の成長をしているのに対して Amazon の広告事業は年間 +50% とはるかに成長率で上回っている。さすがにどこかで落ちつきそうだが、仮にこのままのペースで拡大すると6年後に追いつく計算になる。</p>
+<p>小売業と広告事業は相性がいいのかもしれない。</p>
+<h2 id="セブンアイグループの-ec">セブン&amp;アイグループの EC</h2>
+<p>US と比べて日本はどうだろうか。</p>
+<p>日本で最大の小売業といえばイオングループだが EC 関連の開示がほぼ無いので、国内2位のセブン&amp;アイグループの EC について調べてみることにした。セブン&amp;アイは「決算補足資料」という名前の資料で四半期ごとに EC の売上想定額を、そして年度決算ごとに詳細な内訳を開示している（参考: <a href="https://www.7andi.com/ir/file/library/kh/pdf/2021_0408kh_02.pdf">FY2021/2 の決算補足資料</a>）。</p>
+<p><img src="/post/2021-08-22/seven-i-ec.png" alt="seven-i-ec"></p>
+<p><img src="/post/2021-08-22/seven-ec-detail.png" alt="seven-ec-detail"></p>
+<p>EC 全体では FY2021 で前年比 +3.9% の成長をしている。内訳をみると、イトーヨーカドー（+38.2%）とロフト（+52.8%）が大きく成長している。</p>
+<p>「イトーヨーカドー」と「ネットスーパー」は何が違うのかというと、どうやらセブン&amp;アイの EC サービスである「オムニ7」の中でイトーヨーカドーが2種類あるようだ。前者は通販で、後者は実店舗の商品を購入できるらしい。</p>
+<p><img src="/post/2021-08-22/omni7.png" alt="omni7"></p>
+<p>売上の EC 化率は次の通り。</p>
+<p><img src="/post/2021-08-22/seven-ec-rate.png" alt="seven-ec-rate"></p>
+<p>なお、セブン&amp;アイグループの売上は特に国内でフランチャイズ加盟店が多く<sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup>、そこから生じる売上はセブン&amp;アイグループの売上には含まれておらず、加盟店が支払う手数料収入のみが売上に含まれる。つまり、フランチャイズ加盟店の売上を加算すると実質的な EC 化率は更に落ちると考えられる。</p>
+<p><a href="https://www.7andi.com/ir/file/library/kh/pdf/2021_0408kh_02.pdf">決算補足資料</a>の11ページによると、FY2021/2 のセブンイレブンのチェーン全店売上は4兆8,706億円だが、このうち4兆7,875億円が加盟店での売上だった。</p>
+<h2 id="食品の-ec-化">食品の EC 化</h2>
+<p>アマゾンは書籍や電化製品、日用品などが強く、ウォルマートは食品に強そうだ。両者の EC 事業の成長率が大きく異なる原因は、サービスの違いというよりは得意分野にあるのかもしれない<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>。</p>
+<p>その点では、ウォルマートのように「<strong>顧客がインターネットを通じて商品を購入し、実店舗に取りに行く</strong>」というモデルは商品の保管や流通のコストが従来と大きく変わらないという点でよくできているように見える。ただし、顧客がオンラインで購入した商品を受け取る拠点を広げたり店舗やバックヤードから引き渡す商品を効率的にピックすることを考えると、店舗などの施設に多少の投資は必要だろうが&hellip;</p>
+<p>一方の日本では、冒頭で挙げた<a href="https://www.meti.go.jp/press/2020/07/20200722003/20200722003.html">経産省による市場調査</a>を読むと他分野に比べて食品の EC 化率が非常に低いことが見て取れる。</p>
+<p><img src="/post/2021-08-22/ec-market.png" alt="ec-market"></p>
+<p><a href="https://www.meti.go.jp/press/2020/07/20200722003/20200722003-1.pdf">この報告書</a>を詳細に読んでいくと、面白いデータがあった。日本は US/UK に比べて飲食料品やアパレル店舗1つあたりの人口が非常に少ないようだ。つまり実店舗へのアクセスが良いと言える。</p>
+<p><img src="/post/2021-08-22/ec-compare.png" alt="ec-compare"></p>
+<p>報告書では店舗へのアクセスの良さを EC 化率の低さの一因と推測しているが、個人的にはそれほど重要な要素ではないと思う。UK より店舗アクセスが遥かに悪い US は EC 化率が UK の半分未満だし、UK と店舗アクセスに大きな違いがない日本は EC 化率が遥かに低い。</p>
+<p>一方で、逆に効率的な流通ネットワークがあれば EC が普及するとも言い切れないとは思う。私は以前の会社で一瞬だけ UK の EC 事業の財務経理に関わったことがあるが、配送業者のコストパフォーマンスは日本の方が圧倒的に上だという印象を受けた。US と比べても日本の方が配送のコストパフォーマンスは優れている印象がある。しかしながら、それらの国々は日本より EC 化率が高い。</p>
+<p>購入した商品を配達してもらうかピックアップするかの選択については配達品質や送料、店舗アクセスの良さが影響しそうだが、そもそも商品をオンライン/オフラインのどちらで購入するかという選択は結局のところオンラインの強みである「手軽にパーソナライズされた購入体験を低コストで」消費者に提供できるかどうかによるのではと思った。</p>
+<p>個人的な意見として、日本の EC 化率が低い原因はオフラインの購入体験が（値段の割に）良すぎることにあるのではと思う。やる気がなくて不機嫌な店員とか見ないし、店の中は清潔で分かりやすくレイアウトされてるし、ヨドバシの店員は何でも知ってるし。</p>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>ウォルマートは EC でも頑張っていた</li>
+<li>Amazon はすごい</li>
+<li>小売の広告事業は面白そう</li>
+<li>日本の EC 化率は非常に低い（特に食料品）が、逆に考えると伸び代がありそう</li>
+</ul>
+<h2 id="おまけ">おまけ</h2>
+<p>最近 10X というベンチャー企業がイトーヨーカドーと協同でネットスーパーを立ち上げて（<a href="https://signal.diamond.jp/articles/-/264">記事</a>）勢いがあるらしいという話を聞いた。採用情報は<a href="(https://jobs.10x.co.jp/)">こちら</a>。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>4-5-4 という数字は見慣れないかもしれない。これは小売業特有のやり方で、3ヶ月ごとだと日数の違いが影響してくるので1年を52週としてそれを13週ずつに分け、4週+5週+4週で1四半期ということにする&hellip;という方法らしい。もちろん決算は他の会社と同じように3ヶ月で区切るので、 SEC Filings の実績とは期間がずれることになる。&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>FY2022 の売上が前年並の成長をした上で EC 売上が目標の $75B を達成すると、売上の EC 化率は約 13% となる。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>昨年までは Walmart Media Group と呼ばれていたが、2021年1月28日に改名された（<a href="https://corporate.walmart.com/newsroom/2021/01/28/walmart-announces-expanded-vision-and-new-name-for-its-media-business">プレスリリース</a>）。現在は US だけで提供されているようだ。&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>ちなみにこのときソフトバンクの Vision Fund が保有株式（約20%）を全て売却し 1,467 億円の売却益を得ている（<a href="https://group.softbank/system/files/pdf/ir/financials/financial_reports/financial-report_q2fy2018_01_ja.pdf">FY2019/3 第2四半期決算短信</a>）。&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>一般的に人件費の一部をソフトウェア資産として計上することはあるが、 BS に掲記されていないのであったとしても僅少な額だと考えられる。&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6" role="doc-endnote">
+<p>FY2021 で国内店舗数が 21,085 で直営店が 453 なので構成比は 2.1%、国外の店舗数は 9,884 で直営店が 2,399 なので 24.3%&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7" role="doc-endnote">
+<p>Amazon Fresh の Google トレンドを見ると世界のどこでも流行ってなさそうなので、 Amazon といえど食料品には苦労していると思う。&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/2021-08-21-programming-tanosii/" title="Previous post (older)">
+            <span>Previous</span>
+            非技術者がテック企業でプログラミングとか SQL とかを始めることの価値
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.c5d8f3350f5a652f526b982306299353824299adb7a3bd261ecffacc47087f66.js"></script>
+</footer>
+    </body>
+</html>

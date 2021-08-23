@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>決算 on ここにかく</title>
+    <link>https://lyohe.github.io/tags/%E6%B1%BA%E7%AE%97/</link>
+    <description>Recent content in 決算 on ここにかく</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Mon, 23 Aug 2021 12:15:34 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/%E6%B1%BA%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ウォルマートの財務諸表を読んだ話</title>
+      <link>https://lyohe.github.io/post/2021-08-22-walmart-financial-statements/</link>
+      <pubDate>Mon, 23 Aug 2021 12:15:34 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-08-22-walmart-financial-statements/</guid>
+      <description>最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。
+https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html
+中国を除く小売最大の企業といえばウォルマートというイメージがあったので、この記事は強く印象に残った。「コロナの影響やオンライン対応の遅れ等が重なってアマゾンに抜かれたんだろうな」とありきたりな感想を抱いたが、冒頭の記事の最後の方を読むと気になることが書いてある。
+ During the pandemic, Walmart honed its ability to use its stores as mini-distribution centers, where shoppers drive to retrieve their purchase “curbside,” a far less costly way to fulfill online orders than delivery. On Tuesday, Walmart said it expected to generate $75 billion in total online sales this year. The company has been expanding its effort to build its own marketplace, but the vast majority of its online sales still come from its own inventory, Mr.</description>
+    </item>
+    
+    <item>
+      <title>Fastly の財務諸表を読んだ話 その2</title>
+      <link>https://lyohe.github.io/post/2021-07-11-fastly-2/</link>
+      <pubDate>Tue, 13 Jul 2021 00:00:00 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-07-11-fastly-2/</guid>
+      <description>昨年の年始に「Fastly の財務諸表を読んだ話」というブログを書いたことを思い出し、その続きを書くことにした。
+ちょっと前に例の件で話題になって「そういえば上場から2年経ったけど調達した資金は何に使ったのかな？」と気になったことがきっかけである。
+数字は主に FY2020 の Form 10-K から拾っていく。以下、数字を省略する記号として M = millions（100万）、 B = billions（10億）とする。
+資産と負債 まずは Fastly のバランスシートを同一縮尺で FY2017 ~ FY2020 の4年分並べてみる。
+資産の伸び 上記のバランスシート推移を見ると、 FY2019 と FY2020 に大きな変化が見てとれる。FY2019 は原因が分かりやすく、2019年5月に IPO したことで多額の現金（$192M）を市場から調達し、それで市場性のある有価証券を購入していたため、流動資産と純資産が増えている。
+一方で FY2020 を見ると、固定資産が物凄い伸び方をしている。これはなぜだろうか。
+Fastly のような CDN ビジネスを運営するには、地理的に分散したエッジサーバーやネットワーク機器、それらを管理するデータセンターのような施設が必要になる。
+もちろんそれらの固定資産も加わっているだろうが、実際に中身を見るとこの大幅な資産の増加の8割以上は Signal Sciences という会社を買収したことによる無形資産（のれん含む）の増加だった。
+Signal Sciences Fastly は2020年10月1日付けで Signal Sciences という会社を $759.4M （約800億円）で買収している。このとき現金で $223.0M を支出しており、残りは Fastly の Class A 普通株式の新規発行で賄われた。
+実は Fastly が2019年5月21日に IPO した時に調達した資金が underwriting discount を除いて $192.5M なので、上場時に調達した額以上の現金 + 残りは株式をつぎ込んで買収したということになる1。何も知らない部外者である自分から見ると、経営陣はなかなか大胆な決断をしたと思う。それだけこの買収が Fastly という会社にとって重要だと言えそうだ。</description>
+    </item>
+    
+    <item>
+      <title>UiPath が上場するので Form S-1 をさらっと読む</title>
+      <link>https://lyohe.github.io/post/2021-04-04-uipath-ipo/</link>
+      <pubDate>Sun, 04 Apr 2021 13:02:58 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-04-04-uipath-ipo/</guid>
+      <description>有名な RPA のユニコーン1 である UiPath が上場するらしい。
+https://jp.techcrunch.com/2021/03/29/2021-03-26-a-first-look-at-uipaths-ipo-filing/
+自分は UiPath を使ったことがない（Zapier はよく使う）のだが、せっかくなので Form S-1 を軽く読んでみた。
+https://www.sec.gov/Archives/edgar/data/1734722/000119312521094920/d98556ds1.htm
+主要な指標 2021年1月期の主要な指標は以下の通り。
+ARR （Annualized Renewal Run-Rate または Annual Reccurring Revenue の略）は毎年繰り越される収益のことで、一般的には以下を意味する。
+ARR = 前年の収益 + 新規契約やアップグレードで得る収益 - 解約やダウングレードで失う収益 新規顧客を獲得しつつ既存顧客との関係を維持・拡大する能力を示す指標なので、収益の積み上げが重要になる SaaS 企業の開示でよく使われる。
+UiPath における ARR の定義は Form S-1 の 75 ページに書いてある（実は同じ ARR という用語を使っていても各社定義が異なるので単純比較は難しい）。クソ長いので一部だけ引用すると
+ We define ARR as annualized invoiced amounts per solution sku from subscription licenses and maintenance obligations assuming no increases or reductions in their subscriptions.</description>
+    </item>
+    
+    <item>
+      <title>Google クラウド巨大赤字の話</title>
+      <link>https://lyohe.github.io/post/2021-02-06-google-cloud-comprehensive-loss/</link>
+      <pubDate>Sat, 06 Feb 2021 11:56:34 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-02-06-google-cloud-comprehensive-loss/</guid>
+      <description>Google の Cloud セグメントが約5,880億円の巨額損失を出したというニュースを見かけた。
+[TechCrunch] Google Cloudは2020年に約5880億円の損失 https://jp.techcrunch.com/2021/02/03/2021-02-02-google-cloud-lost-5-6b-in-2020/
+Form 10-K はこちら。
+この赤字について身近で様々な意見を見かけたが、自分の印象と異なるものが多かったので個人的な意見を書いておきたい。
+以下、 $ 1B = $ 1 Billion（10億ドル）とする。
+GCP は大丈夫か？ このニュースを見て GCP 大丈夫かな？続くのかな？というのが気になる人がいると思う。むしろ何千億円の赤字なんて大丈夫かと思うのが普通だろう。
+しかしながら、Cloud で何千億円の赤字を出したところで Google がどうにかなるわけではない。Alphabet, Inc は純資産が $222B あって2020年12月期の包括利益は$ 40B 以上あるし、 Cloud セグメントは高い成長率のクラウド業界で全体の平均より大幅に高い成長率（YoY +47%）を出している。
+Cloud の売上は下記の通り増加し、2年間で2倍以上に成長している。
+ 2018 -&amp;gt; 2019: $5.8B -&amp;gt; $8.9B（YoY+53%） 2019 -&amp;gt; 2020: $8.9B -&amp;gt; $13.0B（YoY+47%）  なお、今週行われた Conference call では CEO によって Revenue backlog が Q3 -&amp;gt; Q4 で $19B -&amp;gt; $30B 1に増加し、増加要因のほぼ全てが Cloud セグメントであると述べられている。 backlog は未認識の収益で、つまり先の期でそれくらい収益を得られる契約があるということになる。これは GCP がプラットフォームとして多くの企業から信頼されていることを表しているし、今後の成長も期待できる。</description>
+    </item>
+    
+  </channel>
+</rss>
