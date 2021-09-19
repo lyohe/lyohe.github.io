@@ -6,7 +6,21 @@
     <description>Recent content in Posts on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Mon, 23 Aug 2021 12:15:34 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 19 Sep 2021 12:58:12 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ゼロから Rails チュートリアルをやってみた話</title>
+      <link>https://lyohe.github.io/post/2021-09-19-rails-tutorial/</link>
+      <pubDate>Sun, 19 Sep 2021 12:58:12 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-09-19-rails-tutorial/</guid>
+      <description>三行で要約  「Ruby on Rails チュートリアル - プロダクト開発の０→１を学ぼう」をやってみた Rails 便利そう Ruby をある程度やってから Rails チュートリアルを始めましょう  Rails チュートリアルについて Ruby on Rails はプログラミング言語 Ruby を使って Web アプリケーションを作るためのフレームワーク。
+Rails チュートリアルは Ruby on Rails の初心者向けに Twitter ライクな Web アプリケーションを一から作るという基本無料（最新版は4章から有料: 980円+消費税）の教材で、毎日1~2時間 + 休日を丸々使って2週間~1ヶ月かかる程度の分量がある1。
+最後までやるとこんな感じの Web アプリケーションができる。
+背景 プログラミングを始めた当初から TypeScript + Node.js を使っているのだが、 Web アプリケーションの開発に携わる身として全く Ruby on Rails に触れたことが無いのもどうなんだ？？と感じていた。そんなときとある筋から勧められたこともあって、 Rails チュートリアルを一通りやることにした。
+事前に Ruby を書いた経験は完全にゼロ。結果としては、 Ruby 経験なしで取り組むのは無謀だった。仕事でアプリケーションを作るレベルには全く達してはいないが、Rails がどういうものか雰囲気はつかめたと思う。
+結論から: 自分の Ruby on Rails に対する印象 まず明らかに優れている点として、機能を作って一通り動くまでが異常に早い。早いというより速い。雑な表現をすると「Web アプリケーション開発 RTA」のような存在だと思った。</description>
+    </item>
+    
     <item>
       <title>ウォルマートの財務諸表を読んだ話</title>
       <link>https://lyohe.github.io/post/2021-08-22-walmart-financial-statements/</link>
