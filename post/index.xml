@@ -6,7 +6,24 @@
     <description>Recent content in Posts on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 19 Sep 2021 12:58:12 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Sep 2021 13:17:09 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GitLab が上場するので Form S-1 を読んだ話</title>
+      <link>https://lyohe.github.io/post/2021-09-26-gitlab-ipo/</link>
+      <pubDate>Sun, 26 Sep 2021 13:17:09 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-09-26-gitlab-ipo/</guid>
+      <description>8年ほど前だったか、お金のない会社で働いていたとき、社内で GitLab という OSS を使っている人たちがいた。
+当時の私は経理の仕事をしておりプログラムは書いていなかったが、 GitHub は辛うじて知っていた。プログラムを共有するための場所で、基本無料だがプライベートリポジトリ（権限を持っている人しか見られない場所）を作ろうとするとお金がかかった。1
+自分でサーバーに GitLab をインストールすると「無料」で Git を中心にした開発フローが作れるので、とにかくお金がない会社にとってはありがたい存在だったと思う。それから8年ほどが経ち、 GitLab が Nasdaq に上場することになった。
+https://techcrunch.com/2021/09/17/inside-gitlabs-ipo-filing/
+この記事によれば GitLab の時価総額は $6B を超えており、2018年に Microsoft が GitHub を買収したときの時価総額 $7.5B に近い。金額は不明だが GitHub の買収には Control Premium が乗っているはずなので、この時価総額はいかに GitLab が高く評価されているかを表していると思う。
+自分の中では未だに「お金のない会社が使う GitHub」という印象があり、なぜ高く評価されているのかが不思議だったので Form S-1 を読むことにした。
+本記事内における金額や決算期の表記  $1K = $1,000 $1M = $1,000,000 $1B = $1,000,000,000  とする。
+FY2020 は Fiscal Year 2020 のことで、 GitLab は1月決算なので西暦2019年2月1日から2020年1月31日を意味する。Fiscal Year（FY）に対して通常の1月から12月までの1年を Calendar Year （CY）と呼ぶ。
+主要な経営指標 直近四半期（2021-05-01 ~ 2021-07-31）の売上を単純に4倍する（Run Rate Revenue）と $233M となる。ARR $5K 以上の顧客（Base Customers）数が 3,632 で、ARR $100K 以上の顧客数が 383。</description>
+    </item>
+    
     <item>
       <title>ゼロから Rails チュートリアルをやってみた話</title>
       <link>https://lyohe.github.io/post/2021-09-19-rails-tutorial/</link>
