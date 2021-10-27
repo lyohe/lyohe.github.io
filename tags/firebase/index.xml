@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Firebase on ここにかく</title>
+    <link>https://lyohe.github.io/tags/firebase/</link>
+    <description>Recent content in Firebase on ここにかく</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Wed, 27 Oct 2021 22:26:42 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/firebase/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Firestore を使いたいので調べたことを記録する自分用の記事</title>
+      <link>https://lyohe.github.io/post/2021-10-27-firestore-getting-started/</link>
+      <pubDate>Wed, 27 Oct 2021 22:26:42 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-10-27-firestore-getting-started/</guid>
+      <description>せっかくプログラミングの仕事をしているので、自分でほしいアプリを自分で作ることにした。そのバックエンドとして Firebase を使うことを考えている。理由は3つある。
+ 面倒な認証の実装を Firebase Authentication で省略できるから データの保存先として Cloud Firestore が便利そうだから（動画） 仕事で AWS を使うことがありそうなので、個人では Google Cloud を使ってみたかったから  アプリの開発には React Native（Expo） を使うことにする。Expo の公式ドキュメントはとても充実しており、 Expo アプリから Firebase を使うための初期設定ガイドも親切に用意されている。Expo の話はまた別に書きたい。 React Native ってどう使われてるの？という人は最近開催された React Native Matsuri 2021 のアーカイブ動画を見るといいと思う。
+React Native の話は置いといて、 Firebase の中心（？）となるデータストアである Firestore について一通り調べてみたので、自分が気になったことを書き留めておいた。
+初期設定の手順 とりあえず動かしてみる。
+まずは Firebase のプロジェクトを作り、 Expo アプリ上で Firebase を使うための初期設定をしてみた。下記の手順で公式ドキュメントを見ながらやれば簡単にできそう。
+1. ドキュメントを読む  公式の quick start を読む 先に気になるところをざっと読んで概要を掴んでから試していくとよさそう  2. Firebase でプロジェクトを作成する  参考になりそうな公式のドキュメント Firebase コンソールからでも GCP コンソールからでも作れる どっちで作っても中身は同じ（参考） GCP の管理コンソールで API Key を取得できるようになる  対象のプロジェクトを選んで「API &amp;amp; Services &amp;gt; Credentials」を見ると、自動生成された Key を取得できる auto created by Firebase とか書いてあるはず ここから新しく API Key を作ることもできる    3.</description>
+    </item>
+    
+  </channel>
+</rss>

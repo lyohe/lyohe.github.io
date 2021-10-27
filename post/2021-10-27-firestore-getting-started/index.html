@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> Firestore を使いたいので調べたことを記録する自分用の記事 | ここにかく</title>
+    
+    <meta property="og:title" content="Firestore を使いたいので調べたことを記録する自分用の記事" />
+<meta property="og:description" content="せっかくプログラミングの仕事をしているので、自分でほしいアプリを自分で作ることにした。そのバックエンドとして Firebase を使うことを考えている。理由は3つある。
+ 面倒な認証の実装を Firebase Authentication で省略できるから データの保存先として Cloud Firestore が便利そうだから（動画） 仕事で AWS を使うことがありそうなので、個人では Google Cloud を使ってみたかったから  アプリの開発には React Native（Expo） を使うことにする。Expo の公式ドキュメントはとても充実しており、 Expo アプリから Firebase を使うための初期設定ガイドも親切に用意されている。Expo の話はまた別に書きたい。 React Native ってどう使われてるの？という人は最近開催された React Native Matsuri 2021 のアーカイブ動画を見るといいと思う。
+React Native の話は置いといて、 Firebase の中心（？）となるデータストアである Firestore について一通り調べてみたので、自分が気になったことを書き留めておいた。
+初期設定の手順 とりあえず動かしてみる。
+まずは Firebase のプロジェクトを作り、 Expo アプリ上で Firebase を使うための初期設定をしてみた。下記の手順で公式ドキュメントを見ながらやれば簡単にできそう。
+1. ドキュメントを読む  公式の quick start を読む 先に気になるところをざっと読んで概要を掴んでから試していくとよさそう  2. Firebase でプロジェクトを作成する  参考になりそうな公式のドキュメント Firebase コンソールからでも GCP コンソールからでも作れる どっちで作っても中身は同じ（参考） GCP の管理コンソールで API Key を取得できるようになる  対象のプロジェクトを選んで「API &amp; Services &gt; Credentials」を見ると、自動生成された Key を取得できる auto created by Firebase とか書いてあるはず ここから新しく API Key を作ることもできる    3." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyohe.github.io/post/2021-10-27-firestore-getting-started/" /><meta property="og:image" content="https://lyohe.github.io/tori.JPG"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-10-27T22:26:42&#43;09:00" />
+<meta property="article:modified_time" content="2021-10-27T22:26:42&#43;09:00" /><meta property="og:site_name" content="ここにかく" />
+
+
+    
+    
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes=180x180 />
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes=192x192 />
+    <link rel="icon" type="image/png" href="android-chrome-512x512.png" sizes=512x512 />
+    
+    <link rel="stylesheet" href="/sass/main.min.6cf277af42bb4b7ead78c6f3fdfab3baf2b8f6afd8d346796018bfcb96bde18c.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        🦥
+                    </span>
+                    
+                    ここにかく
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="https://lyohe.medium.com/">medium</a>
+                
+                <a href="https://twitter.com/rtsudar">twitter</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>Firestore を使いたいので調べたことを記録する自分用の記事</h1>
+                    <div class="post-meta">
+                        <div>
+                            By lyohe on <time>October 27, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/firebase/">Firebase</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>せっかくプログラミングの仕事をしているので、自分でほしいアプリを自分で作ることにした。そのバックエンドとして Firebase を使うことを考えている。理由は3つある。</p>
+<ul>
+<li>面倒な認証の実装を Firebase Authentication で省略できるから</li>
+<li>データの保存先として Cloud Firestore が便利そうだから（<a href="https://www.youtube.com/watch?v=QcsAb2RR52c">動画</a>）</li>
+<li>仕事で AWS を使うことがありそうなので、個人では Google Cloud を使ってみたかったから</li>
+</ul>
+<p>アプリの開発には <a href="https://expo.dev/">React Native（Expo）</a> を使うことにする。Expo の公式ドキュメントはとても充実しており、 <a href="https://docs.expo.dev/guides/using-firebase/">Expo アプリから Firebase を使うための初期設定ガイド</a>も親切に用意されている。Expo の話はまた別に書きたい。 React Native ってどう使われてるの？という人は最近開催された <a href="https://www.youtube.com/watch?v=OGsR3O4qu6s">React Native Matsuri 2021 のアーカイブ動画</a>を見るといいと思う。</p>
+<p>React Native の話は置いといて、 Firebase の中心（？）となるデータストアである Firestore について一通り調べてみたので、自分が気になったことを書き留めておいた。</p>
+<h2 id="初期設定の手順">初期設定の手順</h2>
+<p>とりあえず動かしてみる。</p>
+<p>まずは Firebase のプロジェクトを作り、 Expo アプリ上で Firebase を使うための初期設定をしてみた。下記の手順で公式ドキュメントを見ながらやれば簡単にできそう。</p>
+<h4 id="1-ドキュメントを読む">1. ドキュメントを読む</h4>
+<ul>
+<li><a href="https://firebase.google.com/docs/firestore/quickstart?hl=ja">公式の quick start</a> を読む</li>
+<li>先に気になるところをざっと読んで概要を掴んでから試していくとよさそう</li>
+</ul>
+<h4 id="2-firebase-でプロジェクトを作成する">2. Firebase でプロジェクトを作成する</h4>
+<ul>
+<li><a href="https://firebase.google.com/docs/web/setup?hl=ja#create-project">参考になりそうな公式のドキュメント</a></li>
+<li>Firebase コンソールからでも GCP コンソールからでも作れる</li>
+<li>どっちで作っても中身は同じ（<a href="https://firebase.google.com/docs/projects/learn-more?hl=ja">参考</a>）</li>
+<li>GCP の管理コンソールで API Key を取得できるようになる
+<ul>
+<li>対象のプロジェクトを選んで「API &amp; Services &gt; Credentials」を見ると、自動生成された Key を取得できる</li>
+<li>auto created by Firebase とか書いてあるはず</li>
+<li>ここから新しく API Key を作ることもできる</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-開発用のマシンに-firebase-sdk-をインストールする">3. 開発用のマシンに Firebase SDK をインストールする</h4>
+<ul>
+<li>普通は <code>npm install</code> や <code>yarn add</code> でインストールするが、 expo は <code>expo install</code> コマンドを使うのがよい</li>
+<li>こうすると、 expo SDK と互換性のあるバージョンをインストールしてくれるので助かる</li>
+</ul>
+<h4 id="4-firebase-にアプリを追加する">4. Firebase にアプリを追加する</h4>
+<ul>
+<li><a href="https://firebase.google.com/docs/web/setup?hl=ja#register-app">参考になりそうな公式のドキュメント</a></li>
+<li>このとき初期化用のコードが生成されるので後でコピペする</li>
+<li>Firebase SDK を使うためのクラスを定義しておくとよさそう（後述）</li>
+</ul>
+<h4 id="5-アプリ側で-firebase-を-initialize-する">5. アプリ側で Firebase を initialize する</h4>
+<ul>
+<li>↑ でアプリ作成時に自動生成したコードを使う
+<ul>
+<li>API Key は公開しても良い（<a href="https://firebase.google.com/docs/projects/api-keys">参考</a>）ので、コードに書いてリポジトリにコミットできる</li>
+<li>ただし、<a href="https://firebase.google.com/docs/firestore/security/get-started?hl=ja">セキュリティルール</a>で適切なアクセス制御をしていない場合、 Firestore に対して意図しない不正なアクセスをされる恐れがある</li>
+<li>開発中は特に問題なさそう</li>
+<li>Firebase を initialize するための config、 Auth や Firestore のインスタンスを取得するコードをクラスにまとめておくと便利そう</li>
+</ul>
+</li>
+<li>Cloud Functions やサーバーから Firestore を触る場合は Admin SDK が必要になる
+<ul>
+<li><a href="https://firebase.google.com/docs/firestore/quickstart?hl=ja#node.js">公式の Cloud Firestore スタートガイドの Node.js</a> の箇所を見るのがよさそう</li>
+<li>Admin SDK はセキュリティルールの対象外となる（何でもできる）ので、取り扱いに注意する</li>
+</ul>
+</li>
+</ul>
+<p>今まで Firestore を使った経験はなかったのだが、ドキュメントや記事を読む限りでは普通のデータベースとだいぶ勝手が違っており（例えばスキーマが無い）、将来的に他に移行するのが大変そうという印象がある。</p>
+<h3 id="firebase-sdk-を扱うクライアントのクラス">Firebase SDK を扱うクライアントのクラス</h3>
+<p>初期設定の 4. で書いたが、 Firebase SDK を扱うクライアント用のクラスを作成しておき、これのインスタンスを使い回すようにするとよさそう（実際は auth とかの実装も必要なはずだが最低限はこれで動く）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="kr">import</span> <span class="nx">firebase</span> <span class="kr">from</span> <span class="s2">&#34;firebase/app&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="s2">&#34;firebase/firestore&#34;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">firebaseConfig</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../../config/dev&#39;</span><span class="p">;</span> <span class="c1">// Firebase の apiKey 等の設定を別ファイルに分けておいて import するとよさそう
+</span><span class="c1"></span>
+<span class="kr">export</span> <span class="k">default</span> <span class="kr">class</span> <span class="nx">Firebase</span> <span class="p">{</span>
+  <span class="kr">public</span> <span class="kr">static</span> <span class="nx">_instance</span>: <span class="kt">Firebase</span><span class="p">;</span>
+  <span class="kr">private</span> <span class="nx">_store</span>: <span class="kt">firebase.firestore.Firestore</span><span class="p">;</span>
+
+  <span class="kr">private</span> <span class="kr">constructor</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">firebase</span><span class="p">.</span><span class="nx">initializeApp</span><span class="p">(</span><span class="nx">firebaseConfig</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">_store</span> <span class="o">=</span> <span class="nx">firebase</span><span class="p">.</span><span class="nx">firestore</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="kr">static</span> <span class="kr">get</span> <span class="nx">instance</span><span class="p">()</span><span class="o">:</span> <span class="nx">Firebase</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">_instance</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">_instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Firebase</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_instance</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="kr">public</span> <span class="kr">get</span> <span class="nx">store</span><span class="p">()</span><span class="o">:</span> <span class="nx">firebase</span><span class="p">.</span><span class="nx">firestore</span><span class="p">.</span><span class="nx">Firestore</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_store</span> <span class="o">??</span> <span class="nx">firebase</span><span class="p">.</span><span class="nx">firestore</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これを static メソッドとして、データを Firestore に投稿する際には</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ts" data-lang="ts"><span class="k">await</span> <span class="nx">Firebase</span><span class="p">.</span><span class="nx">instance</span><span class="p">.</span><span class="nx">store</span><span class="p">.</span><span class="nx">collection</span><span class="p">(</span><span class="s1">&#39;コレクション名&#39;</span><span class="p">).</span><span class="nx">doc</span><span class="p">(</span><span class="s1">&#39;ドキュメント名&#39;</span><span class="p">).</span><span class="kr">set</span><span class="p">({</span><span class="s1">&#39;フィールド&#39;</span><span class="o">:</span> <span class="s1">&#39;値&#39;</span><span class="p">,</span> <span class="s1">&#39;フィールド&#39;</span><span class="o">:</span> <span class="s1">&#39;値&#39;</span><span class="p">,});</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>みたいに呼び出して使うイメージ。これで singleton 的に？インスタンスを使い回すことができる。</p>
+<p>これを使って<a href="https://firebase.google.com/docs/firestore/quickstart?hl=ja">スタートガイド</a>を参考にアプリから適当なデータを Firestore に投稿し、それを別の画面で読み取れるようになった。いろいろメモしたのだが、正直このガイドを見れば十分なので特に書くべきことはなかった。</p>
+<h2 id="firestore-のデータモデル">Firestore のデータモデル</h2>
+<p>データモデルは通常の RDB とだいぶ違うので注意が必要。</p>
+<p>Firestore は <code>ドキュメント</code> と <code>コレクション</code> それから <code>リファレンス</code> という3つの概念でデータを管理する。</p>
+<ul>
+<li><code>ドキュメント</code>は普通の RDB における「レコード」のようなもので、key と value の組み合わせを格納する
+<ul>
+<li>JSON のように内部でネストして複雑な構造を作ることもできる</li>
+<li>ドキュメント内にコレクションを持つこともでき、これは <code>サブコレクション</code> と呼ばれる</li>
+<li>ドキュメントはその key および value としてドキュメントを持つことはできない</li>
+</ul>
+</li>
+<li><code>コレクション</code> はドキュメントをまとめた「テーブル」のようなもので、多数のドキュメントを特定の名前（例: users というコレクションでアプリのユーザーに関する user ドキュメントを&hellip;）でまとめておくことができる
+<ul>
+<li>完全にスキーマレスで、各ドキュメントは異なるフィールドを持つことができる</li>
+<li>ドキュメントと組み合わせて階層的なデータ構造を作ることができる（<a href="https://firebase.google.com/docs/firestore/data-model?hl=ja">参考</a>）</li>
+<li>コレクションが持てるのはドキュメントのみ</li>
+</ul>
+</li>
+<li><code>Reference</code> はドキュメントやコレクションを参照するだけの軽量なオブジェクト
+<ul>
+<li>これを通じてデータの追加や更新、削除を行う</li>
+</ul>
+</li>
+</ul>
+<p>データを初めて追加したときに「暗黙的に」ドキュメントやコレクションが追加されるため、管理コンソール等を通じて明示的に作成する必要はない。</p>
+<h2 id="firestore-のセキュリティルール">Firestore のセキュリティルール</h2>
+<p>実は上記の「暗黙的な追加」はテスト用のデータベースを「セキュリティルール」無しで作ったときの挙動である。</p>
+<p>Firestore の「セキュリティルール」を「ロックモード」にしてデータを追加しようとすると、無効な操作として次のようなエラーを吐く。</p>
+<pre><code>[Unhandled promise rejection: FirebaseError: Missing or insufficient permissions.]
+</code></pre><p>Firestore ではプロジェクトの追加時にセキュリティルールの開始モードを「テストモード」と「ロックモード」の2種類から選択でき、ロックモードのときは全ての読み書きを拒否する。テストモードでは全ての読み書きを通す。</p>
+<p>ロックモードでプロジェクトを開始し管理コンソールで Firestore のセキュリティルールを見ると、次のようなルールが書かれている。</p>
+<pre><code>rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
+</code></pre><p>基本的には <code>match</code> 式で記述したドキュメントorコレクションへの path に <code>allow</code> していく。より詳しい書き方は<a href="(https://cloud.google.com/firestore/docs/security/get-started)">公式ドキュメント</a>を参照。</p>
+<p>5行目の <code>if false;</code> を <code>if true;</code> にするとテストモードと同じルールになり、全ての読み書きが承認される。これは本番環境では絶対にやってはいけない。また、 <code>if false;</code> を <code>if request.auth != null;</code> にすると認証を必須にできる。</p>
+<p>なお、アクセス制御だけでなくデータの検証（例えばこのフィールドには 1 以上 5 未満の数字が入る&hellip;など）も定義できる。</p>
+<h3 id="なぜセキュリティルールがあるのか">なぜセキュリティルールがあるのか？</h3>
+<p>このセキュリティルールとは、要するにデータの保護ポリシーである。クライアントから送られるデータは信頼できないので、セキュリティルールでデータの機密性と完全性を担保する。</p>
+<p>しかし何故このような仕組みになっているのか。</p>
+<p>Firestore ではサーバーレスで、直接クライアント（SDK）とデータのやり取りをする。通常の Web アプリケーションではクライアントとデータベースの間に Web サーバー的なプロキシがあって、不正なリクエストはそこで弾くような実装をする。つまり、データベースはサーバーの裏に隠されておりユーザーが直接データベースに書き込むことは無い。</p>
+<p>しかし Firestore にはそのレイヤーがなく、 SDK を通じて API を呼び出すために必要な情報は全てアプリにバンドルされている。つまり、セキュリティルールが存在しない場合（アプリから Firestore の操作をする導線が一切なくても）アプリから入手した API Key 等を使って好き勝手に Firestore のデータを読み出したり書き換えることができる。これは非常に危険なので、セキュリティルールを通じてデータのアクセス制御を行う。</p>
+<p>セキュリティルールで実現できることは以下の動画が大変わかりやすい。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=eW5MdE3ZcAw">Security Rules! 🔑 | Get to know Cloud Firestore #6</a></li>
+</ul>
+<h3 id="実装の方針">実装の方針</h3>
+<p>ドキュメントや動画を見ることでセキュリティルールが何のために存在するのか、どういう書式で何を書くべきか、どうやってデプロイするかは理解できた。しかし、詳細なルールの設定をする前にアプリ全体でどういうデータを持ち、それらをどのような画面からどのように処理するかを固める必要がありそうなので、実際に適用するセキュリティルールは後で考えることにした。この辺の話は別で書きたい。</p>
+<p>ちなみにサーバーや Cloud Functions から Firestore の操作をするときは普通に IAM を使って権限を制御する（<a href="https://cloud.google.com/firestore/docs/security/iam">参考</a>）。</p>
+<p>Firebase のセキュリティに関しては以下のブログが参考になりそう。</p>
+<ul>
+<li><a href="https://flattsecurity.hatenablog.com/entry/2020/04/10/122834">Firebaseにおけるセキュリティの概要と実践 - Flatt Security Blog</a></li>
+<li><a href="https://flattsecurity.hatenablog.com/entry/firestore_security_rules">Firestoreセキュリティルールの基礎と実践 - セキュアな Firebase活用に向けたアプローチを理解する - Flatt Security Blog</a></li>
+</ul>
+<h2 id="firestore-のデータ構造を設計する上での注意点">Firestore のデータ構造を設計する上での注意点</h2>
+<p>通常の RDBMS を用いた Web アプリケーションであれば、データベースに保存するデータは正規化して重複を排除するようなデータ構造にしておき、必要に応じて結合して使う。しかし Firestore でそれを実践しようとすると難しい。</p>
+<p>Firestore には JOIN が無い（！）ので、結合をやろうとすると必要なデータを取得した上でクライアント側で結合する必要がある。不可能ではないが、特定のビューを組み立てるために複数の異なるコレクションからデータを取得するクエリを発行するのは効率が悪い。さらに、クライアント側で複雑なビジネスロジックを記述しなければならないので、作るのも後から修正するのも大変になる。</p>
+<p>そこで、 Firestore（や一般的な NoSQL データベース）では基本的に使う形でそのままデータを保存する。よって、同じデータが複数のドキュメントに重複して存在するような構造になる可能性がある。なお、 Firebase のクエリはデフォルトで shallow な挙動をするので、あるドキュメントにサブコレクションが保持されていても明示的にそれを指定しない限り取得はされない。これは Firebase Realtime Database と Firestore の最大の違いでもある。</p>
+<p>Firestore のデータ構造については以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=v_hR4K4auoQ">NoSQLデータベースとCloud Firestoreの構造を知ろう| Get to know Cloud Firestore #1</a></li>
+</ul>
+<p>Firestore のクエリには制約がいろいろある。JOIN 以外に驚いたのが <code>OR</code> が無いこと。他にもいろいろあるので注意。</p>
+<p><a href="https://firebase.google.com/docs/firestore/query-data/queries#query_limitations">https://firebase.google.com/docs/firestore/query-data/queries#query_limitations</a></p>
+<h3 id="インデックス">インデックス</h3>
+<p>Firestore はドキュメントをコレクションに追加したとき、デフォルトで全てのフィールドに対してインデックスを作成する。これにより、ドキュメントやコレクションを横断して特定の条件を満たすフィールドを検索するのが速くなる。</p>
+<p>複数の条件を OR 指定するクエリはない。これを高速に処理するには、 OR 条件を満たすフィールドを追加する。</p>
+<p>複数の条件を AND 指定した場合は「ジグザグマージ結合」が行われる（<a href="https://developers-jp.googleblog.com/2019/10/why-is-my-cloud-firestore-query-slow.html">この記事</a>の理由3を参照）。しかし、この記事にもある通り、これはソートされた複数のインデックスの間を行き来して結果を結合するので、クエリ対象のデータ間に共通点が少なすぎる場合は効率が悪くなってしまう。</p>
+<p>それを改善する手段として「<a href="https://firebase.google.com/docs/firestore/query-data/index-overview?hl=ja#composite_indexes">複合インデックス</a>」がある。通常のインデックスと違い、 Firestore は自動では複合インデックスを作らないので自分で作る必要がある。なぜデフォルトではないかというと、複合インデックスは全ての場合でクエリのパフォーマンス向上につながるとは限らないかららしい。</p>
+<p>効率的なクエリやインデックスの詳しい話は以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Ofux_4c94FI">How do queries work in Cloud Firestore? | Get to know Cloud Firestore #2</a></li>
+</ul>
+<h3 id="課金---pricing">課金 - Pricing</h3>
+<p>Firestore は <a href="https://cloud.google.com/firestore/pricing">Read/Write/Delete クエリの実行回数に応じて課金される</a>ので、効率の良いクエリは節約につながる。料金の計算にはいろいろ注意が必要&hellip;</p>
+<ul>
+<li><code>Read</code>: 検索対象のボリュームによらず、クライアントに返すドキュメントが1つであれば1回、ドキュメントが20個であれば20回分の料金になる
+<ul>
+<li>つまり、ページネーションを実装する等して「必要ないデータを取得しないこと」が非常に重要</li>
+<li>クエリの結果をクライアントでリッスンする場合、結果セット内のドキュメントが追加または更新されるたびに Read として課金される</li>
+<li>セキュリティルールでドキュメントの読み取りが発生する場合、それも Read として課金される</li>
+</ul>
+</li>
+<li><code>Write</code>: あるドキュメントのある1箇所のフィールドを更新するのも同じドキュメント内で30箇所のフィールドを更新するのも同じ料金になる</li>
+<li><code>Delete</code>: 削除したドキュメント数に比例する</li>
+</ul>
+<p>このようなルールは、作るアプリによっては実装に大きな影響を与える可能性がある。</p>
+<p>例えば LINE のようなチャットアプリで5秒に1度ルームにメッセージを送ることを考えると、参加者が2人なら1分あたり <code>2 * 60/5 = 24</code> 回の書き込みと <code>2 * 24 = 48</code> 回の読み込みが発生する。しかし、これが n 人なら <code>n * 60/5 = 12n</code> 回の書き込みと <code>n * 12n = 12 * n^2</code> 回の読み込みが発生する。つまり、指数関数的に課金額が増加していく。</p>
+<p>このようなケースでは書き込みの度に読み込ませるのではなく、 Cloud Functions で一定間隔ごとにメッセージを一括更新しまとめて読み込ませるのがよさそうだ。</p>
+<p>課金額を抑える方法については以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=6NegFl9p_sE">Cloud Firestore Pricing | Get to know Cloud Firestore #3</a></li>
+</ul>
+<p>これは結構注意していても課金で爆死する匂いがするので Budget や Alert 的な閾値を設定しておいた方がよさそう。</p>
+<p><a href="https://firebase.google.com/docs/firestore/monitor-usage">https://firebase.google.com/docs/firestore/monitor-usage</a></p>
+<h2 id="ドキュメントの制約">ドキュメントの制約</h2>
+<p>Firestore のドキュメントには様々な制約がある。</p>
+<ul>
+<li>1つのドキュメントには 1MB までしか入れられず、インデックスの数は 40,000 まで
+<ul>
+<li>このような制限が設けられている理由は、 Firestore がデータの追加時に全てのフィールドに対してインデックスを作るから</li>
+<li>ドキュメントの更新時にはインデックスを再構築するため、多すぎるフィールドは Write のパフォーマンスに悪影響をもたらす</li>
+</ul>
+</li>
+<li>同じドキュメントに対して Write できるのは1秒に1回のみ</li>
+<li>ドキュメントの取得時にはそのドキュメントの全てのフィールドを取得し、一部分だけを取得することはできない
+<ul>
+<li>Firestore のクエリのパフォーマンスは対象となるデータセットのサイズではなく結果セットのサイズに比例する</li>
+<li>つまり、この点でも一つのドキュメントに必要以上のデータを詰め込むことは得策ではない</li>
+</ul>
+</li>
+<li>Firestore のクエリは shallow で、明示的に指定したドキュメントのみを取得しそのサブコレクションは取得しない
+<ul>
+<li>つまり、一緒に使うデータはサブコレクションに分けるのではなく同じドキュメントに詰めるのがよい</li>
+</ul>
+</li>
+<li>Array の特定の位置に要素を挿入、更新、削除することはできない
+<ul>
+<li>Array 内の要素を追加するには arrayUnion()、削除するには arrayRemove() を使う</li>
+</ul>
+</li>
+</ul>
+<p>ドキュメントの構造や制約については以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=o7d5Zeic63s">Maps, Arrays and Subcollections, Oh My! | Get to know Cloud Firestore #4</a></li>
+</ul>
+<h3 id="ドキュメント設計の工夫">ドキュメント設計の工夫</h3>
+<p>これらの制約や Firestore の特性から、 Firestore のドキュメント - コレクションのデータ構造設計は多少の工夫が必要になる。</p>
+<p>例えば特定の画面を構成するのに必要で読み込みの頻度が多く書き込みの頻度が少ないデータは非正規化して持ち、 Cloud Functions 等でまとめて更新して整合性を保つ。</p>
+<p>階層的な関係にあるデータであっても、それが異なるドキュメント間で N:N の関係にあるのであれば、それぞれとそのマッピング（例: Users, Restaurants, FavoriteRestaurants）をトップレベルのコレクションとして持つのがよい。</p>
+<p>データ構造の工夫については以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=haMOUb3KVSo">How to Structure Your Data | Get to know Cloud Firestore #5</a></li>
+</ul>
+<p>非正規化したデータの更新には Cloud Functions を使う。使い方については以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=rERRuBjxJ80">How do Cloud Functions work? | Get to know Cloud Firestore #11</a></li>
+</ul>
+<h3 id="ページネーション">ページネーション</h3>
+<p>Firestore ではドキュメントの取得回数に応じて課金されるので、ページネーションが重要になる。また、ユーザー体験的にも必要な分だけ取得できたほうがよい。最後のドキュメントを previousDoc として次のクエリで <code>.start(after: previousDoc)</code> 的な使い方が多そう。</p>
+<p>以下の動画にだいたい説明されている。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=poqTHxtDXwU">How Do I Paginate My Data? | Get to know Cloud Firestore #7</a></li>
+</ul>
+<h2 id="トランザクション">トランザクション</h2>
+<p>Firestore では、「全ての操作が成功する」か「いずれも適用されない」という操作を行うための atomic な処理が2種類用意されている。</p>
+<ul>
+<li><code>Transaction</code>: 1つまたは複数のドキュメントに対する読み取りと書き込みの操作</li>
+<li><code>Batch Write</code>: 1つまたは複数のドキュメントに対する一連の書き込み操作</li>
+</ul>
+<p>Batch Write の利点は、読み取りができない代わりに読み取り起因の失敗がないこと、全てのクライアントがオフラインでも実行できることがある。</p>
+<p>両者には幾つかの注意点がある。</p>
+<ol>
+<li><strong>Reads Before Write</strong>: 書く前に読む</li>
+<li><strong>No Side Effects</strong>: retry の可能性があるので、副作用をトランザクション内で実行しない</li>
+<li><strong>Don&rsquo;t Go Overboard</strong>: 関係ないドキュメントをトランザクション内に入れない（ロックによるパフォーマンス低下など、デメリットしかない）</li>
+<li><strong>No Offline Support</strong>: トランザクションはクライアントがオフライン状態のとき必ず失敗する</li>
+<li><strong>500 Documents</strong>: 1トランザクションで処理できるドキュメントの上限数は 500</li>
+</ol>
+<p>5 の制限により、 500 を超える数のドキュメントを一つの Transaction/Batch Write で更新することはできず、複数回に分けて実行することになる。トランザクションについては以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=dOVSr0OsAoU">How do Transactions Work? | Get to know Cloud Firestore #8</a></li>
+</ul>
+<h2 id="オフラインサポート">オフラインサポート</h2>
+<p>Firestore にはオフラインサポートという機能がある。端末がインターネットから切断しても、オフラインでキャッシュを保持してそれをいい感じに Firestore に反映してくれる。オフラインキャッシュは無制限ではなく（とはいえ通常の使用では気にしなくてもいいサイズらしい）、最も使われていないデータから消されていく。</p>
+<p>ちなみに、 Firestore にはインデックスがあるがキャッシュにはそれが無いので、巨大なデータをクライアント側のキャッシュで扱うのは得策ではない。小さなデータで変更の頻度が少なければオフラインに持っておくことで節約になるかもしれないが、ほとんどのケースではそのような使い方はユーザー体験の悪化を招きそうだ。</p>
+<p>なお、オフラインサポートは iOS/Android ではデフォルトで有効だが、 Web では少しだけコードを書く必要がある。オフラインサポートについては以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=oDvdAFP6OhQ">How do I Enable Offline Support? | Get to know Cloud Firestore #9</a></li>
+</ul>
+<h2 id="リアルタイムリスナー">リアルタイムリスナー</h2>
+<p>Firestore には「リアルタイムリスナー」と呼ばれる仕組みがあり、ドキュメントに対する変更を検知することができる。</p>
+<p>これによって明示的に fetch しなくても新しいデータを取得できユーザー体験が格段によくなるため、特に理由がなければこれを使うべきだろう。しかし、以下の点に注意する必要がある。</p>
+<ul>
+<li>必要以上のデータをダウンロードしない（その分課金されるので）
+<ul>
+<li>ドキュメントを適切に設計する
+<ul>
+<li>サブコレクションに入れておくなど</li>
+</ul>
+</li>
+<li>必要ないときはリスナーを deactivate する
+<ul>
+<li>例えば、コンポーネントを生成時に listen するならコンポーネントがなくなるときに切る</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>リアルタイムリスナーはバックグラウンドで動作しない
+<ul>
+<li>つまり、ユーザーが戻ってきたときは多少のロードが必要になる</li>
+</ul>
+</li>
+</ul>
+<p>リアルタイムリスナーについては以下の動画が参考になる。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=3aoxOtMM2rc">リアルタイムを使うかどうか | Cloud Firestore を知ろう＃10</a></li>
+</ul>
+<h2 id="firestore-のデータ設計まとめ">Firestore のデータ設計まとめ</h2>
+<p>まとめると、 Firestore は以下の点に注意して使う必要がありそうだ。</p>
+<h3 id="画面にそのまま使えるような構造にデータをモデリングする">画面にそのまま使えるような構造にデータをモデリングする</h3>
+<ul>
+<li>Firestore にはクライアントから直接アクセスする、かつ JOIN が無い
+<ul>
+<li>つまり、画面を組み立てるのにデータの加工が必要な場合はクライアント側でしなければならない</li>
+<li>さらに、データが複数のドキュメントに分かれていると複数回のクエリが必要になる</li>
+<li>データの重複を許容して非正規化し画面ごとにドキュメントを用意することで、パフォーマンスが上がり課金額は下がる</li>
+</ul>
+</li>
+<li>全てのケースで非正規化が有効というわけではない
+<ul>
+<li>時間の経過やアプリの利用とともにデータが増えていく場合、後述の Cloud Functions による更新が難しくなっていく</li>
+<li>このような場合では、
+<ul>
+<li>ドキュメント間の関係性を表現する「リファレンス型」をドキュメントのフィールドとして持つことで JOIN っぽいドキュメント取得を行う
+<ul>
+<li>Read が増えるので万能ではない</li>
+</ul>
+</li>
+<li>更新の頻度を抑えるような仕様をアプリに追加する</li>
+<li>一定期間を過ぎたデータをクライアントから取得できないようにする</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>1:1 の関係性を表現する場合は、同一の id をドキュメントに割り当てる</li>
+<li>1:n の場合は&hellip;以下のいずれかを行う
+<ul>
+<li>ドキュメントのサブコレクション、もしくは<a href="https://firebase.google.com/docs/firestore/query-data/queries?hl=ja#collection-group-query">コレクショングループ（同じ id を持つコレクション）</a>として持つ</li>
+<li>リファレンス型を持つフィールドを用意する</li>
+<li>ドキュメント内のフィールドで非正規化して持つ</li>
+</ul>
+</li>
+</ul>
+<h3 id="ドキュメントは大きくしすぎない">ドキュメントは大きくしすぎない</h3>
+<ul>
+<li>Firestore ではデータをドキュメント単位で取得し、ドキュメント内の一部のフィールドのみを取得するような操作ができないため</li>
+<li>フィールド数が増えるとその分だけスキーマやデータの検証も複雑になる</li>
+<li>ドキュメントには保持できるサイズ（1MB）、フィールドの数（40,000）に制約がある
+<ul>
+<li><a href="https://firebase.google.com/docs/firestore/quotas?hl=ja">他にも様々な制約がある</a></li>
+</ul>
+</li>
+<li>増え続けるデータはサブコレクションに隔離する</li>
+<li>「画面にそのまま使えるような設計」とは対立する可能性がある
+<ul>
+<li>CQRS 的に（？）読み取り用のドキュメントと書き込み用のドキュメントを分離するのもいいかもしれない
+<ul>
+<li>この場合、副次的なメリットもある
+<ul>
+<li>セキュリティルールの記述が簡潔になる</li>
+<li>書き込みの履歴を残すことができる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>読み取りと書き込みを分離するデメリットとして、書き込み用ドキュメントの更新をトリガーにして Cloud Functions で読み取り用のドキュメントを更新することで整合性を保つ必要がある</li>
+</ul>
+</li>
+</ul>
+<h3 id="非正規化されたデータを一斉に更新する際は-cloud-functions-を使う">非正規化されたデータを一斉に更新する際は Cloud Functions を使う</h3>
+<ul>
+<li>以下の点に注意する
+<ul>
+<li>セキュリティルールの対象外となるので、 Firestore のセキュリティルールで設定したスキーマやデータの検証をすり抜ける可能性がある</li>
+<li>1トランザクションで更新できるドキュメント数には 500 までという制限がある</li>
+<li>更新中はドキュメントをロックするのでパフォーマンスが落ちる</li>
+</ul>
+</li>
+</ul>
+<h3 id="ドキュメント内で-access-level-が異なる情報を保持してはならない">ドキュメント内で access level が異なる情報を保持してはならない</h3>
+<ul>
+<li>住所や支払情報など</li>
+<li>Firestore ではデータの検証やアクセスレベルの管理には必ずセキュリティルールを使う</li>
+<li>セキュリティルールはドキュメント単位で設定される</li>
+<li>また、ドキュメントの一部取得を担保することは不可能（表示上は一部しか使わなくとも、クエリとしては完全なドキュメントを取得している</li>
+<li>ドキュメントを分け、必要ならリファレンスとして持つ
+<ul>
+<li>リファレンスはセキュリティルールで保護できるので access level が異なってもよい</li>
+</ul>
+</li>
+</ul>
+<h2 id="最後に">最後に</h2>
+<p>まだ何もやってないけど実際にアプリを開発し始めたら無限に気になることがありそう。</p>
+<p>進んだら続きを書きたい。</p>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/2021-09-26-gitlab-ipo/" title="Previous post (older)">
+            <span>Previous</span>
+            GitLab が上場するので Form S-1 を読んだ話
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.c5d8f3350f5a652f526b982306299353824299adb7a3bd261ecffacc47087f66.js"></script>
+</footer>
+    </body>
+</html>
