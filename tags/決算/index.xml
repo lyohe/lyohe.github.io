@@ -6,7 +6,27 @@
     <description>Recent content in 決算 on ここにかく</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 26 Sep 2021 13:17:09 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/%E6%B1%BA%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Nov 2021 09:18:38 +0900</lastBuildDate><atom:link href="https://lyohe.github.io/tags/%E6%B1%BA%E7%AE%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HashiCorp が上場するので Form S-1 を読んだ話</title>
+      <link>https://lyohe.github.io/post/2021-11-06-hashicorp-ipo/</link>
+      <pubDate>Sat, 06 Nov 2021 09:18:38 +0900</pubDate>
+      
+      <guid>https://lyohe.github.io/post/2021-11-06-hashicorp-ipo/</guid>
+      <description>HashiCorp が NYSE に上場するので、その Form S-1 を読んだ話を書く。
+https://www.reuters.com/technology/software-company-hashicorp-files-us-ipo-2021-11-04/
+2020年3月に行われた直近の資金調達である Series E では $5.1B の評価額で $175M を調達しており、上場時の時価総額は $10B （約1.1兆円）に達すると見込まれている。
+HashiCorp について HashiCorp はソフトウェアのインフラ構成を自動化するためのツールを開発しているサンフランシスコの企業で、2012年に Mitchell Hashimoto 氏によって創業された。当初は氏が大学時代に自分の課題を解決するためのソフトウェアとして作った Vagrant を事業化するための会社だった。
+https://www.hashicorp.com/blog/announcing-hashicorp
+ちなみに創業者である Hashimoto 氏はたまに日本に来ているらしい。
+https://www.publickey1.jp/blog/17/hashicorp_interview01.html https://www.publickey1.jp/blog/17/hashicorp_interview02.html
+なお、 Hashimoto 氏は創業から2016年まで CEO、それから今年の7月まで CTO を務め、現在は役員を退任して同社で従業員として働いているそうだ。
+https://www.hashicorp.com/blog/mitchell-s-new-role-at-hashicorp
+HashiCorp の事業 HashiCorp の製品は全て OSS として MPL-2.0 ライセンスで公開されている。1
+HashiCorp 社では Terraform, Vault, Consul, Nomad の4つを主要な商用製品と定義している。それぞれ次の領域で使われている。
+ Terraform &amp;hellip; Provisioning - サービスを支えるインフラの構築プロセスや設定をコード化する Vault &amp;hellip; Security - サービスやユーザーのアイデンティティに応じてポリシーを適用し、認証情報や機密データを保護する Consul &amp;hellip; Networking - サービス間の相互の通信に必要な情報を共有するレジストリを提供する Nomad &amp;hellip; Application Delivery - シンプルで柔軟な Kubernetes  これらを使うことで、企業は AWS/GCP/Azure などを組み合わせて（マルチクラウドで）構築されたインフラを自動的・効率的に管理することができる。</description>
+    </item>
+    
     <item>
       <title>GitLab が上場するので Form S-1 を読んだ話</title>
       <link>https://lyohe.github.io/post/2021-09-26-gitlab-ipo/</link>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+    
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="theme-color" content="dark">
+    <title> HashiCorp が上場するので Form S-1 を読んだ話 | ここにかく</title>
+    
+    <meta property="og:title" content="HashiCorp が上場するので Form S-1 を読んだ話" />
+<meta property="og:description" content="HashiCorp が NYSE に上場するので、その Form S-1 を読んだ話を書く。
+https://www.reuters.com/technology/software-company-hashicorp-files-us-ipo-2021-11-04/
+2020年3月に行われた直近の資金調達である Series E では $5.1B の評価額で $175M を調達しており、上場時の時価総額は $10B （約1.1兆円）に達すると見込まれている。
+HashiCorp について HashiCorp はソフトウェアのインフラ構成を自動化するためのツールを開発しているサンフランシスコの企業で、2012年に Mitchell Hashimoto 氏によって創業された。当初は氏が大学時代に自分の課題を解決するためのソフトウェアとして作った Vagrant を事業化するための会社だった。
+https://www.hashicorp.com/blog/announcing-hashicorp
+ちなみに創業者である Hashimoto 氏はたまに日本に来ているらしい。
+https://www.publickey1.jp/blog/17/hashicorp_interview01.html https://www.publickey1.jp/blog/17/hashicorp_interview02.html
+なお、 Hashimoto 氏は創業から2016年まで CEO、それから今年の7月まで CTO を務め、現在は役員を退任して同社で従業員として働いているそうだ。
+https://www.hashicorp.com/blog/mitchell-s-new-role-at-hashicorp
+HashiCorp の事業 HashiCorp の製品は全て OSS として MPL-2.0 ライセンスで公開されている。1
+HashiCorp 社では Terraform, Vault, Consul, Nomad の4つを主要な商用製品と定義している。それぞれ次の領域で使われている。
+ Terraform &hellip; Provisioning - サービスを支えるインフラの構築プロセスや設定をコード化する Vault &hellip; Security - サービスやユーザーのアイデンティティに応じてポリシーを適用し、認証情報や機密データを保護する Consul &hellip; Networking - サービス間の相互の通信に必要な情報を共有するレジストリを提供する Nomad &hellip; Application Delivery - シンプルで柔軟な Kubernetes  これらを使うことで、企業は AWS/GCP/Azure などを組み合わせて（マルチクラウドで）構築されたインフラを自動的・効率的に管理することができる。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://lyohe.github.io/post/2021-11-06-hashicorp-ipo/" /><meta property="og:image" content="https://lyohe.github.io/tori.JPG"/><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-06T09:18:38&#43;09:00" />
+<meta property="article:modified_time" content="2021-11-06T09:18:38&#43;09:00" /><meta property="og:site_name" content="ここにかく" />
+
+
+    
+    
+    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes=180x180 />
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes=192x192 />
+    <link rel="icon" type="image/png" href="android-chrome-512x512.png" sizes=512x512 />
+    
+    <link rel="stylesheet" href="/sass/main.min.6cf277af42bb4b7ead78c6f3fdfab3baf2b8f6afd8d346796018bfcb96bde18c.css">
+</head>
+
+    <body class="dark">
+        <nav class="navbar">
+    <div class="container">
+        <div class="flex">
+            <div>
+                <a class="brand" href="/">
+                    
+                    <span class="emoji">
+                        🦥
+                    </span>
+                    
+                    ここにかく
+                    </a>
+            </div>
+            <div class="flex">
+                
+                <a href="https://twitter.com/rtsudar">twitter</a>
+                
+                <button id="dark-mode-button"></button>
+            </div>
+            </div>
+    </div>
+</nav>
+        <main>
+            
+
+<div class="container">
+    <article>
+        <header class="article-header">
+            <div class="thumb">
+                <div>
+                    <h1>HashiCorp が上場するので Form S-1 を読んだ話</h1>
+                    <div class="post-meta">
+                        <div>
+                            By lyohe on <time>November 06, 2021</time>
+                        </div>
+                        <div class="tags">
+                            
+                            <a href="/tags/%E6%B1%BA%E7%AE%97/">決算</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </article>
+
+    <div class="article-post">
+    <p>HashiCorp が NYSE に上場するので、その <a href="https://www.sec.gov/Archives/edgar/data/1720671/000119312521319849/d205906ds1.htm">Form S-1</a> を読んだ話を書く。</p>
+<p><a href="https://www.reuters.com/technology/software-company-hashicorp-files-us-ipo-2021-11-04/">https://www.reuters.com/technology/software-company-hashicorp-files-us-ipo-2021-11-04/</a></p>
+<p>2020年3月に行われた直近の資金調達である Series E では $5.1B の評価額で $175M を調達しており、上場時の時価総額は $10B （約1.1兆円）に達すると見込まれている。</p>
+<h2 id="hashicorp-について">HashiCorp について</h2>
+<p>HashiCorp はソフトウェアのインフラ構成を自動化するためのツールを開発しているサンフランシスコの企業で、2012年に Mitchell Hashimoto 氏によって創業された。当初は氏が大学時代に自分の課題を解決するためのソフトウェアとして作った <a href="https://github.com/hashicorp/vagrant">Vagrant</a> を事業化するための会社だった。</p>
+<p><a href="https://www.hashicorp.com/blog/announcing-hashicorp">https://www.hashicorp.com/blog/announcing-hashicorp</a></p>
+<p>ちなみに創業者である Hashimoto 氏はたまに日本に来ているらしい。</p>
+<p><a href="https://www.publickey1.jp/blog/17/hashicorp_interview01.html">https://www.publickey1.jp/blog/17/hashicorp_interview01.html</a>
+<a href="https://www.publickey1.jp/blog/17/hashicorp_interview02.html">https://www.publickey1.jp/blog/17/hashicorp_interview02.html</a></p>
+<p>なお、 Hashimoto 氏は創業から2016年まで CEO、それから今年の7月まで CTO を務め、現在は役員を退任して同社で従業員として働いているそうだ。</p>
+<p><a href="https://www.hashicorp.com/blog/mitchell-s-new-role-at-hashicorp">https://www.hashicorp.com/blog/mitchell-s-new-role-at-hashicorp</a></p>
+<h2 id="hashicorp-の事業">HashiCorp の事業</h2>
+<p>HashiCorp の製品は全て OSS として MPL-2.0 ライセンスで公開されている。<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+<p><img src="/post/2021-11-06/hashicorp-oss.png" alt="hashicorp-oss"></p>
+<p>HashiCorp 社では <a href="https://www.terraform.io/">Terraform</a>, <a href="https://www.vaultproject.io/">Vault</a>, <a href="https://www.consul.io/">Consul</a>, <a href="https://www.nomadproject.io/">Nomad</a> の4つを主要な商用製品と定義している。それぞれ次の領域で使われている。</p>
+<ul>
+<li>Terraform &hellip; <strong>Provisioning</strong> - サービスを支えるインフラの構築プロセスや設定をコード化する</li>
+<li>Vault &hellip; <strong>Security</strong> - サービスやユーザーのアイデンティティに応じてポリシーを適用し、認証情報や機密データを保護する</li>
+<li>Consul &hellip; <strong>Networking</strong> - サービス間の相互の通信に必要な情報を共有するレジストリを提供する</li>
+<li>Nomad &hellip; <strong>Application Delivery</strong> - シンプルで柔軟な Kubernetes</li>
+</ul>
+<p>これらを使うことで、企業は AWS/GCP/Azure などを組み合わせて（マルチクラウドで）構築されたインフラを自動的・効率的に管理することができる。</p>
+<p><img src="/post/2021-11-06/layer.png" alt="layer"></p>
+<p>Terraform はほんの少しだけ触れたことがあるが、社内のマイクロサービス基盤チームが作った便利な Terraform モジュールを使った上で YAML をちょちょっと書くとマイクロサービスの立ち上げに必要なリソース、例えば GCP のプロジェクトやユーザー・サービスアカウントの権限、 DataDog や PagerDuty、それから Kubernetes のあれこれ必要なやつらがいい感じに揃うので、とても便利という印象があった。</p>
+<p>商用製品が OSS として公開されておりそのサポートを主な収益源としている点では、先日上場した <a href="https://about.gitlab.com/">GitLab</a> と似ている。<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup></p>
+<h2 id="主要な経営指標">主要な経営指標</h2>
+<p><img src="/post/2021-11-06/kpi.png" alt="kpi"></p>
+<p>2020年8月 ~ 2021年7月の12ヶ月の売上は $259M だった。平均の NRR: Net Dollar Retention Rate が 124% なので、同じ顧客からの売上が前年比で1.2倍になっている。</p>
+<p>印象に残った HashiCorp の特徴として、顧客全体に占める $100K （10万ドル）以上の ARR: Annual Recurring Revenue を支払う顧客の割合が高いことが挙げられる。2021年7月末時点で顧客数は2,101社<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>でその内 $100K 以上の ARR の顧客は 558 社なので、全体のおよそ27%が年間 $100K 以上を支払っている。</p>
+<p>顧客に大きな企業が多いと考えられる GitLab でも Base Customers<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>が3,632社で ARR $100K 以上はその内383社（約11%）なので、 HashiCorp の顧客にはそれだけのお金を支払ってもよいと考える大きな企業が多いと言えそうだ。</p>
+<p>ちなみに134ページの記述によれば、2021年7月末時点で ARR $1M 以上の顧客が58社いるらしい。</p>
+<h3 id="年間-100k-以上を支払う顧客の数">年間 $100K 以上を支払う顧客の数</h3>
+<p>85 ~ 86 ページより図を引用した。</p>
+<p>有料顧客数の伸びと ARR $100K 以上の顧客数の伸びを比較すると前者の方が大きい。</p>
+<p><img src="/post/2021-11-06/customers.png" alt="customers"></p>
+<p><img src="/post/2021-11-06/100k_customers.png" alt="100k customers"></p>
+<p>後者を伸ばす、つまり顧客に年間 $100K 以上を使ってもらうためには</p>
+<ol>
+<li>HashiCorp の製品を導入している会社のビジネスが成長する</li>
+<li>成長に HashiCorp の製品が必要という信頼を顧客から受ける</li>
+</ol>
+<p>必要があるので簡単ではないが、顧客数自体は伸びていて NRR もそこそこ高いので今後に期待したい。</p>
+<p>あと、この ARR $100K 以上顧客数の伸び鈍化はマイナスというよりは2020年6月に始まった HashiCorp Cloud Platform というマネージドサービスの影響もあるかもしれない。自社で運用できない中小企業はマネージド・サービスを使いそうで、それらの顧客が使う金額はそれほど大きくないと考えられるためだ。</p>
+<h3 id="収益コホート">収益コホート</h3>
+<p>83 ページより引用。</p>
+<p><img src="/post/2021-11-06/cohort.png" alt="cohort"></p>
+<p>FY2018 ~ FY2020 は傾向が似ており、1年目を100として4年目に200、つまり2倍になるような成長を続けている。このコホートからは、顧客との関係が中長期的に拡大していく傾向がよく分かる。</p>
+<p>NRR を高める（= 同じ顧客から継続的に収益を得る）ためには売上の機会、つまり既存のユースケースを拡張したり新たなユースケースを実現していく必要がある。</p>
+<p>83 ページの記述によれば2021年7月末時点で ARR 100K 以上の顧客のうち44%は複数の製品を使っているとのことなので、 HashiCorp が新製品を次々に作っているのは NRR を高めるのに効果があると言えるかもしれない。</p>
+<p><img src="/post/2021-11-06/history.png" alt="history"></p>
+<p>128 ページによれば Terraform と Vault（↓ の階段の一番右）がよく売れているようだ。</p>
+<p><img src="/post/2021-11-06/stepup.png" alt="stepup"></p>
+<h2 id="財務諸表を読む">財務諸表を読む</h2>
+<p>決算期は1月期。</p>
+<h3 id="bs-を読む">BS を読む</h3>
+<p>HashiCorp の BS はシンプルで、固定資産や固定負債はほぼない。</p>
+<p><img src="/post/2021-11-06/hashicorp-bs.png" alt="hashicorp-bs"></p>
+<p>140 ページの記述によれば、 HashiCorp は全ての製品を AWS/GCP/Azure 上で運用しており、自社でデータセンターは持っていない。固定資産は主に2種類で、リース資産（PC など）と繰延契約獲得費用（営業人員の契約獲得に応じて支払う手数料）で構成されている。この契約獲得費用はその顧客から利益を獲得する期間（110ページによると通常は5年間）にわたって繰り延べられる。</p>
+<p>現預金以外の流動資産の大部分は売掛金で、 FY2020 では $52M（年間売上の43%）、 FY2021 では $93M （年間売上の44%）の売掛金がある。それぞれ HashiCorp の年間売上の 43%, 44% なので、だいたい5ヶ月分くらいの売上が売掛金となっている計算になる。</p>
+<p>また、流動負債の大部分は前受収益 Deferred Revenue であり、これが FY2020 では $89M、 FY2021 では $136M ある。</p>
+<p>資産側の売掛金と負債側の前受収益を比べると前受収益の方が大きいので、 HashiCorp 社はその差額だけ現金が増えている計算になる。 SaaS の会社が前受収益を活用して急成長中のキャッシュフローを補うという構造はよく見かけるが、売掛金が売上の5ヶ月分というのはちょっと大きい気がする。</p>
+<p>HashiCorp の収益は基本的に年1回で1年分を前払いするそうだが、複数年分（上限は3年）の前払いもできるらしい（87ページより）。これが前受収益として計上され、収益認識基準を満たした時点で売上に振り替えられる。</p>
+<p>なお、104ページによると新規顧客との契約は 4Q に行われることが多い<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup> 。契約締結から売掛金の回収までは 1 ~ 2 四半期を要するとのことなので、急成長する局面では売掛金が大きくなりそうだ。売掛金が大きくなっている原因はこれかもしれない。</p>
+<h3 id="pl-を読む">PL を読む</h3>
+<p>FY2020 の売上は $121M で FY2021 の売上は $212M なので、 +75% の急成長をしている。</p>
+<p><img src="/post/2021-11-06/hashicorp-pl.png" alt="hashicorp-pl"></p>
+<p>FY2020 は $53M、 FY2021 は $84M の損失を出しているが、現金支出のない株式報酬が多いこと、 BS の箇所で述べたように売掛金増加より前受金増加の方が大きいことから、キャッシュフローはそれほど悪くない。</p>
+<h4 id="収益構造">収益構造</h4>
+<p>HashiCorp の主な売上は自社製品のサポートであり、 FY2022 の 2Q では売上の 77% を占めている。</p>
+<p><img src="/post/2021-11-06/quarter-revenue.png" alt="quarter-revenue"></p>
+<p>一方で2020年6月にリリースされた Cloud-hosted services つまり HashiCorp Cloud Platform(HCP) の売上が急激に成長しており、 FY2022 の 2Q では売上のおよそ 5% を占めている。</p>
+<p><img src="/post/2021-11-06/hcp.png" alt="hcp"></p>
+<p>直近2期分の費用内訳を見ると、 Sales &amp; Marketing に多額の費用（売上のおよそ7割）をつぎ込んでいることが分かる。この中には営業やマーケティングを行う人員の給与、賞与、株式報酬、広告費用、出張費などが含まれている。</p>
+<p>98ページの記載によると、FY2021の1年間で営業やマーケティング組織の人員が38%増加したとのことで、これが費用増加の主たる要因となっているようだ。</p>
+<p>各費用の内訳は下記の通り。</p>
+<p><img src="/post/2021-11-06/fy2020-breakdown.png" alt="fy2020-breakdown"></p>
+<p><img src="/post/2021-11-06/fy2021-breakdown.png" alt="fy2021-breakdown"></p>
+<h4 id="地域別の売上">地域別の売上</h4>
+<p>F-13 ページより。</p>
+<p>HashiCorp の売上の7割超が米国から生じているが、その比率は徐々に下がっている。つまり、米国内の売上成長より米国外の成長の方がわずかに速いということになる。</p>
+<p><img src="/post/2021-11-06/geography.png" alt="geography"></p>
+<p>リモート前提ではあるが日本でも採用しているようなので、興味ある方はぜひ。</p>
+<p><a href="https://www.hashicorp.com/job/3431357">https://www.hashicorp.com/job/3431357</a></p>
+<h3 id="cf-を読む">CF を読む</h3>
+<p>PL では損失を出しているが、現金支出の無い株式報酬や顧客からの前受収益が大きいため営業キャッシュフローはそれほど凹んでいない。また、 FY2021 に $175M の大型資金調達をしているのでお金には困ってなさそうだ。</p>
+<p><img src="/post/2021-11-06/hashicorp-cf.png" alt="hashicorp-cf"></p>
+<p>上場でも大金を調達すると考えられるが、本業で稼げており（開示を読む限りは）運転資金の借り入れ枠もたくさんあるようなので、 <a href="https://lyohe.github.io/post/2021-07-11-fastly-2/">Fastly が上場後に Signal Sciences を買収したように</a>何かしら買収等の大きな動きがあるのかもしれない。</p>
+<p>Fastly の場合は Edge の計算資源を活用して顧客の新たなユースケースを実現するという方向性の買収だったが、 HashiCorp の場合はマルチクラウドの運用課題を解決するような製品やサービスを増やすという方向性になりそうな気がする。</p>
+<h3 id="おまけ-ストックオプション">おまけ: ストックオプション</h3>
+<p>SO の未行使残高や直近2期の行使数は F-28 ページを見ると分かる。HashiCorp は2014年から SO を発行しておりそれらが 4-year vesting 1-year cliff とすると、最初の方はまるまる開示されていないので注意（つまり、既に普通株式に転換されている）。</p>
+<p>発行済普通株式と上場時に普通株式に転換される優先株式の数は F-27 ページに記載されている。</p>
+<h2 id="感想">感想</h2>
+<p>HashiCorp の製品は Vagrant 以外全て Go で書かれているようだ。Go を書いた経験ほぼ無いけど、興味が出てきたので来年は Go の年にしようかな。</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://www.vagrantup.com/">Vagrant</a> のみ MIT&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p>GitLab については<a href="https://lyohe.github.io/post/2021-09-26-gitlab-ipo/">以前に記事を書いた</a>ので興味があればぜひ。&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3" role="doc-endnote">
+<p>無料顧客を除く（85ページ参照）&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4" role="doc-endnote">
+<p>GitLab は ARR $5K 以上の顧客を Base Customers と定義している（<a href="https://lyohe.github.io/post/2021-09-26-gitlab-ipo/#%E4%B8%BB%E8%A6%81%E3%81%AA%E7%B5%8C%E5%96%B6%E6%8C%87%E6%A8%99">以前書いた記事</a>）&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5" role="doc-endnote">
+<p>HashiCorp は1月決算なので、 11/1 ~ 1/31&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+    </div>
+</div>
+
+<div class="container">
+    
+    <nav class="flex container suggested">
+        
+        <a rel="prev" href="/post/2021-10-27-firestore-getting-started/" title="Previous post (older)">
+            <span>Previous</span>
+            Firestore を使いたいので調べたことを記録する自分用の記事
+            </a>
+        
+        
+        
+    </nav>
+    
+</div>
+</main>
+
+
+        </main>
+        <footer class="footer flex">
+    <section class="container">
+        <nav class="footer-links">
+            
+            <a href="/index.xml">RSS</a>
+            
+        </nav>
+    </section>
+    
+    <script async src="/js/features.min.c5d8f3350f5a652f526b982306299353824299adb7a3bd261ecffacc47087f66.js"></script>
+</footer>
+    </body>
+</html>
