@@ -1,0 +1,745 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.2971a0dc86d4086edac6.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/static/montserrat-latin-100-8d7d79679b70dbe27172b6460e7a7910.woff2) format("woff2"),url(/static/montserrat-latin-100-ec38980a9e0119a379e2a9b3dbb1901a.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/static/montserrat-latin-100italic-e279051046ba1286706adc886cf1c96b.woff2) format("woff2"),url(/static/montserrat-latin-100italic-3b325a3173c8207435cd1b76e19bf501.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/static/montserrat-latin-200-9d266fbbfa6cab7009bd56003b1eeb67.woff2) format("woff2"),url(/static/montserrat-latin-200-2d8ba08717110d27122e54c34b8a5798.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/static/montserrat-latin-200italic-6e5b3756583bb2263eb062eae992735e.woff2) format("woff2"),url(/static/montserrat-latin-200italic-a0d6f343e4b536c582926255367a57da.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/static/montserrat-latin-300-00b3e893aab5a8fd632d6342eb72551a.woff2) format("woff2"),url(/static/montserrat-latin-300-ea303695ceab35f17e7d062f30e0173b.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/static/montserrat-latin-300italic-56f34ea368f6aedf89583d444bbcb227.woff2) format("woff2"),url(/static/montserrat-latin-300italic-54b0bf2c8c4c12ffafd803be2466a790.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/static/montserrat-latin-400-b71748ae4f80ec8c014def4c5fa8688b.woff2) format("woff2"),url(/static/montserrat-latin-400-0659a9f4e90db5cf51b50d005bff1e41.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/static/montserrat-latin-400italic-6eed6b4cbb809c6efc7aa7ddad6dbe3e.woff2) format("woff2"),url(/static/montserrat-latin-400italic-7583622cfde30ae49086d18447ab28e7.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/static/montserrat-latin-500-091b209546e16313fd4f4fc36090c757.woff2) format("woff2"),url(/static/montserrat-latin-500-edd311588712a96bbf435fad264fff62.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/static/montserrat-latin-500italic-c90ced68b46050061d1a41842d6dfb43.woff2) format("woff2"),url(/static/montserrat-latin-500italic-5146cbfe02b1deea5dffea27a5f2f998.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/static/montserrat-latin-600-0480d2f8a71f38db8633b84d8722e0c2.woff2) format("woff2"),url(/static/montserrat-latin-600-b77863a375260a05dd13f86a1cee598f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/static/montserrat-latin-600italic-cf46ffb11f3a60d7df0567f8851a1d00.woff2) format("woff2"),url(/static/montserrat-latin-600italic-c4fcfeeb057724724097167e57bd7801.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/static/montserrat-latin-700-7dbcc8a5ea2289d83f657c25b4be6193.woff2) format("woff2"),url(/static/montserrat-latin-700-99271a835e1cae8c76ef8bba99a8cc4e.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/static/montserrat-latin-700italic-c41ad6bdb4bd504a843d546d0a47958d.woff2) format("woff2"),url(/static/montserrat-latin-700italic-6779372f04095051c62ed36bc1dcc142.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/static/montserrat-latin-800-db9a3e0ba7eaea32e5f55328ace6cf23.woff2) format("woff2"),url(/static/montserrat-latin-800-4e3c615967a2360f5db87d2f0fd2456f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/static/montserrat-latin-800italic-bf45bfa14805969eda318973947bc42b.woff2) format("woff2"),url(/static/montserrat-latin-800italic-fe82abb0bcede51bf724254878e0c374.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/static/montserrat-latin-900-e66c7edc609e24bacbb705175669d814.woff2) format("woff2"),url(/static/montserrat-latin-900-8211f418baeb8ec880b80ba3c682f957.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/static/montserrat-latin-900italic-4454c775e48152c1a72510ceed3603e2.woff2) format("woff2"),url(/static/montserrat-latin-900italic-efcaa0f6a82ee0640b83a0916e6e8d68.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/static/merriweather-latin-300-fc117160c69a8ea0851b26dd14748ee4.woff2) format("woff2"),url(/static/merriweather-latin-300-58b18067ebbd21fda77b67e73c241d3b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/static/merriweather-latin-300italic-fe29961474f8dbf77c0aa7b9a629e4bc.woff2) format("woff2"),url(/static/merriweather-latin-300italic-23c3f1f88683618a4fb8d265d33d383a.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/static/merriweather-latin-400-d9479e8023bef9cbd9bf8d6eabd6bf36.woff2) format("woff2"),url(/static/merriweather-latin-400-040426f99ff6e00b86506452e0d1f10b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/static/merriweather-latin-400italic-2de7bfeaf08fb03d4315d49947f062f7.woff2) format("woff2"),url(/static/merriweather-latin-400italic-79db67aca65f5285964ab332bd65f451.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/static/merriweather-latin-700-4b08e01d805fa35d7bf777f1b24314ae.woff2) format("woff2"),url(/static/merriweather-latin-700-22fb8afba4ab1f093b6ef9e28a9b6e92.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/static/merriweather-latin-700italic-cd92541b177652fffb6e3b952f1c33f1.woff2) format("woff2"),url(/static/merriweather-latin-700italic-f87f3d87cea0dd0979bfc8ac9ea90243.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/static/merriweather-latin-900-f813fc6a4bee46eda5224ac7ebf1b7be.woff2) format("woff2"),url(/static/merriweather-latin-900-5d4e42cb44410674acd99153d57df032.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/static/merriweather-latin-900italic-b7901d85486871c1779c0e93ddd85656.woff2) format("woff2"),url(/static/merriweather-latin-900italic-9647f9fdab98756989a8a5550eb205c3.woff) format("woff")}
+
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Noto Sans JP","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-medium:500;--fontWeight-semibold:600;--fontWeight-bold:700;--fontWeight-extrabold:800;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#005b99;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12)}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-primary);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{display:flex;margin-bottom:var(--spacing-16)}.bio-avatar,.bio p{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 4.2.0"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Koko-ni-kaku RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=4a9773549091c227cd2eb82ccd9c5e3a" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><title data-react-helmet="true">ウォルマートの財務諸表を読んだ話 | ここにかく</title><meta data-react-helmet="true" name="description" content="最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。 https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html…"/><meta data-react-helmet="true" property="og:title" content="ウォルマートの財務諸表を読んだ話"/><meta data-react-helmet="true" property="og:description" content="最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。 https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="rtsudar"/><meta data-react-helmet="true" name="twitter:title" content="ウォルマートの財務諸表を読んだ話"/><meta data-react-helmet="true" name="twitter:description" content="最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。 https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html…"/><link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/webpack-runtime-b788fb4cde8074c4b498.js"/><link as="script" rel="preload" href="/framework-e413e527015be9a1bdfd.js"/><link as="script" rel="preload" href="/app-b6b27f9fe9d88b8e1eb4.js"/><link as="script" rel="preload" href="/commons-ab2410dfbec4227df496.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-eccee83f50b6c3a5d4d6.js"/><link as="fetch" rel="preload" href="/page-data/2021-08-22-walmart-financial-statements/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3257411868.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">ここにかく</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">ウォルマートの財務諸表を読んだ話</h1><p>August 23, 2021</p></header><section itemProp="articleBody"><p>最近、アマゾンの商品取扱高がウォルマートを抜いたという記事を見かけた。</p>
+<p><a href="https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html">https://www.nytimes.com/2021/08/17/technology/amazon-walmart.html</a></p>
+<p>中国を除く小売最大の企業といえばウォルマートというイメージがあったので、この記事は強く印象に残った。「コロナの影響やオンライン対応の遅れ等が重なってアマゾンに抜かれたんだろうな」とありきたりな感想を抱いたが、冒頭の記事の最後の方を読むと気になることが書いてある。</p>
+<blockquote>
+<p>During the pandemic, Walmart honed its ability to use its stores as mini-distribution centers, where shoppers drive to retrieve their purchase “curbside,” a far less costly way to fulfill online orders than delivery. On Tuesday, Walmart said it expected to generate $75 billion in total online sales this year. The company has been expanding its effort to build its own marketplace, but the vast majority of its online sales still come from its own inventory, Mr. Kaziukenas said.</p>
+</blockquote>
+<p>ウォルマートはパンデミックの間、店舗を物流拠点として整備しており、顧客は購入した商品を curbside と呼ばれる場所に車で取りに来る。今年のオンライン販売総額は<strong>750億ドル</strong>と予想している…とある。これは日本円にすると8兆円を超える金額で、<a href="https://www.meti.go.jp/press/2020/07/20200722003/20200722003.html">日本全体の BtoC - EC 市場における物販系分野</a>の約8割に相当する規模だ。</p>
+<p>つまり、アマゾンが凄すぎるだけでウォルマートもオンラインのビジネスを十分に成長させていると言える。ウォルマートの事業がどうなっているのかが気になったので、決算を読んでみることにした。</p>
+<p>数字は基本的に Form 10-K と 四半期の Presentation から拾っていく。以下、金額の単位として $1M = $1Million（百万ドル）、 $1B = $1Billion（十億ドル）とする。</p>
+<h2>ウォルマートの決算概況</h2>
+<p>ウォルマートは決算期を1月にしている。日本の小売業は2月決算が多いが、これは日本と US で繁忙期が少しだけずれているからかもしれない。US だと11月-12月、日本だと12月-1月が忙しいのでその後に決算期を置いていると考えられる。</p>
+<h3>財政状態</h3>
+<p>まずは BS を FY2017-FY2021 の5年分並べてみた。金額の単位は $1M。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1eff08f9a1e22737dd6b6a890a2fb07d/6db71/walmart-bs.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACd0lEQVQoz42SyWsUQRjF5+bJP8F/QfGqFxEkh3gQMSYYFzBIjFFQ3KIkh7igqEjwoLhGVNTgjhqMqGEUjUhilCS4jFnGTKad6S2T7pnuqurun3SLUW8++KiiqHr1fe+9FICrFFnDwDQtVHGUkqGTtw0mLI1pu4RwJpi2NOzpEkVdx9GLOFM5dMsgb0m0goHwPaIoIhUTVjwPu1RCKUUo/WSVSuEriVIBgfIRUiRncQVSoqQgQURy33EcPM8jFbP+jSCKCPk/DBgTvDeNf+4nHQZBgJQy+e03wjBEBSrZf58x6JnMUFHQMdLNmvRDdC+krruNZU/u48iIKFBJpykhBG65jKh4WP4M9elLXB/N8cnOsqi7g6d5h0djj5nX1UqPHtHb187Su6cYKoM+sJyGVw/QJYiym0iXMk0z0SfRslyg6UoNTUN5KsV+mi/WcmRKwWAXp0+uo8dy4dIJevdUYZQ0nDMN9J6swReVPyNbloXrOshYO9vG2LiY4o2NhF+/kaldQKa/E+fZa4zquTDcydS5q7AqBVof2T37YfMcqPzAVyCFIBXP7XsenlIoy+bL6irGLu7F/zbGcPVCtKcXcNNpPq6YjzHSi3XhLG83LKFUzJJv3cm9lr2UPZ9YOt/3f5ky64b9g5f1m2i6C2QGuLxyF4feAS9ucriug5vjwNmDNG55zuA0mPuaWd8+jiH/sCSxiSuInS1Okd7QSMttHz73c231DjreAM9vcXztMe5kQJw/yu6td/igg9a2nW0HBii4MZsiTuBsDuOYxIE1J3MUrAqh8NHGv2M6AlV2yE3kcLwAYZtksxq+DHELGrm8hQzC5H1syk8Z9A9PuKirjwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="walmart-bs"
+        title="walmart-bs"
+        src="/static/1eff08f9a1e22737dd6b6a890a2fb07d/f058b/walmart-bs.png"
+        srcset="/static/1eff08f9a1e22737dd6b6a890a2fb07d/c26ae/walmart-bs.png 158w,
+/static/1eff08f9a1e22737dd6b6a890a2fb07d/6bdcf/walmart-bs.png 315w,
+/static/1eff08f9a1e22737dd6b6a890a2fb07d/f058b/walmart-bs.png 630w,
+/static/1eff08f9a1e22737dd6b6a890a2fb07d/6db71/walmart-bs.png 659w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>流動資産は現金を除くとほぼ全てが在庫で、固定資産は大部分（8割以上）が店舗等の設備となっている。</p>
+<p>典型的な小売業の BS の特徴として、売上に対する売掛金の額が小さいことがある（顧客はその場で対価を支払うため）。一方で、取引先に対して仕入の対価を支払うときは月締め翌月末払いという支払いサイクルが一般的なので、その分だけ会社は現金を留保できる。</p>
+<p>ウォルマートでは売上に対する売掛金の割合は 1% 強であるのに対し、仕入に対する買掛金の割合は 11<del>12% 程度となっている。たかが 1</del>2 ヶ月分とはいえウォルマートの規模だと $30B ~ $40B という大金になる。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ad7c43f2376be99bec94c4668cbd9955/6e9ba/receivable-payable.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50.632911392405056%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAACEUlEQVQoz02STWsUQRCG938pKGjixYOCgngKGshBBcEfoheVfAlB8CB4ED3kJCa6u2MSQhI1njSfmkx2Z3ZmdrunP+eR6YEkfSiK7q6HqvetFoDWGuccUFFIx79egZUxWZagpaLIcgrhkVKQSUVWKIQY4irCMUZjjAl5q6oqlFJYa6kqjwd8Bd5K7GAN7z2uPMYcfaCuN/Ei6vfTkNv+Mq7YRpQ2QAOwDmVZYq1pCg5f4+UBlU5RnYvgFD6NUO0LocDuvkSt3w252pxE7zxHaHBWn3XYjGzDRRmNY/tLlLpg0BlD6iEiiRh0r6GAYneO4eZUA/zxCLM3F4DWqAaY5zlSiNMOk5VbpPFnRDkg7VxFqJxhv0Naw2vgzgzp+j2yOt+YwuzNBqDRZZCulSRJADrXAOXqDVzSprIS1b3SjDxYRUVjzch78+jN++Fv+f0BencWaWrZRhRFQUtKGcjONi6ptZvYpA1OIKOrVK6EfAUZjYd3fziP3Jhs4D8fBuBIgXfmzJQaWos6MlB0r+OTLwzFCNm+hDUlJwcRKrocNDzZnsZtTZBVEH+bwu1PN6a4c2vjfPCXV0uer28n8EfLzLzfZ3/xNvHfE54tfEJ177D1B17MTsOvJ3xchXcLj+H4DYU853Idaqj3jiRXpGmM94Y4FRRZjHWe435OOepRmoqjuIdVGaPS0+vFOCPQxpxuyX8eyeKqGPyAOQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="receivable-payable"
+        title="receivable-payable"
+        src="/static/ad7c43f2376be99bec94c4668cbd9955/f058b/receivable-payable.png"
+        srcset="/static/ad7c43f2376be99bec94c4668cbd9955/c26ae/receivable-payable.png 158w,
+/static/ad7c43f2376be99bec94c4668cbd9955/6bdcf/receivable-payable.png 315w,
+/static/ad7c43f2376be99bec94c4668cbd9955/f058b/receivable-payable.png 630w,
+/static/ad7c43f2376be99bec94c4668cbd9955/6e9ba/receivable-payable.png 731w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3>損益</h3>
+<p>PL を FY2017 - FY2021/1 の5年分並べてみた。金額の単位は $1M。</p>
+<p>FY2021 の売上は $559,151M で、2020年度の日本の税収（608,216億円）とほぼ等しい。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7d82fc3b49cec905173796ef6e2a8c97/e9beb/walmart-pl.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50.632911392405056%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABy0lEQVQoz02S607bQBBG/f4PQlVVpdALalFbSAgkJA2tUJUEwo8mUAm5MbbXTrL3U+3apbG00pnZ2W808znZas99WqOylKfHlFqkSPHAKiuotmvKSpDnOaKqMHKNyDOKoqCu10ijqERBKQR1XWOtJfEeNpsNSinA471BGQ24GFvrntk7h7HNCfFDZnnMbWRtDMYYEna+5crx8GTwSM7mFde/a2DL8UQwWlSRP1wLzu4a3rssOf65iW+dbzQS7z2iCg8V+yNNZ6rjxYsLydlMx+6Bu9OGXw0Up5OG340VnZal0mitScqyjEEsuNKc35ooGMQHdy0PNf15wwffNL2bhkN9Z9pwWI1zjiTLMrSxMfl2rDlvi18PFYP5f+63jQ5Gmt6s4fdXmu4/QRf270mCIUUp4sih48lEhmv2LiUnNzs8k9GclyPFl4mKvD9WfG35eeTdhR6ODRfz4KBm/6JkOJfPPLjdxqZv+gXd2TbmDwc53XYiv2uKjYqWjz8U3dMp2HuORoJ+bwr+kaNRyXlnAqR8Ggt6gd2Cz98rOqFep0htceE/bNQ9zlk20rBaLjDbnLWCP8slWgo2OvA9RtaR08Uv9HrV5heRTWvKX0Ou8s7x4YOAAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="walmart-pl"
+        title="walmart-pl"
+        src="/static/7d82fc3b49cec905173796ef6e2a8c97/f058b/walmart-pl.png"
+        srcset="/static/7d82fc3b49cec905173796ef6e2a8c97/c26ae/walmart-pl.png 158w,
+/static/7d82fc3b49cec905173796ef6e2a8c97/6bdcf/walmart-pl.png 315w,
+/static/7d82fc3b49cec905173796ef6e2a8c97/f058b/walmart-pl.png 630w,
+/static/7d82fc3b49cec905173796ef6e2a8c97/e9beb/walmart-pl.png 730w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>BS よりも PL の方が金額が大きい典型的な小売業の PL と言える。在庫の金額が売上高の 8~9% なので、平均して1ヶ月で1回転する計算になる。売上高営業利益率は 4% 程度であり、特別マージンが大きいわけではない。</p>
+<p>売上は毎年 YoY で +2~3% を維持していたが、 FY2021/1 はコロナ禍の中で +6.7% と大きく伸びた。日本ではセブン&#x26;アイグループが FY2021/2 で前年比 ▲13.2%、イオングループが同期間で ▲0.0% なので、ウォルマートは日本の小売業よりも COVID-19 の感染拡大にうまく対応していると言えそうだ。</p>
+<p>なお、ウォルマートの連結売上高では +6.7% だが、ウォルマート US とサムズクラブ（主に US で展開している）の売上は +10% 近く伸びている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6d8d8179f8a9d521a7abe90fea6b1736/6bff2/4-5-4-compare-sales.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACW0lEQVQoz4WRS2sTURiGs/cXuNFe6D8RF66KShURFXXrxo3gBaELQehCKV7oRUUUSynYFGorbY1UQ0qboq2W2jSZzCQzuadN55aZzOWRSXqx3fjBe87hO+c85z3fFyrrDaSaRXqrvq9MzaKoOyiqjbBtI9Zssjs2Uq1BSW8QhO+zO/uHFCqWK/xJCkhyDkGSETIKKTGDECgjs54U2EgKJASJ9c0Upu3sgjxU3eRohIINz3XB9/A9r3nQ89xmruG46JqOaRhouomuaQEKpbBFtrBDZFnGrFtYVgPbbrQc7pH9f77xvxiJCMzFs0zFRH5slFleLzC7KO459A+BjkIP6gOe5zVzQzMSo99k3s6JLP6SGfueZXAysQds+Qusr6UKgIfrujiOjec6B2DP3X/t1YzIWFTm3ReRD19FRqMKg1PJFjAYltZyfIrneTK+QfR3ntmVEuFYhqJqU1XrlGsmuZqFZTv4+Ax8FhmZz/JmVmR4RmJkXub5ROIAGF7IMRXPE15QGIsqjMcU3kckEnmdn+ltIqtFViWV1XSVFaFCOKYwHc8zEZObdyaXcnyMZtnWDEJOo0GlWsWs19F1A8MwMEwT0zTRDRPDMNF1E1VrdVrVTOp1q9nVQJZl4zit0jwYmiYk54pspgTSYoaUkCaZTJFMpZrrfKFIqVKlWA5UoViqUCiVyeULTRM7qkZN1ZByZXoHxjl2+j6hrp5e2rvv0tZ9j7azD2nveUTHpT46rvTTce0lnTeG6bz5uqXrQ3RcfUH75aecvPCYE+d6OXP7Gadu9dN1/g7HL/bxF2gREeq2zluzAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="4-5-4-compare-sales"
+        title="4-5-4-compare-sales"
+        src="/static/6d8d8179f8a9d521a7abe90fea6b1736/f058b/4-5-4-compare-sales.png"
+        srcset="/static/6d8d8179f8a9d521a7abe90fea6b1736/c26ae/4-5-4-compare-sales.png 158w,
+/static/6d8d8179f8a9d521a7abe90fea6b1736/6bdcf/4-5-4-compare-sales.png 315w,
+/static/6d8d8179f8a9d521a7abe90fea6b1736/f058b/4-5-4-compare-sales.png 630w,
+/static/6d8d8179f8a9d521a7abe90fea6b1736/40601/4-5-4-compare-sales.png 945w,
+/static/6d8d8179f8a9d521a7abe90fea6b1736/6bff2/4-5-4-compare-sales.png 957w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>上図は <a href="https://s2.q4cdn.com/056532643/files/doc_downloads/Factbook/2021/FY21-Fact-Book-FINAL.pdf">FY2021 の Financial Factbook</a> の5ページより引用した<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup>。</p>
+<h4>COVID-19 の影響</h4>
+<p>より詳しく見ていくと、事業セグメントごとに COVID-19 の影響が異なることが分かる。</p>
+<p>ウォルマート US では Transactions（取引数）が大きく減っているが、 Average Ticket（平均単価）はそれ以上に増えており、結果として 10% 近く売上が伸びている。サムズクラブ（コストコみたいなやつ）の方は平均単価よりも取引数の伸びの方が大きい。</p>
+<p>つまり、それだけまとめてたくさん買う人が増えたということになる。サムズクラブは元々まとめ買いする人が行くところなので。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5d965985fe620633f8cdca13743a2bb1/6bff2/4-5-4-covid-effect.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACjklEQVQoz32SS28TVxiGZ99f0AVtIeWfVN1UCAmBRKWqRW3X3XSRRdkQdlwqoRAnokGoF9LiJOIWIQT8ATBxUtuJ44ztuc+ZMzc74/HEMYmfaiZtlxzp0fd+33vOkV6do8TZO3ajEUb/ALl/iNw/Ihod0X83IRgdYaeHiOwQf/8Id3hIbzzhfUvJRmP6aUa4N2TxcZ1rf1S486jGbLnKzaV1fv5znRv33zK3sklpdZObS28pLVeZK1eZX9ng17U6t8vH/V56gOL7Pq2dJoMkwXJ8WqpBR7dpdy3UjklL1dFMQUez6WgWmiFo7uq0Naegozuoms1O22A0OkAJw5DqxgbD4ZDBIMG2TFzXwfMEQrjYtkkcR/i+REqPOAoRwiEMfcLAJwyDonrCJcuGKNLzqFQqpGlKstfDdSx8KQqk5+LYJlHoF31+KNeuYxP4HoEvC3JPuDZZlqEM0hRN00iSAYYbsaVaNNv2/zRaBjsdh23VKvhP516uW12XpmqzrdoMsxFKflGvFxPFfX5f+5tSucLyyy1+e7pZ6PlyhTur6zx4Xmf5RZ3Fh1XmHrxhYWWdpWc1Vl81uP+sxuxfrxkMD1C63S6GYTAej9nr/xvZE4RFJA/bMoo4eXTT0PCEg6F3i5ll6gWmqeOYGroboIRBQC+OYTIhSRKCIMD3A+I4Lsh/QTGT+aNIoigqahhGhSelX+ybjFKmS09QLMdjs9agsd2k3tiiVm+gttt0NR1HeAgZ4MoAIcNj7Ulc4R17ufYkquEw88tjPvj8MsqnF67w0ZlpTuSc/YkT52Y4+eUNpr6eZerSAlPf3WXq+3vHfLvIqW/mOfnVLT65eI2Pz1/lix9LfPbDLKfPT/Phxev8A+8g+S66HRLaAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="4-5-4-covid-effect"
+        title="4-5-4-covid-effect"
+        src="/static/5d965985fe620633f8cdca13743a2bb1/f058b/4-5-4-covid-effect.png"
+        srcset="/static/5d965985fe620633f8cdca13743a2bb1/c26ae/4-5-4-covid-effect.png 158w,
+/static/5d965985fe620633f8cdca13743a2bb1/6bdcf/4-5-4-covid-effect.png 315w,
+/static/5d965985fe620633f8cdca13743a2bb1/f058b/4-5-4-covid-effect.png 630w,
+/static/5d965985fe620633f8cdca13743a2bb1/40601/4-5-4-covid-effect.png 945w,
+/static/5d965985fe620633f8cdca13743a2bb1/6bff2/4-5-4-covid-effect.png 957w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>上図は Financial Factbook の7ページより引用した。</p>
+<h4>売上の EC 比率</h4>
+<p>ウォルマートは EC の売上を直接開示してはいない（見逃してたらすみません）ものの、既に開示されている数値からある程度推測することができる。</p>
+<p>最新の四半期決算である <a href="https://s2.q4cdn.com/056532643/files/doc_financials/2022/q2/CORRECTED-TRANSCRIPT_-Walmart,-Inc.(WMT-US),-Q2-2022-Earnings-Call.pdf">FY2022/Q2 の Management Call</a> において、ウォルマート CFO の Brett M. Biggs 氏はこう述べている。</p>
+<blockquote>
+<p>… eCommerce sales grew 6% in Q2 and 103% on a two-year stack. We continue to build a very sizable eCommerce business around the world. In fact, we’re on track to deliver $75 billion in global eCommerce sales this year and on our way to $100 billion in the near term.</p>
+</blockquote>
+<p>FY2022 の年間 EC 売上が連結で $75B に達する見込みであるとのこと。FY2020/Q2 → FY2022/Q2 の2年間の比較では成長率が +103%（最初の1年で +97%, 次の1年で +6%）だった。</p>
+<p>決算説明会資料（Financial Presentation）で開示されているここ3年の四半期ごとの EC 売上成長率を並べると次のグラフになる。ここには含めなかったがウォルマートの海外事業の EC 成長率はこれより高く、例えば FY2021/Q4 はメキシコ/中央アメリカで前年比 +171% 、カナダで +229% と急激に成長している。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8c7db37885f22e7a3c4076934f0d0362/f941f/walmart-ec-growth.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABIklEQVQoz22Si5LDIAhF+//f2mmb+Fbg7GCaNNtU5w4iAhfkpqqY2QVgtGHElGi1oDWTc6L3jq9fPo5ba20+csWD7zBV+lDcnkpnCY2QKirj8vbw8YBn5TdLSA1EITc/G0M+9gtDEUE8q34xNKV1Zc0yzzvaUGI1QlFEzUP+Z+jljjHYlh1w41oMte1Gd4szU6E3b0NH93btDPfItXRC7MTUyWUQQqOsEcsRSVdYTtQ1sj4CGgMmMhPenN0suw9aiPQQKUukhoTJQMcX3NEZvWuqg5lca9kCOkMZ26Ntc8jZm/1Hv6X7iYApuTlsnmfAnDOv14uUEq/nc5NvfVmWw+5y18/3pWQej+ccv9ub+cx4lp/RYX7a/X6fjP6PFSe5+f0BG0sToo34OBwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="walmart-ec-growth"
+        title="walmart-ec-growth"
+        src="/static/8c7db37885f22e7a3c4076934f0d0362/f058b/walmart-ec-growth.png"
+        srcset="/static/8c7db37885f22e7a3c4076934f0d0362/c26ae/walmart-ec-growth.png 158w,
+/static/8c7db37885f22e7a3c4076934f0d0362/6bdcf/walmart-ec-growth.png 315w,
+/static/8c7db37885f22e7a3c4076934f0d0362/f058b/walmart-ec-growth.png 630w,
+/static/8c7db37885f22e7a3c4076934f0d0362/f941f/walmart-ec-growth.png 736w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>FY2021 に年平均で +80% 程度の成長、 FY2022 の Q1/Q2 で平均 +20% 程度の成長があって $75B に達するということは、FY2020 の GMV は $35B くらいで FY2021 の GMV は $63B くらいと推測することができる。</p>
+<p>なお、<a href="https://www.forbes.com/sites/greatspeculations/2020/03/02/how-much-in-online-revenue-can-walmart-generate-in-2020/">Forbes はウォルマートの FY2020 における EC の GMV を $37.6B と推測している</a>ので、上記の予測は少し控えめかもしれない。</p>
+<p>ここで、自分の予測をウォルマート全体の売上高と比較してみる。金額単位は $1B（10億ドル）。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 599px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d30d14cec92024f8003d9e7f37fb26cd/43142/walmart-ec-rate.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACHElEQVQoz32Sy2oUQRSG+xVci0ZcJIokCzHJ0idw497HcONtkyC4E1FJkFy2QZKASpZCEJMBXYiEccaEqBOT1um27z1T3VXVv5xTVQNBsKCaOqervvr/c8prmgZuuLUfawRRDhFHED+P0A//oMxj1CJFkqQIwxB1XZ8649YeLQaDAYqi4ITWGqJSkLQB4JgOKymhtIaUysRK8T+aWZahqiqGegShmef5aAONuv8L+fttVMdHHGtFeY3B5x18v3UTwYtn9kIDdko9tyjL0iiUkuN4cw17F84gWHzKsSp8ugZF6x3ak+dx8uC2sanUaYX0EUIgTVMDtLWJX2/iy9WLCFcfo8EQShScLz600Jm9DH/+nlWu2L4bXhRFXJORZQtMtl6iM3MW4apVWNUWuIvO9ARO5u6avJTsjhQSxwuCgEGUZKC1nLxZZ2vh8qJRYi2xwukJ+BaobXOoqWTd6/f7DMuzzNbQWd5Ae3IM4crCf4GkcDgc8kuh6TmpRKebyBr1M3q1jvbUGIKVBdPNSjBg8HEXnZlLbLmxQGKMuuyK6bqMxhS43NpA+8o5hMtGYS1qJA0Q7rTQvTYOf+6O6TK9WyFGz42BFMRJSjLQ7RVYagHbz9fQnR3H8ZKp4af9DDeeVHj08C0Ork+hN38fVJxKiH+BpIxsay0R5xJ7PYH9r0cof3xDlab8eMuhxOHvGgeHPnLKxxGkUpC2hg74F33FdIzU2VesAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="walmart-ec-rate"
+        title="walmart-ec-rate"
+        src="/static/d30d14cec92024f8003d9e7f37fb26cd/43142/walmart-ec-rate.png"
+        srcset="/static/d30d14cec92024f8003d9e7f37fb26cd/c26ae/walmart-ec-rate.png 158w,
+/static/d30d14cec92024f8003d9e7f37fb26cd/6bdcf/walmart-ec-rate.png 315w,
+/static/d30d14cec92024f8003d9e7f37fb26cd/43142/walmart-ec-rate.png 599w"
+        sizes="(max-width: 599px) 100vw, 599px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>このように、 FY2021 にはウォルマートの売上の約 11% が EC から生まれたと考えられる。 EC の成長率は売上全体の成長率を上回っているので、この比率はさらに上がっていくことが予想される<sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup>。</p>
+<h4>Walmart Connect</h4>
+<p>ウォルマートは店舗や EC を通じて商品を販売する以外にも様々な事業をやろうとしているようだが、その中でも <a href="https://walmartconnect.com/">Walmart Connect</a> という広告事業<sup id="fnref-3"><a href="#fn-3" class="footnote-ref">3</a></sup>が急激に成長している。売上の数字は開示されていないものの、 Management Call の Transcript を読むと前年比で +95% の成長をしているとのことだった。</p>
+<p>Walmart Connect において、広告主が出した広告が表示される場所は大きく分けて3つある。</p>
+<ol>
+<li>ウォルマートの EC サイトやアプリのトップ画面や商品一覧、検索結果などの画面。</li>
+<li>実店舗に設置されたディスプレイ。実店舗のディスプレイとしては、 4,700+ 店（US 国内の店舗の約 88%）に 170,000+ 個のデジタルスクリーンがある。</li>
+<li>Facebook や Instagram, Pinterest 等の SNS で、ウォルマートが自社の顧客情報を基にリタゲ・リエンゲージメントする。</li>
+</ol>
+<p>よく考えれば合理的な話で、ウォルマートはアメリカ最大の小売企業であり、会員カードや EC サイトのアカウントと紐づいた豊富な購買データを保有している。消費者に商品を売りたい会社にとってはとても魅力的な情報なので、広告事業をやるというのは理にかなっている。</p>
+<p>広告事業としては Walmart Connect に加えて The Trade Desk 社と協同して DSP の立ち上げを進めており、2021年末のホリデーシーズンに間に合うように提供する予定らしい。ウォルマートの購買データを基に顧客のセグメントを行うというのは中々おもしろい取り組みだと思う。</p>
+<p>ちなみにウォルマートもしくはその EC サイトで買い物をする顧客は毎週 1.5 億人いるそうで、アメリカ人の9割が直近1年でウォルマートで買い物したことがあるらしい。売上規模はまだまだ開示するほどでもないようだが、今後が楽しみな分野といえそう。</p>
+<h4>収益構造</h4>
+<p>ウォルマートの FY2021 の PL を見ると売上原価が $420B あり、売上の 75% 程度を占めている。これは製品の原価と物流施設・店舗への輸送費が含まれている。</p>
+<p>販管費には店舗や配送拠点の維持費用および人件費が含まれている。ウォルマートは売上原価および販管費の詳細な内訳を公開していないが、主にこの2つが含まれていると考えてよさそうだ。インターネットのサービス業だと広告宣伝費が販管費の中で大きな位置を占めることが多いが、 Form 10-K によればウォルマートの FY2021 の広告宣伝費は $3.2B なので販管費の 3% 程度に過ぎない。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 617px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f9152db1231e133742285c7e15588506/bc962/walmart-pl-breakdown.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 60.12658227848101%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB80lEQVQoz42TzWvUQBjG98/wWFQQD3ULRaEoFcS/xZsIerFIwYNKb/akeLAXD548e5GqXT+Q0k9X46rrfgVFdpl0kuzmYybzk0lStdhdHJgQyLy/PM/7zFuJooh+v4+UEuF5dLou7U6POEmxyyiF0QpjDP+zKvagJwTS90niEVkiMXbrlOyvgxaXaU2WZWO3ZVXyw+XPXWG490yx/DThUx9oN/hxd4mfy0sknVYBLgvH7VxhVgK3O5rTiz4nr3msfgM2XlKvHsOpTjHcXC+AWk+2bB+jKAaTUu8pLt4JmVuUrFlBW69w5mdpzM8w3NnMC7RSky3bMHIgUO9pLtwOOHNDUmtbya9xzs3QODvNqARahRMtCyF+J1oAwz/AnTc45wuFo92tApimhe0xqVcGgwFS+tYM7y3wVqFwzQLXX1CvHuXjqSnCjXcHCvPUD7OstSZJlf1c9jAoeti0KTt0F67iLlwh7rZJBn1k7Tn+2xo6DHLofuoHrs1+yrvdjLmbQ6avh6x+UP/Y2XvyGOfEERqzx0lazUNTz4E6Mxid8OV7zOUVwaUHgo1mBCZBentIIUiNIfz6mc7D+/QerRB7AhkEtFotXNcljuNcZXmxDUoVU6DSCJ3GuRXbDt/387G073ZygswwzBsESinCMMSOry6n6BdCQHZbqlhIbAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="walmart-pl-breakdown"
+        title="walmart-pl-breakdown"
+        src="/static/f9152db1231e133742285c7e15588506/bc962/walmart-pl-breakdown.png"
+        srcset="/static/f9152db1231e133742285c7e15588506/c26ae/walmart-pl-breakdown.png 158w,
+/static/f9152db1231e133742285c7e15588506/6bdcf/walmart-pl-breakdown.png 315w,
+/static/f9152db1231e133742285c7e15588506/bc962/walmart-pl-breakdown.png 617w"
+        sizes="(max-width: 617px) 100vw, 617px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>人件費については気になる傾向がある。</p>
+<p><a href="https://s2.q4cdn.com/056532643/files/doc_financials/2021/q4/CORRECTED-TRANSCRIPT_-Walmart,-Inc.(WMT-US),-Investment-Community-Meeting,-18-February-2021-8_00-AM-ET_.pdf">FY2021 決算の投資家向け Meeting の Transcript</a> によれば、ウォルマートは段階的に US 国内の賃金を上げていっており、 FY2022 には平均賃金が $15.25/hour になるらしい。FY2015 は $10 程度だったので、6年で 50% 以上も上昇するということになる。</p>
+<h4>販売カテゴリ</h4>
+<p>ウォルマート US では売上の約 56% が Grocery と呼ばれる生鮮食品や飲料、紙製品などの日用品から構成されている。ウォルマートが別のブランドとして運営しているサムズクラブというコストコのような超大型スーパーでは、燃料とタバコの売上割合が高いようだ。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/786f52bf22ba8603bc40b1720b3db66d/b97f6/sales-by-categories.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACrUlEQVQoz3WS22sUdxTH59n/QB9yKfT/KIgi4pOEVlRU4oP2wSe1N6EleEHaoGK8oaYRo8aWKlXaxpaoQRRi05irmewluzvZ2etsdmdnd3bm95vLp+x4fdAD34fDOYfzhc9XMWyPJcMhUxNkTMFy1UX4AR+qMAzf6mMzpeVKqg0HR0iaLZemK6OFIAhxXRfpebhCIIR8e9z+5zgC25bYLUmr5RK8/qF4nk/TqpPWS1gNG0IfKQXlUp5SsUgirpLJpCgWctTNKiDxZRrTzFHIz1EqzmMYKwg3E82U0Jc8eTjKuXtT9D82kSGkEipDlwcwykVuDv/M1OQEU5PPuXV9EE3PcuCHPqYXF7kycpsLwzd4mYhz+MRxsoU8yvD9/7hw/UFkd2C8wviyw9PZLBsP3Wc6YbD92EMG/1Ij7Tg+xmSsSueeMe4+y7Pv/AK7Ts3waMHks6MLqLqNcm00zs4zs2hmQN+feWayNv9qDp8P6SwWBV/+WmBkyuL2C4v9vxSIG5LeEZ0JzeH0eIX+RxUmVxx238iSWpUobWejqk3faJl7843I6YsVm+9+z6LVPE7+XeAf1WJsqcHJBwUyq5Kv7urM6g7XJqpceVZhPu9y6I5OzvRQXFcQegJfCvDbNEVErN5sYdatCFTdamBUVqk3mrRh2o6L1bAoV6rUrWbUt9OQLtbaDkOCIHhP/ptkRbRD3yPwJVK4EL7LZ61Wo2KUaTYsfO9VpL6+9AdKeiXH9NxLZuYWmJ6dR43FiSWSqLEEsWSKpUQKNb5MLJlmMZYkmdYoVWpouSJaNoem54llchw5/xtrNhxB6d76PWs3HWTd5sOs2/ItHT3H6Nz2E107z9K1+xLdvYN8sneI7rZ6r9K16yKd28/Q8cWPdPQcZfPBi6w/MMCnPd+wdls//wMv2vh/VgN+kwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="sales-by-categories"
+        title="sales-by-categories"
+        src="/static/786f52bf22ba8603bc40b1720b3db66d/f058b/sales-by-categories.png"
+        srcset="/static/786f52bf22ba8603bc40b1720b3db66d/c26ae/sales-by-categories.png 158w,
+/static/786f52bf22ba8603bc40b1720b3db66d/6bdcf/sales-by-categories.png 315w,
+/static/786f52bf22ba8603bc40b1720b3db66d/f058b/sales-by-categories.png 630w,
+/static/786f52bf22ba8603bc40b1720b3db66d/40601/sales-by-categories.png 945w,
+/static/786f52bf22ba8603bc40b1720b3db66d/b97f6/sales-by-categories.png 958w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>上図は Financial Factbook の8ページより引用した。</p>
+<h3>キャッシュフロー</h3>
+<p>PL を FY2017 - FY2021/1 の5年分並べてみた。金額の単位は $1M。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6e9063f8ce88d8229a7ef2dda02bd271/889a4/walmart-cf.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB0klEQVQoz2WT2W7TUBCG8/5vAC/AFRIXIHGBhOhNG4m0LCJr0yx2GzV1FsdxfNb5qnNOSFMYaTyjWe35f7cAmqahqioE8CJ471/sue9cstYmDQ1GUY3/UGy2iHhaIkLQIG6zxu330fdaxwXiXFJeRE/vMIuH1OMaZlmHotggCK0QNEZjBJpBF/2Qx8Lm5/fUnGeo2ST6athLuWEPnU2jb3TNbHLDarXBWXscqDXKedSoT5XlHAys221UWDK9Q40HGODx2wWVQNEdUk7naaDz5OuSPMvY7Xa0yrLEGpM2D3r4xye0h037Og5Zjyas+hNqD7vLq1hX97s02QNjdezTjkNdY4yhVRQFWiusgF2Oufz1jlJD3n3PaNlDyjXzwceYv+9/5kd+hd/VXHfeMlwtQc6vC63tdhtvmC5c8On3Gzxw+9ShvegCFl18ien7csTN4jr6F7cfKJoqAXgENmi8oVKKKqArwmg9j9RYHiqmuxXYPXr5NVLEOkE7j3ihMgZlDQH+gO5fppxoE5X/RcSBq1/HXuX/+eRIDa0juUPSBsJ6j3MO64IvOCdnsUTulPOngac3DI8wJCAUCgL0wYYF+/0+FkYmWJtOU1WnOnNkx/nP8QzNWVKFdkwFRgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="walmart-cf"
+        title="walmart-cf"
+        src="/static/6e9063f8ce88d8229a7ef2dda02bd271/f058b/walmart-cf.png"
+        srcset="/static/6e9063f8ce88d8229a7ef2dda02bd271/c26ae/walmart-cf.png 158w,
+/static/6e9063f8ce88d8229a7ef2dda02bd271/6bdcf/walmart-cf.png 315w,
+/static/6e9063f8ce88d8229a7ef2dda02bd271/f058b/walmart-cf.png 630w,
+/static/6e9063f8ce88d8229a7ef2dda02bd271/889a4/walmart-cf.png 658w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>税引後利益 + 店舗設備の減価償却がそのまま営業 CF になり、毎年 $20B - $40B 程度のキャッシュフローが生まれている。</p>
+<p>投資 CF は毎年店舗設備など BS 上の資産となる支出におよそ $10B をつぎ込んでいる。また、 FY2019 にはインドの EC 企業である Flipkart の株式の 77% を $16B で取得した<sup id="fnref-4"><a href="#fn-4" class="footnote-ref">4</a></sup>。</p>
+<p>財務 CF は主に社債での調達と償還で、大規模な投資にあわせて調達を行っている。Flipkart を買収した FY2019 には買収に要した金額とほぼ同じ <a href="https://www.bloomberg.co.jp/news/articles/2018-06-21/PANHGG6K50XZ01">$16B を社債で調達した</a>。また、毎年 $7B ~ $8B 程度の自己株式の買い入れを行っている。</p>
+<p>これらのキャッシュフローを足し引きしてだいたい毎年 $7B ~ $8B の現預金が手元に残るという運用がされているようだ。</p>
+<h4>Capital expenditures</h4>
+<p>ウォルマートが毎年およそ $10B をつぎ込んでいる資本支出（Capital expenditures）については、 Factbook に大まかな内訳が記載されている。</p>
+<p>これを見ると、FY19 までは Remodel （店舗改装: 什器の導入、搬入、設置などを指している）と eCommerce/supply chain にほぼ同額の $4B 程度が使われているが、 FY20 以降は前者がほぼ半分になり、その分が後者に充てられている。</p>
+<p>これだけでも日本円にすると毎年 2,000 ~ 3,000 億円程度の投資がされているということになる。なおこれは BS 上の資産になる支出のみなので、 EC に関わる運用コストや大部分の EC 開発者の人件費は含まれていない<sup id="fnref-5"><a href="#fn-5" class="footnote-ref">5</a></sup>。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5b3e026dff6e6071b549f9f519fa7ca8/b97f6/capital-expenditures.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkklEQVQoz32Sy2sTURSHs/Y/cGNrFbcudCm4EUFQRJEiFd8KLhQVlEqR+kKw0oVQqaj4XghubIUqpIoi4gNqpW2aNJ1MJsk0M3MnmclM3o9JPsmk1Y144cDhnt/97j33/AJmsU5IlEg5NSSrSjxXY9GqkXLrtIBWqx3t7P9rRROoey0KNQ9NmGhCkFCXSKop1LSGlRW0mnVf2Gy20EQeXVhouiCeNNE0A03PYmQKK1QC0CHrmTwp3cZxS3ydlnEKFWKqjaTay29oQPkX1AWNqk1R+4RXK0AtDZX59pV+N4GG1/Tlh298YMupMaYjOjtPP+PzT4Wro5OcG3rj1x3X5cjZ8wQ/fmJqLsrW/aeRkmnG301w8eoVisVip+VmswN89XqC+09esrSU4vmTeyiyRDAY5M34uF/P5BtsHlzgxReLH/EyGwclFo0qI0GT7bdjOCWvA2y1Okk53E9+qo+6/QM9uImqmCQzfQHj+/H25+BWPK5MLPFNKSGZFfrHVIyCx/togVuTOqXaMtCHVT3SiVkMdYZiPoupTuHaOjkzimNG/Am2w3YKCDNLqVxGMzLYto0wM9hO3h/aH6Dj5AjNLxCVFAzDRGQcdMPEsvPUGn9t4TWbaLpOuVymWi2RTqcRQlBvdERJkesA29aQ5RgLkTCJhEIyoZBKJVHVJEpc9vesbBbbssjlbFzX/acXBx68JeAWKziFElEpxszsHLNzIebDYcKRBULhCJGoRCgSZTGmEE+kiMUTyEoCSZaRYrJ/LhxLcu3BGKu2Xyawofc6Xbsu0b17gK49g6ztvUlP3zA9B0dYd/Q+6088Zv3Jp/Qce0TP0YesPTRK94E7dPUOsWbvdXacv8u2MyNs2NfP6v3D/AYkdQDcnuIXQgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="capital-expenditures"
+        title="capital-expenditures"
+        src="/static/5b3e026dff6e6071b549f9f519fa7ca8/f058b/capital-expenditures.png"
+        srcset="/static/5b3e026dff6e6071b549f9f519fa7ca8/c26ae/capital-expenditures.png 158w,
+/static/5b3e026dff6e6071b549f9f519fa7ca8/6bdcf/capital-expenditures.png 315w,
+/static/5b3e026dff6e6071b549f9f519fa7ca8/f058b/capital-expenditures.png 630w,
+/static/5b3e026dff6e6071b549f9f519fa7ca8/40601/capital-expenditures.png 945w,
+/static/5b3e026dff6e6071b549f9f519fa7ca8/b97f6/capital-expenditures.png 958w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>上図は Financial Factbook の10ページより引用した。</p>
+<h2>Amazon</h2>
+<p>ウォルマートの FY2021/1 の BS/PL とアマゾンの FY2020/12 の BS/PL を並べてみた。</p>
+<p>商品取扱高ではアマゾンが上回ったようだが、アマゾンはマーケットプレイスの商品売上のうち手数料のみを売上として計上しているので、売上はウォルマートの方が大きい。しかし、アマゾンの FY2019/12 の売上は $280,522M で FY2020/12 は $386,064M（+37.6%）なので、ウォルマートよりも遥かに早く成長している。ここまで成長率に差があると、3年くらいで追いつきそうだ。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6f0fac3744fc1d9ccfa40c60511da09e/d6a46/amazon-vs-walmart.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 36.708860759493675%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABZ0lEQVQoz02Rz2pTQRjF80IFX8FdiyvfQnyFrrrrsuLOpZuILnIpAWkFqX8S1ITbYEJbYkIRW0uoNBNz587/+cmd3JocGPi+w+F8hzONwliEmGMLgSgLpFJYvUApSSklZrmkVJo7UaBUidIGqX3idVmgygVSGWIMxBhpAGlYYUXeb7F+95v3nhACmxj8DHw4d2n2IdKoREopQvCspR5CrB0DMQS0MUnnrGYhAzPh05GP55asb9LsfKQhhPhv82N6wLPRW07uKmvLxEhuau8Kzq1MumPHmy8mcZ8uHO3crhNWPaWEQPFqh2z/Afmow59ZzouXj3n+vom2FmssslQQNd8mjqxva0NL+9SuE252eP30CYePthn2etDvMHi4RXNvF6v1RkLojj2vO2XFcHLmaH1Vq46rhMSYirbes/z8jvbRlPwWuLnkLDumlYMyjhg8vvqQ6Pg9D3zPJ7AYczWPDE8n+L+/UsJ/rvEOernkxpAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="amazon-vs-walmart"
+        title="amazon-vs-walmart"
+        src="/static/6f0fac3744fc1d9ccfa40c60511da09e/f058b/amazon-vs-walmart.png"
+        srcset="/static/6f0fac3744fc1d9ccfa40c60511da09e/c26ae/amazon-vs-walmart.png 158w,
+/static/6f0fac3744fc1d9ccfa40c60511da09e/6bdcf/amazon-vs-walmart.png 315w,
+/static/6f0fac3744fc1d9ccfa40c60511da09e/f058b/amazon-vs-walmart.png 630w,
+/static/6f0fac3744fc1d9ccfa40c60511da09e/40601/amazon-vs-walmart.png 945w,
+/static/6f0fac3744fc1d9ccfa40c60511da09e/d6a46/amazon-vs-walmart.png 1008w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>アマゾンの事業セグメント別売上構成は以下の通り。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/00197806b0e24dfe787b73cd3fe25026/889a4/amazon-segment.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACI0lEQVQoz3WSSU8UQRiG+2r8Ddzx6HLScPEPGE8e0RNGDxqXGHE5KDdNVBLCqAdCJDGRAx6MIoaIW4IYEsQDMogMDJnpoZleZnqp7q7qx3TNTECJX/KlllQ99b7fVwZAGIY0Gg2yLEMptSdRikDBsoKShAxwQ58tu46Skk7k943OZC8s04dlIvRhe3OJqfsnmX12FSVTXGcTs7qOEAlJ0so8NDBfCCFaIJmiZKLHXIlqv15Z/cLQ5f2MP+whTRI8bwWzWsQ0LUzTxLIszdDAOI617RyYQ7I2ZH3tB5/fP6dcWsW253g5sY+ZmR7SLCCoOWxXqtRtG7/p71jOa5e25SolWfs5z+LsW4RIWZy8y8hZg2+v7oA3B6MGvO6C1MMT0AgEURSSJOkO0HEcPM/F9wPSJGJy7DgjAwaV0ixbqwN8HTeoFS+wUWpw8/wjCvdeEIaCfyOH6RrW63VtWStMI7yJY1iDBqr2gdL0BO/OHaX6psB3Ew7cyDhVAF+0CqPazezAtEIpJVEUEQQ+cSK5/WCZE33zrPxyefoRui7C4BSsVBKO9LucGW7iR1IDd8M6oZsiZau7cZpxekTRfUuyUM4Y+xTRfcXj8XREsSo52O/TWwgJhGL3d/sLuCNX4YcxfU8cDl2zWPgdMjrj031pm+GpJktlweHrdXqHXDw/bivk/8Dcep6bVkBxw0EkErcZs1SysRsxcar0frnW1I60OvYC/wASpSR7OPFtugAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="amazon-segment"
+        title="amazon-segment"
+        src="/static/00197806b0e24dfe787b73cd3fe25026/f058b/amazon-segment.png"
+        srcset="/static/00197806b0e24dfe787b73cd3fe25026/c26ae/amazon-segment.png 158w,
+/static/00197806b0e24dfe787b73cd3fe25026/6bdcf/amazon-segment.png 315w,
+/static/00197806b0e24dfe787b73cd3fe25026/f058b/amazon-segment.png 630w,
+/static/00197806b0e24dfe787b73cd3fe25026/889a4/amazon-segment.png 658w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>Third-party seller services（マーケットプレイスの手数料や梱包・配送に関する収入）が前年比 +50.5% で Other（そのほか全ての事業、主に広告）が前年比 +52.3% と急激な成長をしている。主力の Online stores セグメントも前年比で +39.7% と大きく成長した。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/941f1a55d7709f446009dd5d26f6571d/ea7fb/amazon-seg-sheet.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 50%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB9ElEQVQoz22M53LaQBhF9f5vk+IhjRhTjI1RL1gdgYRAAiEXwCX4ZLT2OJlMfpy557uze6VZDdbsBj2uMKYN23dvejOpBU3fdGpYogQFY3fJpZO+Msmw0zvC9TOStdhh5geuN0fczVHkZP3rvzjFE0NvRcdMGFzntC4cWpcO5+6SrjVn6BdIzqKiLVsMnAhnWRPfPjHfQ/ovB0jujyKN+Ro735I/gpasiOpHprfPYkNKtgd62gTZT1DDFHdVkx9gsX9hcfiLt7sZMecldroWPg7mRNWBdP9Cz3CRvOqJCz/HLvaEdzDdQ3T/h6ZraNyvj3jFLQPTY+TGeMUNp7KJOVthpyWt/gjJzvbIUUXfylDiGiPdYczvRZrpDmtxwMz2WNnhtY9LFDdD9XP0cMl4MseICsy4xIzXSEZS077y6CghP2Wf75cTkaeyT/vK5VQJ+DG6fsOlo8b8lEPacsi3kUtbDjhVY4GV7ZH0aSUeN0PNh2akPfb4MrT5OrRF31FDMXymRoy8FWpcoUQbtOkWJdyIW40q7GyH1DcTPvd0PnZUPnU1TvoGJz2dDx2F1rkl7q6RcKZN6epNxrTHvvCRV3Dll4yDNXK4wckfkLRgSV8LGOihyK7iCZe9HCup0MICI16jR6Vwe7YlLB/fCYqHd483z/wG0tjOM8FuJJQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="amazon-seg-sheet"
+        title="amazon-seg-sheet"
+        src="/static/941f1a55d7709f446009dd5d26f6571d/f058b/amazon-seg-sheet.png"
+        srcset="/static/941f1a55d7709f446009dd5d26f6571d/c26ae/amazon-seg-sheet.png 158w,
+/static/941f1a55d7709f446009dd5d26f6571d/6bdcf/amazon-seg-sheet.png 315w,
+/static/941f1a55d7709f446009dd5d26f6571d/f058b/amazon-seg-sheet.png 630w,
+/static/941f1a55d7709f446009dd5d26f6571d/ea7fb/amazon-seg-sheet.png 788w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>FY2020 に限っては、 AWS は社内で Physical stores の次に成長率の低いセグメントになっている。しかし、これは他が高すぎるだけで事業として大きな問題があるわけではない。</p>
+<p>AWS の事業については以前書いた記事「<a href="https://lyohe.github.io/post/2021-02-06-google-cloud-comprehensive-loss/">Google クラウド巨大赤字の話</a>」で少し触れたのだが、長期間にわたって安定して成長し単体で利益を出している。</p>
+<h3>Amazon の広告事業</h3>
+<p>実はアマゾンも広告事業をやっている。上図だと「Other」にまとめられているがこの中身はほぼ（Primarily）広告事業とのことなので、だいたい $20B の売上があると考えることができそうだ。</p>
+<p>これがどれくらい凄いかというと、 Facebook の FY2020/12 の連結売上が $86B なので、 Facebook/Instagram 等から生じる広告売上の合計の 1/4 に相当する金額を稼いでいるということになる。なお、 Facebook の売上が年間で 20% 程度の成長をしているのに対して Amazon の広告事業は年間 +50% とはるかに成長率で上回っている。さすがにどこかで落ちつきそうだが、仮にこのままのペースで拡大すると6年後に追いつく計算になる。</p>
+<p>小売業と広告事業は相性がいいのかもしれない。</p>
+<h2>セブン&#x26;アイグループの EC</h2>
+<p>US と比べて日本はどうだろうか。</p>
+<p>日本で最大の小売業といえばイオングループだが EC 関連の開示がほぼ無いので、国内2位のセブン&#x26;アイグループの EC について調べてみることにした。セブン&#x26;アイは「決算補足資料」という名前の資料で四半期ごとに EC の売上想定額を、そして年度決算ごとに詳細な内訳を開示している（参考: <a href="https://www.7andi.com/ir/file/library/kh/pdf/2021_0408kh_02.pdf">FY2021/2 の決算補足資料</a>）。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f157c49a9ead000edc147a88e1e83142/8ce52/seven-i-ec.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 39.87341772151899%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABc0lEQVQoz0WSW2+CQBCF+f8/xr4Zm5RES6wxGsQHL1QRBeS+VFME76c5Y7QPk90Zdme+cxbtcrkgCHxkWY66rlFVFfb7PVarFdbrNTxvIytjs9nA87zX6vsMH0EQYDweQykF7XQ6YbvdoigK7HY7aRbHMXq9HgzjE7quo9/v46vbha5/wDAMqb23Wmg2m+h0Omi323hrNGSIRqJv20YUxciyDGmSCiWb8gCn/xSFEIdhKPXhcIjZfI7ZbCaEDNd1BUo7Ho9IkgRpmgod8/P5jCiKRFoUhigKhaXjoFBKzo1ME5PJBNPpVGQShMPrqno0ZHcWwjAS2WX5KzmpAt+XgbZtizWsk9CyLIk8z6VGAPbSjnUt6JRM5LIsQV8p1XGWsqpcYbFYiGQ+zmAwwMiyYJqmfGed5HxU8ZD4LHIaaSiBXq1dF47jyHT6REJeJNG/qse9V0P6xYT+sEl5OLx8ZHD/DP5i9/sdt9tN4rm/Xq8SzP8A5J1M6+X7218AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="seven-i-ec"
+        title="seven-i-ec"
+        src="/static/f157c49a9ead000edc147a88e1e83142/f058b/seven-i-ec.png"
+        srcset="/static/f157c49a9ead000edc147a88e1e83142/c26ae/seven-i-ec.png 158w,
+/static/f157c49a9ead000edc147a88e1e83142/6bdcf/seven-i-ec.png 315w,
+/static/f157c49a9ead000edc147a88e1e83142/f058b/seven-i-ec.png 630w,
+/static/f157c49a9ead000edc147a88e1e83142/8ce52/seven-i-ec.png 681w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6b026c6299a5315784d75da60f10af49/e7dce/seven-ec-detail.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.9620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACXUlEQVQoz22TS0hVURSGb+CksTQpEZoETQsqKAgCB1IUQhBCINUww0Fws0ENLJNw4gMblESDrJTsgQ6UUFHEzCQyX9cUvb7tPs4993je+5zzxdnXaxYtWCz2Zq2Pf6+1dgTAsiw0TcMPAgKQ7gfgCYEnXDzPw/c9/MDF9wW+72Oqy2QyaTzPDxEEQSBjZO9BOA5zo5+ZHhrE1LRc4o4LAbaTi0Hgs7WqkUqlcRyHvIUcCTQMA9Mw0fQMVc3nqXh0kuXEPBuzMb71dJNNJln6MU73kzpmRvpl8db6HInEFqqqouu6VL2r0Ns5pCyN4vabFDwvJ6YlaOm8Q0l1EV9jA3wYb+PUvYO09NbK3HVlFsPYxjBMbNv+o9A0TUzLwjEtkqZG0aub7HtWzoK6yZX+RiJNJbxf+kL9ZC+RpotcH34hi7NLE2TSKVQ1K4GhQglMp8M+2LJRmqVS+foS5a2nSakrXB5oINJ8js74GG2znRQ+PUbNaGNOYcpF2zZkbdjHcLASqCgKpqFjOi5eViF14yy/yo4SrMbp6rlN3cNCYgt9qMOtTFQVsPHx7s4EBP+zXA+FQAQBQs2wWFbKzzPHsdZWMe9XohzZjzvUi/bmJcuHD6A8rsnxPCEV/esSGEp2bIttXXCrboar1d9ZTwv6GtupL40SH5umf3CFaxXv6OiYlEDfD3bXLR+lwmBnmcEnmXW40GBx4oFJPOEQfetyKOryadqlbcShOGpT2xVOVBDuc17VX0/OX4S/QQiPxbUsc3EFV/hsJnWm5hPohktGs5maT5LMWHKx9z5zL/A3q3oPRIZ9k8oAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="seven-ec-detail"
+        title="seven-ec-detail"
+        src="/static/6b026c6299a5315784d75da60f10af49/f058b/seven-ec-detail.png"
+        srcset="/static/6b026c6299a5315784d75da60f10af49/c26ae/seven-ec-detail.png 158w,
+/static/6b026c6299a5315784d75da60f10af49/6bdcf/seven-ec-detail.png 315w,
+/static/6b026c6299a5315784d75da60f10af49/f058b/seven-ec-detail.png 630w,
+/static/6b026c6299a5315784d75da60f10af49/e7dce/seven-ec-detail.png 653w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>EC 全体では FY2021 で前年比 +3.9% の成長をしている。内訳をみると、イトーヨーカドー（+38.2%）とロフト（+52.8%）が大きく成長している。</p>
+<p>「イトーヨーカドー」と「ネットスーパー」は何が違うのかというと、どうやらセブン&#x26;アイの EC サービスである「オムニ7」の中でイトーヨーカドーが2種類あるようだ。前者は通販で、後者は実店舗の商品を購入できるらしい。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 401px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/56a1bd8dbebabeb43863f6315c8f202e/9144d/omni7.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 160.75949367088606%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAYAAAASYli2AAAACXBIWXMAAAsTAAALEwEAmpwYAAAD7klEQVRIx7VV2VJiVxTlK33wwTdf0n+QzptaVlm+amkajVYU0mq3A8YmqIEWBJxFkRmVCA6IzONlWKm18dqotOmYzq46dYB77mbttdfZSwMAjUZDlqIoUKNWq+E1oXE6nejt7cXi4iK2trZwdnYGt9uN7e1tnJ+fI5lMIhQK4ebmBnd3d4hEIrJfXFzIuZOTE3knm8kIKE08HofH40E0GkWxWJTFJJVK5QF1oVBAtVoV1Le3t8jn80gkEpL08vISibs7lJR6M2E72DzscDgQCAQEBZFzPz4+/kqhNeAvY7NkZq3Xm9m5M0LBEHp6ejA2NoaZmRn09/djYmIC4+Pj2N3dxc7ODqxWKxx2O+xOJ3ZtViSMH+X9B4RqYxjZbBZra2vY39+XBGazGXt7ezg8PITFYoHRaMTGxgZsNhus1g14vAE4XBePE6pJ/2toniZjA66vr4X8WCwmTSKnV1dX0l02jA3kzu+5XBbJTB6f3VePm6Ly5/P5hDc2ZWRkBEdHR1I6f1NLHRoaEg5Jh8/vw1k4guPPITTqjecImZhSaV18RsmUy2WRj7rUKCk1OMMJMMX/z6Ha7dbFoNDJHRGTOyqBPCficWRLCizR3NeF3ZpY5XZ0dBTd3d3CZWdnJ/p6+9DR0YEf3rxB0OtF4sT7XDZP9ahyxyCaVColyHhd0+l087dMBko+j/LBwT8j/DdRvwfyIkJqjdfs9PQUfr9fJEWUuVxO+CSvsctLxCIR5O3bqCnKywk5SaampjA4OCgcarVaTE5OQqfTYWBgQK5nb18fVpYMqAbCqFYq7UtWE6r8tZZPVLw91CGRVhQFtXIFBbcfjVqtPcJ2+7fyqmnX2Zc0qcqIs9Fms+Lnd1rs79oR8y81ZaMeUtfT7yy79Zl65WgZXV1d+PHtT5ie+gUuh17Oal57xWgD9Jl8voBUMg4g1pQNTYeGxMUxT8OhxxwcHMgAXV9fRzAYlOFKGfG51+uV6/dYh/cc8vDq6qqMIzoYX+Sy2+1YXl7GwsKCOF04HEYsGpWdeuSsZIh5kZJ7zjX4XpEONhG2ks/gZDYYDDI8SYPJZJKdzvfb1K8wzH/EmvETJrXvYFw24E/TKn5fnoPTr//S5VapZDIZuFwusVCWRg6ZjHwaFhfwYeY9VgwGvNdNw7Fpg8VshsX0CSGr8dtMin+gmn+pXH7wklKphEKxiFQ63TyoVJjg+0zsagMIpctotJvYREQONzc3sbKygtnZWTGppaUlDA8PQ6/XY25uTnY+101PI3p1g63TaxlhzxKyPDaBEqLzUT6UDT/Pz8+L6XOkieN5vfD4fCin08ia/ngum1ebFK9rsSiy+RsXCFn9rfLSIQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="omni7"
+        title="omni7"
+        src="/static/56a1bd8dbebabeb43863f6315c8f202e/9144d/omni7.png"
+        srcset="/static/56a1bd8dbebabeb43863f6315c8f202e/c26ae/omni7.png 158w,
+/static/56a1bd8dbebabeb43863f6315c8f202e/6bdcf/omni7.png 315w,
+/static/56a1bd8dbebabeb43863f6315c8f202e/9144d/omni7.png 401w"
+        sizes="(max-width: 401px) 100vw, 401px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>売上の EC 化率は次の通り。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/303aeb4636177a906b9beb7550dcd3f8/e7dce/seven-ec-rate.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.9620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB4UlEQVQoz2WSu25TQRCG/VjUIRUFLpAowqVIuEiQNNSBAiUpCEoTXoE+gAIFNc+AkO04No4dx/j4HJ/b3j+0e+xjLFaa1c7u7L/f7EwDwFqL1hprHeDIhOPqJqfIU8rfPeI4ocwTZBFX67IkRDoXzN/35kfDTz4gSRKMMeHAWIfxDwFGG4zWlYD3ja3itMT6fecQQgQLgn5jOZyzeNdqRfbjO/Kqg0MFIdHvIkeXOJthxRRHdW9JxoI4EBZFQRRFgcQf63RO+84tZp8/4rA4BP0X9xm+fVWLiOGAovUriPgMRVlWhHqBvQwMaWUpneYm8bcv9ev9vR1Gh29q//rkiO7je//9ZWM2m5GmafWH/xB2mhvE52dVKl5wd5vhwX7tj0/f03v2MKylEGRZFqzhhTxlCFwj3CD++mlFuLvN6HC/9senx/SebrGsgJKSOI5p+Ir5CuV5XhMq/4fN27VgINxbCbpa8EFFKGWwkHJQVyoUxhpTPVdkXNxdJxx4woMV4eTDMb0nW2HtMzSLLNfaxmNn0jC6ivjZ3GR6foYCIgWtlzsMjl7jr8UauifvuHj+COVcoNNKrQuGhtYaqSzjyZxpu4XOUrS1RPOSm3Yb+WcSmj7JJePLHuX1EGNtEFQLwb+QtzMwfM43WgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="seven-ec-rate"
+        title="seven-ec-rate"
+        src="/static/303aeb4636177a906b9beb7550dcd3f8/f058b/seven-ec-rate.png"
+        srcset="/static/303aeb4636177a906b9beb7550dcd3f8/c26ae/seven-ec-rate.png 158w,
+/static/303aeb4636177a906b9beb7550dcd3f8/6bdcf/seven-ec-rate.png 315w,
+/static/303aeb4636177a906b9beb7550dcd3f8/f058b/seven-ec-rate.png 630w,
+/static/303aeb4636177a906b9beb7550dcd3f8/e7dce/seven-ec-rate.png 653w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>なお、セブン&#x26;アイグループの売上は特に国内でフランチャイズ加盟店が多く<sup id="fnref-6"><a href="#fn-6" class="footnote-ref">6</a></sup>、そこから生じる売上はセブン&#x26;アイグループの売上には含まれておらず、加盟店が支払う手数料収入のみが売上に含まれる。つまり、フランチャイズ加盟店の売上を加算すると実質的な EC 化率は更に落ちると考えられる。</p>
+<p><a href="https://www.7andi.com/ir/file/library/kh/pdf/2021_0408kh_02.pdf">決算補足資料</a>の11ページによると、FY2021/2 のセブンイレブンのチェーン全店売上は4兆8,706億円だが、このうち4兆7,875億円が加盟店での売上だった。</p>
+<h2>食品の EC 化</h2>
+<p>アマゾンは書籍や電化製品、日用品などが強く、ウォルマートは食品に強そうだ。両者の EC 事業の成長率が大きく異なる原因は、サービスの違いというよりは得意分野にあるのかもしれない<sup id="fnref-7"><a href="#fn-7" class="footnote-ref">7</a></sup>。</p>
+<p>その点では、ウォルマートのように「<strong>顧客がインターネットを通じて商品を購入し、実店舗に取りに行く</strong>」というモデルは商品の保管や流通のコストが従来と大きく変わらないという点でよくできているように見える。ただし、顧客がオンラインで購入した商品を受け取る拠点を広げたり店舗やバックヤードから引き渡す商品を効率的にピックすることを考えると、店舗などの施設に多少の投資は必要だろうが…</p>
+<p>一方の日本では、冒頭で挙げた<a href="https://www.meti.go.jp/press/2020/07/20200722003/20200722003.html">経産省による市場調査</a>を読むと他分野に比べて食品の EC 化率が非常に低いことが見て取れる。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c4a2e1633a42fd803333909b9e36084d/f53a0/ec-market.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 72.15189873417721%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB00lEQVQ4y2WTzW6jQBCEef/3yBvsIfdI2cOuD7F8s3ywwcaYPwOG4b+ib5QhxBmpPbjpqa6qHrxpmtT3/a8YhkFVVSkMQwVBoCiKdLlc1HedKmN0rirdJSXjqHSalM2zummSl6ap4jhW0zR6PB6q63oJ/pP3fV+bzUZZniv0fe3jWH+iSC8fH3ofBr0Zo9ckUTqO8hxQ27YyxliAdZCD6W63E83DINClrvWvbfW63+tvUeh/XestSVTMs7yu65RlmS3O81xY4GIcRxs8J0lilWDH/X7XSM0863Q6qTFGZVXZ5h4/rvh6vVq2eFaWpeZ5XkBdQ9iyswDHV9M0NodKCwgYB2CKTAeyDmoIGsKQZv0wWH85Q84CIhk2JBgEi2LCSecZsNvtZlnBkkUj1DjvwfJAhRmy3XA4tPaRHTBAOby2A4YQKYviWzJg3Dd2unAH10NxHhJrydThIewgZQHXDGEAILn1tAlAqOFdURSLJRABENaLh0zI+QhjXjx7CDu+FuyApfPweDxaQGT/mDIsnTfPcvnPe3x0bFwNQwGMQS2AxZehrqsDcd85XrnL33zdORb58/lsVTl13hrg+e7BlmYwOBwOlg1M8JIF0+12a5uQY/8EVs02MkFVXK0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ec-market"
+        title="ec-market"
+        src="/static/c4a2e1633a42fd803333909b9e36084d/f058b/ec-market.png"
+        srcset="/static/c4a2e1633a42fd803333909b9e36084d/c26ae/ec-market.png 158w,
+/static/c4a2e1633a42fd803333909b9e36084d/6bdcf/ec-market.png 315w,
+/static/c4a2e1633a42fd803333909b9e36084d/f058b/ec-market.png 630w,
+/static/c4a2e1633a42fd803333909b9e36084d/40601/ec-market.png 945w,
+/static/c4a2e1633a42fd803333909b9e36084d/f53a0/ec-market.png 1062w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://www.meti.go.jp/press/2020/07/20200722003/20200722003-1.pdf">この報告書</a>を詳細に読んでいくと、面白いデータがあった。日本は US/UK に比べて飲食料品やアパレル店舗1つあたりの人口が非常に少ないようだ。つまり実店舗へのアクセスが良いと言える。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3e16f1945eb61b26cd0b1664ccf86845/17a7a/ec-compare.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 86.0759493670886%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAAChElEQVQ4y52UW2/aQBCF8///Sl/6kEhJGpEmEIeUxBACOBhjc8f4bsCY+4nOJCBUt1JVS6OdtdffzpmdnbP9fg8+q9VKbLPZYLFYIE1TJEmC+XyORZrKnN84zpNE1qzXa7HtdisMss4OQM91YRht2JMJPM+T0XVdDAYDOI6L4XAI27bhOI58o891nBOaAWK/x2a9wm67wf88B84RmKQruFECL14gmC6hmwPcKSWoVQ3XtwVc5fL49v0Cd8ozzL4NJ0ww9mLY/gzp8iTC3RfQ6Ds4LzRwnq/hqthE7sXCRb6GXPENl/cqfhQquFGqyBVruH2q41kbfPkNuEGcldwbTnCdf0FOKaPw0sBjWYeivsN1HMRRAL35jo5lIgx8GK0mojBA4Ltot3TMZtMs0PZi3Jc0gd6XGqjoIyjlJnw/RBiGUJRH9Ho9OQhVVeH7PuJ4imr1DUEQ/BmolFt4UN/xoDbx9GYiX6rDnjiIogivr68wTRNxHEPTNDnd6XQKXdflewY4ciPcFmu4eahIhMVqG5c/S/D8QBYahoFWqyW1SOB4PBbfsiyJNgN0wykqWgdqzZCxrFm4yf+CaVlSj/V6He12Wwq70+mIdBZ3v9+XqDNA3gguYr5YuGEQII4iiYJrdrtdpuYO70/nRyB3m0wmkngabwhvB6V1u92j73u+SOTmpzckU9gEjm1bQJRBKPNDGN/xQOhT/gFINbPZLBvhMY+ui9FoJDmiMWeE80eeKo2RUgl9jjQ2lYzk5XL5Kcn3JZ/sNNyd75knGrsKc0qf41ry+5e7zB/ZcT5lcXcHg34f3W7vCOZpUgU35MaM8rR1/QZMEQShtCXmjFIo93AL/qXTUPIHQdIEIS3BUawAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ec-compare"
+        title="ec-compare"
+        src="/static/3e16f1945eb61b26cd0b1664ccf86845/f058b/ec-compare.png"
+        srcset="/static/3e16f1945eb61b26cd0b1664ccf86845/c26ae/ec-compare.png 158w,
+/static/3e16f1945eb61b26cd0b1664ccf86845/6bdcf/ec-compare.png 315w,
+/static/3e16f1945eb61b26cd0b1664ccf86845/f058b/ec-compare.png 630w,
+/static/3e16f1945eb61b26cd0b1664ccf86845/17a7a/ec-compare.png 753w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>報告書では店舗へのアクセスの良さを EC 化率の低さの一因と推測しているが、個人的にはそれほど重要な要素ではないと思う。UK より店舗アクセスが遥かに悪い US は EC 化率が UK の半分未満だし、UK と店舗アクセスに大きな違いがない日本は EC 化率が遥かに低い。</p>
+<p>一方で、逆に効率的な流通ネットワークがあれば EC が普及するとも言い切れないとは思う。私は以前の会社で一瞬だけ UK の EC 事業の財務経理に関わったことがあるが、配送業者のコストパフォーマンスは日本の方が圧倒的に上だという印象を受けた。US と比べても日本の方が配送のコストパフォーマンスは優れている印象がある。しかしながら、それらの国々は日本より EC 化率が高い。</p>
+<p>購入した商品を配達してもらうかピックアップするかの選択については配達品質や送料、店舗アクセスの良さが影響しそうだが、そもそも商品をオンライン/オフラインのどちらで購入するかという選択は結局のところオンラインの強みである「手軽にパーソナライズされた購入体験を低コストで」消費者に提供できるかどうかによるのではと思った。</p>
+<p>個人的な意見として、日本の EC 化率が低い原因はオフラインの購入体験が（値段の割に）良すぎることにあるのではと思う。やる気がなくて不機嫌な店員とか見ないし、店の中は清潔で分かりやすくレイアウトされてるし、ヨドバシの店員は何でも知ってるし。</p>
+<h2>まとめ</h2>
+<ul>
+<li>ウォルマートは EC でも頑張っていた</li>
+<li>Amazon はすごい</li>
+<li>小売の広告事業は面白そう</li>
+<li>日本の EC 化率は非常に低い（特に食料品）が、逆に考えると伸び代がありそう</li>
+</ul>
+<h2>おまけ</h2>
+<p>最近 10X というベンチャー企業がイトーヨーカドーと協同でネットスーパーを立ち上げて（<a href="https://signal.diamond.jp/articles/-/264">記事</a>）勢いがあるらしいという話を聞いた。採用情報は<a href="(https://jobs.10x.co.jp/)">こちら</a>。</p>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn-1">4-5-4 という数字は見慣れないかもしれない。これは小売業特有のやり方で、3ヶ月ごとだと日数の違いが影響してくるので1年を52週としてそれを13週ずつに分け、4週+5週+4週で1四半期ということにする…という方法らしい。もちろん決算は他の会社と同じように3ヶ月で区切るので、 SEC Filings の実績とは期間がずれることになる。<a href="#fnref-1" class="footnote-backref">↩</a></li>
+<li id="fn-2">FY2022 の売上が前年並の成長をした上で EC 売上が目標の $75B を達成すると、売上の EC 化率は約 13% となる。<a href="#fnref-2" class="footnote-backref">↩</a></li>
+<li id="fn-3">昨年までは Walmart Media Group と呼ばれていたが、2021年1月28日に改名された（<a href="https://corporate.walmart.com/newsroom/2021/01/28/walmart-announces-expanded-vision-and-new-name-for-its-media-business">プレスリリース</a>）。現在は US だけで提供されているようだ。<a href="#fnref-3" class="footnote-backref">↩</a></li>
+<li id="fn-4">ちなみにこのときソフトバンクの Vision Fund が保有株式（約20%）を全て売却し 1,467 億円の売却益を得ている（<a href="https://group.softbank/system/files/pdf/ir/financials/financial_reports/financial-report_q2fy2018_01_ja.pdf">FY2019/3 第2四半期決算短信</a>）。<a href="#fnref-4" class="footnote-backref">↩</a></li>
+<li id="fn-5">一般的に人件費の一部をソフトウェア資産として計上することはあるが、 BS に掲記されていないのであったとしても僅少な額だと考えられる。<a href="#fnref-5" class="footnote-backref">↩</a></li>
+<li id="fn-6">FY2021 で国内店舗数が 21,085 で直営店が 453 なので構成比は 2.1%、国外の店舗数は 9,884 で直営店が 2,399 なので 24.3%<a href="#fnref-6" class="footnote-backref">↩</a></li>
+<li id="fn-7">Amazon Fresh の Google トレンドを見ると世界のどこでも流行ってなさそうなので、 Amazon といえど食料品には苦労していると思う。<a href="#fnref-7" class="footnote-backref">↩</a></li>
+</ol>
+</div></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:50px;height:50px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#e8d8c8;width:50px;height:50px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/d4bf4/profile-pic.avif 50w,/static/e8fd2154b9e4024a4342869b4971332c/ee81f/profile-pic.avif 100w" sizes="50px"/><source type="image/webp" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/3faea/profile-pic.webp 50w,/static/e8fd2154b9e4024a4342869b4971332c/6a679/profile-pic.webp 100w" sizes="50px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="50px" decoding="async" loading="lazy" data-src="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg 50w,/static/e8fd2154b9e4024a4342869b4971332c/64618/profile-pic.jpg 100w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/d4bf4/profile-pic.avif 50w,/static/e8fd2154b9e4024a4342869b4971332c/ee81f/profile-pic.avif 100w" sizes="50px"/><source type="image/webp" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/3faea/profile-pic.webp 50w,/static/e8fd2154b9e4024a4342869b4971332c/6a679/profile-pic.webp 100w" sizes="50px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="50px" decoding="async" loading="lazy" src="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg 50w,/static/e8fd2154b9e4024a4342869b4971332c/64618/profile-pic.jpg 100w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}</script></div><p>Written by <strong>lyohe</strong> <!-- -->会計とプログラミングの話をここに書く<!-- --> / <a href="https://twitter.com/rtsudar">Twitter</a></p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/2021-08-21-programming-tanosii/">← <!-- -->非技術者がテック企業でプログラミングとか SQL とかを始めることの価値</a></li><li><a rel="next" href="/2021-09-19-rails-tutorial/">ゼロから Rails チュートリアルをやってみた話<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2021<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2021-08-22-walmart-financial-statements/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b227d9031ab4094e5021.js"],"app":["/app-b6b27f9fe9d88b8e1eb4.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bb1698d01a7f9dde5caa.js"],"component---src-pages-index-js":["/component---src-pages-index-js-8dfa2bbbf6350f253638.js"],"component---src-pages-using-typescript-tsx":["/component---src-pages-using-typescript-tsx-20f655bfb94bd369e9d3.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-eccee83f50b6c3a5d4d6.js"]};/*]]>*/</script><script src="/polyfill-b227d9031ab4094e5021.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-eccee83f50b6c3a5d4d6.js" async=""></script><script src="/commons-ab2410dfbec4227df496.js" async=""></script><script src="/app-b6b27f9fe9d88b8e1eb4.js" async=""></script><script src="/framework-e413e527015be9a1bdfd.js" async=""></script><script src="/webpack-runtime-b788fb4cde8074c4b498.js" async=""></script></body></html>

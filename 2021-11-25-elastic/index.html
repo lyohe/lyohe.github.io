@@ -1,0 +1,653 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.2971a0dc86d4086edac6.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/static/montserrat-latin-100-8d7d79679b70dbe27172b6460e7a7910.woff2) format("woff2"),url(/static/montserrat-latin-100-ec38980a9e0119a379e2a9b3dbb1901a.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/static/montserrat-latin-100italic-e279051046ba1286706adc886cf1c96b.woff2) format("woff2"),url(/static/montserrat-latin-100italic-3b325a3173c8207435cd1b76e19bf501.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/static/montserrat-latin-200-9d266fbbfa6cab7009bd56003b1eeb67.woff2) format("woff2"),url(/static/montserrat-latin-200-2d8ba08717110d27122e54c34b8a5798.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/static/montserrat-latin-200italic-6e5b3756583bb2263eb062eae992735e.woff2) format("woff2"),url(/static/montserrat-latin-200italic-a0d6f343e4b536c582926255367a57da.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/static/montserrat-latin-300-00b3e893aab5a8fd632d6342eb72551a.woff2) format("woff2"),url(/static/montserrat-latin-300-ea303695ceab35f17e7d062f30e0173b.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/static/montserrat-latin-300italic-56f34ea368f6aedf89583d444bbcb227.woff2) format("woff2"),url(/static/montserrat-latin-300italic-54b0bf2c8c4c12ffafd803be2466a790.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/static/montserrat-latin-400-b71748ae4f80ec8c014def4c5fa8688b.woff2) format("woff2"),url(/static/montserrat-latin-400-0659a9f4e90db5cf51b50d005bff1e41.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/static/montserrat-latin-400italic-6eed6b4cbb809c6efc7aa7ddad6dbe3e.woff2) format("woff2"),url(/static/montserrat-latin-400italic-7583622cfde30ae49086d18447ab28e7.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/static/montserrat-latin-500-091b209546e16313fd4f4fc36090c757.woff2) format("woff2"),url(/static/montserrat-latin-500-edd311588712a96bbf435fad264fff62.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/static/montserrat-latin-500italic-c90ced68b46050061d1a41842d6dfb43.woff2) format("woff2"),url(/static/montserrat-latin-500italic-5146cbfe02b1deea5dffea27a5f2f998.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/static/montserrat-latin-600-0480d2f8a71f38db8633b84d8722e0c2.woff2) format("woff2"),url(/static/montserrat-latin-600-b77863a375260a05dd13f86a1cee598f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/static/montserrat-latin-600italic-cf46ffb11f3a60d7df0567f8851a1d00.woff2) format("woff2"),url(/static/montserrat-latin-600italic-c4fcfeeb057724724097167e57bd7801.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/static/montserrat-latin-700-7dbcc8a5ea2289d83f657c25b4be6193.woff2) format("woff2"),url(/static/montserrat-latin-700-99271a835e1cae8c76ef8bba99a8cc4e.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/static/montserrat-latin-700italic-c41ad6bdb4bd504a843d546d0a47958d.woff2) format("woff2"),url(/static/montserrat-latin-700italic-6779372f04095051c62ed36bc1dcc142.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/static/montserrat-latin-800-db9a3e0ba7eaea32e5f55328ace6cf23.woff2) format("woff2"),url(/static/montserrat-latin-800-4e3c615967a2360f5db87d2f0fd2456f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/static/montserrat-latin-800italic-bf45bfa14805969eda318973947bc42b.woff2) format("woff2"),url(/static/montserrat-latin-800italic-fe82abb0bcede51bf724254878e0c374.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/static/montserrat-latin-900-e66c7edc609e24bacbb705175669d814.woff2) format("woff2"),url(/static/montserrat-latin-900-8211f418baeb8ec880b80ba3c682f957.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/static/montserrat-latin-900italic-4454c775e48152c1a72510ceed3603e2.woff2) format("woff2"),url(/static/montserrat-latin-900italic-efcaa0f6a82ee0640b83a0916e6e8d68.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/static/merriweather-latin-300-fc117160c69a8ea0851b26dd14748ee4.woff2) format("woff2"),url(/static/merriweather-latin-300-58b18067ebbd21fda77b67e73c241d3b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/static/merriweather-latin-300italic-fe29961474f8dbf77c0aa7b9a629e4bc.woff2) format("woff2"),url(/static/merriweather-latin-300italic-23c3f1f88683618a4fb8d265d33d383a.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/static/merriweather-latin-400-d9479e8023bef9cbd9bf8d6eabd6bf36.woff2) format("woff2"),url(/static/merriweather-latin-400-040426f99ff6e00b86506452e0d1f10b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/static/merriweather-latin-400italic-2de7bfeaf08fb03d4315d49947f062f7.woff2) format("woff2"),url(/static/merriweather-latin-400italic-79db67aca65f5285964ab332bd65f451.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/static/merriweather-latin-700-4b08e01d805fa35d7bf777f1b24314ae.woff2) format("woff2"),url(/static/merriweather-latin-700-22fb8afba4ab1f093b6ef9e28a9b6e92.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/static/merriweather-latin-700italic-cd92541b177652fffb6e3b952f1c33f1.woff2) format("woff2"),url(/static/merriweather-latin-700italic-f87f3d87cea0dd0979bfc8ac9ea90243.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/static/merriweather-latin-900-f813fc6a4bee46eda5224ac7ebf1b7be.woff2) format("woff2"),url(/static/merriweather-latin-900-5d4e42cb44410674acd99153d57df032.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/static/merriweather-latin-900italic-b7901d85486871c1779c0e93ddd85656.woff2) format("woff2"),url(/static/merriweather-latin-900italic-9647f9fdab98756989a8a5550eb205c3.woff) format("woff")}
+
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-2xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Noto Sans JP","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-medium:500;--fontWeight-semibold:600;--fontWeight-bold:700;--fontWeight-extrabold:800;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#005b99;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12)}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-primary);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{display:flex;margin-bottom:var(--spacing-16)}.bio-avatar,.bio p{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 4.2.0"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="alternate" type="application/rss+xml" title="Koko-ni-kaku RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=4a9773549091c227cd2eb82ccd9c5e3a" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=4a9773549091c227cd2eb82ccd9c5e3a"/><title data-react-helmet="true">Elastic 社の決算を読んだ話 | ここにかく</title><meta data-react-helmet="true" name="description" content="Elastic 社の決算を読んだので、その話を書く。 数字は主に FY2021/4 の Form 10-K から拾っていく。 会社の概要 Elastic は Elasticsearch や Kibana, Logstash などの検索、ログ関連の OSS…"/><meta data-react-helmet="true" property="og:title" content="Elastic 社の決算を読んだ話"/><meta data-react-helmet="true" property="og:description" content="Elastic 社の決算を読んだので、その話を書く。 数字は主に FY2021/4 の Form 10-K から拾っていく。 会社の概要 Elastic は Elasticsearch や Kibana, Logstash などの検索、ログ関連の OSS…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="rtsudar"/><meta data-react-helmet="true" name="twitter:title" content="Elastic 社の決算を読んだ話"/><meta data-react-helmet="true" name="twitter:description" content="Elastic 社の決算を読んだので、その話を書く。 数字は主に FY2021/4 の Form 10-K から拾っていく。 会社の概要 Elastic は Elasticsearch や Kibana, Logstash などの検索、ログ関連の OSS…"/><link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/webpack-runtime-b788fb4cde8074c4b498.js"/><link as="script" rel="preload" href="/framework-e413e527015be9a1bdfd.js"/><link as="script" rel="preload" href="/app-b6b27f9fe9d88b8e1eb4.js"/><link as="script" rel="preload" href="/commons-ab2410dfbec4227df496.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-eccee83f50b6c3a5d4d6.js"/><link as="fetch" rel="preload" href="/page-data/2021-11-25-elastic/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3257411868.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">ここにかく</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">Elastic 社の決算を読んだ話</h1><p>November 25, 2021</p></header><section itemProp="articleBody"><p><a href="https://www.elastic.co/">Elastic</a> 社の決算を読んだので、その話を書く。</p>
+<p>数字は主に <a href="https://d18rn0p25nwr6d.cloudfront.net/CIK-0001707753/480035b6-2803-4c19-9d74-790dc3090fea.html">FY2021/4 の Form 10-K</a> から拾っていく。</p>
+<h2>会社の概要</h2>
+<p>Elastic は <a href="https://github.com/elastic/elasticsearch">Elasticsearch</a> や <a href="https://github.com/elastic/kibana">Kibana</a>, <a href="https://github.com/elastic/logstash">Logstash</a> などの検索、ログ関連の OSS を開発している企業として有名で、それらの追加機能の販売やサポート、マネージドサービスの運用で収益をあげている。</p>
+<p>同社は↑の Elasticsearch, Kibana, Logstash 3つの OSS 開発者によって2012年2月9日にオランダで設立され（当初の社名は SearchWorkings Global B.V.）、2018年10月10日にアメリカで IPO した。経営陣や多くの従業員はマウンテンビューの事業所で働いており売上の半分以上がアメリカから生じているが、連結親会社である Elastic B.V. は書類上オランダの会社であり本社住所はアムステルダムに存在している。</p>
+<h3>Elastic の “OSS” とそのライセンスについて</h3>
+<p>決算とは関係ないが、重要な話なので Elastic 社の “OSS” について書く。</p>
+<p>Elastic が公開している OSS でよく使われるのは Elasticsearch と Kibana で、これらは <a href="https://www.mongodb.com/licensing/server-side-public-license">Server Side Public License（SSPL）</a>と <a href="https://www.elastic.co/jp/licensing/elastic-license">Elastic License</a> のデュアルライセンスという独特な方法で公開されている。</p>
+<p>SSPL は MongoDB 社が作ったライセンスで、このプログラムをサービスとして提供する場合は（商用ライセンスを購入するか）ソースコードを公開しなければならない。公開の範囲が広いので、 MongoDB 社以外がマネージドサービスを提供するのは現実的に不可能というライセンスになっている。背景としては、OSS が人気を集めると “large cloud vendors” がそのマネージドサービスを出して利益を全て持っていってしまうのを防ぎたい、という意図があるようだ。<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup></p>
+<p>Elastic 社も <a href="https://www.elastic.co/jp/blog/why-license-change-AWS">AWS に対する防衛策として Apache 2.0 からのライセンス変更</a>を行った。</p>
+<p>これらのソフトウェアはソースコードは公開されているもののライセンスは <a href="https://opensource.org/node/1099">OSI による承認を受けていない</a>ため「これは “OSS” では無いだろ！」とお怒りになる方もいるかもしれない。確かに厳密には OSS ではないと言える。実際に Elastic 社も（少なくとも SEC Filings 上では） OSI に承認されたライセンスを “open source license”、それを採用しているソフトウェアを “open source software” と呼び、自社のことは “open source model” とか “open code” とか呼んでいる。</p>
+<p>なお、他の独自ライセンスとしては MariaDB が作った <a href="https://mariadb.com/bsl11/">Business Source License（BSL）</a>がある。これも large cloud vendors を意識したライセンスになっている。</p>
+<p>ちなみに AWS はライセンス変更に応じてフォークしたので、2つめの Elasticsearch が生まれた（現在は ”<a href="https://aws.amazon.com/jp/opensearch-service/the-elk-stack/what-is-opensearch/">OpenSearch</a>” という名前になっている）。詳細な経緯については <a href="https://www.publickey1.jp/blog/19/awselasticsearchossopen_distro_for_elasticsearch.html">Publickey の記事</a>が参考になる。</p>
+<p>自分は積極的に OSS 開発をしているわけではないけど、毎日のように OSS のお世話になっている。それらは自分より遥かに優秀な開発者たちが手間暇をかけて作ったものだ。開発に参加した動機はいろいろあるだろうけど、（Elastic の社員や株主を除いては）Elastic 社の利益のために自分の時間と思考をつぎ込む人はいないだろうということは分かる。つまり、一度公開したソフトウェアのライセンスを自社の利益のために後出しで変えるのは外部貢献者に対する裏切りである。</p>
+<p>とはいえ、 Elastic 社の言い分も理解できる。そのソフトウェアが継続的に普及・発展していくためには投資が必要で、（最も投資してきた貢献者は間違いなく Elastic 社であり）更なる投資の元手を稼ぐためにはビジネスでお金を稼ぐ必要があって、美味しいところを持っていってしまう AWS はその邪魔者と見ることもできる。</p>
+<p>この件に関しては様々な意見があると思うが、オープンソースのエコシステムが中長期的に発展する方向に進んでほしい。あと AWS は非常に影響力が大きいので、自社の顧客以外にも業界全体のことを考えた行動をとってほしい。</p>
+<h3>Elastic の事業概要</h3>
+<p><a href="https://www.youtube.com/watch?v=mVXJHKmFXts">https://www.youtube.com/watch?v=mVXJHKmFXts</a></p>
+<p>Elastic 社の事業は Elasticsearch などの “Elastic Stack” と呼ばれる複数のソフトウェアをマネージドサービスまたは顧客による Self-host で提供することで、ソフトウェアのソースコードは前述のライセンスのもとで公開されている。これらのソフトウェアを利用した Solution として <a href="https://www.elastic.co/jp/enterprise-search">Enterprise Search</a>, <a href="https://www.elastic.co/jp/observability">Observability</a>, <a href="https://www.elastic.co/jp/security">Security</a> の3つの事業がある。</p>
+<p>Self-host の場合、無料でダウンロードできるソフトウェアには有償機能が含まれており、これは Elastic 社に利用料を支払うことでアクセスできるようになる。この利用料には無償・有償全ての機能へのサポートが含まれている。</p>
+<p>マネージドサービスの場合は<a href="https://www.elastic.co/jp/pricing/">無償版はない（無料トライアル期間はある）</a>。</p>
+<p>Elastic では有償版と無償版が一つのコードベースで提供されており、プロプライエタリなコードを含んでいる。これは AWS がフォークを選択した根拠の一つともなっている（少なくとも建前上は）。これは OSS で事業を運営している会社すべてがそうしているわけではなく、例えば GitLab 社は <a href="https://www.gitlab.jp/install/ce-or-ee/">CE（無償版）と EE（有償版）で共通のソースコードを利用している</a>が、そこからプロプライエタリなコードを取り除いた <a href="https://gitlab.com/gitlab-org/gitlab-foss">FOSS 版</a>を別に提供している。</p>
+<p>Elastic の顧客は2021年4月末の時点で 15,000 社を超えており、売上は $608.5M となっている。2019年は顧客が 8,100 社で売上が $271.7M だったので、ここ2年で2倍以上に急成長している。</p>
+<h3>オランダ法人について</h3>
+<p>オランダは<a href="https://www.jetro.go.jp/world/europe/nl/invest_04.html#block1">法人税率が低い</a>。また、所定の手続きを経て政府から認定された知的財産に関する収入については非常に有利な軽減税率（5%）が適用されるという制度、いわゆる patent box がある。</p>
+<p>通常の二国間租税条約では知的財産権の使用料に課される所得税の取り扱いが定められており、基本的には使用料を受け取った国側で課税されることになる。これは国内法の規定より優先される。</p>
+<p>例えば日本からオランダに知的財産権の使用料を払うと日本側では免税となり、オランダ側では patent box 税制に基づいた軽減税率の優遇を受けることができるため、法人税をほとんど支払わなくて良いということになる。2007 ~ 2013年くらいはこれを活用するのがとても流行っていて、スターバックスや Google など様々な企業で”節税”に使われたが、その後 OECD や欧州委員会から怒られが発生して下火になった。<sup id="fnref-2"><a href="#fn-2" class="footnote-ref">2</a></sup></p>
+<p>Form 10-K の 108ページによると税務当局との間でいろいろありそうに見えるので頑張ってほしい。</p>
+<blockquote>
+<p>The Company’s tax filings for fiscal years starting with the year ended April 30, 2016 remain open in various tax jurisdictions.</p>
+</blockquote>
+<h2>主要な経営指標</h2>
+<h3>収益</h3>
+<p>Elastic 社の四半期ごとの収益は一貫して成長している。 FY2021 の Q1-Q4 の売上は合計 $608.5M だったが前年比で YoY+42% 成長しており、このまま成長すると FY2022 は $800M を超えそうだ。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 470px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ca7df208184649df4e8bacfe72380093/f96db/elastic-q-revenue.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 91.13924050632912%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAADrUlEQVQ4y42U+1NUZRjH+Xf6B2qarjP9kNVklgxpVMTANCqCOiKghkiNRClekkAgQG4xLDeJkMvI/bKCLCAgLkmssLtclr2evZyzZ8/h05yDIGk2Pr887/ed9/nM933OeZ8o/ic2Nzefy9trLZSwDHIEm83G/ZlZZDlClCzLhEIhRFEkGAzurHcX6iD1qXY5HPidHuasFobNM/RaLfwwNUwwIhPldm0wMDjEiNGIyWTir/l5Hs7NEYlEtmCqugMKh0SQZObsS9xffUzt9EOOd3RT0T7FW9+W4w+FiQqFgqytr2G323WH/xUehwPv+gajj8yML5kp7JggNv8PCipH2fN1BVUNU7wbXYrPLxH1bLGqqkQUBUVV8bncyP4gg3/PM2pd4HrrOMfKu8i7McSegzepaJzkYLJBz+98XoqgAbX+aBB119VWrUt4nU765h8wblsgvaiH5PxOrhWPEJfSQEH1KDFH6yiqGeOTxBpK68Z5de8N/IEnwO1Ys1oR3G4azPMYV2ycLenldFkvZ3K6SDjZxPWKuyRm3OJi0SDvf3WTwuoxPvymkjKDidf2FSEEnlzZ63ShhCSqTOMMLi1yILWes/ndpGa3czijhexrvSSda+VS8RAHjtaRVzLEB3GVOvCj+Krnge0zJh65V9h3wsD54j4OpbeQefEOWVd6SM/tJPVCB3EnG7n82zBfpBjIK9aAFS8GRmc3UthmIvaIgay8blJzOvipcIAT398mKbOVjNxO4k81vRxQ6+FnCb+TX2YkPq2ZnPw+EtKa+e7SHd2ZBtRcxqc2vbzD/YdrKawe1fuTdaWbQ2daOHe5m7QfO0jO+pPTP3eRmNbM1dIRvjxer4M1UFHNPfYmVFNeP8Eb+4u3vrIGfP3TYnILBvRDp3I6iT1Wr7s7ktmqO0s530ZMUh05v/bzcUI1F/L7eTO6hKtlRt6OKdWdvvLeL0//w9qWScamlmlqn6bPuEBT+wyd/WbaeuZo6Zqlo89M4+1pjKbHuh4aW6TccI+7E0tUNIwzOWvTtRSObDkUg15UJYwU8qFERIIBL0pE0rO2jxrWtapIyOGAvpZEgYgsIoWEnVotdKDL5SYkSrjdHkRRwi/4kMIygiDg9Qk4HBvY7SsEBL+utTNer0/PHo+XcDiM0+neAu5+Kfp00YaBT0JRFF0HAn6cGxvYHeu4/MLWe99UXzg/o54dnGFZ4VbnA5atNiwWCxbLIkHBjxOFGY+D1WUry8vLhETxX0N3u/4fvjy1o3VkGlQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-q-revenue"
+        title="elastic-q-revenue"
+        src="/static/ca7df208184649df4e8bacfe72380093/f96db/elastic-q-revenue.png"
+        srcset="/static/ca7df208184649df4e8bacfe72380093/c26ae/elastic-q-revenue.png 158w,
+/static/ca7df208184649df4e8bacfe72380093/6bdcf/elastic-q-revenue.png 315w,
+/static/ca7df208184649df4e8bacfe72380093/f96db/elastic-q-revenue.png 470w"
+        sizes="(max-width: 470px) 100vw, 470px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>上図は<a href="https://s2.q4cdn.com/265747582/files/doc_presentations/2021/08/Q1-F22-Investor-Presentation.pdf">直近の FY22/Q1 Investor Presentation</a> の P48 から引用した。</p>
+<h3>顧客の数と ACV</h3>
+<p>Elastic 社の顧客数の推移を3年分並べてみた。数字は Form 10-K の 50~51 ページから拾った。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 599px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f4ae5c67da65fea22d37b80e69408e54/43142/elastic-customers.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.39240506329114%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACCklEQVQoz12S307UUBCH+3TiBSrxGTTBd/ABEALBxDui3hqvNUuihjsTLzAQEY24qMtCuywt221P2/P3M+fUFnCSSc6cnvnmNzONnHN05k/j1HA2mVJPYsQkoagq0vSC8/MpqslpqhwjBVl6QVVVXDfPivyhaRryPA8XtTQopTGyQXs3BqlUcLCkheXNrmQ6U+AM1jmKoggMb1FH7rwtpXEqC47OwGZYmQJzjs9y7qymHI5teGqtu5EfXW+5hV+5t6J2jFOLCfkNx3HB0mrM99NWkf0vPyiUUgbZLdwG14Hg+HCgeLglyIUJCUeJY2FFcHCiwztjHUII6rrGWkuktcYYg9I6APKqnZMxLsSDPcXiWslMtAV+JoaFlZKvJybEHuhBfgdZlhGNRiN0gLX2fEfy+HXdx9v7mqWNkrxqWxtObAscm36G3vzGPTRSSuF9XpThw/rbmgdb4t9P1Cq8t14yK/9X2Hbkgb7dsiwDNGqrWKq6CQ82BzWPXoh+loM9GYCXpQnxUay5vVJczdBYOlF+dP2Wu11tDiTLL5sbLd/dqJlL+pZvPan4FnMjr99yB5TKV1Q83RYsP4spdj+BnDPYb7i/OuXPux2YjvmRaBbXcj6+eo88/IxyUAnR76EHernWaGbCMDyOmf0aYmWDkJbhKCXZ30Pnl0jj+J0UnH45QJ4nGNfOsAP+BZHkiqeY/BvwAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-customers"
+        title="elastic-customers"
+        src="/static/f4ae5c67da65fea22d37b80e69408e54/43142/elastic-customers.png"
+        srcset="/static/f4ae5c67da65fea22d37b80e69408e54/c26ae/elastic-customers.png 158w,
+/static/f4ae5c67da65fea22d37b80e69408e54/6bdcf/elastic-customers.png 315w,
+/static/f4ae5c67da65fea22d37b80e69408e54/43142/elastic-customers.png 599w"
+        sizes="(max-width: 599px) 100vw, 599px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>これを見ると、顧客数は全体として毎年+30%以上伸びている。Elastic は年間の同一顧客からの収入を ACV（Anual Contract Revenue） と定義しているが、 FY2021 は ACV が10万ドル以上の顧客の伸び率が若干下がっていることが見てとれる。</p>
+<p>売上の伸び率自体は大きく変わっていないので、さらに大口の顧客の利用と $100K より小口の顧客の利用が増えているのかもしれない。 <a href="https://s2.q4cdn.com/265747582/files/doc_presentations/2021/08/Q1-F22-Investor-Presentation.pdf">FY2022/Q1 の投資家向けプレゼンテーション</a>の35ページによると、 ACV > $1M 以上の顧客数は前年比で+50%増えている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0a3b21c842a5368eccc664a9887cf70b/2b2c6/elastic-acv.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACGUlEQVQoz3WSu28TQRDG/WfRgaACGkTDo0pEERqoIkpKajqUAheJQgEi6ZAAIaSEoIgQEJHj2PHZPs6PnF/E9u29b++HdpKYCMGcZk8738y338xuwbablEolHMfh8PCQer1Oo1GnXC5j2zZ2s4FlWeK1U3x/f1/2Bq9WK7O6NE0pmCUII3w/YOopplMl+yiOCcMI5fso5QvmnXoURYL5QYAfhCg/IIpi8jynkGYaP0xod3u0OkcMRyOmKiTNcsYTD9vp0O66OG2XjjvAaXeRmiCmUrX4vlfCajokqQYhTDWeH2NseKzY2D5goiLiJCOMU1QQo4JE2omSVA5P0kz+Yy/AmygCFUquEBpQhQkVq8PS6mcu3FiiN/RERRAlUphqzcraV3Z+tCRuDjNxMthqt9hsOWSpPmnZECaZZm7xNVfnlrk+v8JRfyoqojhjMPJo/Oxx6XaRZ6tfpJMoTjn2Q2puj8c7n3jybRs06D+EGfOLa0J4bW5ZCE17xt58rHJz4QVX7hYpvtyVmFFj/Trm/uZ7Hm594OnerqjV5xXee7Qu6kThwJsRrr8tc/HWcy7fKVJ8dUKoTwkXNt7x4F+EZh61Zp8DyxU3l2LaMrNyh1PKNVe805vIXE3NxI+o9QdYgxHOaCz5OtcUtM6l8LyZAjN88wIyrWfxs1wTMxhZLq4z82ROcgpnyeaGzvxv+x+Wzz44Gnfp911+A9xjKwNa/XWbAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-acv"
+        title="elastic-acv"
+        src="/static/0a3b21c842a5368eccc664a9887cf70b/f058b/elastic-acv.png"
+        srcset="/static/0a3b21c842a5368eccc664a9887cf70b/c26ae/elastic-acv.png 158w,
+/static/0a3b21c842a5368eccc664a9887cf70b/6bdcf/elastic-acv.png 315w,
+/static/0a3b21c842a5368eccc664a9887cf70b/f058b/elastic-acv.png 630w,
+/static/0a3b21c842a5368eccc664a9887cf70b/2b2c6/elastic-acv.png 869w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>ちなみにプレゼンテーションの次のページを見ると、顧客の特徴として ACV が年間10万ドル以上の顧客はその半分以上が1つの Solution しか使っていない（これは Enterprise Search のことだと思われる）。逆に年間100万ドル以上の顧客は半分近くが3つのソリューション（Enterprise Search, Observability, Security）を使っている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/bc5f29dfac26b4ecedd685829251f522/eb2af/elastic-expansion.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACM0lEQVQoz1WSW28TMRBG87t54A8gQLSCJxAt9IGnComKChVKKlE1yQsqAtR70mSz993srr3e+x5kp1SqpbEtz5lvZuQZtG1LmqZkWfbA/r9JKRFCsFqtSJPk3q/fNJMkyT3T9z2Dtm3wfR/XdY0zjiLCIMAPAjzPM/coCnEdB8exDau5MAyJ49jE6bvn+6AFm7aj6aAoG8IoIU4y0kySpIJM5DRtT9djVttDWTfEq9T4/3OqqAxTVg0DvdVNh8xz5gsLa2mzdFxuF0vmloNQFaqsKaraBAiZM71dMJsvWSwdrqdzvGCFVLVhB3XT8vT1MY+fH7K5PeHD3m+G4xnn05hUVCYoE8pU+GpnzMv3Y8anNn6U4XohZdOjygapKvKiXgvuH12w++UvX4+vmJwuOLv2sdyURBSEcWrgru85+HHF/vCCP5ceQSxYpRKRl/di+hxUTcvG1gmb2yM+Dy+YWgmZlMwt27Sqs2tbVzjh2ZtjPn0743wakUnFdLZ4KKgrPDy5YTi64eo2IoglmSxN5ryoDKSFu67n++iGvcNzJr8sLmchXihJxZpd83ctb2yPeLf7E8vNWNourh+hqtaIibvsem1sjXj05IAXb0/Y+XjK0XjK3ElZOr4x3cmgqmtsLyGIpBHQP17VrfnRqm7MWdctbdvhRwLbSwljySpVZLJAqnLNVutJGOjphp4o0oPs3plnBtb3PDPMjuOYgVYqpyoVZaEoVE6e50iRIZTEjm2kEPwDbow11bRWtBcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-expansion"
+        title="elastic-expansion"
+        src="/static/bc5f29dfac26b4ecedd685829251f522/f058b/elastic-expansion.png"
+        srcset="/static/bc5f29dfac26b4ecedd685829251f522/c26ae/elastic-expansion.png 158w,
+/static/bc5f29dfac26b4ecedd685829251f522/6bdcf/elastic-expansion.png 315w,
+/static/bc5f29dfac26b4ecedd685829251f522/f058b/elastic-expansion.png 630w,
+/static/bc5f29dfac26b4ecedd685829251f522/40601/elastic-expansion.png 945w,
+/static/bc5f29dfac26b4ecedd685829251f522/eb2af/elastic-expansion.png 954w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>これは Elastic 社にとって収益を拡大する機会が大きいことを意味している。</p>
+<h3>売上の内訳</h3>
+<p>Elastic 社の売上の内訳を見ていく。</p>
+<p>まずは地域別の売上だが、 US とそれ以外の内訳が開示されている。数字は Form 10-K の109ページから拾った。これを見ると半分以上が US での売上だが、その比率は徐々に下がっている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 599px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c2161a22e1608155591abfd976788452/43142/elastic-geo.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.39240506329114%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACTklEQVQoz2WSy0uUURjG59+pFoYa2kWF6LJp0aagtm3KCIJAksq0QgqMso2rNlEh5aJF5B/QwsyEhEHGe4qjkzrzffPdz+37xXdmHKc68JzDec953+d5L7k0TdlfaX030sP1A6JyhbBYxIsSAj9gy4GyG+K6DnEc1343+Wcrl21hGJIkiX00xqBVjEqqqNhFhWWU8Ow9jjxk4qOkQEmJUQqttfXxfR8hBLm/GeoajQTtgw7BhKADUh3YE+UDASCa3FIrJoNVmKmTUjYUmuxMOYDZR2opxeYGUX7OQu6USP9NWdWlp01MaWpqqOtOm+pVevGUhe5WFrqOUvnwztoCz7OicpVKpaHOwugaMgLASIlyHLRXRbmOdd4ZfcZi5yEWTxzBmXhvbUokNjsbMAiCg6BNiizzzBTLF3pYvXiGzb5b1rb1aoR8Vxv57mPsTow36mhT9jyvkUpqDMnKEvHSAnFh3trCmW8UTrYw33GY9dvXre31py2u9ue50p/n89dyjTiIbOlymbJsbIRU6DBg/dJ5VntaWD3XCdvrzC2HXOv7zo17MwyPFaz2kUlJ26CgfUgwPq2ywhAnwvYh1zyciTD0Df/k5t0peu//wKsmzG5A+2NN6yND71tj/72cTOh44HN8wGdiWv4/2Nk4aCWpBpLLYwkdT2LOPk8oOZLZ5YjTQ3v0PNzlzhsXkIx+8Tk1UKZ7sMLHqTBrCWEY15pSC2hs/kppSuWIxbUdir+zRiliofm17VNY22PXFRitcQLF4obDStHDj7S1ZbOcBfwDAqlutmkmZ2gAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-geo"
+        title="elastic-geo"
+        src="/static/c2161a22e1608155591abfd976788452/43142/elastic-geo.png"
+        srcset="/static/c2161a22e1608155591abfd976788452/c26ae/elastic-geo.png 158w,
+/static/c2161a22e1608155591abfd976788452/6bdcf/elastic-geo.png 315w,
+/static/c2161a22e1608155591abfd976788452/43142/elastic-geo.png 599w"
+        sizes="(max-width: 599px) 100vw, 599px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p><a href="https://s2.q4cdn.com/265747582/files/doc_presentations/2021/08/Q1-F22-Investor-Presentation.pdf">FY2022/Q1 の投資家向けプレゼンテーション</a>の34ページを見ると、西ヨーロッパ、日本、オーストラリアが多そう。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0053cd2fede4112f56f068e431ea6f23/966a0/elastic-outside-us.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.06329113924051%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACVUlEQVQoz1WSO08UURiG9wcYNUFjjIURTUw0lpYmaKOJDYWJ/gGChbGyEAsLW2NBo50NFxGIEC8EiZeIEGFVvIHR3Z1dLuG2C8wuc86emTPnzGNmdl3xK2Ym37zn+c6b90tFUcTOCnTI4nyebOY3OcfBcRwy2Sy5fIFcNsP68hLFpTylRQcwyZl/jIhU/FrwDB0fFeliyMOfgrGFKkFoYyWRtYBNxCWpuTYpufutyq205PLbKrc/q+RfzIzBCbAr43Ok3+NQn8e5Fx4dUx5fNsJkZsx9UtAMzwdceSPZ3SXY2yPZ1S05/VTSOasSnY2Hx8DQRsmEidWQph6P8y8lVycE71aCRDi1Kmh5VmZPt2Bfr+Bwv+TogKCpV3Bnxkdq+5/tlKl/fC0J9vduc+JxkZuTJZZErf/gxyZt4xUuvZYcH6yBDjyKwYLO7xWILFEd2LAclzGatvFtOme24miS3txWyMkhSesryZnnHhdGBS0jguYBycUxiatUHbTjhm6oSXtl3HhSBOl1zY1pRa5i+OUaWl9VOdgnaR4QfCqGFKuGqTXFsONRlKYeSNSwnXJ9xfTaCrlSCSLDhh9xbFAkATmV2lq0jEjOjogk9VpZHLdKd0Yxuqgb0AQovW2WCwXm83nWN91Efv2Don1CNXbz3qxmaF4nSYZ15pxrOTXk0f5+Mxlg6/2U1hq3UsEY0wDcn/PZUDU7NaGu72JsorafgYlYEYbZkofQBmsM1lpS8SOG/r1yXFvK4luL8BXWWKwuo5TE2ghbDfADf4d9KPsBC6sZXLfMH+iZG/N6rjoeAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-outside-us"
+        title="elastic-outside-us"
+        src="/static/0053cd2fede4112f56f068e431ea6f23/f058b/elastic-outside-us.png"
+        srcset="/static/0053cd2fede4112f56f068e431ea6f23/c26ae/elastic-outside-us.png 158w,
+/static/0053cd2fede4112f56f068e431ea6f23/6bdcf/elastic-outside-us.png 315w,
+/static/0053cd2fede4112f56f068e431ea6f23/f058b/elastic-outside-us.png 630w,
+/static/0053cd2fede4112f56f068e431ea6f23/966a0/elastic-outside-us.png 944w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>売上の製品別の売上は開示されていないが、 License と Subscription の内訳は PL で開示されている。これによると Subscription 売上が全体の8割を超えており、徐々に伸び続けている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 617px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2bbba23b30b17a839c1cd498f094db37/bc962/elastic-revenue-breakdown.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.39240506329114%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACSUlEQVQoz42SSWsUQRiG55cILiAIMSaaEJkYwaMnb4IHCdGLhzGiEBHNwSV6EbzoIaccVDwJbiEeIy5BESPGkB4Jk8TE2TITe69eqvuRqp7J6M2Ct6v5uurhffv7cmmaolaUSH67NpZlYdkuvlMnckqYloNtWdieh2g08CtlTNvGdjw2mhLHsYnjmPbKqYcQAhEIYimJo0gfiOMQGQsi/d6S+haqeqQVhOpsRJIkOI6jOTnlsO3yf1eYQvhPRTHQHO0wiiKtNlzEIU1hsyUctvRudRR42N4CljmL9OZIZV3DgkAgpcyA7UgKpuwrSS2JTOhIKi+wNVlg9exOVkZ24Lx5kvWgDTRNkzD8K0CatCRbhQDkMoSLIGu6Ur55A6PvIMZAP+b0tK7JVkINdF1XR06UQ9iWcuMvvqV8+RDlqwNsTp7Tlyu3r1Ec7OLH0QOYM891zbWzbudsu9P2NJUk1gKyMYtsfsoOzn3A6O/G6NvP+vkWcGKcYr6L4lAP1uuXWZAkycZG5VbtDuMYKTzWRk9QGs5TOp0nalRwv3zGGOrBONLN+lghizwxjpHvpjjUiznz4l+HGTzR8VLfp3ryOD97dvHrWC+yViWY/8jawB5W+3dTv3hGX67fukLp8F5WBvfhzDzLDLaauj2Haqh9x+XppXs8PDXGo5HrWNVNlr+vMzH8gDvD93l8N4s3NTXPhcIrRgvTvHu/pv+2EEFnDjVQjY5MKLnwtQaGBaFMcSNYasK3qmTD01ao+bBQiVnaBDuERMaIIAP+AUeSZqM9Ia8LAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-revenue-breakdown"
+        title="elastic-revenue-breakdown"
+        src="/static/2bbba23b30b17a839c1cd498f094db37/bc962/elastic-revenue-breakdown.png"
+        srcset="/static/2bbba23b30b17a839c1cd498f094db37/c26ae/elastic-revenue-breakdown.png 158w,
+/static/2bbba23b30b17a839c1cd498f094db37/6bdcf/elastic-revenue-breakdown.png 315w,
+/static/2bbba23b30b17a839c1cd498f094db37/bc962/elastic-revenue-breakdown.png 617w"
+        sizes="(max-width: 617px) 100vw, 617px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>ここでいう <code class="language-text">Subscription</code> には顧客による Self-managed、代理店による hosting 及び Elastic Cloud において利用される有償機能の利用権とサポートの料金が計上されている。なお、サポートだけを購入することはできない。代理店による販売に伴う収益に応じてリベートやインセンティブが支払われる場合は、その分がネットされて収益に計上される（Revenue Recognition の箇所を参照）。</p>
+<p>収益認識のタイミングはサービスの提供方法によって異なる。代理店による hosting もしくは Elastic Cloud の場合は契約期間にわたって、もしくは利用ベースで認識される。Self-managed ではサポート及びメンテナンス収益は契約期間にわたって認識されるが、収益認識の要件を満たした部分（おそらく有償機能のライセンス）は契約時点で認識される。</p>
+<p><code class="language-text">License</code> は有償機能の利用権の収益。サポートだけを購入することはできないが、 Self-managed でライセンスだけを購入することはできる。</p>
+<p><code class="language-text">Professional services</code> は Elastic 社が提供するソフトウェアに関するコンサルティングやトレーニングの料金が計上されている。</p>
+<h2>財務諸表を読む</h2>
+<h3>BS を読む</h3>
+<p>Elastic の BS の特徴としては、以下が挙げられる。</p>
+<ul>
+<li>現預金以外の流動資産はほぼ売掛金</li>
+<li>固定資産が薄い（固定資産の6割ほどが他社の買収によって計上された「のれん」）</li>
+<li>流動負債はおよそ7割が前受収益</li>
+</ul>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fb3f19be8ce19d2554363f44c0e2d7e5/1f083/elastic-bs.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.69620253164557%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClklEQVQoz0WTz2tUVxTHHwiu/BPsUogLa0EXFjGmRNOCtLrIQkQiorWCXYRgd8X+IEgWFaSIoZRsatC4iBiIgqZB0pgM1TSBtMXUNDEmZuK8eW/ezHsz8+6vNx+5dyK5m3e5557P+55zvtcDqGnDalgiDEtof4ly4JOPApbDPEklQsZL+MUitThBVOpQjskKbxFxhUKk2SiEKClpNBp4FpgKQVKtobXGyJTMfrVBKeX2WtVBZ7wuF+ifH2Vo4SkPVtZ4uJonEQqttGOkaYpnqe+X3ZusQSzrxLJGTWkSpRFau/ij1Vm8n9v5YPBr2sYm6RjPURLCxbJNjlNoldXTujvwaxGH7l3mwHAP56cmOPnHDHNB0AS+nsO7+Tm77lzm2PgkJ57kCNPUKnEKbUWeEAJjDFkjc0nr1RLbB7rwfj3NwbFx9jyeYcoPXez31Vl29B9lz91uWifmaJ+cJxTSAbOsme9FUUS1WkUI+ycIE5+vhto5d7uN7tF+uoYH+HvjlbtcWn/E/LDH7EgLt/ovMPjLJapJyfJc/5zCMAwRrg8NsgZkaR7Gt8Fjj9+u9/LtNzd4tbjkgGrjIYx45O/vpue7MXq+nyBO0mbue4W2f5YspcAeyZLPypf7WTy7j66ry7RcgT9fNhtf/muKlWM7mb54itY+w+GfIIiNHQlCSjcLNxRL10rZipFBwP9HD7PwSSvnf3jB3ispz/9rDqycy7H00S6mO8/waW/EZ30JpcQ4hcpazZgt21hjSmOoFd6y2NnBv8ePcLH3Hz7+scazF7G7E+SmWWz7kMmuc3zRV+TEtQp+lGKUQCq1ZRvnP2Mwm0pVGBCvv2EtH+JXDKnUzgU6TZHFAuHaG9aLVVeu0qaZa4x7Ke8Ar4cBDLYau9sAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-bs"
+        title="elastic-bs"
+        src="/static/fb3f19be8ce19d2554363f44c0e2d7e5/f058b/elastic-bs.png"
+        srcset="/static/fb3f19be8ce19d2554363f44c0e2d7e5/c26ae/elastic-bs.png 158w,
+/static/fb3f19be8ce19d2554363f44c0e2d7e5/6bdcf/elastic-bs.png 315w,
+/static/fb3f19be8ce19d2554363f44c0e2d7e5/f058b/elastic-bs.png 630w,
+/static/fb3f19be8ce19d2554363f44c0e2d7e5/1f083/elastic-bs.png 660w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>それぞれ FY2021 の詳細な内訳を見てみることにする。</p>
+<h4>流動資産</h4>
+<p>現金以外の流動資産はほぼ売掛金で、 FY2021 の期末残高は $160M となっている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 599px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3670815e3b512d5a1fc7083e287feab8/43142/ca-break.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.39240506329114%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACUUlEQVQoz2WTzUtUURjGL/0LQX9Ai0SSQlPT0TTHmVrVNohWuWkRuahFkKnlzB2lcJHQwk1gZCQWOVQLhUpEkWxVoUIFA5KK48zc8Zz5uJ+/uHdmrqO+8HIOh8OP93nOc5RcLkcqlULTNHRdx3EcLMvABoziHvbmW5Z+vObFUoHvfy0s28Gtyured7tSSjqdJpFIsL29jbvXiwUKOojENJnZkxBXGJtooKY/Q8egpGc8x68N6wjUB5qmSbFYxLIsLFP3JrN2J5Fxhex7BT4pvJtqpknVuKzmaBnYI6RKH2r70DKwQnYc21vNXY3kaC1iRkHMHcP5oPB56gznohqhiCQcE7QMCG6O5w7JPgSsnGjxadYa6kjcqGdn7DjWrMLKTA1t0TTdkRzBqPAmDAwKlv+YB6R7QCklyWSSTCqFMEy2RlXWA6dZD15grbMdrecEq89rCY/scHEo7wHDqqSxTzC5qPvAio+K658QAt31Edh6EmG9tY6N0FkSwXo+Xr3Fnbtf6IpJghHhA5v6BC8XDgLd3pdslzzMvJngd/Mp4td7uX1vns7hAoFh24cFo9KTfL5fML9Wfph9xSgVslMGFjY36b2/QEA1aRspgbojWbqikq5Iyb/2R4JrzyTpvQJZLU0mo3mxy+fzpQk9YFUEJlag8UGW4FCWsFqCuB2OSToeC1oHBF9XXbkWRd3AjZ77QQzDKEt2DS0/fclcm6llnUsxSfND4fnltru/8lQy99M8kL3qqsrh0a/0L23zalFHnSkwHC8y/c0gJWw/0L5dVf0fX9gzFqVTltkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ca-break"
+        title="ca-break"
+        src="/static/3670815e3b512d5a1fc7083e287feab8/43142/ca-break.png"
+        srcset="/static/3670815e3b512d5a1fc7083e287feab8/c26ae/ca-break.png 158w,
+/static/3670815e3b512d5a1fc7083e287feab8/6bdcf/ca-break.png 315w,
+/static/3670815e3b512d5a1fc7083e287feab8/43142/ca-break.png 599w"
+        sizes="(max-width: 599px) 100vw, 599px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>FY2021 の通期売上が $608M なので、およそ 1/4 が売掛金として計上されていることになる。基本的には前払いが多いと思われるが、ライセンスは提供された時点で収益認識するようなのでその分と Elastic Cloud の使用ベースでの支払いがここに含まれていそうだ。</p>
+<h4>固定資産</h4>
+<p>固定資産は半分以上が「のれん」で、 FY2021 の期末残高は $199M となっている。これは大部分が2019年6月に Endgame というエンドポイントセキュリティ製品を開発する企業を $234M で買収した際に計上されたもの（<a href="https://www.elastic.co/jp/blog/endgame-joins-forces-with-elastic">Elastic CEO による買収のアナウンス</a>）。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 597px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ccc6fcbdecdedc212b7336911f1e812d/17602/fa-break.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 62.0253164556962%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACcUlEQVQoz2WTTUgUYRzGB7p07ybRqZMEWvhtiq66Jdih0xZdLKMgCukQhLir5bZmHpI8JJVmoUViRaQV1CWLQgMhyK90M9yV1N0ld2dnd3a+fjGzH7r5wsv7DsP8eJ7n/4wgiiKhUAjzNAwDTdPQNAVrRTdYmvYy9fAPTz/JTHk1dN2wXmmp0/zG3OklBINBfD4fgUCAzc1NYvE4JAz65j7T1VvK++bTdBXOUtHyl9J2kaZ7EjN+bQc0C+j3+y1gIBQEA57PvUO46yCn7wgTrnLuHJ+mvi1Czc0oJS6Rus4osymonoGmgKqqkkgkUJUEqg7EfrM8vocLQ4cQBpo433OYkZMjVDsVqj0R7J1J6Nn7MXRjp20hHA5bCkPBDaIySAvdyC8EeCMwMLqf3IFaOpp7qHcqVHki2NwitZ4o5e0i37xqxnoaKui6jrktr4D83YE4JhB+uwvGBaZf76b1diNHXXGqPKIFNC0XtIo8+5rIytJSmJGsJzMJDV5k5UwOK+dyWWzMI+zYx/Clq5R1atS4I9hubAGffEm2QdWS7TCFCRm0pRICD/qZyz/Agq0Sb0UBk/ZjNLjWqfTEsaWApuXStggfZ2ImDikWZ3V1FUmSEMyqrK2tEQxsEJFlpKV5FuzF/KwrxleTx5XLY5R0Qa07TLU7mszvmsiJXolYIhmVbmxTqCiKNWXTtq4mQw487mc5fy/Dp1qovKVj90QskGm14rpIWbvIxHx6IGQtIevJzDJ1XR8axOFc5GBbgqLWMIVOkSKnSEN3lA8/1EwH09PNTHmrQ9tan+rUryA8mpDpeCnjeRVndFIhKOpZsP//lH+fayv2AopB8AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="fa-break"
+        title="fa-break"
+        src="/static/ccc6fcbdecdedc212b7336911f1e812d/17602/fa-break.png"
+        srcset="/static/ccc6fcbdecdedc212b7336911f1e812d/c26ae/fa-break.png 158w,
+/static/ccc6fcbdecdedc212b7336911f1e812d/6bdcf/fa-break.png 315w,
+/static/ccc6fcbdecdedc212b7336911f1e812d/17602/fa-break.png 597w"
+        sizes="(max-width: 597px) 100vw, 597px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>また Deferred contract revenue は契約獲得に要した費用を契約期間にわたって繰延ている。FY2020 では $24M だったのが $50M と倍増しているので、長期の契約をたくさん獲得したのかもしれない。</p>
+<p>Elastic Cloud は AWS, GCP, Azure の上に構築されており、 Elastic 社自身ではデータセンターを持っていないようだ。BS にもそれらしいものは載っていない。</p>
+<h4>流動負債</h4>
+<p>流動負債はほぼ Deferred Revenue で、これは Elastic が収益認識前に顧客から支払いを受けたいわゆる前受収益を意味する。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 598px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/dcd14a3a18269552b66608f9b96162e3/0c69d/cl-break.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.39240506329114%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACOklEQVQoz32TXUsUURjHFz9A90GfQax8xbRVV7MXKoNug/ALdBFFZeqmu4MGYRCBF930QkUQuYWlRIKl4V0vVBYVJRobu+vuzjk7sztvvzjjzqolHXiYw5nhd/7///NMSEpJOp0mm82i6zqO4+DYNi5ASef78jPmZu8wMZtj/quH43rqTeXpeZ5fwQop0MrKig9dXV2laBoUXUgvJCg+3cHcwyrORsMcOfeDuqhJ77jk3ZLzD7QCVAozmQy5XI58Nov6ND8zzefmGjIj20i9CKGNddMT/UWbZtI0oNMek7z9+Te0DDRN04dJKTAtGyv1m289HSy21LJ4sIXC/Squ32jlQH+SvXGDLk3QNCA4OV7YWmFlVz5MPpnkQ1M1S107WWqsJntiO5O3auiOJgnHDNqHBZG49KGvv9ibVPrAINTgcCyhc/j0J86fSnCt9wpTR3uZPnOMzpEkbUMG7TFBpyap7RPcflWqAAOVoUCyWwZqjy12DZZoHoWGEQjHC+wfTNER02kblmvAuKSuT3Dz5X+AgcK78yXq+/Lsi+eJDOV8gMougKmGKMsN/YKZj2uWbcerjE8lQ7d8w3LGpUuThIcFHXHpZ+ZXTPhQBdsTlRy/WkAW17Pb1JRA7kaVuy8IH6rsRcqlsmu9JGjs13n+Xtn1ENJACIEaP8uyAuD6xAfwe/MlH1B/Ufh5qVL7Q5clU29MZRTLtn2Q+sNSqRSGYaxbDkAbocq+6mTskYk2UeTBgkVad8sRseX6AymnM3qSvDIcAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="cl-break"
+        title="cl-break"
+        src="/static/dcd14a3a18269552b66608f9b96162e3/0c69d/cl-break.png"
+        srcset="/static/dcd14a3a18269552b66608f9b96162e3/c26ae/cl-break.png 158w,
+/static/dcd14a3a18269552b66608f9b96162e3/6bdcf/cl-break.png 315w,
+/static/dcd14a3a18269552b66608f9b96162e3/0c69d/cl-break.png 598w"
+        sizes="(max-width: 598px) 100vw, 598px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>Deferred Revenue は FY2020 で $260M、 FY2021 で $398M あり、それぞれ負債総額の 67%、76% を占めている。また、そのほぼ全てが流動負債として計上されている。</p>
+<p>Elastic Cloud は契約期間が 1~3 年で、毎年前払いで請求される（いちおう月単位で購入することもできる）ので、その前払い分が計上されていると考えられる。</p>
+<p>Form 10-K の 99 ページで増減内訳が開示されているが、これを見るに毎年売上の半分以上に相当する Deferred revenue の増加があるようだ（FY2021 の売上は $608M で Deferred revenue の増加額が $364M のため）。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d75ba641da17f8b3ab06b26e4672ca1e/264eb/elastic-deferred-revenue.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.21518987341772%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABEUlEQVQY042OXU+CYACF+f//pbUu22zlaoVhhiICvsqHIEoIykegYjwtuuqusz17zsW5OBL/SNu2HT9pmoY8z6nrmiAIEEKQZRlFUVBVFZIIIgwvxI0zNuWZdVYTZDVhfuz67tiSnPn1CaLy3O0nC4/lNmGgmcyDCBHGqJaNpFgut7JKT9HoqybDhY8ifIbC53W+QnU2ONmJoAb/syWowCu/WKQ16yO4eYNXXPCrFpFUSPe6w/XzmKvHETeyRk/3Ou50D9ndIXsp0/2FWQ561nY2ChjHx87a/sIkbTBLMAuQBsaSh3cDRayw4gIzyjG2B6yPgmVa4+XNn3f24cTI2fBi2My2B56mgjc7ZLpO6KsG3zwRcvIiu31OAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-deferred-revenue"
+        title="elastic-deferred-revenue"
+        src="/static/d75ba641da17f8b3ab06b26e4672ca1e/f058b/elastic-deferred-revenue.png"
+        srcset="/static/d75ba641da17f8b3ab06b26e4672ca1e/c26ae/elastic-deferred-revenue.png 158w,
+/static/d75ba641da17f8b3ab06b26e4672ca1e/6bdcf/elastic-deferred-revenue.png 315w,
+/static/d75ba641da17f8b3ab06b26e4672ca1e/f058b/elastic-deferred-revenue.png 630w,
+/static/d75ba641da17f8b3ab06b26e4672ca1e/264eb/elastic-deferred-revenue.png 867w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>つまり、単純に計算すると売上の半分以上に相当する顧客が2年分を契約して前払いしているということになる。</p>
+<h3>PL を読む</h3>
+<p>Elastic は上場以来ずっと赤字決算企業だが、売上は伸び続けている。FY2020 は前年比+57%、 FY2021 は+42%成長している。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5705a1dc13fb68c703fde6ca48cb4f1e/6db71/elastic-pl.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB2ElEQVQoz2VSTWsUQRCd/+B/8Z94FPQayCk3D15EMCcRVlAPkngRJEbZICFqIqIRPAiSIGRBCDJhE3d3dmG+uruqu59UdWY3iwM1/bq6+vWrjwwAYoxqCeuCSRUwLQ3o/AzFpEBTjWDLPxiNCxjTQsJCF3zly+RHRHDOIYQA772aIzEGO6tnRA5MHWYAXo0v48XkfrZQFtXxny35EwYCfuWMwZAVe5/OhUMVWmvnCpkXL3YWg7yeMLFXkvUdg957o1iymSvsiDqFEqCvCrlP+Nm+xeGA0mUWX8SDvkFvzyomvqJwOp2iqmowkar7euKQjwkIBOtI67TyvMGrb6KGYGzyrfdb9PZa9UkcMyeFRSFdM+hafPtpi4+DtHWsTqxutHj9Iyz57r81ePRBN6CwmJRMOixFlZWcw92tGl8+nQIX39GWp6rm3psa7w6GwOwErsnV92S/xUb/HBgdw1W/Ya3TOmbd/IhkIWwCMHm5hYsXN1Dmm/AMSGLDh4+Rr11DeXQT0hfJabS9i7M71zH7eQvMcUEoZF0Nonaadb50LjmlVR8dY3a4CTP5jBAlRQ+uKphxDtf8RbgcnSXC1OmIuq61rl3nY4hoiGBSGXWE5Ky1Fm0q6rzL/wA5/UjGitjrOQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-pl"
+        title="elastic-pl"
+        src="/static/5705a1dc13fb68c703fde6ca48cb4f1e/f058b/elastic-pl.png"
+        srcset="/static/5705a1dc13fb68c703fde6ca48cb4f1e/c26ae/elastic-pl.png 158w,
+/static/5705a1dc13fb68c703fde6ca48cb4f1e/6bdcf/elastic-pl.png 315w,
+/static/5705a1dc13fb68c703fde6ca48cb4f1e/f058b/elastic-pl.png 630w,
+/static/5705a1dc13fb68c703fde6ca48cb4f1e/6db71/elastic-pl.png 659w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>何にお金を使っているか、 PL の費用内訳をグラフにしてみる。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fb9270425c895dd5c4e8d27eafba112b/612f7/elastic-operating-loss.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.56962025316456%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsTAAALEwEAmpwYAAABkElEQVQoz42Sv24UMRCH7y14A6QU1DwBBV0K6KnpERWRKEJLCw0UoEiIKESipQDpQhS47rgoEIIQQXt3EN/+8W7WXo/9IXuTQBGhjDSesTTzefyzB3Vdo5SiLEvms4z5bEpRlkQL0b3vPYQL+SAuIoJIoG4DbRcIncVVJd4YQuDCsAT0Ps7h+DIVbj7UPBqCGb7h6/I1itcb/aSxOEYRvLj/A23nAGFy6Lhyt+L+KwtaoUc7iK5QL9c4uHGd+uM2p3YmxXlApRYQLLs/HVdXNA8229TkT5r18C3T1XuY79/QO+9RL57h8jxBvXN47888ARd5kc78dCgs3alYWW/TXpykKf61H7dvMbl8CXOwz3mWgM5FTTy5tmx/btnPDOI6rO3oug5rDPb4mM579NY78vU12t+/mD1/wvzpY2ql+DAaMR6PiaxBJMfGXhmfYhw/vvzpVVIu0msXq0Kg2dul2Zsg1pIXBVVV/f027kSLsqqJj2StTQXGGLTWZFmW8kZryjxP+aJpONJ1r3c8LP4v4A91hqrv5zn0wAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-operating-loss"
+        title="elastic-operating-loss"
+        src="/static/fb9270425c895dd5c4e8d27eafba112b/f058b/elastic-operating-loss.png"
+        srcset="/static/fb9270425c895dd5c4e8d27eafba112b/c26ae/elastic-operating-loss.png 158w,
+/static/fb9270425c895dd5c4e8d27eafba112b/6bdcf/elastic-operating-loss.png 315w,
+/static/fb9270425c895dd5c4e8d27eafba112b/f058b/elastic-operating-loss.png 630w,
+/static/fb9270425c895dd5c4e8d27eafba112b/612f7/elastic-operating-loss.png 773w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>それぞれの定義は Form 10-K の 55~56 ページに記載されている。</p>
+<p><code class="language-text">Cost of revenue</code> は Subscription 及び Professional services の提供に関わるカスタマーサポート及びサービス担当者の人件費（給与、福利厚生、株式報酬など）やクラウドインフラ費用が含まれている。</p>
+<p><code class="language-text">Research and development</code> には新製品や既存製品の開発者の人件費が含まれている。</p>
+<p><code class="language-text">Sales and marketing</code> には、販売や広報活動を行う人員の人件費や顧客契約の獲得に関連して営業担当者に支払う販売手数料、マーケティングプログラムに関する費用、広告宣伝費が含まれている。</p>
+<p><code class="language-text">General and administrative</code> には経営陣、財務、法務、人事、そのほか管理部門の従業員の人件費や会計、税務、弁護士など専門家への報酬が含まれている。</p>
+<p>過去の決算を見ても費用の割合は大きく変わっていないので、 Elastic 社は営業活動や社債等で調達した資金を使って Sales and Marketing に投資するという王道の方法でこれからもビジネスを拡大していけそうだ。</p>
+<h3>CF を読む</h3>
+<p>Elastic 社は継続的な赤字決算企業だが、実はキャッシュフロー計算書を読むと現預金は増え続けている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/938c12d92d05ba3c700f5f14996900b0/a1253/elastic-cf.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.32911392405063%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB4ElEQVQoz22TP4sTQRjG81nsbP0Utn6Cq2y1s7W4xsLCwkOtxML+BCsRkVNBODEih3CihxJjEi67t8lmZmfmnZmfzLtJNODCy86+fx6e531mBwApRjLgJ2Oq84rkaqT5ybK1nF2MqZoFqf6FqaZU9QVNs6Q1ntlshrW2QJBz1hiUD+89IQRi8OSYmLZzjmen2tgFRxDRmoS+T0QQidtzSokYo74VsG8QJEUFOZr/YO/eVfj4jKQK+qH/RozEdX3LcAsYRQHfNBNu7F+Gl3cJBVC8Mij1FHs228jouspZAZ1zKnkH8OI3N+9cgaMDBYzeQUpa20hTRiXhDHbyjZTpJdd1Tdd12ugl6NCresT125eUoaN/xp3l8Pt7pVN2mjtLFRO3nuzRPLjWs5TAYD6fK0MfPNZY4smQ0+knnj7fJ5+8wBTTjt/ydfiQR58PCxo2BJbDD1SzEQev77N69xgnGQmBgbqrMrIuOJzPcLY3J6/ZudEZ1F/WkoWce/llZtOXNjssiQJaYrOXLkSqpWdlhdaK7rGLYJwQU6TzkVUnLEx5B1IMu9dmA6hOFnP0LDgfsU5oTeC8cVSLwMKIgpW87co9/Du3cw83tpdo25biPv8It2ZFZ806tc5ZgzFm50/5A/bMSzWYue9EAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="elastic-cf"
+        title="elastic-cf"
+        src="/static/938c12d92d05ba3c700f5f14996900b0/f058b/elastic-cf.png"
+        srcset="/static/938c12d92d05ba3c700f5f14996900b0/c26ae/elastic-cf.png 158w,
+/static/938c12d92d05ba3c700f5f14996900b0/6bdcf/elastic-cf.png 315w,
+/static/938c12d92d05ba3c700f5f14996900b0/f058b/elastic-cf.png 630w,
+/static/938c12d92d05ba3c700f5f14996900b0/a1253/elastic-cf.png 657w"
+        sizes="(max-width: 630px) 100vw, 630px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>原因としては、 BS の箇所で取り上げた Deferred Revenue の増加がある。前期末から当期末にかけて増加した Deferred Revenue と同じだけ現預金も増えており、それが営業キャッシュフローを押し上げている。四半期ごとの Deferred Revenue の増加は <a href="https://s2.q4cdn.com/265747582/files/doc_presentations/2021/08/Q1-F22-Investor-Presentation.pdf">FY2022/Q1 の投資家向けプレゼンテーション</a>の 48 ページを見ると分かりやすい。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 454px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ccf0248616c077883cf91cdf5cedfcea/b3c1d/deferred-revenue-growth.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 86.0759493670886%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAAsTAAALEwEAmpwYAAADOUlEQVQ4y52U7W9TdRTH+/cYg1ES8AF5ZZAIgrKNF2oIEQ1shjh9QYgg0cxMjbzAwTb2QGSLbi5pxx7wiS7VdivZ2NbuidG1tbfrw13LutvbW9rdh7Yfc+/iWIaK+ktOTs4v935yzvl9z7HxmFOpVP42luUswcA8a5IElKhUytgUJUcqlSKbzXI/nSaZTFqxaYqibEL+NPMUCnnUgsS9kMjpC4PM3Y1gH3ARi6ewhUNBbjmdeL1jzC8ssByNIkSjRCIRMpnMNuBGZoFgjB6HG+9UlKf2tzDuT7CnuhPv1DI2TVWRZRkpm8UolR4puVwub4IEQUBMRBh2LrLz1XY8EwJ7qjsY98XYdegqo5NRbH8FMI0tvQouBZAyIl32aU6edXDLE2JvTSfucYHnj7Qz7o/z7GttjE0uY9van60N1zSdSDiAWpTp6Jmg6Zsxrtv9HHrnO5yjYV6o6ngI9MXZffgqY2aG24GlUolcTkZVi9x0+rkXTHLuqxGOfeCgd2iOqlM9/wzcKPNhyYZh4PPPkVeyvFnfT2Ozhy9bPbx7doCewVmOnHwMUMnJiAkBaW2V38MB8nmFN97vx/HTIrXnBmlsdvNFi4cTZ278O2B6VaGzd4KEKNE3NEU0vsb+Y11ct/uoOz9E45X/CFxYSvPES5eZnE2y+3A7P/4apKa2ly6Hn9r/A1wM3ee519uYnk+y92gnv7hD1NR9T7fDz3sfD/N5s3uzh+ajVJ/qtYAvmrIxdVjVYcnGZFiyMTN8ct9l7swmeOZAKz+4ljj49rdc65vmxJkBPrnkoqHpN96qt9PdP8Mrx7v52R1i58FWXLcjPH2ghdvTMXa8fAX3RBRbNCFx+sIQwcgqHzbcZHI2TsPXI4yMhrjY5qbb4aNveIZL17y4vGE+a3JxZyZG3flBZhZFaj+6wd1givpPh5kPrGDTdQ1NLWB6df0BhqFTLOTRddXyZqyuF6hUSqjrRUqGZnlNK5pTznrR/FZH18w7FVulXCEWi1mXoiiiqhrpdJoHhSKSJCHLuY1NtJqhWCwgrqygaRqJpGhpNh5PYBglazvpuvHopGwfQ/Nnc6UJQoRUKm1N0vaVttX+AAq6dTo1veF8AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="deferred-revenue-growth"
+        title="deferred-revenue-growth"
+        src="/static/ccf0248616c077883cf91cdf5cedfcea/b3c1d/deferred-revenue-growth.png"
+        srcset="/static/ccf0248616c077883cf91cdf5cedfcea/c26ae/deferred-revenue-growth.png 158w,
+/static/ccf0248616c077883cf91cdf5cedfcea/6bdcf/deferred-revenue-growth.png 315w,
+/static/ccf0248616c077883cf91cdf5cedfcea/b3c1d/deferred-revenue-growth.png 454w"
+        sizes="(max-width: 454px) 100vw, 454px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>営業キャッシュフローを押し上げている要因は他にも株式報酬 Stock-based compensation がある。Elastic 社は役員や従業員に RSA/RSU を配っているが、この費用は実際に現金支出を伴わないので、PL 上は損失として計上されているが営業キャッシュフローへの影響は±ゼロとなる。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 623px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d91769fdbc6ccf7a48a5a2963afeb160/6114d/stock-based-comps.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 41.139240506329116%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAABqUlEQVQoz3WO2Y7aQBBF/f9fFJREE41mMplhEYwB463dxm0DXtjcNgQwJ7LJQ15S0tGt5VapjDzPUUoRSIkQAVJKfCEoioK6rqmqCq01WlddXZYl1T/9Vluu1yttGNttQRLHhFLiuW6ntr3AsW22RcFhv2e33bLf7TgeD51WWpPnGXn2oPXdm+Zx8HJruN6hLVvuf2n+w77UJJuUTV5gzi0sx+3yZbziqCuMsYjpuxFDXzH0Y16mLi+my8BTTFXGOEgYBys+lynycMEtan5aAZ9RxizZ8ToXOJlmIFZMA4XxY2jy7eOT3tuIp9GMvrPEzkrcvELVd+KaB6eHrn/DL0tgrfdE+sbzZEFyAjPKGTsBhikTRr6ib0vab+X+RHaDzYXOqPStW1weL6iqISqvvFs+9nqH2Na8zbxuNgk3WGGMMXAjeh8m30dzvrxP6PVNvg5nPE0cnqc+/WDNIEx591cs8hpxuPAyDxgvM6y05NWSeLtz57OiFCPJCpwgxJURXqiwhcQRYdeL1innBk4NnO+gLw0qLZg6Hv4yJohXmLaH2uQsRIhUCX8AejNPmCZkZA8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="stock-based-comps"
+        title="stock-based-comps"
+        src="/static/d91769fdbc6ccf7a48a5a2963afeb160/6114d/stock-based-comps.png"
+        srcset="/static/d91769fdbc6ccf7a48a5a2963afeb160/c26ae/stock-based-comps.png 158w,
+/static/d91769fdbc6ccf7a48a5a2963afeb160/6bdcf/stock-based-comps.png 315w,
+/static/d91769fdbc6ccf7a48a5a2963afeb160/6114d/stock-based-comps.png 623w"
+        sizes="(max-width: 623px) 100vw, 623px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>投資キャッシュフローが　FY2019 に大きく増加しているのは IPO で $270M を調達したため。Elastic は FY2020 に Endgame を $234M（acquisition price）で買収しているが、この時は現金支出は $27M しかなく、ほとんどが Elastic 社が新規発行した普通株式で支払われている。内訳は Form 10-K の 93 ページに記載されている。</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 497px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/88bcb19ef28e14873c94fdb6a2fad7b0/15d25/endgame-acquisition.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 25.316455696202528%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/klEQVQY03WKy26CUBRF+f+/6bAdmKbpoIbGRkWUp1C4Fy4gRQUsWl0NaBonPcnK3nvlaIe24dDURGGAtTRZLYwhPcfGNOaszAWB7+Ha1rB777v2kL1XUiDjiLLI6U+L0hwrFNhRwmde4YqMdbphrTY4scIRGUFWDs6T+ZCBKnGEwk8KvroLRdORVjX5/oBmi4zRx5J3T2IVLbID8X2l7/J412+Im+971IJfdbwuPCa+RDPWgocXncfxlCd9ztsqQHdjxlaImW4JWwjqy7+EDbjbE88zh9HERKt2e6TKSFROJBLKascPcDxfOJ3h9Jfc7Sv9zxmIZcJkOsNyPX4Bg3pz2EgKUGkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="endgame-acquisition"
+        title="endgame-acquisition"
+        src="/static/88bcb19ef28e14873c94fdb6a2fad7b0/15d25/endgame-acquisition.png"
+        srcset="/static/88bcb19ef28e14873c94fdb6a2fad7b0/c26ae/endgame-acquisition.png 158w,
+/static/88bcb19ef28e14873c94fdb6a2fad7b0/6bdcf/endgame-acquisition.png 315w,
+/static/88bcb19ef28e14873c94fdb6a2fad7b0/15d25/endgame-acquisition.png 497w"
+        sizes="(max-width: 497px) 100vw, 497px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2>その後</h2>
+<p>Elastic は2021年6月に <a href="https://ir.elastic.co/news-events/press-releases/press-releases-details/2021/Elastic-Announces-Proposed-Private-Offering-of-500-Million-of-Senior-Unsecured-Notes/default.aspx">$500M の社債を private で募集</a>した（その後、 <a href="https://ir.elastic.co/news-events/press-releases/press-releases-details/2021/Elastic-Announces-Upsizing-and-Pricing-of-575-Million-of-Senior-Unsecured-Notes-Due-2029/default.aspx">$575M に増額</a>した）。その後、相次いで3社を買収している。</p>
+<ul>
+<li><a href="https://www.elastic.co/jp/blog/elastic-and-cmd-join-forces-to-help-you-take-command-of-your-cloud-workloads">Cmd</a></li>
+<li><a href="https://www.elastic.co/jp/blog/elastic-and-build-security-shifting-left-together-to-secure-the-cloud">build.security</a></li>
+<li><a href="https://www.elastic.co/jp/blog/elastic-and-optimyze-join-forces-to-deliver-always-on-continuous-profiling-of-infrastructure-applications-and-services">Optimyze</a></li>
+</ul>
+<p>いずれも Elastic Security 及び Observability の機能を拡充するための買収で、これからもそういった方向の買収の動きが増えてくるかもしれない。</p>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn-1"><a href="https://www.mongodb.com/licensing/server-side-public-license/faq">Why are we changing the license for MongoDB</a><a href="#fnref-1" class="footnote-backref">↩</a></li>
+<li id="fn-2">オランダはヨーロッパで最初に patent box 税制を導入した国だが、すぐにベルギーとかスイスとか UK でも同じようなことができるようになったのでオランダだけが租税回避に使われていたわけではない。しかし、Apple が開発した <a href="https://www.cao.go.jp/zei-cho/content/20131023_25dis11kai3.pdf">Double Irish with a Dutch Sandwich</a> という租税回避スキームが多国籍企業でよく使われていた。<a href="#fnref-2" class="footnote-backref">↩</a></li>
+</ol>
+</div></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:50px;height:50px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#e8d8c8;width:50px;height:50px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/d4bf4/profile-pic.avif 50w,/static/e8fd2154b9e4024a4342869b4971332c/ee81f/profile-pic.avif 100w" sizes="50px"/><source type="image/webp" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/3faea/profile-pic.webp 50w,/static/e8fd2154b9e4024a4342869b4971332c/6a679/profile-pic.webp 100w" sizes="50px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="50px" decoding="async" loading="lazy" data-src="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg 50w,/static/e8fd2154b9e4024a4342869b4971332c/64618/profile-pic.jpg 100w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/d4bf4/profile-pic.avif 50w,/static/e8fd2154b9e4024a4342869b4971332c/ee81f/profile-pic.avif 100w" sizes="50px"/><source type="image/webp" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/3faea/profile-pic.webp 50w,/static/e8fd2154b9e4024a4342869b4971332c/6a679/profile-pic.webp 100w" sizes="50px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="50px" decoding="async" loading="lazy" src="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg 50w,/static/e8fd2154b9e4024a4342869b4971332c/64618/profile-pic.jpg 100w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}</script></div><p>Written by <strong>lyohe</strong> <!-- -->会計とプログラミングの話をここに書く<!-- --> / <a href="https://twitter.com/rtsudar">Twitter</a></p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/2021-11-06-hashicorp-ipo/">← <!-- -->HashiCorp が上場するので Form S-1 を読んだ話</a></li><li></li></ul></nav></main><footer>© <!-- -->2021<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2021-11-25-elastic/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b227d9031ab4094e5021.js"],"app":["/app-b6b27f9fe9d88b8e1eb4.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bb1698d01a7f9dde5caa.js"],"component---src-pages-index-js":["/component---src-pages-index-js-8dfa2bbbf6350f253638.js"],"component---src-pages-using-typescript-tsx":["/component---src-pages-using-typescript-tsx-20f655bfb94bd369e9d3.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-eccee83f50b6c3a5d4d6.js"]};/*]]>*/</script><script src="/polyfill-b227d9031ab4094e5021.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-eccee83f50b6c3a5d4d6.js" async=""></script><script src="/commons-ab2410dfbec4227df496.js" async=""></script><script src="/app-b6b27f9fe9d88b8e1eb4.js" async=""></script><script src="/framework-e413e527015be9a1bdfd.js" async=""></script><script src="/webpack-runtime-b788fb4cde8074c4b498.js" async=""></script></body></html>
