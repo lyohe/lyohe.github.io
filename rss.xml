@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Koko-ni-kaku RSS Feed]]></title><description><![CDATA[A blog about accounting and programming]]></description><link>https://lyohe.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 27 Nov 2021 10:36:20 GMT</lastBuildDate><item><title><![CDATA[Elastic 社の決算を読んだ話]]></title><description><![CDATA[Elastic 社の決算を読んだので、その話を書く。 数字は主に FY2021/4 の Form 10-K から拾っていく。 会社の概要 Elastic は Elasticsearch や Kibana, Logstash などの検索、ログ関連の OSS…]]></description><link>https://lyohe.github.io/2021-11-25-elastic/</link><guid isPermaLink="false">https://lyohe.github.io/2021-11-25-elastic/</guid><pubDate>Thu, 25 Nov 2021 11:04:44 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/&quot;&gt;Elastic&lt;/a&gt; 社の決算を読んだので、その話を書く。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Koko-ni-kaku RSS Feed]]></title><description><![CDATA[A blog about accounting and programming]]></description><link>https://lyohe.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 28 Nov 2021 12:39:12 GMT</lastBuildDate><item><title><![CDATA[Elastic 社の決算を読んだ話]]></title><description><![CDATA[Elastic 社の決算を読んだので、その話を書く。 数字は主に FY2021/4 の Form 10-K から拾っていく。 会社の概要 Elastic は Elasticsearch や Kibana, Logstash などの検索、ログ関連の OSS…]]></description><link>https://lyohe.github.io/2021-11-25-elastic/</link><guid isPermaLink="false">https://lyohe.github.io/2021-11-25-elastic/</guid><pubDate>Thu, 25 Nov 2021 11:04:44 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://www.elastic.co/&quot;&gt;Elastic&lt;/a&gt; 社の決算を読んだので、その話を書く。&lt;/p&gt;
 &lt;p&gt;数字は主に &lt;a href=&quot;https://d18rn0p25nwr6d.cloudfront.net/CIK-0001707753/480035b6-2803-4c19-9d74-790dc3090fea.html&quot;&gt;FY2021/4 の Form 10-K&lt;/a&gt; から拾っていく。&lt;/p&gt;
 &lt;h2&gt;会社の概要&lt;/h2&gt;
 &lt;p&gt;Elastic は &lt;a href=&quot;https://github.com/elastic/elasticsearch&quot;&gt;Elasticsearch&lt;/a&gt; や &lt;a href=&quot;https://github.com/elastic/kibana&quot;&gt;Kibana&lt;/a&gt;, &lt;a href=&quot;https://github.com/elastic/logstash&quot;&gt;Logstash&lt;/a&gt; などの検索、ログ関連の OSS を開発している企業として有名で、それらの追加機能の販売やサポート、マネージドサービスの運用で収益をあげている。&lt;/p&gt;
@@ -262,6 +262,13 @@
 &lt;p&gt;収益認識のタイミングはサービスの提供方法によって異なる。代理店による hosting もしくは Elastic Cloud の場合は契約期間にわたって、もしくは利用ベースで認識される。Self-managed ではサポート及びメンテナンス収益は契約期間にわたって認識されるが、収益認識の要件を満たした部分（おそらく有償機能のライセンス）は契約時点で認識される。&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;License&lt;/code&gt; は有償機能の利用権の収益。サポートだけを購入することはできないが、 Self-managed でライセンスだけを購入することはできる。&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Professional services&lt;/code&gt; は Elastic 社が提供するソフトウェアに関するコンサルティングやトレーニングの料金が計上されている。&lt;/p&gt;
+&lt;p&gt;なお、 Form 10-K の 53 ページによると Elastic Cloud の利用売上の総売上に対する割合は&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;FY2019: 17%&lt;/li&gt;
+&lt;li&gt;FY2020: 22%&lt;/li&gt;
+&lt;li&gt;FY2021: 27%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;とのことなので、 Elastic Cloud が成長を牽引していそうだ。&lt;/p&gt;
 &lt;h2&gt;財務諸表を読む&lt;/h2&gt;
 &lt;h3&gt;BS を読む&lt;/h3&gt;
 &lt;p&gt;Elastic の BS の特徴としては、以下が挙げられる。&lt;/p&gt;
