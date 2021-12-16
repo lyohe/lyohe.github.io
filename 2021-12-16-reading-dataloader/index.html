@@ -363,7 +363,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// Private: cached resolved Promise instance</span>
 <span class="token keyword">var</span> resolvedPromise<span class="token punctuation">;</span></code></pre></div>
 <p>Node.js 環境では <a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/">process.nextTick</a> が使われる。nextTick に渡したコールバックは Node.js におけるイベントループ内の各 phase の終了時に実行される。各 phase には実行するコールバックの FIFO キューがあり、その phase に固有の operation を実行した後キューがなくなるかコールバックの最大数に達するまでコールバックを実行する。</p>
-<p>ここでは Promise の then コールバックで process.nextTick を呼び出しているが、これは</p>
+<p>ここでは Promise の then コールバックで process.nextTick を呼び出しているが、これは他の Promise より前に nextTick が呼ばれないようにするため。この技法は<a href="https://youtu.be/OQTnXNCDywA?t=1434">解説動画の 23:55~</a> で説明されている。</p>
 <p>process.nextTick の注意点としては、全てのコールバックが nextTick を呼んだ時点の phase 終了後イベントループを継続する前に呼ばれるので、再帰的に呼び続けると I/O が実行できなくなる恐れがある。イベントループについて詳しくは Node.js のドキュメントを参照。</p>
 <ul>
 <li><a href="https://nodejs.org/en/docs/guides/dont-block-the-event-loop/">Don’t Block the Event Loop (or the Worker Pool)</a></li>
