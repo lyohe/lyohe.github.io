@@ -1,4 +1,215 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Koko-ni-kaku RSS Feed]]></title><description><![CDATA[A blog about accounting and programming]]></description><link>https://lyohe.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Jan 2022 03:12:08 GMT</lastBuildDate><item><title><![CDATA[2021年に読んだ本 BEST 5]]></title><description><![CDATA[2021年に読んで面白かった本 BEST 5 を紹介したい。昨年以前に出版された本もある。 1位: ルワンダ中央銀行総裁日記 https://www.amazon.co.jp/dp/B00LMB2OLE…]]></description><link>https://lyohe.github.io/2021-12-19-best-reading/</link><guid isPermaLink="false">https://lyohe.github.io/2021-12-19-best-reading/</guid><pubDate>Sun, 19 Dec 2021 03:19:21 GMT</pubDate><content:encoded>&lt;p&gt;2021年に読んで面白かった本 BEST 5 を紹介したい。昨年以前に出版された本もある。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Koko-ni-kaku RSS Feed]]></title><description><![CDATA[A blog about accounting and programming]]></description><link>https://lyohe.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 07 Mar 2022 14:18:24 GMT</lastBuildDate><item><title><![CDATA[メモ: How to Contribute to Open Source (Next.js)]]></title><description><![CDATA[YouTube で How to Contribute to Open Source (Next.js) という動画を見たので内容のメモ。 視聴動機としては、大きな OSS プロジェクトがどのように運用されているか興味を持ったため。Next.js に Contribute…]]></description><link>https://lyohe.github.io/2022-03-06-contribute-oss-guide/</link><guid isPermaLink="false">https://lyohe.github.io/2022-03-06-contribute-oss-guide/</guid><pubDate>Sun, 06 Mar 2022 03:01:31 GMT</pubDate><content:encoded>&lt;p&gt;YouTube で &lt;a href=&quot;https://www.youtube.com/watch?v=7OZErHXgnjo&quot;&gt;How to Contribute to Open Source (Next.js)&lt;/a&gt; という動画を見たので内容のメモ。&lt;/p&gt;
+&lt;p&gt;視聴動機としては、大きな OSS プロジェクトがどのように運用されているか興味を持ったため。Next.js に Contribute する予定は（できたら嬉しいけど）今のところ無い。&lt;/p&gt;
+&lt;h2 id=&quot;000--introduction&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#000--introduction&quot; aria-label=&quot;000  introduction permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;0:00 — Introduction&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;動画全体で何を話すかを紹介&lt;/li&gt;
+&lt;li&gt;Vercel / Next.js の紹介&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;211--code-of-conduct&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#211--code-of-conduct&quot; aria-label=&quot;211  code of conduct permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=131s&quot;&gt;2:11 — Code of Conduct&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Code of Conduct は開発者が従うべき規範や果たすべき責任を表す文書
+&lt;ul&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://github.com/vercel/next.js/blob/01268f61ce136386743700fcadfa0236389a939f/CODE_OF_CONDUCT.md&quot;&gt;Next.js の Code of Conduct&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;プロジェクトに参加するときはまず最初に読む&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;311--opening-an-issue&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#311--opening-an-issue&quot; aria-label=&quot;311  opening an issue permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=191s&quot;&gt;3:11 — Opening an Issue&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;人々が OSS プロジェクトを訪れる主な理由は改善提案やバグ報告で、それらは Issue として管理されている&lt;/li&gt;
+&lt;li&gt;まずは既存の Issue を検索して自分と同じ提案や報告があるかを確認する
+&lt;ul&gt;
+&lt;li&gt;例えば &lt;code class=&quot;language-text&quot;&gt;&amp;lt;Image&gt;&lt;/code&gt; コンポーネントに関する報告なら “Image” というキーワードで open の Issue を検索してみる&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://github.com/vercel/next.js/issues&quot;&gt;Next.js の Issue 一覧&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Issue はテンプレートに必要な情報を埋めていくと作れる
+&lt;ul&gt;
+&lt;li&gt;テンプレートの様式は &lt;a href=&quot;https://github.com/vercel/next.js/tree/01268f61ce136386743700fcadfa0236389a939f/.github/ISSUE_TEMPLATE&quot;&gt;./github/ISSUE_TEMPLATE&lt;/a&gt; 配下の YAML で管理されている&lt;/li&gt;
+&lt;li&gt;必要な情報は Node.js の version やバグの再現条件など、その Issue の解決策を探るために役立つもの&lt;/li&gt;
+&lt;li&gt;例えば Bug report の場合は &lt;code class=&quot;language-text&quot;&gt;next info&lt;/code&gt; コマンドの出力を入れる（Next.js v12.0.8 以降）など、テンプレートによって必要な情報は異なる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;実際に Issue を作るときは、以下画像のように目的から必要なテンプレートを選ぶ。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6faf166686196a71e7776a1437110f78/e515d/issue_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 53.79746835443038%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVQoz42S2UoDUQyG5/0fxwtBEMFSUKyi9KJXLii17ezr2ZdfTs50RNTRgUySIfmyTJK3nGGbtWi7AT0T6AaBnkmyo472wKNmQqFqehRVi6YbkFcNyrZDVtYUkwjO0Dc1pJToB4aBcTAuyA462hxcKPqmtIGxjkQbC3iQ2NFPOGeo6wp100JpDa01nHOYe7z3cD7G3KcbLLaryU/CS0iJ/SFFXpTgXEBKBWMMJf4mx6KL7S1Oni5gnP0Ehs4OaYaqbmCMnbqcBY4d3ezXOH+9gv0CVAq7/QFZXqAoS+RFAcbYNN4c8Hr3gLOXJaxzX4F5XhAwTTM0bUej/we4fL/D6fPl9w7D/uq6IRjjHPqvHXpPgE3xiNVuPe2UgFob6jCcRbDDT+JCwFo7Jf8Etc7DGkDyUJzmicCZA6HE6dj8KKOvjEMrLDppCU4dhhM5jmhsDAoiddAe2nowFe2jL030j5BYIO77AyW3WeVM73WtAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;issue_1&quot;
+        title=&quot;issue_1&quot;
+        src=&quot;/static/6faf166686196a71e7776a1437110f78/f058b/issue_1.png&quot;
+        srcset=&quot;/static/6faf166686196a71e7776a1437110f78/c26ae/issue_1.png 158w,
+/static/6faf166686196a71e7776a1437110f78/6bdcf/issue_1.png 315w,
+/static/6faf166686196a71e7776a1437110f78/f058b/issue_1.png 630w,
+/static/6faf166686196a71e7776a1437110f78/40601/issue_1.png 945w,
+/static/6faf166686196a71e7776a1437110f78/78612/issue_1.png 1260w,
+/static/6faf166686196a71e7776a1437110f78/e515d/issue_1.png 1430w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;次に、テンプレートに必要な情報を埋めていく。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/3f0d6e69165c0f76b91a2b1932aac838/ccf0c/issue_2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.08860759493672%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAABp0lEQVQ4y31S267jIAzs/3/iPm/bQLiE+z2zwmmqk9NqkUY2BszY49uqA+7CQyiLkAo2G2B9gnHTxg+4kOFCgtws7dXm6K7Ult7damtw1mBlDEpvcD4gl4qYMlIuSDlfMM/62NH6QKkNY+zofbxjNwCQSuHv/YHnsiDEeDxOCSF32LyjDdDa94mdUGuFdZ78n4sSai3hQ6TfQ8zkOyovwof0ssf5ZFXaQE4Bhv9Bb+Xy0e38YdsMMWScQ2kNvW0wxsAYCz33xsGXgZPPZJhSfDHf30zfCWf/nguDEPIoO2WEF7PwgveBehyIbUGM6UiILwwno/v9AcY4Ho8n2RACWmuo9cDhV7TWqc9SaYpNTHEuDDdjsTAOpTSEVFRuzoWYnPZQvaCUijkdMZ49zui9XxOW2pFKR+1T/p1sKo1mM+aCmF7IhWJlJiwJ1gW699FD5+dwTzEMpN7IN87TbNXWP9DHwO91VdlYML5CSI1VKvBVklBzaL+tU4SfuDC01oELiYWteC6cFF+FhJCSmv4tyRm7DPYZMNaBcUFM5/DOIZ7lfnv4v4T/AEIl9ct8mmCHAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;issue_2&quot;
+        title=&quot;issue_2&quot;
+        src=&quot;/static/3f0d6e69165c0f76b91a2b1932aac838/f058b/issue_2.png&quot;
+        srcset=&quot;/static/3f0d6e69165c0f76b91a2b1932aac838/c26ae/issue_2.png 158w,
+/static/3f0d6e69165c0f76b91a2b1932aac838/6bdcf/issue_2.png 315w,
+/static/3f0d6e69165c0f76b91a2b1932aac838/f058b/issue_2.png 630w,
+/static/3f0d6e69165c0f76b91a2b1932aac838/40601/issue_2.png 945w,
+/static/3f0d6e69165c0f76b91a2b1932aac838/78612/issue_2.png 1260w,
+/static/3f0d6e69165c0f76b91a2b1932aac838/ccf0c/issue_2.png 1428w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;720--contributing-docs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#720--contributing-docs&quot; aria-label=&quot;720  contributing docs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=440s&quot;&gt;7:20 — Contributing Docs&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;OSS に Contribute する前に、そのやり方を読む&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vercel/next.js/blob/01268f61ce136386743700fcadfa0236389a939f/contributing.md&quot;&gt;contributing.md&lt;/a&gt; では開発やビルドのやり方が詳細に記述されている&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;805--releases-canary-stable&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#805--releases-canary-stable&quot; aria-label=&quot;805  releases canary stable permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=485s&quot;&gt;8:05 — Releases (canary, stable)&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Next.js には &lt;code class=&quot;language-text&quot;&gt;canary&lt;/code&gt; と &lt;code class=&quot;language-text&quot;&gt;stable&lt;/code&gt; という2つの release branch がある&lt;/li&gt;
+&lt;li&gt;canary は開発用の branch で、全ての Pull Request はここに向けて作られる&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vercel/next.js/releases&quot;&gt;Next.js の Releases&lt;/a&gt; を見ると、何回か canary が Release された後に semver が振られた stable が Release されていることが分かる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;917--adding-tests&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#917--adding-tests&quot; aria-label=&quot;917  adding tests permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=557s&quot;&gt;9:17 — Adding Tests&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;たくさんの人が関わるプロジェクトで regression を防ぐためにテストは非常に重要&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/test/readme.md&quot;&gt;testing README&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Next.js では新しい e2e, unit, integration テストを追加するための scaffold script がある&lt;/li&gt;
+&lt;li&gt;例えば &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/test/integration/static-404/test/index.test.js&quot;&gt;static 404 ページのテスト&lt;/a&gt;では&lt;/li&gt;
+&lt;li&gt;テストは Next.js で新機能を merge する際は必須となっている&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1157--testing-against-local-versions&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1157--testing-against-local-versions&quot; aria-label=&quot;1157  testing against local versions permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=717s&quot;&gt;11:57 — Testing against Local Versions&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;自分のローカルにある Next.js を開発していく際は、 package.json で &lt;code class=&quot;language-text&quot;&gt;next&lt;/code&gt; の依存先を自分のローカルに指定する必要がある&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/contributing.md#developing-with-your-local-version-of-nextjs&quot;&gt;contributing.md#developing-with-your-local-version-of-nextjs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1237--adding-warning--error-links&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1237--adding-warning--error-links&quot; aria-label=&quot;1237  adding warning  error links permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=757s&quot;&gt;12:37 — Adding Warning &amp;#x26; Error Links&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Next.js では開発者を支援するため Warning や Error にリンクをつける仕組みがある&lt;/li&gt;
+&lt;li&gt;ログに全部出すのではなく、ログにはエラーの説明へのリンクを出して、エラーの詳細はリンク先を見るようにする&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;yarn new-error&lt;/code&gt; で新たなエラードキュメントを作り、 &lt;code class=&quot;language-text&quot;&gt;https://nextjs.org/docs/messages/&amp;lt;file-path-without-dotmd&gt;.&lt;/code&gt; のようなリンクでアクセスできる
+&lt;ul&gt;
+&lt;li&gt;例えば &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/errors/api-routes-static-export.md&quot;&gt;errors/api-routes-static-export.md&lt;/a&gt; は &lt;a href=&quot;https://nextjs.org/docs/messages/api-routes-static-export&quot;&gt;https://nextjs.org/docs/messages/api-routes-static-export&lt;/a&gt; を指す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/contributing.md#adding-warningerror-descriptions&quot;&gt;contributing.md#adding-warningerror-descriptions&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1429--adding-examples&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1429--adding-examples&quot; aria-label=&quot;1429  adding examples permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=869s&quot;&gt;14:29 — Adding Examples&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vercel/next.js/tree/ff6b75027b98ffc379282cb807551d1b5e9e7732/examples&quot;&gt;/examples&lt;/a&gt; 以下には Next.js を使ったアプリケーションの例がたくさんある&lt;/li&gt;
+&lt;li&gt;examples を新たに追加する際は名前や description を README に記載する&lt;/li&gt;
+&lt;li&gt;簡単なチェック用のスクリプトもある &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/scripts/check-examples.sh&quot;&gt;/scripts/check-examples.sh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;参考: &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/contributing.md#adding-examples&quot;&gt;contributing.md#adding-examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;この examples は新しくプロジェクトを始めるときの雛形として非常に便利&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1734--documentation&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1734--documentation&quot; aria-label=&quot;1734  documentation permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=1054s&quot;&gt;17:34 — Documentation&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Next.js のドキュメントは全て Markdown 形式でリポジトリの &lt;a href=&quot;https://github.com/vercel/next.js/tree/ff6b75027b98ffc379282cb807551d1b5e9e7732/docs&quot;&gt;/docs&lt;/a&gt; 以下に書かれている&lt;/li&gt;
+&lt;li&gt;ドキュメント全体のパスや構造は &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/docs/manifest.json&quot;&gt;docs/manifest.json&lt;/a&gt; を参照&lt;/li&gt;
+&lt;li&gt;ドキュメントで使われる単語が正しく inclusive であることを保つために alex というツールを使っている&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2102--pull-requests&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2102--pull-requests&quot; aria-label=&quot;2102  pull requests permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=1262s&quot;&gt;21:02 — Pull Requests&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Pull Request を作成する際はテンプレートを使う
+&lt;ul&gt;
+&lt;li&gt;テンプレートは &lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/.github/pull_request_template.md&quot;&gt;.github/pull_request_template.md&lt;/a&gt; を参照&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Next.js では Bug, Feature, Documentation / Examples の3種類の PR を想定している&lt;/li&gt;
+&lt;li&gt;Bug と Feature では関連 Issue へのリンクが必要となるなど、 PR の種類によって必要な情報は異なる
+&lt;ul&gt;
+&lt;li&gt;つまり、いきなり　Issue なしで PR を送ってもただ却下されるだけ&lt;/li&gt;
+&lt;li&gt;Issue を作ると Contributor がそれを確認して &lt;a href=&quot;https://github.com/vercel/next.js/discussions&quot;&gt;Discussion&lt;/a&gt; や vote などで Feedback する&lt;/li&gt;
+&lt;li&gt;その内容を基に開発して PR を出す&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/.github/CODEOWNERS&quot;&gt;.github/CODEOWNERS&lt;/a&gt; が自動的にレビュアーとなる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PR を作ろうとすると、テンプレートが使われるため次のように最初から文章が入力されている。&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6e4a3b7b78a592c34b2985ad2b466a53/434c7/pr_1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.65822784810127%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB5klEQVQ4y21T266bMBDM/39Lpfa1UvsdR9VR1apJCGDAV/CdqXadkBy1SKNZGzzey3AyxkIZB7cF5kUZGLtilpqZ9pSxLdYW1m3wMcOH9F+c1nXFPC8Q0wwS3/cdtdaGUrHXts4VjH+f/RntO04+RIxixigmSKUxL5LFpVSYjcIoZyxSQUiLUTrOOMSIlAtiyoh3pjU9J6UWDNOCYTboJ41ulFiMh3IRam3Qa4S5M++7iJAKUkoIgVqQnoIxeBi3QdoA7SK2WBELGD7tsFuG8wXWZ5gtwRJ8xrpuuF7OEOMA7/2zZAocvbwNuA0jl07cDwLDOEFbxwMx1nGsjcPmAw/xVydxGTVijCx2CNKH565H14/oeoHLbcClowsEpLZ3OGZyAYlZ5/H28wqxmDbAvQ3nyHAQCxbVLKTtytaIuWIjO8TM/IrVB9yE4sxzzpzdi6DH7/MVfy4dZzVJDbEo7m07HJlDLAiBhtFs9egbxR8Eyay9mO8lNZCx7domSGLWewxGMq5SoLAIDqEPPcyFvJSeiI+4sM8omWnT+Pz+DZ9+fMWX9+8otbx4+2nuJpgzm5V6uXnPMRl+DZVtI80G59NRHv0cNIQQ4tG/+siwlMoiD+wvt9HJfa9s4FLKUeIDVEXm/efeX82c8AouQ3jMAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;pr_1&quot;
+        title=&quot;pr_1&quot;
+        src=&quot;/static/6e4a3b7b78a592c34b2985ad2b466a53/f058b/pr_1.png&quot;
+        srcset=&quot;/static/6e4a3b7b78a592c34b2985ad2b466a53/c26ae/pr_1.png 158w,
+/static/6e4a3b7b78a592c34b2985ad2b466a53/6bdcf/pr_1.png 315w,
+/static/6e4a3b7b78a592c34b2985ad2b466a53/f058b/pr_1.png 630w,
+/static/6e4a3b7b78a592c34b2985ad2b466a53/40601/pr_1.png 945w,
+/static/6e4a3b7b78a592c34b2985ad2b466a53/78612/pr_1.png 1260w,
+/static/6e4a3b7b78a592c34b2985ad2b466a53/434c7/pr_1.png 1381w&quot;
+        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2647--codesandbox-on-prs&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2647--codesandbox-on-prs&quot; aria-label=&quot;2647  codesandbox on prs permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=1607s&quot;&gt;26:47 — CodeSandbox on PRs&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;PR を open すると自動的に &lt;a href=&quot;https://codesandbox.io/&quot;&gt;CodeSandbox&lt;/a&gt; が作られ、ブラウザでその PR の挙動を確認できる&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;2747--example-of-contributing&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2747--example-of-contributing&quot; aria-label=&quot;2747  example of contributing permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=cuoNzXFLitc&amp;#x26;t=1667s&quot;&gt;27:47 — Example of Contributing&lt;/a&gt;&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;ドキュメントの修正を例に Issue を作成し PR を出すまでを説明する&lt;/li&gt;
+&lt;li&gt;external contributor はまず Fork して自分の配下の branch から PR を出す&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2021年に読んだ本 BEST 5]]></title><description><![CDATA[2021年に読んで面白かった本 BEST 5 を紹介したい。昨年以前に出版された本もある。 1位: ルワンダ中央銀行総裁日記 https://www.amazon.co.jp/dp/B00LMB2OLE…]]></description><link>https://lyohe.github.io/2021-12-19-best-reading/</link><guid isPermaLink="false">https://lyohe.github.io/2021-12-19-best-reading/</guid><pubDate>Sun, 19 Dec 2021 03:19:21 GMT</pubDate><content:encoded>&lt;p&gt;2021年に読んで面白かった本 BEST 5 を紹介したい。昨年以前に出版された本もある。&lt;/p&gt;
 &lt;h2 id=&quot;1位-ルワンダ中央銀行総裁日記&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1%E4%BD%8D-%E3%83%AB%E3%83%AF%E3%83%B3%E3%83%80%E4%B8%AD%E5%A4%AE%E9%8A%80%E8%A1%8C%E7%B7%8F%E8%A3%81%E6%97%A5%E8%A8%98&quot; aria-label=&quot;1位 ルワンダ中央銀行総裁日記 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1位: ルワンダ中央銀行総裁日記&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.amazon.co.jp/dp/B00LMB2OLE&quot;&gt;https://www.amazon.co.jp/dp/B00LMB2OLE&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
