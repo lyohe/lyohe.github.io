@@ -1,0 +1,355 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.e459a58ae2b7c977a5d5.css" data-identity="gatsby-global-css">@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:100;src:local("Montserrat Thin "),local("Montserrat-Thin"),url(/static/montserrat-latin-100-8d7d79679b70dbe27172b6460e7a7910.woff2) format("woff2"),url(/static/montserrat-latin-100-ec38980a9e0119a379e2a9b3dbb1901a.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:100;src:local("Montserrat Thin italic"),local("Montserrat-Thinitalic"),url(/static/montserrat-latin-100italic-e279051046ba1286706adc886cf1c96b.woff2) format("woff2"),url(/static/montserrat-latin-100italic-3b325a3173c8207435cd1b76e19bf501.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:200;src:local("Montserrat Extra Light "),local("Montserrat-Extra Light"),url(/static/montserrat-latin-200-9d266fbbfa6cab7009bd56003b1eeb67.woff2) format("woff2"),url(/static/montserrat-latin-200-2d8ba08717110d27122e54c34b8a5798.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:200;src:local("Montserrat Extra Light italic"),local("Montserrat-Extra Lightitalic"),url(/static/montserrat-latin-200italic-6e5b3756583bb2263eb062eae992735e.woff2) format("woff2"),url(/static/montserrat-latin-200italic-a0d6f343e4b536c582926255367a57da.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:300;src:local("Montserrat Light "),local("Montserrat-Light"),url(/static/montserrat-latin-300-00b3e893aab5a8fd632d6342eb72551a.woff2) format("woff2"),url(/static/montserrat-latin-300-ea303695ceab35f17e7d062f30e0173b.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:300;src:local("Montserrat Light italic"),local("Montserrat-Lightitalic"),url(/static/montserrat-latin-300italic-56f34ea368f6aedf89583d444bbcb227.woff2) format("woff2"),url(/static/montserrat-latin-300italic-54b0bf2c8c4c12ffafd803be2466a790.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:400;src:local("Montserrat Regular "),local("Montserrat-Regular"),url(/static/montserrat-latin-400-b71748ae4f80ec8c014def4c5fa8688b.woff2) format("woff2"),url(/static/montserrat-latin-400-0659a9f4e90db5cf51b50d005bff1e41.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:400;src:local("Montserrat Regular italic"),local("Montserrat-Regularitalic"),url(/static/montserrat-latin-400italic-6eed6b4cbb809c6efc7aa7ddad6dbe3e.woff2) format("woff2"),url(/static/montserrat-latin-400italic-7583622cfde30ae49086d18447ab28e7.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:500;src:local("Montserrat Medium "),local("Montserrat-Medium"),url(/static/montserrat-latin-500-091b209546e16313fd4f4fc36090c757.woff2) format("woff2"),url(/static/montserrat-latin-500-edd311588712a96bbf435fad264fff62.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:500;src:local("Montserrat Medium italic"),local("Montserrat-Mediumitalic"),url(/static/montserrat-latin-500italic-c90ced68b46050061d1a41842d6dfb43.woff2) format("woff2"),url(/static/montserrat-latin-500italic-5146cbfe02b1deea5dffea27a5f2f998.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:600;src:local("Montserrat SemiBold "),local("Montserrat-SemiBold"),url(/static/montserrat-latin-600-0480d2f8a71f38db8633b84d8722e0c2.woff2) format("woff2"),url(/static/montserrat-latin-600-b77863a375260a05dd13f86a1cee598f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:600;src:local("Montserrat SemiBold italic"),local("Montserrat-SemiBolditalic"),url(/static/montserrat-latin-600italic-cf46ffb11f3a60d7df0567f8851a1d00.woff2) format("woff2"),url(/static/montserrat-latin-600italic-c4fcfeeb057724724097167e57bd7801.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:700;src:local("Montserrat Bold "),local("Montserrat-Bold"),url(/static/montserrat-latin-700-7dbcc8a5ea2289d83f657c25b4be6193.woff2) format("woff2"),url(/static/montserrat-latin-700-99271a835e1cae8c76ef8bba99a8cc4e.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:700;src:local("Montserrat Bold italic"),local("Montserrat-Bolditalic"),url(/static/montserrat-latin-700italic-c41ad6bdb4bd504a843d546d0a47958d.woff2) format("woff2"),url(/static/montserrat-latin-700italic-6779372f04095051c62ed36bc1dcc142.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:800;src:local("Montserrat ExtraBold "),local("Montserrat-ExtraBold"),url(/static/montserrat-latin-800-db9a3e0ba7eaea32e5f55328ace6cf23.woff2) format("woff2"),url(/static/montserrat-latin-800-4e3c615967a2360f5db87d2f0fd2456f.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:800;src:local("Montserrat ExtraBold italic"),local("Montserrat-ExtraBolditalic"),url(/static/montserrat-latin-800italic-bf45bfa14805969eda318973947bc42b.woff2) format("woff2"),url(/static/montserrat-latin-800italic-fe82abb0bcede51bf724254878e0c374.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:normal;font-weight:900;src:local("Montserrat Black "),local("Montserrat-Black"),url(/static/montserrat-latin-900-e66c7edc609e24bacbb705175669d814.woff2) format("woff2"),url(/static/montserrat-latin-900-8211f418baeb8ec880b80ba3c682f957.woff) format("woff")}@font-face{font-display:swap;font-family:Montserrat;font-style:italic;font-weight:900;src:local("Montserrat Black italic"),local("Montserrat-Blackitalic"),url(/static/montserrat-latin-900italic-4454c775e48152c1a72510ceed3603e2.woff2) format("woff2"),url(/static/montserrat-latin-900italic-efcaa0f6a82ee0640b83a0916e6e8d68.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:300;src:local("Merriweather Light "),local("Merriweather-Light"),url(/static/merriweather-latin-300-fc117160c69a8ea0851b26dd14748ee4.woff2) format("woff2"),url(/static/merriweather-latin-300-58b18067ebbd21fda77b67e73c241d3b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:300;src:local("Merriweather Light italic"),local("Merriweather-Lightitalic"),url(/static/merriweather-latin-300italic-fe29961474f8dbf77c0aa7b9a629e4bc.woff2) format("woff2"),url(/static/merriweather-latin-300italic-23c3f1f88683618a4fb8d265d33d383a.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:400;src:local("Merriweather Regular "),local("Merriweather-Regular"),url(/static/merriweather-latin-400-d9479e8023bef9cbd9bf8d6eabd6bf36.woff2) format("woff2"),url(/static/merriweather-latin-400-040426f99ff6e00b86506452e0d1f10b.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:400;src:local("Merriweather Regular italic"),local("Merriweather-Regularitalic"),url(/static/merriweather-latin-400italic-2de7bfeaf08fb03d4315d49947f062f7.woff2) format("woff2"),url(/static/merriweather-latin-400italic-79db67aca65f5285964ab332bd65f451.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:700;src:local("Merriweather Bold "),local("Merriweather-Bold"),url(/static/merriweather-latin-700-4b08e01d805fa35d7bf777f1b24314ae.woff2) format("woff2"),url(/static/merriweather-latin-700-22fb8afba4ab1f093b6ef9e28a9b6e92.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:700;src:local("Merriweather Bold italic"),local("Merriweather-Bolditalic"),url(/static/merriweather-latin-700italic-cd92541b177652fffb6e3b952f1c33f1.woff2) format("woff2"),url(/static/merriweather-latin-700italic-f87f3d87cea0dd0979bfc8ac9ea90243.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:normal;font-weight:900;src:local("Merriweather Black "),local("Merriweather-Black"),url(/static/merriweather-latin-900-f813fc6a4bee46eda5224ac7ebf1b7be.woff2) format("woff2"),url(/static/merriweather-latin-900-5d4e42cb44410674acd99153d57df032.woff) format("woff")}@font-face{font-display:swap;font-family:Merriweather;font-style:italic;font-weight:900;src:local("Merriweather Black italic"),local("Merriweather-Blackitalic"),url(/static/merriweather-latin-900italic-b7901d85486871c1779c0e93ddd85656.woff2) format("woff2"),url(/static/merriweather-latin-900italic-9647f9fdab98756989a8a5550eb205c3.woff) format("woff")}
+
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{-webkit-text-size-adjust:100%;line-height:1.15}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}[hidden]{display:none}:root{--maxWidth-none:"none";--maxWidth-xs:20rem;--maxWidth-sm:24rem;--maxWidth-md:28rem;--maxWidth-lg:32rem;--maxWidth-xl:36rem;--maxWidth-2xl:42rem;--maxWidth-3xl:48rem;--maxWidth-4xl:56rem;--maxWidth-full:"100%";--maxWidth-wrapper:var(--maxWidth-3xl);--spacing-px:"1px";--spacing-0:0;--spacing-1:0.25rem;--spacing-2:0.5rem;--spacing-3:0.75rem;--spacing-4:1rem;--spacing-5:1.25rem;--spacing-6:1.5rem;--spacing-8:2rem;--spacing-10:2.5rem;--spacing-12:3rem;--spacing-16:4rem;--spacing-20:5rem;--spacing-24:6rem;--spacing-32:8rem;--fontFamily-sans:"Noto Sans JP",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--fontFamily-serif:"Noto Sans JP","Georgia",Cambria,"Times New Roman",Times,serif;--font-body:var(--fontFamily-serif);--font-heading:var(--fontFamily-sans);--fontWeight-normal:400;--fontWeight-medium:500;--fontWeight-semibold:600;--fontWeight-bold:700;--fontWeight-extrabold:800;--fontWeight-black:900;--fontSize-root:16px;--lineHeight-none:1;--lineHeight-tight:1.1;--lineHeight-normal:1.5;--lineHeight-relaxed:1.625;--fontSize-0:0.833rem;--fontSize-1:1rem;--fontSize-2:1.2rem;--fontSize-3:1.44rem;--fontSize-4:1.728rem;--fontSize-5:2.074rem;--fontSize-6:2.488rem;--fontSize-7:2.986rem;--color-primary:#005b99;--color-text:#2e353f;--color-text-light:#4f5969;--color-heading:#1a202c;--color-heading-black:#000;--color-accent:#d1dce5}*,:after,:before{box-sizing:border-box}html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-size:var(--fontSize-root);line-height:var(--lineHeight-normal)}body{color:var(--color-text);font-family:var(--font-body);font-size:var(--fontSize-1)}footer{padding:var(--spacing-6) var(--spacing-0)}hr{background:var(--color-accent);border:0;height:1px}h1,h2,h3,h4,h5,h6{font-family:var(--font-heading);letter-spacing:-.025em;line-height:var(--lineHeight-tight);margin-bottom:var(--spacing-6);margin-top:var(--spacing-12)}h2,h3,h4,h5,h6{color:var(--color-heading);font-weight:var(--fontWeight-bold)}h1{color:var(--color-heading-black);font-size:var(--fontSize-6);font-weight:var(--fontWeight-black)}h2{font-size:var(--fontSize-5)}h3{font-size:var(--fontSize-4)}h4{font-size:var(--fontSize-3)}h5{font-size:var(--fontSize-2)}h6{font-size:var(--fontSize-1)}h1>a,h2>a,h3>a,h4>a,h5>a,h6>a{color:inherit;text-decoration:none}p{--baseline-multiplier:0.179;--x-height-multiplier:0.35;line-height:var(--lineHeight-relaxed);margin:var(--spacing-0) var(--spacing-0) var(--spacing-8) var(--spacing-0)}ol,p,ul{padding:var(--spacing-0)}ol,ul{list-style-image:none;list-style-position:outside;margin-bottom:var(--spacing-8);margin-left:var(--spacing-0);margin-right:var(--spacing-0)}ol li,ul li{padding-left:var(--spacing-0)}li>p,ol li,ul li{margin-bottom:calc(var(--spacing-8)/2)}li :last-child{margin-bottom:var(--spacing-0)}li>ul{margin-left:var(--spacing-8);margin-top:calc(var(--spacing-8)/2)}blockquote{border-left:var(--spacing-1) solid var(--color-primary);color:var(--color-text-light);font-size:var(--fontSize-2);font-style:italic;margin-bottom:var(--spacing-8);margin-left:calc(var(--spacing-6)*-1);margin-right:var(--spacing-8);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6)}blockquote>:last-child{margin-bottom:var(--spacing-0)}blockquote>ol,blockquote>ul{list-style-position:inside}table{border-collapse:collapse;border-spacing:.25rem;margin-bottom:var(--spacing-8);width:100%}table thead tr th{border-bottom:1px solid var(--color-accent)}a{color:var(--color-primary)}a:focus,a:hover{text-decoration:none}.global-wrapper{margin:var(--spacing-0) auto;max-width:var(--maxWidth-wrapper);padding:var(--spacing-10) var(--spacing-5)}.global-wrapper[data-is-root-path=true] .bio{margin-bottom:var(--spacing-20)}.global-header{margin-bottom:var(--spacing-12)}.main-heading{font-size:var(--fontSize-7);margin:0}.post-list-item{margin-bottom:var(--spacing-8);margin-top:var(--spacing-8)}.post-list-item p{margin-bottom:var(--spacing-0)}.post-list-item h2{color:var(--color-primary);font-size:var(--fontSize-4);margin-bottom:var(--spacing-2);margin-top:var(--spacing-0)}.post-list-item header{margin-bottom:var(--spacing-4)}.header-link-home{font-family:var(--font-heading);font-size:var(--fontSize-2);font-weight:var(--fontWeight-bold);text-decoration:none}.bio{display:flex;margin-bottom:var(--spacing-16)}.bio-avatar,.bio p{margin-bottom:var(--spacing-0)}.bio-avatar{border-radius:100%;margin-right:var(--spacing-4);min-width:50px}.blog-post header h1{margin:var(--spacing-0) var(--spacing-0) var(--spacing-4) var(--spacing-0)}.blog-post header p{font-family:var(--font-heading);font-size:var(--fontSize-2)}.blog-post-nav ul{margin:var(--spacing-0)}.gatsby-highlight{margin-bottom:var(--spacing-8)}.toc{margin-left:36px;max-height:95vh;max-width:250px;overflow-y:scroll;position:fixed;right:5vw;top:5vh}.toc>ul{border-left:1px solid #363636}.toc>ul>li{font-size:12px;list-style-type:none;margin-left:12px}.toc>ul>li>a{border-bottom:0;text-decoration:none;transition:all 1s ease-in-out}@media (max-width:42rem){blockquote{margin-left:var(--spacing-0);padding:var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-4)}ol,ul{list-style-position:inside}}@media only screen and (max-width:1439px){nav{display:none}}code[class*=language-],pre[class*=language-]{word-wrap:normal;background:none;color:#000;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;text-align:left;text-shadow:0 1px #fff;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{background:#b3d4fc;text-shadow:none}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.token.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{background:hsla(0,0%,100%,.5);color:#9a6e3a}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.class-name,.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}</style><meta name="generator" content="Gatsby 4.2.0"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Koko-ni-kaku RSS Feed" href="/rss.xml"/><link rel="icon" href="/favicon-32x32.png?v=0380ebe58417824f9a88643bc8e21945" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=0380ebe58417824f9a88643bc8e21945"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=0380ebe58417824f9a88643bc8e21945"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=0380ebe58417824f9a88643bc8e21945"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=0380ebe58417824f9a88643bc8e21945"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=0380ebe58417824f9a88643bc8e21945"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=0380ebe58417824f9a88643bc8e21945"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=0380ebe58417824f9a88643bc8e21945"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=0380ebe58417824f9a88643bc8e21945"/><title data-react-helmet="true">Fastly と Cloudflare の財務数値比較メモ | ここにかく</title><meta data-react-helmet="true" name="description" content="これは Fastly と Cloudflare の財務諸表を読んで数字を比較するだけの記事です。機能や仕様については一切触れません。 金額や数量は 1M = 1,000,000, 1K = 1,000 と表記します。私は財務の専門家ではないので記述に誤りがあったらすみません。 情報源 Fastly Form 10-K…"/><meta data-react-helmet="true" property="og:title" content="Fastly と Cloudflare の財務数値比較メモ"/><meta data-react-helmet="true" property="og:description" content="これは Fastly と Cloudflare の財務諸表を読んで数字を比較するだけの記事です。機能や仕様については一切触れません。 金額や数量は 1M = 1,000,000, 1K = 1,000 と表記します。私は財務の専門家ではないので記述に誤りがあったらすみません。 情報源 Fastly Form 10-K…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creator" content="rtsudar"/><meta data-react-helmet="true" name="twitter:title" content="Fastly と Cloudflare の財務数値比較メモ"/><meta data-react-helmet="true" name="twitter:description" content="これは Fastly と Cloudflare の財務諸表を読んで数字を比較するだけの記事です。機能や仕様については一切触れません。 金額や数量は 1M = 1,000,000, 1K = 1,000 と表記します。私は財務の専門家ではないので記述に誤りがあったらすみません。 情報源 Fastly Form 10-K…"/><link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&amp;display=swap" rel="stylesheet"/><link as="script" rel="preload" href="/webpack-runtime-7ccc76090462d0b0de1f.js"/><link as="script" rel="preload" href="/framework-e413e527015be9a1bdfd.js"/><link as="script" rel="preload" href="/app-34e036e141e9454fbb27.js"/><link as="script" rel="preload" href="/commons-ab2410dfbec4227df496.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7d7c0a7441235f84dc6b.js"/><link as="fetch" rel="preload" href="/page-data/2022-08-26-fastly-cloudflare-accounting/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1445466728.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2841359383.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="global-wrapper" data-is-root-path="false"><header class="global-header"><a class="header-link-home" href="/">ここにかく</a></header><main><article class="blog-post" itemscope="" itemType="http://schema.org/Article"><header><h1 itemProp="headline">Fastly と Cloudflare の財務数値比較メモ</h1><p>August 26, 2022</p></header><nav class="toc"><ul>
+<li>
+<p><a href="#%E6%83%85%E5%A0%B1%E6%BA%90">情報源</a></p>
+<ul>
+<li><a href="#fastly">Fastly</a></li>
+<li><a href="#cloudflare">Cloudflare</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E6%9C%80%E8%BF%91%E3%81%AE%E6%B1%BA%E7%AE%97%E6%A6%82%E8%A6%81">最近の決算概要</a></p>
+<ul>
+<li>
+<p><a href="#%E6%90%8D%E7%9B%8A">損益</a></p>
+<ul>
+<li><a href="#dollar-based-net-retention-rate">Dollar-based Net Retention Rate</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E8%B2%A1%E6%94%BF%E7%8A%B6%E6%85%8B">財政状態</a></p>
+</li>
+<li>
+<p><a href="#%E5%96%B6%E6%A5%AD%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%83%95%E3%83%AD%E3%83%BC">営業キャッシュ・フロー</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#convertible-notes-%E3%81%A7%E3%81%AE%E8%B3%87%E9%87%91%E8%AA%BF%E9%81%94">Convertible Notes での資金調達</a></p>
+</li>
+<li>
+<p><a href="#%E6%A0%AA%E5%BC%8F%E5%A0%B1%E9%85%AC-stock-based-compensation">株式報酬 Stock-based Compensation</a></p>
+<ul>
+<li><a href="#%E5%BE%93%E6%A5%AD%E5%93%A1%E6%95%B0">従業員数</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%E6%A0%AA%E4%BE%A1%E3%81%8C%E4%BC%9A%E7%A4%BE%E3%81%AB%E4%B8%8E%E3%81%88%E3%82%8B%E5%BD%B1%E9%9F%BF">株価が会社に与える影響</a></p>
+</li>
+<li>
+<p><a href="#%E5%AE%A2%E5%B1%A4%E3%81%AE%E9%81%95%E3%81%84">客層の違い</a></p>
+<ul>
+<li><a href="#ar-annualized-revenue--100k%E3%81%AE%E9%A1%A7%E5%AE%A2%E6%95%B0%E3%81%A8%E5%A3%B2%E4%B8%8A">AR: Annualized Revenue > $100K　の顧客数と売上</a></li>
+<li><a href="#%E3%81%A9%E3%81%AE%E5%9C%B0%E5%9F%9F%E3%81%A7%E5%A3%B2%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B">どの地域で売れているか</a></li>
+</ul>
+</li>
+</ul></nav><section itemProp="articleBody"><p>これは <a href="https://www.fastly.com/">Fastly</a> と <a href="https://www.cloudflare.com/">Cloudflare</a> の財務諸表を読んで数字を比較する<strong>だけ</strong>の記事です。機能や仕様については<strong>一切触れません</strong>。</p>
+<p>金額や数量は 1M = 1,000,000, 1K = 1,000 と表記します。私は財務の専門家ではないので記述に誤りがあったらすみません。</p>
+<h2 id="情報源" style="position:relative;"><a href="#%E6%83%85%E5%A0%B1%E6%BA%90" aria-label="情報源 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>情報源</h2>
+<h3 id="fastly" style="position:relative;"><a href="#fastly" aria-label="fastly permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fastly</h3>
+<ul>
+<li><a href="https://cloudflare.net/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15620186">Form 10-K FY2021/12</a></li>
+<li><a href="https://cloudflare.net/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15993242">Form 10-Q FY2022/12 Q2</a></li>
+<li><a href="https://investors.fastly.com/files/doc_financials/2022/q2/FSLY_Corrected_Transcript-(1).pdf">Fastly Q2 2022 Earnings Call Transcript</a></li>
+</ul>
+<h3 id="cloudflare" style="position:relative;"><a href="#cloudflare" aria-label="cloudflare permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cloudflare</h3>
+<ul>
+<li><a href="https://investors.fastly.com/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15621389">Form 10-K FY2021/12</a></li>
+<li><a href="https://investors.fastly.com/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15994503">Form 10-Q FY2022/12 Q2</a></li>
+<li><a href="https://cloudflare.net/files/doc_downloads/Presentations/2022/05/Cloudflare-Investor-Day-2022-%5BPublished-Deck%5D-FINAL.pdf">Cloudflare Investor Day 2022 - CFO Session Slides</a></li>
+<li><a href="https://cloudflare.net/files/doc_financials/2022/q2/Q2-2022-Investor-Presentation.pdf">Cloudflare Q2 2022 Investor Presentation</a></li>
+<li><a href="https://cloudflare.net/files/doc_financials/2022/q2/CORRECTED-TRANSCRIPT_-Cloudflare-Inc.(NET-US)-Q2-2022-Earnings-Call-4-August-2022-5_00-PM-ET.pdf">Cloudflare Q2 2022 Earnings Call Transcript</a></li>
+</ul>
+<h2 id="最近の決算概要" style="position:relative;"><a href="#%E6%9C%80%E8%BF%91%E3%81%AE%E6%B1%BA%E7%AE%97%E6%A6%82%E8%A6%81" aria-label="最近の決算概要 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最近の決算概要</h2>
+<p>両社の最近の決算から損益、財政状態、キャッシュ・フローの状況を比較する。</p>
+<h3 id="損益" style="position:relative;"><a href="#%E6%90%8D%E7%9B%8A" aria-label="損益 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>損益</h3>
+<p><strong>FY2021/12 の売上と当期純損失</strong></p>
+<ul>
+<li>Fastly:
+<ul>
+<li>売上: $354M - YoY +21.8%</li>
+<li>損失: $(222M)</li>
+</ul>
+</li>
+<li>Cloudflare:
+<ul>
+<li>売上: $656M - YoY +52.3%</li>
+<li>損失: $(260M)</li>
+</ul>
+</li>
+</ul>
+<p><strong>FY2022/12 Q2 （2022年1月 ~ 6月）の売上と当期純損失</strong></p>
+<ul>
+<li>Fastly:
+<ul>
+<li>売上: $204M - YoY +20.6%</li>
+<li>損失: $(80M)</li>
+</ul>
+</li>
+<li>Cloudflare:
+<ul>
+<li>売上: $446M - YoY +53.8%</li>
+<li>損失: $(104M)</li>
+</ul>
+</li>
+</ul>
+<p>どちらも成長しているが、 Cloudflare は FY2016 - FY2021 の6年間で年平均 +51% の驚異的な成長をしている。</p>
+<p>特に年間利用料 $100K 以上の大口顧客への売上が伸びていて、 FY2018 では $62M だったのが FY2022 には $492M となる見込み（冒頭の Cloudflare Investor Day 2022 CFO Session Slides を参照）。</p>
+<h4 id="dollar-based-net-retention-rate" style="position:relative;"><a href="#dollar-based-net-retention-rate" aria-label="dollar based net retention rate permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dollar-based Net Retention Rate</h4>
+<p>既存顧客からの売上増加率について比較してみる。両社で定義が異なるのだが、参考までに。</p>
+<p>Fastly は前年同月に有料顧客だった顧客の売上を決算月と比較して算出しており、Cloudflare は決算期の4四半期前時点で有料顧客だった顧客の売上を四半期で比較して算出している。両社ともその年にお金を払い初めた新規有料顧客を含まず、前年同期の顧客による解約を含んでいる。</p>
+<p>つまり、その年に新規顧客が増えても Retention Rate には加算されないが、既存顧客に解約されれば Retention Rate は減る。</p>
+<p><strong>FY2021/12 の Net Retention</strong></p>
+<ul>
+<li>Fastly: 106.6%</li>
+<li>Cloudflare: 125%</li>
+</ul>
+<p><strong>FY2022/12 Q2 の Net Retention</strong></p>
+<ul>
+<li>Fastly: 127.5%</li>
+<li>Cloudflare: 126%</li>
+</ul>
+<p>Fastly と Cloudflare の売上成長率には大きな差があるが、FY2021 では Net Retention に大きな差がありこれがそのまま成長率に影響していそうに見える。しかし、Fastly は LTM NRR という12ヶ月間同士で算出した NRR も開示しているが、これは FY2021/12 で 117.6% とそれ程凹んでんでいないので、たまたま2021年12月に既存顧客の利用料が伸び悩んだのかもしれない。</p>
+<p>Fastly の FY2021 の LTM NRR や両社の FY2022/Q2 の Net Retention を見る限りでは既存顧客からの売上増加率に大きな差は見受けられないので、実質的には新規顧客からの売上によって成長率に大きな差が生じていると言えそう。</p>
+<h3 id="財政状態" style="position:relative;"><a href="#%E8%B2%A1%E6%94%BF%E7%8A%B6%E6%85%8B" aria-label="財政状態 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>財政状態</h3>
+<p><strong>FY2021/12 の総資産</strong></p>
+<ul>
+<li>Fastly: $2,159M</li>
+<li>Cloudflare: $2,372M</li>
+</ul>
+<p><strong>FY2022/12 Q2 の総資産</strong></p>
+<ul>
+<li>Fastly: $1,932M</li>
+<li>Cloudflare: $2,468M</li>
+</ul>
+<p>Fastly は<a href="https://lyohe.github.io/2021-07-11-fastly-2/">以前の記事</a>で取り上げたように大規模な買収を行っており Goodwill（のれん）が資産の3割ほどを占めている。一方の Cloudflare の資産は9割が現預金や短期売買目的の証券で買収は行っておらず、非常に単純な BS になっている。</p>
+<p>Fastly は FY2021 → FY2022/Q2 で総資産が減っているが、これは固定資産として計上していた証券 $243M を売却したため。</p>
+<h3 id="営業キャッシュフロー" style="position:relative;"><a href="#%E5%96%B6%E6%A5%AD%E3%82%AD%E3%83%A3%E3%83%83%E3%82%B7%E3%83%A5%E3%83%95%E3%83%AD%E3%83%BC" aria-label="営業キャッシュフロー permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>営業キャッシュ・フロー</h3>
+<p><strong>FY2021/12 の営業キャッシュ・フロー</strong></p>
+<ul>
+<li>Fastly: $(38M)</li>
+<li>Cloudflare: $64M</li>
+</ul>
+<p><strong>FY2022/12 Q2 の営業キャッシュ・フロー</strong></p>
+<ul>
+<li>Fastly: $(29M)</li>
+<li>Cloudflare: $2M</li>
+</ul>
+<p>FY2021 の損益で Fastly は $(222M)、 Cloudflare は $(260M) の赤字を計上しているが、営業キャッシュ・フローはそれほど大きなマイナスにはなっていない。これは両社とも減価償却や株式報酬などキャッシュアウトしない費用が多いため。株式報酬については後述する。</p>
+<h2 id="convertible-notes-での資金調達" style="position:relative;"><a href="#convertible-notes-%E3%81%A7%E3%81%AE%E8%B3%87%E9%87%91%E8%AA%BF%E9%81%94" aria-label="convertible notes での資金調達 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Convertible Notes での資金調達</h2>
+<p>資金調達に関しては、両社とも Convertible Notes つまり転換社債を利用している。</p>
+<p>両社の投資キャッシュ・フローを見ると、短期で売買目的の証券をやりくりしてるだけで大きな動きはない。Fastly は<a href="https://lyohe.github.io/2021-07-11-fastly-2/">以前の記事</a>で取り上げた通り FY2020 に Signal Sciences を買収しており、 $200M の現金を支出している（残り $550M は Fastly の普通株式）。</p>
+<p>財務キャッシュ・フローを見ると FY2021 に Fastly は $930M を、Cloudflare は $1,293M を転換社債で調達している。私は財務の専門家ではないのだが、米国の急成長中のテック企業は特に上場後に株式より転換社債で調達する方が多い気がする。</p>
+<p>転換社債は債権として額面で償還を受けることができ、株価が転換価格より上昇すればその分だけ時価も上がる。また、株価のボラティリティ等の状況にもよるが利息がつくこともある。投資家からすると、株価下落のリスクを抑えつつ株価が上昇したり利息があればその分だけ利益を得ることができるというメリットがある。当然デフォルトのリスクはある。</p>
+<p>一方で、発行体である会社からすると転換価格を現状の株価より高い水準に設定することができ、実質的に<strong>将来の企業価値で現在の資金を調達する</strong>のと同等の効果を得られる。もちろん転換価格が高過ぎて投資家にとって現実的でなければ転換オプションの価値は無いので、利息など魅力的な条件がついてなければ誰も買ってくれないだろう。また、株価が下落すれば転換はされないので、その場合は実質的にただの借入となる。</p>
+<p>成長中の会社はお金があれば成長に投資するため基本的に赤字決算が続くので、金融機関から借入をする場合はリスクに見合った高い金利を負担しなければならない。そのリスクとリターンを投資家と分け合いながら成長に必要な資金を調達できるのが転換社債のメリットと言える。</p>
+<p>これだけ見るととても便利で何故日本のベンチャーやスタートアップと呼ばれる会社で流行ってないのか分からないのだが、自分の知らないところで流行ってるだけかもしれない。</p>
+<h2 id="株式報酬-stock-based-compensation" style="position:relative;"><a href="#%E6%A0%AA%E5%BC%8F%E5%A0%B1%E9%85%AC-stock-based-compensation" aria-label="株式報酬 stock based compensation permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>株式報酬 Stock-based Compensation</h2>
+<p>両社とも共通して多大な株式報酬を役員や従業員に支払っている。</p>
+<p><strong>FY2021/12 の株式報酬</strong></p>
+<ul>
+<li>Fastly: $140M</li>
+<li>Cloudflare: $90M</li>
+</ul>
+<p><strong>FY2022/12 Q2 の株式報酬</strong></p>
+<ul>
+<li>Fastly: $75M</li>
+<li>Cloudflare: $88M</li>
+</ul>
+<p>Fastly は販管費の約3割、 Cloudflare では約2割を株式報酬が占めている。これは会計上では費用として計上されるが現金支出を伴わないため、キャッシュ・フロー️計算書上はプラスの効果がある。報酬の受け取り側からするとボーナスをもらってそのお金で会社の株を買うのと同じ影響がある。この株式には一般的に譲渡制限が付けられていて、税制にもよるが基本的にはその譲渡制限が解除された時点の時価で所得税が計算される。</p>
+<p>RSU 等の株式報酬を活用することで、優秀な人間を高い報酬で雇いつつ現金支出を減らすことができ、その分だけ資金を別の成長投資に注ぎ込むことができる。当然だが株価が下落傾向にあればその分だけ報酬の魅力は薄れるので、いいことばかりではない。</p>
+<h3 id="従業員数" style="position:relative;"><a href="#%E5%BE%93%E6%A5%AD%E5%93%A1%E6%95%B0" aria-label="従業員数 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>従業員数</h3>
+<p><strong>FY2021 末時点の従業員数</strong></p>
+<ul>
+<li>Fastly: 976 人（うち 188 人が米国外）</li>
+<li>Cloudflare: 2,440 人（うち 975 人が米国外）</li>
+</ul>
+<p>従業員1人あたりの株式報酬について。</p>
+<p>Fastly は2021年12月末時点の従業員が 976 人であり、前述の通りこの年の株式報酬だけで $140M を支払っているので単純に一人当たりに換算すると日本円で平均 2,000 万円程度になる。もちろん全員がこれだけ貰えるということではなく、決算を見ると Cost of revenue として計上されるカスタマーサポートやインフラの管理人員の方々はほとんど貰えていないようだ（人数が少ない可能性もある）。</p>
+<p>FY2021 の Fastly の原価、販管費の内訳は次の通り。</p>
+<ul>
+<li>Cost of revenue: $167M</li>
+<li>Research and development: $126M</li>
+<li>Sales and marketing: $152M</li>
+<li>General and administrative: $126M</li>
+</ul>
+<p>株式報酬の内訳は次の通り。</p>
+<ul>
+<li>Cost of revenue: $7M</li>
+<li>Research and development: $47M</li>
+<li>Sales and marketing: $31M</li>
+<li>General and administrative: $55M</li>
+</ul>
+<p>それぞれに含まれる人件費は次の通り。</p>
+<ul>
+<li>Cost of revenue: サーバーやネットワーク機器の調査・設計・配備・保守を行うインフラチーム、顧客向けの技術サポートを行うカスタマーサポート</li>
+<li>Research and development: エッジクラウドプラットフォームの設計・開発・信頼性担保に責任を負う開発者</li>
+<li>Sales and marketing: 営業とマーケティングのチーム</li>
+<li>General and administrative: 経理や法務、人事など管理部門 + 役員</li>
+</ul>
+<p>Research and development の費用に属する人員の数だけ公開されている（321名）。</p>
+<h2 id="株価が会社に与える影響" style="position:relative;"><a href="#%E6%A0%AA%E4%BE%A1%E3%81%8C%E4%BC%9A%E7%A4%BE%E3%81%AB%E4%B8%8E%E3%81%88%E3%82%8B%E5%BD%B1%E9%9F%BF" aria-label="株価が会社に与える影響 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>株価が会社に与える影響</h2>
+<p>役員や従業員に株式で多額の報酬を支払っている場合、株価の上昇や下落が彼らに大きな影響を与えることになる。</p>
+<p>株式報酬にも様々な形があるが、一般的な RSU なら譲渡制限が解除された時点で給与所得として課税されるため解除後に株価が下落すると「キャピタルゲインをほぼ得られないのに税金をたくさん払わなければならない」という状況が生まれる可能性がある。一方で株価が上昇していけば所得が多いほど（税制にもよるが）給与所得より株式譲渡所得の方が税率が低いので、多大なキャピタルゲインを得つつ同額の給与所得より課税を抑えることができる。</p>
+<p>また、株価の上昇や下落は資金調達にも大きく影響する。</p>
+<p>転換社債であれば、株価が上昇していれば実質的に未来の企業価値で資金を調達できるので、より希薄化を抑えつつ成長に投資できる。また、新たに転換社債で資金を調達する際も転換価格や利息などの条件を会社や既存株主の側に有利に設定することもできる。一方で、株価が下落していけばより魅力的な条件をつけないと誰も社債を買ってくれないだろう。新株発行して調達しようにも既存株主はより大きな希薄化を受け入れなければならなくなる。</p>
+<p>このように会社が報酬や資金調達において株価に大きく依存している場合、株価が中長期的に下落する傾向に入ると成長のエンジンが失われてしまうので経営陣の刷新やレイオフ、IR 等で早めに市場に対してアピールしつつ成長の実績を出していくことが重要になると考えられる。</p>
+<h2 id="客層の違い" style="position:relative;"><a href="#%E5%AE%A2%E5%B1%A4%E3%81%AE%E9%81%95%E3%81%84" aria-label="客層の違い permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>客層の違い</h2>
+<h3 id="ar-annualized-revenue--100kの顧客数と売上" style="position:relative;"><a href="#ar-annualized-revenue--100k%E3%81%AE%E9%A1%A7%E5%AE%A2%E6%95%B0%E3%81%A8%E5%A3%B2%E4%B8%8A" aria-label="ar annualized revenue  100kの顧客数と売上 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>AR: Annualized Revenue > $100K　の顧客数と売上</h3>
+<p>両社で定義が異なるので単純に比較はできないのだが、参考までに。</p>
+<p>Fastly では過去12ヶ月の売上が $100K を超えている顧客を、Cloudflare では顧客ごとに直近四半期の売上を4倍して $100K を超えている顧客を数えている。</p>
+<p><strong>FY2021/12 の AR > $100K の顧客数</strong></p>
+<ul>
+<li>Fastly: 445社 - YoY +18%</li>
+<li>Cloudflare: 1,416社 - YoY +71%</li>
+</ul>
+<p><strong>FY2021/12 の AR > $100K の顧客からの売上</strong></p>
+<ul>
+<li>Fastly: $313M - 売上全体の 88%</li>
+<li>Cloudflare: $353M - 売上全体の 54%</li>
+</ul>
+<p><strong>FY2022/12 Q2 時点の AR > $100K の顧客数</strong></p>
+<ul>
+<li>Fastly: 471社 - YoY +15%</li>
+<li>Cloudflare: 1,749社 - YoY +61%</li>
+</ul>
+<p><strong>FY2022/12 Q2 時点の AR > $100K の顧客からの売上</strong></p>
+<ul>
+<li>Fastly: $182M - 売上全体の 89%</li>
+<li>Cloudflare: 開示なし？ CEO の発言によれば 60% 近くとのこと</li>
+</ul>
+<p>Fastly は AR > $100K の顧客からの売上が全体の9割近くを占めている。FY2021 では上位10社の売上が全体の 33% 、FY2022/Q2 では 34% を占め、（おそらく Salesforce や PayPal などの）大口顧客への依存度が非常に高い。Q2 の Earnings Call によれば AR > $100K の顧客は平均して $730K を支出しているそうだ。一方の Cloudflare は上位100社で全体の 29% なので、Fastly と比べると分散している。Cloudflare は無料枠がたくさんあるので小口の利用でも始めやすいという事情もあるのかもしれない。</p>
+<p>しかし、 Cloudflare は近年急速に AR > $100K の顧客数及び売上に占める割合が増加している。FY2022/12 Q2 については Earnings Call の Transcript を見たところ CEO が次のような発言をしており、FY2021 の 54% からさらに上昇しているようだ。</p>
+<blockquote>
+<p>We added a record 212 new large customers, those paying us more than $100,000 per year and now have 1,749 customers over this threshold. These large customers now represent 60% of our revenue, up from 50% six quarters ago. This trend illustrates how large, established enterprises increasingly formed the foundation of Cloudflare’s business. In fact, today, 29% of the Fortune 1000 are already paying Cloudflare customers, a nearly threefold increase over when we went public less than three years ago.</p>
+</blockquote>
+<h3 id="どの地域で売れているか" style="position:relative;"><a href="#%E3%81%A9%E3%81%AE%E5%9C%B0%E5%9F%9F%E3%81%A7%E5%A3%B2%E3%82%8C%E3%81%A6%E3%81%84%E3%82%8B%E3%81%8B" aria-label="どの地域で売れているか permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>どの地域で売れているか</h3>
+<p>（）内は売上全体に占めるその地域の割合</p>
+<p>FY2021/12</p>
+<table>
+<thead>
+<tr>
+<th>region</th>
+<th align="left">Fastly</th>
+<th align="left">Cloudflare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>United States</td>
+<td align="left">$ 260 M (74%)</td>
+<td align="left">$ 342 M (52%)</td>
+</tr>
+<tr>
+<td>Asia Pacific</td>
+<td align="left">$ 39 M (11%)</td>
+<td align="left">$ 96 M (15%)</td>
+</tr>
+<tr>
+<td>Europe</td>
+<td align="left">$ 35 M (10%)</td>
+<td align="left">$ 172 M (26%)</td>
+</tr>
+<tr>
+<td>All other countries</td>
+<td align="left">$ 19 M (5%)</td>
+<td align="left">$ 45 M (7%)</td>
+</tr>
+<tr>
+<td>Total revenue</td>
+<td align="left">$ 354 M</td>
+<td align="left">$ 656 M</td>
+</tr>
+</tbody>
+</table>
+<p>FY2022/12 Q2</p>
+<table>
+<thead>
+<tr>
+<th>region</th>
+<th align="left">Fastly</th>
+<th align="left">Cloudflare</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>United States</td>
+<td align="left">$ 151 M (74%)</td>
+<td align="left">$ 235 M (53%)</td>
+</tr>
+<tr>
+<td>Asia Pacific</td>
+<td align="left">$ 24 M (12%)</td>
+<td align="left">$ 62 M (14%)</td>
+</tr>
+<tr>
+<td>Europe</td>
+<td align="left">$ 18 M (9%)</td>
+<td align="left">$ 116 M (26%)</td>
+</tr>
+<tr>
+<td>All other countries</td>
+<td align="left">$ 10 M (5%)</td>
+<td align="left">$ 31 M (7%)</td>
+</tr>
+<tr>
+<td>Total revenue</td>
+<td align="left">$ 204 M</td>
+<td align="left">$ 446 M</td>
+</tr>
+</tbody>
+</table>
+<p>Fastly と比べて Cloudflare はヨーロッパの売上割合が高く、全体の 1/4 を占めている。</p>
+<p>Asia Pacific ではどちらも伸び悩んでいるようだ。Fastly は FY2020 に Asia Pacific での売上が $44M だったのが FY2021 では $39M に減少しており、 Cloudflare は売上こそ伸びているが売上全体に占める構成比は FY2019 の 19% から FY2021 では 15% に下落している。</p></section><hr/><footer><div class="bio"><div data-gatsby-image-wrapper="" style="width:50px;height:50px" class="gatsby-image-wrapper bio-avatar"><div aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear;background-color:#e8d8c8;width:50px;height:50px;position:relative"></div><picture><source type="image/avif" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/d4bf4/profile-pic.avif 50w,/static/e8fd2154b9e4024a4342869b4971332c/ee81f/profile-pic.avif 100w" sizes="50px"/><source type="image/webp" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/3faea/profile-pic.webp 50w,/static/e8fd2154b9e4024a4342869b4971332c/6a679/profile-pic.webp 100w" sizes="50px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="50px" decoding="async" loading="lazy" data-src="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg" data-srcset="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg 50w,/static/e8fd2154b9e4024a4342869b4971332c/64618/profile-pic.jpg 100w" alt="Profile picture"/></picture><noscript><picture><source type="image/avif" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/d4bf4/profile-pic.avif 50w,/static/e8fd2154b9e4024a4342869b4971332c/ee81f/profile-pic.avif 100w" sizes="50px"/><source type="image/webp" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/3faea/profile-pic.webp 50w,/static/e8fd2154b9e4024a4342869b4971332c/6a679/profile-pic.webp 100w" sizes="50px"/><img data-gatsby-image-ssr="" layout="fixed" data-main-image="" style="opacity:0" sizes="50px" decoding="async" loading="lazy" src="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg" srcSet="/static/e8fd2154b9e4024a4342869b4971332c/d24ee/profile-pic.jpg 50w,/static/e8fd2154b9e4024a4342869b4971332c/64618/profile-pic.jpg 100w" alt="Profile picture"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1)}}</script></div><p>会計とプログラミングの話<br/><a href="/rss">RSS</a> / <a href="https://twitter.com/rtsudar">Twitter</a> / <a href="https://github.com/lyohe">GitHub</a> / <a href="https://zenn.dev/username">Zenn</a> / <!-- -->email: lyohe＠hey.com</p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/2022-08-20-typescript-pro/">← <!-- -->プロを目指す人のための TypeScript 入門を読んだ話</a></li><li></li></ul></nav></main><footer>© <!-- -->2022<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2022-08-26-fastly-cloudflare-accounting/";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-b227d9031ab4094e5021.js"],"app":["/app-34e036e141e9454fbb27.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bb1698d01a7f9dde5caa.js"],"component---src-pages-index-js":["/component---src-pages-index-js-8eaf203e73a39e842230.js"],"component---src-pages-using-typescript-tsx":["/component---src-pages-using-typescript-tsx-20f655bfb94bd369e9d3.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7d7c0a7441235f84dc6b.js"]};/*]]>*/</script><script src="/polyfill-b227d9031ab4094e5021.js" nomodule=""></script><script src="/component---src-templates-blog-post-js-7d7c0a7441235f84dc6b.js" async=""></script><script src="/commons-ab2410dfbec4227df496.js" async=""></script><script src="/app-34e036e141e9454fbb27.js" async=""></script><script src="/framework-e413e527015be9a1bdfd.js" async=""></script><script src="/webpack-runtime-7ccc76090462d0b0de1f.js" async=""></script></body></html>
