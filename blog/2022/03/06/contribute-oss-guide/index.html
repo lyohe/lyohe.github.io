@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2022/03/06/contribute-oss-guide/">
+
+<!-- Primary Meta Tags -->
+<title>メモ: How to Contribute to Open Source (Next.js)</title>
+<meta name="title" content="メモ: How to Contribute to Open Source (Next.js)">
+<meta name="description" content="メモ: How to Contribute to Open Source (Next.js)">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2022/03/06/contribute-oss-guide/">
+<meta property="og:title" content="メモ: How to Contribute to Open Source (Next.js)">
+<meta property="og:description" content="メモ: How to Contribute to Open Source (Next.js)">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2022/03/06/contribute-oss-guide/">
+<meta property="twitter:title" content="メモ: How to Contribute to Open Source (Next.js)">
+<meta property="twitter:description" content="メモ: How to Contribute to Open Source (Next.js)">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/2022/03/06/pr_1.png" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2022-03-05T15:00:00.000Z">
+	Mar 6, 2022
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">メモ: How to Contribute to Open Source (Next.js)</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>YouTube で <a href="https://www.youtube.com/watch?v=7OZErHXgnjo">How to Contribute to Open Source (Next.js)</a> という動画を見たので内容のメモ。</p>
+<p>視聴動機としては、大きな OSS プロジェクトがどのように運用されているか興味を持ったため。Next.js に Contribute する予定は（できたら嬉しいけど）今のところ無い。</p>
+<h2 id="000--introduction">0:00 — Introduction</h2>
+<ul>
+<li>動画全体で何を話すかを紹介</li>
+<li>Vercel / Next.js の紹介</li>
+</ul>
+<h2 id="211--code-of-conduct"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=131s">2:11 — Code of Conduct</a></h2>
+<ul>
+<li>Code of Conduct は開発者が従うべき規範や果たすべき責任を表す文書
+<ul>
+<li>参考: <a href="https://github.com/vercel/next.js/blob/01268f61ce136386743700fcadfa0236389a939f/CODE_OF_CONDUCT.md">Next.js の Code of Conduct</a></li>
+</ul>
+</li>
+<li>プロジェクトに参加するときはまず最初に読む</li>
+</ul>
+<h2 id="311--opening-an-issue"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=191s">3:11 — Opening an Issue</a></h2>
+<ul>
+<li>人々が OSS プロジェクトを訪れる主な理由は改善提案やバグ報告で、それらは Issue として管理されている</li>
+<li>まずは既存の Issue を検索して自分と同じ提案や報告があるかを確認する
+<ul>
+<li>例えば <code>&#x3C;Image></code> コンポーネントに関する報告なら “Image” というキーワードで open の Issue を検索してみる</li>
+<li>参考: <a href="https://github.com/vercel/next.js/issues">Next.js の Issue 一覧</a></li>
+</ul>
+</li>
+<li>Issue はテンプレートに必要な情報を埋めていくと作れる
+<ul>
+<li>テンプレートの様式は <a href="https://github.com/vercel/next.js/tree/01268f61ce136386743700fcadfa0236389a939f/.github/ISSUE_TEMPLATE">./github/ISSUE_TEMPLATE</a> 配下の YAML で管理されている</li>
+<li>必要な情報は Node.js の version やバグの再現条件など、その Issue の解決策を探るために役立つもの</li>
+<li>例えば Bug report の場合は <code>next info</code> コマンドの出力を入れる（Next.js v12.0.8 以降）など、テンプレートによって必要な情報は異なる</li>
+</ul>
+</li>
+</ul>
+<p>実際に Issue を作るときは、以下画像のように目的から必要なテンプレートを選ぶ。</p>
+<p><img src="/2022/03/06/issue_1.png" alt="issue_1"></p>
+<p>次に、テンプレートに必要な情報を埋めていく。</p>
+<p><img src="/2022/03/06/issue_2.png" alt="issue_2"></p>
+<h2 id="720--contributing-docs"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=440s">7:20 — Contributing Docs</a></h2>
+<ul>
+<li>OSS に Contribute する前に、そのやり方を読む</li>
+<li><a href="https://github.com/vercel/next.js/blob/01268f61ce136386743700fcadfa0236389a939f/contributing.md">contributing.md</a> では開発やビルドのやり方が詳細に記述されている</li>
+</ul>
+<h2 id="805--releases-canary-stable"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=485s">8:05 — Releases (canary, stable)</a></h2>
+<ul>
+<li>Next.js には <code>canary</code> と <code>stable</code> という 2 つの release branch がある</li>
+<li>canary は開発用の branch で、全ての Pull Request はここに向けて作られる</li>
+<li><a href="https://github.com/vercel/next.js/releases">Next.js の Releases</a> を見ると、何回か canary が Release された後に semver が振られた stable が Release されていることが分かる</li>
+</ul>
+<h2 id="917--adding-tests"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=557s">9:17 — Adding Tests</a></h2>
+<ul>
+<li>たくさんの人が関わるプロジェクトで regression を防ぐためにテストは非常に重要</li>
+<li>参考: <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/test/readme.md">testing README</a></li>
+<li>Next.js では新しい e2e, unit, integration テストを追加するための scaffold script がある</li>
+<li>例えば <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/test/integration/static-404/test/index.test.js">static 404 ページのテスト</a>では</li>
+<li>テストは Next.js で新機能を merge する際は必須となっている</li>
+</ul>
+<h2 id="1157--testing-against-local-versions"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=717s">11:57 — Testing against Local Versions</a></h2>
+<ul>
+<li>自分のローカルにある Next.js を開発していく際は、 package.json で <code>next</code> の依存先を自分のローカルに指定する必要がある</li>
+<li>参考: <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/contributing.md#developing-with-your-local-version-of-nextjs">contributing.md#developing-with-your-local-version-of-nextjs</a></li>
+</ul>
+<h2 id="1237--adding-warning--error-links"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=757s">12:37 — Adding Warning &#x26; Error Links</a></h2>
+<ul>
+<li>Next.js では開発者を支援するため Warning や Error にリンクをつける仕組みがある</li>
+<li>ログに全部出すのではなく、ログにはエラーの説明へのリンクを出して、エラーの詳細はリンク先を見るようにする</li>
+<li><code>yarn new-error</code> で新たなエラードキュメントを作り、 <code>https://nextjs.org/docs/messages/&#x3C;file-path-without-dotmd>.</code> のようなリンクでアクセスできる
+<ul>
+<li>例えば <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/errors/api-routes-static-export.md">errors/api-routes-static-export.md</a> は <a href="https://nextjs.org/docs/messages/api-routes-static-export">https://nextjs.org/docs/messages/api-routes-static-export</a> を指す</li>
+</ul>
+</li>
+<li>参考: <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/contributing.md#adding-warningerror-descriptions">contributing.md#adding-warningerror-descriptions</a></li>
+</ul>
+<h2 id="1429--adding-examples"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=869s">14:29 — Adding Examples</a></h2>
+<ul>
+<li><a href="https://github.com/vercel/next.js/tree/ff6b75027b98ffc379282cb807551d1b5e9e7732/examples">/examples</a> 以下には Next.js を使ったアプリケーションの例がたくさんある</li>
+<li>examples を新たに追加する際は名前や description を README に記載する</li>
+<li>簡単なチェック用のスクリプトもある <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/scripts/check-examples.sh">/scripts/check-examples.sh</a></li>
+<li>参考: <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/contributing.md#adding-examples">contributing.md#adding-examples</a></li>
+</ul>
+<ul>
+<li>この examples は新しくプロジェクトを始めるときの雛形として非常に便利</li>
+</ul>
+<h2 id="1734--documentation"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=1054s">17:34 — Documentation</a></h2>
+<ul>
+<li>Next.js のドキュメントは全て Markdown 形式でリポジトリの <a href="https://github.com/vercel/next.js/tree/ff6b75027b98ffc379282cb807551d1b5e9e7732/docs">/docs</a> 以下に書かれている</li>
+<li>ドキュメント全体のパスや構造は <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/docs/manifest.json">docs/manifest.json</a> を参照</li>
+<li>ドキュメントで使われる単語が正しく inclusive であることを保つために alex というツールを使っている</li>
+</ul>
+<h2 id="2102--pull-requests"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=1262s">21:02 — Pull Requests</a></h2>
+<ul>
+<li>Pull Request を作成する際はテンプレートを使う
+<ul>
+<li>テンプレートは <a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/.github/pull_request_template.md">.github/pull_request_template.md</a> を参照</li>
+</ul>
+</li>
+<li>Next.js では Bug, Feature, Documentation / Examples の 3 種類の PR を想定している</li>
+<li>Bug と Feature では関連 Issue へのリンクが必要となるなど、 PR の種類によって必要な情報は異なる
+<ul>
+<li>つまり、いきなり　 Issue なしで PR を送ってもただ却下されるだけ</li>
+<li>Issue を作ると Contributor がそれを確認して <a href="https://github.com/vercel/next.js/discussions">Discussion</a> や vote などで Feedback する</li>
+<li>その内容を基に開発して PR を出す</li>
+</ul>
+</li>
+<li><a href="https://github.com/vercel/next.js/blob/ff6b75027b98ffc379282cb807551d1b5e9e7732/.github/CODEOWNERS">.github/CODEOWNERS</a> が自動的にレビュアーとなる</li>
+</ul>
+<p>PR を作ろうとすると、テンプレートが使われるため次のように最初から文章が入力されている。</p>
+<p><img src="/2022/03/06/pr_1.png" alt="pr_1"></p>
+<h2 id="2647--codesandbox-on-prs"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=1607s">26:47 — CodeSandbox on PRs</a></h2>
+<ul>
+<li>PR を open すると自動的に <a href="https://codesandbox.io/">CodeSandbox</a> が作られ、ブラウザでその PR の挙動を確認できる</li>
+</ul>
+<h2 id="2747--example-of-contributing"><a href="https://www.youtube.com/watch?v=cuoNzXFLitc&#x26;t=1667s">27:47 — Example of Contributing</a></h2>
+<ul>
+<li>ドキュメントの修正を例に Issue を作成し PR を出すまでを説明する</li>
+<li>external contributor はまず Fork して自分の配下の branch から PR を出す</li>
+</ul>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

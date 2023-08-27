@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2022/05/21/readable-code/">
+
+<!-- Primary Meta Tags -->
+<title>リーダブルコードを読んだ話</title>
+<meta name="title" content="リーダブルコードを読んだ話">
+<meta name="description" content="リーダブルコードを読んだ話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2022/05/21/readable-code/">
+<meta property="og:title" content="リーダブルコードを読んだ話">
+<meta property="og:description" content="リーダブルコードを読んだ話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2022/05/21/readable-code/">
+<meta property="twitter:title" content="リーダブルコードを読んだ話">
+<meta property="twitter:description" content="リーダブルコードを読んだ話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/blog-placeholder-3.jpg" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2022-05-20T15:00:00.000Z">
+	May 21, 2022
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">リーダブルコードを読んだ話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>「リーダブルコード」を読んだので、紹介しつつ感想を書く。</p>
+<p><a href="https://www.amazon.co.jp/dp/4873115655">https://www.amazon.co.jp/dp/4873115655</a></p>
+<h2 id="背景">背景</h2>
+<p>普段の仕事でプログラムを書いていて、コードレビューにおいて「リーダブルコード的に言うと…」という指摘を受けることがあった。</p>
+<p>自分で自分のコードの読みやすさに関して課題を感じていた（数ヶ月前に書いたコードが何してるのかよく分からない）こともあり、書籍を読んでみることにした。</p>
+<h2 id="概要と感想">概要と感想</h2>
+<p>書籍の概要は以下の通り。</p>
+<blockquote>
+<p>コードは理解しやすくなければならない。本書はこの原則を日々のコーディングの様々な場面に当てはめる方法を紹介する。名前の付け方、コメントの書き方など表面上の改善について。コードを動かすための制御フロー、論理式、変数などループとロジックについて。またコードを再構成するための方法。さらにテストの書き方などについて、楽しいイラストと共に説明する。日本語版では Ruby や groonga のコミッタとしても著名な須藤功平氏による解説を収録。</p>
+</blockquote>
+<p>まさにこの通りの内容だった。大まかに以下の 3 部に分かれている。</p>
+<ol>
+<li>表面上の改善</li>
+<li>ループとロジックの単純化</li>
+<li>コードの再構成</li>
+</ol>
+<p>簡単に紹介する。ここで紹介しているのはほんの一部の実践なので、気になる方はぜひ買って読んでみてください。</p>
+<h3 id="1-表面上の改善">1. 表面上の改善</h3>
+<p>変数や関数の命名、コードのレイアウトやフォーマット、良いコメントのつけ方について。</p>
+<p>変数や関数の命名は明確で具体的にその振る舞いを示す非汎用的名前をつけるのが良い。</p>
+<p>例えば <code>GetPage</code> という名前の関数があったとして「ページを取ってくるのかな？」という挙動は予測できるが、それをどこからどうやって取ってくるのかは見当がつかない。インターネット経由で取ってくるなら <code>FetchPage</code> とか <code>DownloadPage</code> のような名前をつけるべきだろう。</p>
+<p>また、大きさを表すのに <code>Size</code> という汎用的な名前よりは <code>Height</code> とか <code>Bytes</code> のように中身がより明確に想像できる方が良い。<code>Get</code> や <code>Size</code> のような汎用的な命名であっても、生存期間が短ければ（= 定義してすぐ使われ他の場所では使われないなど、影響範囲が狭ければ）問題ない。</p>
+<p>命名する際はユーザー（その関数や変数を使う側）の視点に立って期待に沿うような命名をする。誤解を防ぐためには、より明確な語彙を使う。例えば文字列を一部削除して整形するような関数なら <code>clip</code> よりは <code>remove</code> とか <code>truncate</code> のように、より具体的な振る舞いを示す単語を使うのが良い。</p>
+<p>コードのレイアウトについても基本的な思想は同じで、読み手に分かりやすいよう整える。読み手が慣れているパターンに沿って関連するコードをブロックにまとめ、似ているコードを同じ場所に集める。プログラムは書く時間より読む時間が長い。</p>
+<p>例えばテストコードであれば、「状況 A で入力 B から振る舞い X を経て出力 Y を期待する」のような動作をコードとして書き、実際にその状況をセットアップしたり入力値を用意する処理はヘルパーメソッドとして分けておくのが良い。</p>
+<p>コメントは書き手の意図を読み手に知らせるための道具であって、コードからすぐに分かることはコメントすべきではない。なぜなら、その分だけコードを読む時間が減るからだ。
+例えば下記のコメントは全く役に立たない。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// address で指定されたメールアドレス宛にメールを送る</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">sendMail</span><span style="color: #E1E4E8">(address, subject, body) {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">/* */</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>コメントするのであれば、「このコードを読む/使う時にミスしがちなことはなんだろう？」のように読み手使い手の立場に立って役に立つコメントを書く。例えば上記の関数であれば、下記のようなコメントだったら役に立つだろう。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// メールを送信する外部サービス hogehoge を呼び出す（1分でタイムアウト）</span></span>
+<span class="line"><span style="color: #B392F0">sendMail</span><span style="color: #E1E4E8">(address, subject, body) {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">/* */</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>関数や変数の中身や振る舞いについてはコメントではなく良い名前をつけることで読みやすくすべきだが、大きなクラスやファイルなどで先頭にその責任や挙動の全体像をコメントすることは理に適っている（その分コードを読む時間が少なくて済む）。</p>
+<h3 id="2-ループとロジックの単純化">2. ループとロジックの単純化</h3>
+<p>制御フローや式の分割について。</p>
+<p>条件やループはできるだけ自然に記述し、読み手が立ち止まって読み返す必要がないようにする。例えば変数を特定の値と比較した結果に応じて処理を分岐する場合を考える。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// 調査対象 -> 比較対象</span></span>
+<span class="line"><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (length </span><span style="color: #F97583">&#x3C;=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">10</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">/* */</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// 比較対象 -> 調査対象</span></span>
+<span class="line"><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #79B8FF">10</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">>=</span><span style="color: #E1E4E8"> length) {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">/* */</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>結果はどちらも同じだが、英語の自然な文法に沿っている上の方が読みやすいだろう。条件やループを自然にする方法としては、関心を引く条件や目立つ条件を先に書くのが良い。また、ネストは浅くして関数からはできるだけ早く返すと読みやすいコードになる。</p>
+<p>条件やループを処理するコードが長くなってきたら、一部の処理の結果を説明したり要約する変数を用意するのが良い。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">if</span><span style="color: #E1E4E8"> line.split(</span><span style="color: #9ECBFF">':'</span><span style="color: #E1E4E8">)[</span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8">].strip() </span><span style="color: #F97583">==</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"root"</span><span style="color: #E1E4E8">:</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># ...</span></span></code></pre>
+<p>上記のコードより下記のコードの方が読みやすい。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">username </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> line.split(</span><span style="color: #9ECBFF">':'</span><span style="color: #E1E4E8">)[</span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8">].strip()</span></span>
+<span class="line"><span style="color: #F97583">if</span><span style="color: #E1E4E8"> username </span><span style="color: #F97583">==</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"root"</span><span style="color: #E1E4E8">:</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D"># ...</span></span></code></pre>
+<p>複雑なものをより単純、明確にしていくことでコードが読みやすくなる。</p>
+<h3 id="3-コードの再構成">3. コードの再構成</h3>
+<p>コードを大きく変更したり完全に削除することについて。</p>
+<p>場当たり的にコードを追加していくと、ついつい大きな読みづらい関数やクラスが誕生してしまう。</p>
+<p>関数やコードブロックを見て、「このコードの高レベルの目標は何か」を抽出し、各行に対してその目標に直接的に効果があるのか「無関係の下位問題」を解決しているのかを自問することで、読みやすい単位に分割していくことができる。</p>
+<p>無関係の下位問題は何と「無関係」なのかというと、コードが解決しようとしている課題の前提となる問題を解決することで、例えば以下のような問題が挙げられる。</p>
+<ul>
+<li>高レベルの目標が「与えられた緯度経度に最も近い要素を配列から選ぶ」だとすると、「球面三角法の余弦定理」は無関係の下位問題にあたる</li>
+<li>高レベルの目標が「ファイルの中身をすべて読み込む」だとすると、「ファイルをバッファに読み込む」は無関係の下位問題にあたる</li>
+<li>高レベルの目標が「サーバを Ajax で呼び出してレスポンスを処理する」だとすると、「レスポンスを整形して綺麗な形で出力する」は無関係の下位問題にあたる</li>
+</ul>
+<p>このように大きな問題を明確な境界線を持つ小さな問題に分離していくことで、一度に考えることを減らすことができ、効率よくコードを読み進められるようになる。</p>
+<p>このような「無関係の下位問題」は誰かがライブラリとして開発していたり言語標準ライブラリに組み込まれていたりするので、それを使うのが良い。</p>
+<p>特に言語標準ライブラリの裏には膨大な設計、デバッグ、修正、文書、最適化の努力、テストがあり、時の試練を生き延びてきているので大きな価値がある。定期的に標準ライブラリのドキュメントやコードを読んでどんなことができそうか考えることで、自分のコードを単純に小さいまま保つことができるようになる。</p>
+<h2 id="印象的だった箇所">印象的だった箇所</h2>
+<p>第 13 章「短いコードを書く」の冒頭にこんな言葉がある。</p>
+<blockquote>
+<p>最も読みやすいコードは、何も書かれていないコードだ。</p>
+</blockquote>
+<p>ここでは例として「店舗検索システム」が挙げられている。任意のユーザーの緯度経度を基に近い店舗を検索するというシステムを作ろうとすると、日付変更線を跨いだときや北極南極近辺の処理、地球の曲率など様々な要素を考慮しなければならない。</p>
+<p>しかし、その対象店舗がアメリカ合衆国のテキサス州に 30 店舗しか無いとしたらどうだろうか。単純に総当たりでユーザーと 30 店舗との距離を計算して最も近い距離の店を返せば十分だろう。計算量も大したことはなさそうだ。</p>
+<p>これと似た事象はプログラマに限らず割とどこでもあって、事前に完璧にやろうとすると無限に時間がかかるものの、課題の 80% くらいを解決する単純な方法はすぐ作れたりする。最初からいろいろ考えて準備しても、使われなかったり無駄に複雑にしてしまい説明や理解が難しくなる。</p>
+<p>限られた時間で多くのことをするには、とりあえず小さく単純な形で始めてみて必要になったら追加していく精神が重要そうだ。</p>
+<p>コードを一切書かず人の手も一切動かさずに問題を解決できるなら、それが一番いい。</p>
+<h3 id="単純さ">単純さ</h3>
+<p>本書の感想ではないが、最近読んだ文章で似たような話がありとても面白かった。</p>
+<p><a href="https://note.com/ruiu/n/n9948f0cc3ed3">note: 「悪い方が良い」原則と僕の体験談 Rui Ueyama</a></p>
+<p>実装の単純さが良いデザインに優先することもある。</p>
+<h2 id="最後に">最後に</h2>
+<p>10 年前に出版された本だが、中身には全く古さを感じなかった。</p>
+<p>あえて言うと「JavaScript では var を使おう（var をつけずに変数を使うとグローバルスコープになるため）」という記述があるが、現代の JavaScript で var を使うことはほぼ無く原則は const 例外的に let を使うだろう。</p>
+<p>これは本書が誤っているのではなく、本書の指針（変数への代入は一度だけ..）に沿った機能が出版後に JavaScript へ取り込まれたからベストプラクティスが変わったのであって、本書の内容自体は読みやすく使いやすいコードを書く上で非常に役立つと思った。</p>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

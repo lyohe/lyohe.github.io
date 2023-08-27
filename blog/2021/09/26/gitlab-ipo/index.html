@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2021/09/26/gitlab-ipo/">
+
+<!-- Primary Meta Tags -->
+<title>GitLab が上場するので Form S-1 を読んだ話</title>
+<meta name="title" content="GitLab が上場するので Form S-1 を読んだ話">
+<meta name="description" content="GitLab が上場するので Form S-1 を読んだ話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2021/09/26/gitlab-ipo/">
+<meta property="og:title" content="GitLab が上場するので Form S-1 を読んだ話">
+<meta property="og:description" content="GitLab が上場するので Form S-1 を読んだ話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2021/09/26/gitlab-ipo/">
+<meta property="twitter:title" content="GitLab が上場するので Form S-1 を読んだ話">
+<meta property="twitter:description" content="GitLab が上場するので Form S-1 を読んだ話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/2021/09/26/gitlab-logo.png" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2021-09-25T15:00:00.000Z">
+	Sep 26, 2021
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">GitLab が上場するので Form S-1 を読んだ話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>8 年ほど前だったか、お金のない会社で働いていたとき、社内で GitLab という OSS を使っている人たちがいた。</p>
+<p><img src="/2021/09/26/gitlab-logo.png" alt="gitlab-logo"></p>
+<p>当時の私は経理の仕事をしておりプログラムは書いていなかったが、 GitHub は辛うじて知っていた。プログラムを共有するための場所で、基本無料だがプライベートリポジトリ（権限を持っている人しか見られない場所）を作ろうとするとお金がかかった。<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+<p>自分でサーバーに GitLab をインストールすると「無料」で Git を中心にした開発フローが作れるので、とにかくお金がない会社にとってはありがたい存在だったと思う。それから 8 年ほどが経ち、 GitLab が Nasdaq に上場することになった。</p>
+<p><a href="https://techcrunch.com/2021/09/17/inside-gitlabs-ipo-filing/">https://techcrunch.com/2021/09/17/inside-gitlabs-ipo-filing/</a></p>
+<p>この記事によれば GitLab の時価総額はおよそ $6B で、これは 2018 年に Microsoft が GitHub を買収したときの時価総額 $7.5B に近い。金額は不明だが GitHub の買収には Control Premium が乗っているはずなので、この時価総額はいかに GitLab が高く評価されているかを表していると思う。</p>
+<p>自分の中では未だに「お金のない会社が使う GitHub」という印象があり、なぜ高く評価されているのかが不思議だったので <a href="https://www.sec.gov/Archives/edgar/data/0001653482/000162828021018818/gitlab-sx1.htm">Form S-1</a> を読むことにした。</p>
+<h2 id="本記事内における金額や決算期の表記">本記事内における金額や決算期の表記</h2>
+<ul>
+<li>$1K = $1,000</li>
+<li>$1M = $1,000,000</li>
+<li>$1B = $1,000,000,000</li>
+</ul>
+<p>とする。</p>
+<p>FY2020 は Fiscal Year 2020 のことで、 GitLab は 1 月決算なので西暦 2019 年 2 月 1 日から 2020 年 1 月 31 日を意味する。Fiscal Year（FY）に対して通常の 1 月から 12 月までの 1 年を Calendar Year （CY）と呼ぶ。</p>
+<h2 id="主要な経営指標">主要な経営指標</h2>
+<p>直近四半期（2021-05-01 ~ 2021-07-31）の売上を単純に 4 倍する（Run Rate Revenue）と $233M となる。ARR $5K 以上の顧客（Base Customers）数が 3,632 で、ARR $100K 以上の顧客数が 383。</p>
+<p>ARR は期末から数えて直近 12 ヶ月間の売上のうち、顧客からのライセンス/サブスクリプション収益の合計額を意味する。</p>
+<p><img src="/2021/09/26/gitlab-kpi.png" alt="gitlab-kpi"></p>
+<p>Dollar-Based Net RR が 152% （FY2021 では 148%）なので、既存顧客からの収益が 1 年で 1.5 倍に増加しているということになる。<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup></p>
+<p><img src="/2021/09/26/gitlab-nrr.png" alt="gitlab-nrr"></p>
+<p>なお、75 ページによると Dollar-Based Gross RR は FY2020 と FY2021 の 2 年続けて 97% なので、既存顧客の解約はかなり少ないことが分かる。<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup></p>
+<p>これを見る限りでは、とても順調に成長しているようだ。</p>
+<h2 id="bs-を読む">BS を読む</h2>
+<p>GitLab の Balance Sheets は面白い。なにが面白いかというと、とにかく何も無いところだ。</p>
+<p><img src="/2021/09/26/gitlab-bs.png" alt="gitlab-bs"></p>
+<p>資産はほぼ全てが現預金で、固定資産はほぼ繰延費用（契約獲得に関するボーナスや手数料を繰り延べたもの）が占めている。負債は大部分が License/Subscription 収益の前受（Deferred revenue）で、契約期間にわたって分配される。</p>
+<p>非常に単純な BS なので、自分が経理として働くならこういう会社で働きたい。</p>
+<h3 id="gitlab-のオフィス">GitLab の「オフィス」</h3>
+<p>BS を見ると、 Property や Equipment といった固定資産が一切ない。先述の繰延費用を除けば、 FY2021 の BS には Intangible assets が $0.8M と Other long-term assets が $1.5M 載っているだけだ。</p>
+<p>実は GitLab は 2014 年の設立以来 100% リモートワークで、役員や従業員が仕事をするためのオフィスは無く各自が自宅等で仕事をしている。実は日本にも社員がいる（公開されている範囲では東京に 6 人、横浜に 2 人、大阪に 2 人、鹿児島に 1 人）。</p>
+<p><img src="/2021/09/26/gitlab-full-remote.png" alt="gitlab-full-remote"></p>
+<p>オフィスの代わりに、同社はリモートワークをするための仕組みにいろいろな投資をしてきている。それがドキュメントで、 GitLab 社にどのような組織やワークフローがあり、各チームがどのような方針に基づきどのようなプロセスで仕事をするかが細かく記述されている。</p>
+<p><a href="https://about.gitlab.com/company/culture/all-remote/">https://about.gitlab.com/company/culture/all-remote/</a></p>
+<p><a href="https://about.gitlab.com/company/">https://about.gitlab.com/company/</a></p>
+<p>中には GitLab の役員・従業員しかアクセスできないものもある（例えば従業員が受け取れる株式報酬の計算ツールや給与の支給カレンダー等）が、ほとんどは公開されている。</p>
+<p>例えば、このページでは地域や職種別に GitLab の従業員一覧を見ることができる。</p>
+<p><a href="https://about.gitlab.com/company/team/">https://about.gitlab.com/company/team/</a></p>
+<p>このページでは飼っているペットの一覧を閲覧できる。</p>
+<p><a href="https://about.gitlab.com/company/team-pets/">https://about.gitlab.com/company/team-pets/</a></p>
+<p>このページでは経費精算のやり方が解説されている。リモートワークにあたってどういうものを買うべきかも書かれている。</p>
+<p><a href="https://about.gitlab.com/handbook/finance/expenses/">https://about.gitlab.com/handbook/finance/expenses/</a></p>
+<h3 id="bs-上のソフトウェア">BS 上の「ソフトウェア」</h3>
+<p>BS を見ると有形の固定資産が無いことはすぐ分かるが、いわゆる無形資産もほとんど載っていないことが分かる。FY2021 で無形資産が $0.8M （中身はのれんっぽい）で総資産が $362.6M なので、ほぼ無いといっていいだろう。</p>
+<p>ちなみに DTA の内訳を見てもソフトウェアは無いので、会計だけではなく税務上もソフトウェアを無形資産としてほとんど計上していない（もしくは、償却済み or 即時償却している）と考えられる。</p>
+<p><img src="/2021/09/26/gitlab-dta.png" alt="gitlab-dta"></p>
+<p>ソフトウェアの会社の BS に会計上のソフトウェアが載っていないこと自体は（少なくとも上場企業の開示を読む限りは）よくあることだが、税務上もソフトウェアの痕跡すら無いのは日本だとあまり見ないかもしれない。事業にもよるし実務上不可能ではないけど、ここまで極端なのは難しそう。</p>
+<h2 id="pl-を読む">PL を読む</h2>
+<p>FY2020 の売上は $81M で FY2021 の売上は $152M で、前年比 +87.3% の成長をしている。</p>
+<p><img src="/2021/09/26/gitlab-pl.png" alt="gitlab-pl"></p>
+<p>気になった箇所を順番に見ていく。</p>
+<h3 id="営業損失">営業損失</h3>
+<p>GitLab の営業損失を分解すると、次のような図で表すことができる。</p>
+<p>FY2020 は売上 $81M に対して Cost of Revenue が $9M、 Research &#x26; Development が $59M、 Sales &#x26; Marketing が $99M、 General &#x26; Administrative が $42M だった。</p>
+<p><img src="/2021/09/26/gitlab-op-loss-2020.png" alt="gitlab-op-loss-2020"></p>
+<p>FY2020 は売上 $152M に対して Cost of Revenue が $18M、 Research &#x26; Development が $107M、 Sales &#x26; Marketing が $154M、 General &#x26; Administrative が $87M だった。</p>
+<p><img src="/2021/09/26/gitlab-op-loss-2021.png" alt="gitlab-op-loss-2021"></p>
+<p>それぞれの費用の主な内容は以下の通り。</p>
+<ul>
+<li>Cost of Revenue: SaaS のホスティングとカスタマーサポートの人件費</li>
+<li>Sales &#x26; Marketing: 営業やマーケティング部門の人件費、広告費、旅費や交際費</li>
+<li>Research &#x26; Development: 新機能の開発や既存機能の強化、研究開発に関する人件費</li>
+<li>General &#x26; Administrative: 役員、財務、法務、人事のための人件費（法律事務所や会計事務所への支払いを含む）</li>
+</ul>
+<p>人員の規模や事業の内容的に、費用の半分以上は人件費と考えられる。ちなみに FY2021 は Operating expense の総額 $366M のうち後述の株式報酬が $112M で 30.6% を占めている。</p>
+<h3 id="収益コホート">収益コホート</h3>
+<p>収益のコホートを見ると、ここ 3 年くらいで売上が急激に伸びていることが分かる。</p>
+<p><img src="/2021/09/26/gitlab-cohort.jpeg" alt="gitlab-cohort"></p>
+<p>契約開始年度別の FY2021 における前年比成長率は次の通り。</p>
+<ul>
+<li>FY2016: 90%</li>
+<li>FY2017: 71%</li>
+<li>FY2018: 73%</li>
+<li>FY2019: 79%</li>
+</ul>
+<p>これを見ても分かる通り、既存顧客からの売上の伸びがとても大きい。これは GitLab が DevOps プラットフォームとして長期的に信頼されていることを表していると考えることができる。</p>
+<p>図と数字は 75 ~ 76 ページから引用した。</p>
+<h3 id="stock-based-compensation---株式報酬">Stock-based Compensation - 株式報酬</h3>
+<p>PL を読んでいて気づいたのだが、 GitLab の operation expenses のうち、それなりの部分を Stock-based Compensation（株式報酬）が占めている。14 - 15 ページに金額が記述されている。</p>
+<p>FY2021 は売上 $152M に対して株式報酬が $112M（Operating expense の総額 $366M の 30.6%）で、 FY2020 は売上 $81M に対して株式報酬 $41M（Operating expense の総額 $210M の 19.5%）だった。</p>
+<p><img src="/2021/09/26/gitlab-stock-based-compensation.png" alt="gitlab-stock-based-compensation"></p>
+<p>この中身は大部分が secondary stock sales で、注記として Note 16 （F-35 ページ）により詳しい説明がある。これによると、現在および過去に在籍していたチームメンバーや創業者が普通株式と vested option を既存投資家に売却し、その売却価額と fair value（公正価値）との間に差額が生じている…とある。</p>
+<p>この差額は借方が PL の費用、貸方が BS の純資産として計上され、 CF 上は営業 CF の加算項目となる。</p>
+<h4 id="stock-option">Stock Option</h4>
+<p>役員・従業員に対するインセンティブとしては、上場前の会社らしく Stock option を配っている。</p>
+<p><img src="/2021/09/26/gitlab-so.png" alt="gitlab-so"></p>
+<p>2021 年 7 月末時点で未行使の SO が 20,427,047 株あり、加重平均行使価額が $10.26 となっている。2020 年 12 月 ~ 2021 年 1 月に行われた直近の買付が 1 株あたり $40.00 で上場時はこれより価格が上昇すると考えられるので、 SO だけで日本円にして 600 億円を超えるキャピタルゲインが生まれることになる。</p>
+<p>ちなみに上場申請時点の発行済株式は Class A common stock が 1,150,784 株で、Class B common stock は 133,444,037 株ある。<sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup></p>
+<p>SO が全て行使されると、持分の割合は 13.2% 程度になる。既に行使されたもしくは失効した option を加えるとだいたい 19.3% ある。20% 近い株式を SO として配るというのはあまり見ないので、役員と従業員に大盤振る舞いしている会社と言えそうだ。</p>
+<h3 id="収益構造">収益構造</h3>
+<p>GitLab の収益は主に 3 種類の売上で構成されている。</p>
+<ul>
+<li><code>Subscription</code>: self-managed もしくは SaaS として提供されているプラットフォームのサポート、メンテナンス、アップデートの契約による定期収入</li>
+<li><code>License</code>: self-managed の GitLab において、有料の機能を利用するためのライセンス供与による収入</li>
+<li><code>Other</code>: GitLab 導入の支援を行うサービスによる収入</li>
+</ul>
+<p>収益を支えているのは self-managed つまり顧客が自分でパブリッククラウド等に GitLab をインストールして管理する方式で、売上の約 8 割を占めている。その一方で GitLab は SaaS も運営しており、これが直近 1 年で急激に伸びている。FY2020 では SaaS が売上に占める割合は 6.1% だったが、 FY2021 ではそれが 11.7% にまで伸びた。</p>
+<p><img src="/2021/09/26/gitlab-self-vs-saas.png" alt="gitlab-self-vs-saas"></p>
+<p>また、 FY2022 の前半 6 ヶ月（2021/2 ~ 2021/7）では売上の 17.8% が SaaS からの売上になっている。</p>
+<p><img src="/2021/09/26/gitlab-sales-last-six-months.png" alt="gitlab-sales-last-six-months"></p>
+<p>数字は F-21 ページより引用した。</p>
+<h3 id="地域別の売上">地域別の売上</h3>
+<p>地域別の売上を見ると、 FY2020 も FY2021 も売上の 80% 以上がアメリカから生じている。アジア太平洋地域の売上は全体の 3%にも満たない。</p>
+<p><img src="/2021/09/26/gitlab-revenue-by-geo.png" alt="gitlab-revenue-by-geo"></p>
+<p>数字は F-21 ページより引用した。</p>
+<p>日本では殆ど GitLab が使われていないか、もしくはお金の無い会社しか使っていないのかもしれない。なお、 GitLab は 2021 年 2 月に中国に GitLab Information Technology 社（JiHu）を設立したので、これから中国に投資していくのかもしれない。F-31 に単体の PL が載っているが、数字としてはまだまだ小さい。</p>
+<p><img src="/2021/09/26/jihu.png" alt="jihu"></p>
+<h3 id="主要な顧客">主要な顧客</h3>
+<p>116 ~ 117 ページに GitLab の主要な顧客リストが載っている。これを見ると、大企業や公的機関で使われているようだ。</p>
+<p><img src="/2021/09/26/gitlab-customers.png" alt="gitlab-customers"></p>
+<p>どうやら米軍でも使われているらしい。</p>
+<p>例えば陸軍のサイバー作戦の教育訓練を行う Cyber School では、コードを個人のラップトップに保存して Zip ファイルで送り合ったりホワイトボードを使って管理していたが、非効率で手間がかかっていたので Git ベースのソリューションを探しており、いろいろ試した結果 GitLab を選んだとのこと。現在は Cyber School で使われる資料や教材、試験の問題などが GitLab で管理されており、 CI パイプラインで採点して結果をウェブサイトに公開してくれるらしい。</p>
+<ul>
+<li><a href="https://about.gitlab.com/customers/us_army_cyber_school/">How the U.S. Army Cyber School created “Courseware as Code” with GitLab</a></li>
+</ul>
+<p>GitLab では他にも国防総省のソフトウェア開発を支援する仕事をしているらしい。</p>
+<ul>
+<li><a href="https://about.gitlab.com/press/releases/2020-07-01-gitlab-announces-hardened-container-image-in-support-of-the-us-department-of-defense-enterprise-devsecops-initiative.html">GitLab Announces a Hardened Container Image in Support of the U.S. Department of Defense Enterprise DevSecOps Initiative</a></li>
+</ul>
+<h4 id="github-vs-gitlab">GitHub vs GitLab</h4>
+<p>軍や役所、大学などの Public sector にとって情報の管理がしやすい self-managed の GitLab が魅力的に見えるのは理解できる。</p>
+<p>現在の GitLab と GitHub の間には<strong>普通のソフトウェア開発者にとっての</strong>主要な機能にはあまり差が無い。下記のページが分かりやすいかもしれない。</p>
+<p><a href="https://www.gitlab.jp/devops-tools/github-vs-gitlab.html">https://www.gitlab.jp/devops-tools/github-vs-gitlab.html</a>
+<sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup></p>
+<p>いろいろ書いてあるのだが、 GitHub ではなく GitLab を選ぶ理由としては次のようなものがありそうだ。</p>
+<ul>
+<li>情報管理のポリシーが厳しく、ソースコードやそれをビルドした成果物、テスト、プロジェクトの進捗やドキュメントを社内で管理するサーバーに置かなければならない</li>
+<li>GitHub の可用性のレベルを許容できない</li>
+<li>2,000 人を超える多人数の開発者がおり、 GitHub Enterprise の限界に達している</li>
+<li>GitHub リポジトリに対するアクセス制御や GitHub Actions の機能に満足できない</li>
+</ul>
+<p>自分の印象としては「金が無い会社が使う GitHub」という印象があったが、実態としては逆に「<strong>金がある会社が使う GitHub</strong>」という見方もできることが分かった。</p>
+<h2 id="cf-を読む">CF を読む</h2>
+<p>BS も PL も単純なので、特に見どころはない。Equity で調達した資金を開発や営業、マーケティング等の営業活動に使っている。</p>
+<p>前述の通り株式報酬が多いのと License/Subscription の deferred revenue（前受収益）があるので、 PL 上の損失ほど CF は悪くない。</p>
+<p><img src="/2021/09/26/gitlab-cf.png" alt="gitlab-cf"></p>
+<p>今後は国外の事業や買収に投資していくと考えられるので、継続的に見ていきたい。</p>
+<h2 id="最後に">最後に</h2>
+<p>本記事の冒頭に貼った GitLab のロゴ、ずっとキツネだと思っていたが実はタヌキらしい。 <code>GitLab Tanuki</code> と呼ばれている（そこ日本語なんだ…）。</p>
+<p><a href="https://about.gitlab.com/blog/2015/07/03/our-new-logo/">https://about.gitlab.com/blog/2015/07/03/our-new-logo/</a></p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>ちなみにこの記事を書いている現在は、機能に制約があるものの無料でいくらでも作れる。 <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>前期末時点の ARR に対する当期末時点の ARR の割合 <a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p>前期 ARR から当期末時点で解約済みの顧客の ARR を除いた割合 <a href="#user-content-fnref-3" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p>上場時に自動的に普通株式に転換される優先株を含む <a href="#user-content-fnref-4" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-5">
+<p>これは GitLab が作ってるページなので当然 GitLab の機能が豊富に見える <a href="#user-content-fnref-5" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

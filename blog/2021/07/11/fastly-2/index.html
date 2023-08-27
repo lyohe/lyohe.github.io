@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2021/07/11/fastly-2/">
+
+<!-- Primary Meta Tags -->
+<title>Fastly の財務諸表を読んだ話 その 2</title>
+<meta name="title" content="Fastly の財務諸表を読んだ話 その 2">
+<meta name="description" content="Fastly の財務諸表を読んだ話 その 2">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2021/07/11/fastly-2/">
+<meta property="og:title" content="Fastly の財務諸表を読んだ話 その 2">
+<meta property="og:description" content="Fastly の財務諸表を読んだ話 その 2">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2021/07/11/fastly-2/">
+<meta property="twitter:title" content="Fastly の財務諸表を読んだ話 その 2">
+<meta property="twitter:description" content="Fastly の財務諸表を読んだ話 その 2">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/2021/07/11/fastly-cf.png" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2021-07-10T15:00:00.000Z">
+	Jul 11, 2021
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">Fastly の財務諸表を読んだ話 その 2</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>昨年の年始に「<a href="https://lyohe.medium.com/fastly-%E3%81%AE%E8%B2%A1%E5%8B%99%E8%AB%B8%E8%A1%A8%E3%82%92%E8%AA%AD%E3%82%93%E3%81%A0%E8%A9%B1-310cc00fa7ca">Fastly の財務諸表を読んだ話</a>」というブログを書いたことを思い出し、その続きを書くことにした。</p>
+<p>ちょっと前に<a href="https://www.fastly.com/blog/summary-of-june-8-outage">例の件</a>で話題になって「そういえば上場から 2 年経ったけど調達した資金は何に使ったのかな？」と気になったことがきっかけである。</p>
+<p>数字は主に <a href="https://investors.fastly.com/financials/sec-filings/sec-filings-details/default.aspx?FilingId=14761111">FY2020 の Form 10-K</a> から拾っていく。以下、数字を省略する記号として M = millions（100 万）、 B = billions（10 億）とする。</p>
+<h2 id="資産と負債">資産と負債</h2>
+<p>まずは Fastly のバランスシートを同一縮尺で FY2017 ~ FY2020 の 4 年分並べてみる。</p>
+<p><img src="/2021/07/11/fastly-bs.png" alt="fastly-bs"></p>
+<h3 id="資産の伸び">資産の伸び</h3>
+<p>上記のバランスシート推移を見ると、 FY2019 と FY2020 に大きな変化が見てとれる。FY2019 は原因が分かりやすく、2019 年 5 月に IPO したことで多額の現金（$192M）を市場から調達し、それで市場性のある有価証券を購入していたため、流動資産と純資産が増えている。</p>
+<p>一方で FY2020 を見ると、固定資産が物凄い伸び方をしている。これはなぜだろうか。</p>
+<p>Fastly のような CDN ビジネスを運営するには、地理的に分散したエッジサーバーやネットワーク機器、それらを管理するデータセンターのような施設が必要になる。</p>
+<p>もちろんそれらの固定資産も加わっているだろうが、実際に中身を見るとこの大幅な資産の増加の 8 割以上は <a href="https://www.signalSciencess.com/">Signal Sciences</a> という会社を買収したことによる無形資産（のれん含む）の増加だった。</p>
+<h3 id="signal-sciences">Signal Sciences</h3>
+<p>Fastly は 2020 年 10 月 1 日付けで Signal Sciences という会社を $759.4M （約 800 億円）で買収している。このとき現金で $223.0M を支出しており、残りは Fastly の Class A 普通株式の新規発行で賄われた。</p>
+<p>実は Fastly が 2019 年 5 月 21 日に IPO した時に調達した資金が underwriting discount を除いて $192.5M なので、上場時に調達した額以上の現金 + 残りは株式をつぎ込んで買収したということになる<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。何も知らない部外者である自分から見ると、経営陣はなかなか大胆な決断をしたと思う。それだけこの買収が Fastly という会社にとって重要だと言えそうだ。</p>
+<p><a href="https://www.signalsciences.com/blog/today-signal-sciences-and-fastly-join-forces-and-our-customers-are-our-first-priority/">買収時点の発表</a>では、 Signal Science 社の従業員は Fastly のセキュリティサービスである <a href="https://www.fastly.com/products/cloud-security">Secure@Edge</a> の立ち上げ及びその <a href="https://www.fastly.com/products/edge-compute/serverless">Compute@Edge</a> への統合に関する開発に関わることになっている。同社は買収時点で創業 6 年半のスタートアップ企業で、従業員はおよそ 150 人だった。</p>
+<p>Signal Sciences は Web アプリケーションの API のセキュリティに関する製品を開発している企業。顧客は同社の「エージェント」を自分が運用する Web サーバー、ゲートウェイ、プロキシ等にインストールし、そのエージェントが検知した攻撃のデータを Signal Sciences のサーバーに送ることで情報を集約し、 PagerDuty や Datadog 、 Slack 等各種の Toolchain と統合して可視化することができる。</p>
+<p>セキュリティ版の <a href="https://sentry.io/welcome/">Sentry</a> と考えるとよさそう。</p>
+<h4 id="etsy-と-signal-sciences">Etsy と Signal Sciences</h4>
+<p>Signal Sciences の経営陣と初期メンバーの大半は同社の設立前に Etsy で働いていたらしい。 Etsy は一般の人がハンドメイドの製品を売り買いするマーケットプレイスを開発・運営しており、アメリカやヨーロッパを中心に展開している。2020 年の流通総額は $10.3B （約 1 兆円）で売上は $1.7B なので、メルカリの日本事業と米国事業を足して一回り大きくしたくらいの規模の会社だ。</p>
+<p>これは事実ではなく私の推測に過ぎないが、もともと Etsy の社内で Signal Sciences で取り組んでいるのと同じようなセキュリティの問題があり、 API への潜在的な攻撃の兆候（HTTP のエラー、不審なトラフィック、攻撃に発展する可能性があるリクエスト等）を検出する社内システムやそれを可視化するダッシュボードを作っていて、同じようなことをビジネスとして実現するために独立したように見える。Etsy は同社の最初の顧客であり設立時には advisory board に Etsy の CEO が入っていたとのことなので、関係は良好そうだ。</p>
+<p>Etsy との関係については Signal Sciences 社自身による Fastly への売却を告知する記事にも記載されている。</p>
+<p><a href="https://www.signalsciences.com/blog/fastly-to-acquire-signal-sciences/">https://www.signalsciences.com/blog/fastly-to-acquire-signal-sciences/</a></p>
+<h3 id="akamai-との比較">Akamai との比較</h3>
+<p>Fastly の同業他社として最大の会社はおそらく Akamai だろう。どれくらいの差があるのか、同一縮尺で FY2020 のバランスシートを比較してみる。</p>
+<p><img src="/2021/07/11/bs-fastly-vs-akamai.png" alt="bs-fastly-vs-akamai"></p>
+<p>あれだけ急速に成長している Fastly も資産の規模では約 6 倍の大差があることが分かる。これでも差は縮まってきていて、上場前には 20 倍以上の差があった。</p>
+<p>Akamai がどれくらい大きい会社かというと、 Akamai のバランスシートに載っているのれん（Goodwill, 買収時の評価額と買収先の時価評価純資産の差額）だけで Fastly のバランスシートよりも大きい。</p>
+<p>余談だが、この「同一縮尺で財務諸表を比較する」という図はその会社のお金の流れを掴んだり同業他社と比較するとき視覚的に規模を捉えられるので非常に便利で、決算を読むときには強くおすすめしたい。</p>
+<h2 id="損益">損益</h2>
+<p>Fastly の損益計算書を 4 年分並べてみる。売上は YoY で</p>
+<ul>
+<li>FY2017 → FY2018: +37.8%</li>
+<li>FY2018 → FY2019: +38.9%</li>
+<li>FY2019 → FY2020: +45.1%</li>
+</ul>
+<p>と急速に成長している。</p>
+<p><img src="/2021/07/11/fastly-pl.png" alt="fastly-pl"></p>
+<h3 id="売上の-cohort">売上の Cohort</h3>
+<p>売上の Cohort を見ると、2019 年から使い始めた顧客の伸びが大きそうだ。</p>
+<p>2019 年から使い始めた顧客から生じた売上は FY2019 は $9.1M だったが FY2020 は $47.4M で、 YoY+424% の急成長ということになる。</p>
+<p>なお、この Cohort には Signal Sciences の売上は含まれていない。単位は百万ドル。Form 10-K 63 ページより引用した。</p>
+<p><img src="/2021/07/11/fastly-cohort.jpeg" alt="fastly-cohort"></p>
+<p>なお、 Form 10-K によると</p>
+<blockquote>
+<p>Our 10 largest customers generated an aggregate of 38% and 29% of our revenue in the trailing 12 months ended December 31, 2020 and 2019, respectively.</p>
+</blockquote>
+<p>とのことなので、 Fastly の売上の 4 割近くは上位 10 社から生じているらしい。FY2019 - FY2020 でこの上位 10 社の売上割合が 10 ポイント近く増えているのは気になるところだ。</p>
+<h3 id="地域別の売上">地域別の売上</h3>
+<p>地域別の売上を見ると United States が圧倒的に大きいが、ここ 2 年で Asia Pacific も大きく成長している。</p>
+<p><img src="/2021/07/11/fastly-revenue-by-location.png" alt="fastly-revenue-by-location"></p>
+<p>Asia Pacific から生じた売上は FY2018 で $7,194K だったのが FY2020 には $44,060K となり、2 年間で 6 倍以上に成長している。<a href="https://www.fastly.com/network-map/">fastly の network map</a> を見る限りでは Asia Pacific で現在稼働している POP は日本、オーストラリア、ニュージーランド、香港、シンガポール、インド、UAE の 6 カ国なので、その辺で需要が高まっているのかもしれない。</p>
+<h3 id="enterprise-customers">Enterprise customers</h3>
+<p>Fastly の売上の大部分は、1 年間で 10 万ドル以上を支払う顧客（同社は “Enterprise customers” と呼んでいる）から生じている。</p>
+<p>下記の表は Form 10-K 107 ページより引用した。</p>
+<p><img src="/2021/07/11/fastly-enterprise.png" alt="fastly-enterprise"></p>
+<p>Enterprise customer が売上に占める割合は徐々に上昇しており、 FY2020 で実に 88.2% に上る。企業向けのサービスとしてはかなり高い割合だと思う。分野は全く異なるが、<a href="https://lyohe.github.io/post/2021-04-04-uipath-ipo/">以前 UiPath について調べたとき</a>は 1 年で 10 万ドル以上を払う顧客からの売上が全体に占める割合はおよそ 75% だった。</p>
+<h3 id="コスト構造">コスト構造</h3>
+<p>Fastly のコスト構造は以下の通り。これは FY2020 の数字だが、この 3 年間でそれぞれのコストの売上に対する割合はほぼ変わっていない。</p>
+<p><img src="/2021/07/11/fastly-cost.png" alt="fastly-cost"></p>
+<p>売上原価（Cost of revenue）には主に以下の費用が含まれている。</p>
+<ul>
+<li>ネットワークプロバイダに帯域幅に応じて支払う利用料</li>
+<li>third-party のデータセンターに支払う利用料</li>
+<li>ネットワークの運用や構築、サポートの従業員給与</li>
+<li>ネットワーク機器の減価償却費</li>
+</ul>
+<p>Research &#x26; development には同社の edge cloud platform の開発者の人件費が含まれている。</p>
+<p>Sales &#x26; marketing には新規顧客の獲得や既存顧客の利用拡大を推進する営業チームの人件費やマーケティングの費用が含まれている。</p>
+<p>General &#x26; administrative には主に Accounting、Finance、Legal、Human Resource、Administrative Support の従業員や役員の人件費が含まれている。</p>
+<h3 id="akamai-との比較-1">Akamai との比較</h3>
+<p>FY2020 の損益を比較すると、売上にはおよそ 11 倍の差がある。 Akamai の売上は $3,198M なので、日本円だと 3,500 億円くらいある。</p>
+<p><img src="/2021/07/11/pl-fastly-vs-akamai.png" alt="pl-fastly-vs-akamai"></p>
+<p>Akamai のコスト構造を見ると、 Fastly に比べて Research &#x26; development の割合が小さいことが分かる。</p>
+<p><img src="/2021/07/11/akamai-cost.png" alt="akamai-cost"></p>
+<p>FY2020 の Revenue に対する Research &#x26; development の割合は Faslty の 25.7% に対し Akamai は 8.4% だった。</p>
+<h2 id="キャッシュフロー">キャッシュフロー</h2>
+<p>Fastly のキャッシュフロー計算書を 4 年分並べてみる。</p>
+<p><img src="/2021/07/11/fastly-cf.png" alt="fastly-cf"></p>
+<p>FY2017 - FY2018 には目立った動きは無い。上場以前は外部から資金を調達して開発や設備、販売活動に投資している。FY2019 に上場し市場から $192.5M を調達しているが、この年は有価証券を売ったり買ったりする程度で大きな投資は行っていない。</p>
+<p>FY2020 には大きな動きが見て取れる。この年はさらに市場から $274.9M を新たに調達し $759.4M で Signal Sciences 社を買収した（現金支出は $223.0M）。</p>
+<p>Signal Sciences の買収に多額の資金が使われている他には大きな動きはないが、営業キャッシュフロー上の加算<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>項目として株式報酬（Stock-based compensation）が大きく増えているのが気になった。ここ 3 年で $4.0M → $12.1M → $64.4M と約 16 倍になっている。</p>
+<h3 id="stock-based-compensation">Stock-based compensation</h3>
+<p>一口に「株式報酬」と言っても様々な形態がある。よくあるのは下の 2 つだと思う。</p>
+<ul>
+<li>新株予約権 (SO)</li>
+<li>譲渡制限付株式ユニット Restricted Stock Unit (RSU)</li>
+</ul>
+<p>どちらの場合でも、従業員側のメリットとしては将来のキャピタルゲインが見込める（給与賞与より税率が低く、会社の成長次第で金額が大きくなる可能性がある）こと、会社側のメリットとしては現金の支出なく多額の報酬を支払えるので優秀な人材を雇うための材料になることがある。株式報酬の設計はどういうインセンティブを与えたいかや IPO のタイミングによって異なる。</p>
+<p>SO は基本的に無償で<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>付与され、行使期間の到来後に予め定められた行使価額<sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>を支払って行使することで普通株式に転換でき、その売価と行使価額の差額がキャピタルゲインとなる。いろいろな事情から上場前の会社の株式報酬はこれが中心になっている。</p>
+<p>RSU は Unit と呼ばれる「一定の条件<sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup>を満たした場合にまとまった株式を受け取る権利」が付与され、対象者はその条件を満たしたとき株式を得ることができ、その売価と取得価額との差額がキャピタルゲインとなる。</p>
+<p>両者の最大の違いとしては、株式報酬を付与する会社側の費用負担がある。SO に関しては（設計以外には）会社が負担する費用は無いが、 RSU は Vest 時の株価 * 付与株式数が会社の費用となる。つまり、 RSU は「Vest 時の株価で支払われるボーナス」とみなすことができる（間違ってたらすみません）。もっとも現金で支払っている訳ではないので、財務諸表において会社の損失にはなるが現金は出ていかない。本当は RSA とか PSU とかいろいろあるけどキリが無いし本質的にはあまり変わらないので細かい違いは無視する。</p>
+<p>Fastly の損益計算書上の株式報酬が急増している背景には、上場前後で株式報酬の体系を切り替えたことがありそうだ。</p>
+<h4 id="株式報酬の内訳">株式報酬の内訳</h4>
+<p>報酬の内訳を見ると、 General and administrative の割当が非常に大きい。役員の RSU がたくさん Vest したのかもしれない。下記の表は Form 10-K 130 ページから引用した。</p>
+<p><img src="/2021/07/11/fastly-stock-based-compensation.png" alt="fastly-stock-based-compensation"></p>
+<p><a href="https://www.signalsciences.com/about-us/news/fastly-to-acquire-signal-sciences/">Signal Sciences 社の買収時の Fastly 側のプレスリリース</a>によると、同社の従業員向けの RSU 保有プールが新たに 5,000 万ドル設定された、と書かれている。これは FY2020 には Vest されていないだろうし、今後も株式報酬は増えていきそうだ。</p>
+<h3 id="akamai-との比較-2">Akamai との比較</h3>
+<p>FY2020 で Fastly と Akamai のキャッシュフロー計算書を比較すると、営業 CF と投資 CF に大きな差があることが分かる。</p>
+<p><img src="/2021/07/11/cf-fastly-vs-akamai.png" alt="cf-fastly-vs-akamai"></p>
+<p>Fastly と異なり Akamai はここ 3 年くらい大規模な買収を行っておらず、キャッシュフロー計算書を読んだ限りでは営業活動で稼いだお金で有価証券を買ったり売ったりしているだけなので、有望な投資先を見つけられていないのかもしれない。</p>
+<p>ちなみに Akamai の財務 CF がマイナスになっている理由は自社株買いによるもの。Akamai は Fastly と比べて財務基盤は盤石であるものの、将来の成長可能性に投資できているのか？という点では疑問が残る（Akamai の方からしたらうるせえよ！って思うかもしれませんが…）。</p>
+<h2 id="edge-cloud-platform">Edge Cloud Platform</h2>
+<p>実は Fastly 自身は自社のビジネスのことを <code>CDN</code> ではなく <code>edge cloud platform</code> と呼んでいる。一方で同じ CDN の事業を行っている Akamai も自社のビジネスを表現するのに <code>CDN</code> ではなく <code>intelligent edge platform</code> という名前を使っている。</p>
+<p>edge cloud とは（Fastly によると）一種の IaaS - Infrastructure as a Service であり、 content delivery network に加えて application delivery controller や web application firewalls、 bot 検知、 DDoS 攻撃対策など、従来ハードウェアを中心に提供されていた機能を IaaS として使うことを指すそうだ。エンドユーザーから地理的に近い場所に計算能力を移動させるので、時間的に素速く処理することが求められるデータを扱うのに適している。</p>
+<p>つまり CDN（あえてこう呼ぶ）を運営している会社は、本質的には「地理的に分散した品質の良いネットワークと計算資源を顧客が使いやすい要件（価格、効率性、可用性…）で提供する」サービスと考えることができる。CDN を利用する顧客の要求は多岐にわたるので、単純に資金力が大きい、拠点をたくさん作れる会社が勝つ事業とも言えない。実際、 Fastly の売上は YoY+40% の成長を続けているが、上場時点で総資産額は Akamai の 1/20 程度に過ぎなかった。</p>
+<p><a href="https://lyohe.github.io/post/2021-02-06-google-cloud-comprehensive-loss/">以前 AWS と GCP の話をブログに書いた</a>が、まさにこれと同じで市場そのものが急速に拡大して多様なユースケースが生まれているので、ハードウェアとソフトウェアを組み合わせて拡大する市場により適したサービスを作った会社がより速く成長すると言えそう。</p>
+<p>単にデータセンターを建ててサーバーやネットワーク機器のリソースを貸すだけのサービスなら規模の経済で Fastly は Akamai でよくね？GCP は AWS でよくね？となるが、現実にはそういうことにはならなかった。それだけ現実世界ではエッジ側で高度な処理をしたいユースケースが多岐にわたるのかもしれない。そもそも単純な CDN においてすら、リクエスト-レスポンスのレイテンシーを減らしたいのかコンテンツのキャッシュヒット率を上げたいのかなど解決すべき要求は単純ではなさそうだし、レイテンシーを減らす…といってもアプローチはいろいろあるはずだ。</p>
+<p>Fastly と Akamai のエッジ戦略の違いについては Fastly の VP の方が書いているブログ ”<a href="https://www.fastly.com/blog/why-having-more-pops-isnt-always-better">Why having more POPs isn’t always better</a>” が分かりやすく書かれていると思う。名前を出してはいないけど、この記事は Akamai を意識しているように見える。</p>
+<p>ちなみに、「<a href="https://www.amazon.co.jp/dp/B00MIFE3BC">アカマイ 知られざるインターネットの巨人</a> という書籍によると、 Akamai は ISP の施設内に Akamai の設備を置かせてもらったり電力費用を負担してもらったり有利な扱いを受けているそうだ。ISP にとっては Akamai のおかげで負荷が減るのでお互いにメリットがある関係と言える。Akamai の創業ストーリーやビジネスの仕組みはとても面白いので気になる人は買って読んでみてほしい。個人的に DNS の名前解決の時点でアクセス元によって応答を動的に変更する仕組みは単純ながらよくできてるな〜！と感動した。</p>
+<h2 id="最後に">最後に</h2>
+<p>Fastly は今後も面白そうな会社だった。</p>
+<p>自分自身は個別の株は買わない主義なので 1 株も持ってないけど、10 年後にはより大きく伸びている会社だと考えている。これ書いてから思ったけど株持ってない人が言っても説得力ないな…投資は自己責任で！</p>
+<p>ちなみに東京にもオフィスがあって採用しているようなので、腕に覚えがある人は応募してみるといいかもしれない。</p>
+<p><a href="https://www.fastly.com/about/careers/">https://www.fastly.com/about/careers/</a></p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>なお、 Fastly は FY2020 にも Public Offering で市場から $274.9M を調達している <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>会社の費用として計上されているが実際には現金支出を伴わない項目、を意味すると考えてよい。 <a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p>有償でも付与できるけど上場前の会社では見たことない <a href="#user-content-fnref-3" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p>基本的には割当時の普通株式の時価 <a href="#user-content-fnref-4" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-5">
+<p>通常は一定の日までの勤務 <a href="#user-content-fnref-5" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

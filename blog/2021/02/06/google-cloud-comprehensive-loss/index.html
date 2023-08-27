@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2021/02/06/google-cloud-comprehensive-loss/">
+
+<!-- Primary Meta Tags -->
+<title>Google クラウド巨大赤字の話</title>
+<meta name="title" content="Google クラウド巨大赤字の話">
+<meta name="description" content="Google クラウド巨大赤字の話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2021/02/06/google-cloud-comprehensive-loss/">
+<meta property="og:title" content="Google クラウド巨大赤字の話">
+<meta property="og:description" content="Google クラウド巨大赤字の話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2021/02/06/google-cloud-comprehensive-loss/">
+<meta property="twitter:title" content="Google クラウド巨大赤字の話">
+<meta property="twitter:description" content="Google クラウド巨大赤字の話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/2021/02/06/google_vs_amazon.png" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2021-02-05T15:00:00.000Z">
+	Feb 6, 2021
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">Google クラウド巨大赤字の話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>Google の Cloud セグメントが約 5,880 億円の巨額損失を出したというニュースを見かけた。</p>
+<p>[TechCrunch] Google Cloud は 2020 年に約 5880 億円の損失
+<a href="https://jp.techcrunch.com/2021/02/03/2021-02-02-google-cloud-lost-5-6b-in-2020/">https://jp.techcrunch.com/2021/02/03/2021-02-02-google-cloud-lost-5-6b-in-2020/</a></p>
+<p>Form 10-K は<a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204421000010/goog-20201231.htm">こちら</a>。</p>
+<p>この赤字について身近で様々な意見を見かけたが、自分の印象と異なるものが多かったので個人的な意見を書いておきたい。</p>
+<p>以下、 $ 1B = $ 1 Billion（10 億ドル）とする。</p>
+<h2 id="gcp-は大丈夫か">GCP は大丈夫か？</h2>
+<p>このニュースを見て GCP 大丈夫かな？続くのかな？というのが気になる人がいると思う。むしろ何千億円の赤字なんて大丈夫かと思うのが普通だろう。</p>
+<p>しかしながら、Cloud で何千億円の赤字を出したところで Google がどうにかなるわけではない。Alphabet, Inc は純資産が $222B あって2020年12月期の包括利益は$ 40B 以上あるし、 Cloud セグメントは高い成長率のクラウド業界で全体の平均より大幅に高い成長率（YoY +47%）を出している。</p>
+<p>Cloud の売上は下記の通り増加し、2 年間で 2 倍以上に成長している。</p>
+<ul>
+<li>2018 -> 2019: $5.8B -> $8.9B（YoY+53%）</li>
+<li>2019 -> 2020: $8.9B -> $13.0B（YoY+47%）</li>
+</ul>
+<p><img src="/2021/02/06/google_revenue_details.png" alt="google_revenue_details"></p>
+<p>なお、今週行われた Conference call では CEO によって Revenue backlog が Q3 -> Q4 で $19B -> $30B <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>に増加し、増加要因のほぼ全てが Cloud セグメントであると述べられている。 backlog は未認識の収益で、つまり先の期でそれくらい収益を得られる契約があるということになる。これは GCP がプラットフォームとして多くの企業から信頼されていることを表しているし、今後の成長も期待できる。</p>
+<p>上記のように数字だけ見ると撤退する理由が無いし、むしろ撤退するなんて言い出したら株主は経営陣をクビにすべきだろう。既存のビジネスより成長可能性が高い投資機会があって資金も人材もあるなら、それに投資するのは経営者として当然の選択だと思う。</p>
+<p>しかし Google のことなので、やはり突然撤退するかもしれない笑</p>
+<h2 id="google-workspace-の影響">Google Workspace の影響</h2>
+<p>ちなみに冒頭の記事にもある通りこの Cloud 事業には Google Workspace（旧 G Suite）と Google Cloud Platform の売上が両方含まれている。YoY+47% という成長率にもこれが含まれている。Workspace がそんな急成長しているとは思えない <sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup> ので、 GCP の成長率はこれより高いことになる。</p>
+<p>Workspace の paying business の数は<a href="https://www.cnbc.com/2020/04/07/google-g-suite-passes-6-million-customers.html">2020 年 3 月に 6 million を超えた</a>らしい。それぞれの business に何人のユーザーがいるかは開示されていない（されてたらすみません）。</p>
+<p>Microsoft の Office 365 が 250 ~ 300 million くらいで、ガートナーの調査によると Google のシェアは MS の 1/8 程度<a href="https://www.cnbc.com/2020/10/06/google-g-suite-becomes-workspace-gets-new-pricing-tiers.html">らしい</a>ので雑に計算すると 30 million くらいか？これが単価 $100/year とすると Workspace だけで $3B/year の 売上がある計算になる。本当にこんな売上あるのか？書いてて自信がなくなってきた。</p>
+<p>上記の内容は推測が多すぎるが、 Workspace が混じってるので純粋な GCP の売上だけが計上されているわけではないということが言いたかった。</p>
+<h2 id="microsoft-azure">Microsoft Azure</h2>
+<p>ちなみに Microsoft は ’Server Products and cloud services’ セグメントとして Azure, SQL Server, Windows Server, Visual Studio, System Center, そして GitHub の売上をまとめて開示している。</p>
+<p>Microsoft は Azure 単体での収益を開示していないが、成長率は開示している。2021 年 6 月期 Q2 の <a href="https://microsoft.gcs-web.com/node/28966/html">Form 10-Q</a> では Azure 単体の前年同期比成長率が YoY+50% で、 Azure の属する Server Products セグメントは YoY+26% だった。</p>
+<h2 id="amazon-web-services">Amazon Web Services</h2>
+<p>Amazon は ‘AWS’ セグメントとして AWS の損益を開示している。</p>
+<p><a href="https://d18rn0p25nwr6d.cloudfront.net/CIK-0001018724/5a60b19f-08ef-4231-ad6a-f4810eb38769.html#">Form 10-K の Segment Information</a> を見ると良さそうだ。2020 年 12 月期の売上は $45.3B で利益は $13.5B、成長率は YoY+29% だった。</p>
+<h2 id="amazon-google-のクラウド事業の収益規模">Amazon, Google のクラウド事業の収益規模</h2>
+<p>業界最大手の AWS と Google Cloud の売上と利益（損失）を比較してみる。2020 年の成長率は Google が上回っているものの、規模では圧倒的な差がついているように見える。</p>
+<p><img src="/2021/02/06/google_vs_amazon.png" alt="google_vs_amazon"></p>
+<p>実は Amazon が AWS セグメントの開示を始めたのは 2015 年 12 月期から（直近 3 年開示するので実質的には 2013 年から）だが、このとき既にこのセグメントでは利益を出している。Amazon は北米の消費者向け通販と AWS で得た利益をグローバルの消費者向け通販に投資している。広告で儲けてクラウドに投資する Google とはクラウド事業の役割が対照的かもしれない。</p>
+<p><img src="/2021/02/06/aws_figures.png" alt="aws_figures"></p>
+<p><img src="/2021/02/06/aws_revenue_and_profit.png" alt="aws_revenue_and_profit"></p>
+<p>2013 -> 2020 年の 7 年間でなんと収益が 15 倍（！）になっている。なお、Google のクラウド事業を単純に収益だけで見ると 2016 年の AWS くらいの規模になる。Amazon はすごい。</p>
+<p>ちなみに AWS も今の GCP と同じくらいの規模のときは同程度の成長率を記録しているが、規模の拡大に従って成長率が落ち着いてきた。どの事業者にも言えることだけど、クラウドの新たなユースケースを掘り出したり既存顧客の成長に貢献するというところが重要になってくると思う。実際、 Google の Conference call ではその辺が強調されているように（自分には）聞こえた。</p>
+<h2 id="個人的な意見">個人的な意見</h2>
+<p>単にサーバーをデータセンターに置いてそれを貸す、というだけのビジネスであれば価格や品質などの競争力は規模に比例すると考えられる。しかし、一口にクラウドといっても AWS や Azure や GCP はより抽象化の進んだマネージドサービスとして製品を提供しているわけで、ビジネスの本質的な付加価値を規模の経済だけでは測れない。</p>
+<p>コンピュータ資源を抽象化したマネージドサービスたち<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>を組み合わせてサービスを提供するというのが当たり前になっていくと、それはただサーバーを貸すより高い付加価値がある。そう考えるとクラウドの市場規模というのは本当に巨大だと思う。</p>
+<p>結局は顧客のユースケースによって何を選ぶか（または複数のクラウドを使い分けるか）という話になってくる。例えば Cloud Spanner や BigQuery と同じものが AWS にあるかって言われると、似ているのはある（Aurora とか Redshift とか）けど同じものはない。ネットワーク効果の強い winner takes all 的なビジネスだと話が全く違ってくると思うけど、実際には AWS も Azure も GCP も成長を続けている。市場はもっと大きくなる可能性が高い。</p>
+<p>そういう意味では収益の成長率が市場平均を大幅に上回ってるし今後の成長可能性もあるよ、というのは普通に良いニュースなんじゃないかと思いました。</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>正確に言うと $29.8B で、1 年以内に終了する契約、キャンセル可能な契約、履行済みの未請求を含まない金額。これらは今後 2 年間で約半分を収益認識し、残りはそれ以降になる。詳しくは Form 10-K p66 Deferred Revenues and Remaining Performance Obligations 参照。 <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>paying businesses が毎年 +1 million 増えていて、現状 6 ~ 7 million なので（既存顧客からの収益増があったとしても）成長率は高くて 30% くらいではないか <a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p>もしくはサーバーレス（サーバーはある）のコンテナ実行環境とか関数とか？ <a href="#user-content-fnref-3" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2021/12/16/reading-dataloader/">
+
+<!-- Primary Meta Tags -->
+<title>graphql/dataloader を読んだ話</title>
+<meta name="title" content="graphql/dataloader を読んだ話">
+<meta name="description" content="graphql/dataloader を読んだ話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2021/12/16/reading-dataloader/">
+<meta property="og:title" content="graphql/dataloader を読んだ話">
+<meta property="og:description" content="graphql/dataloader を読んだ話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2021/12/16/reading-dataloader/">
+<meta property="twitter:title" content="graphql/dataloader を読んだ話">
+<meta property="twitter:description" content="graphql/dataloader を読んだ話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/2021/12/16/dataloader-batchloadfn.png" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2021-12-15T15:00:00.000Z">
+	Dec 16, 2021
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">graphql/dataloader を読んだ話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p><a href="https://github.com/graphql/dataloader">graphql/dataloader</a> のドキュメント及びソースコードを全て読んだので、その話を書く。</p>
+<p>読むことにした第一の理由は仕事で使うからだが、以下の特徴から自分のプログラミング学習教材として適していそうだと考えたからでもある。</p>
+<ul>
+<li><strong>広く使われている OSS である</strong>
+<ul>
+<li>GitHub の星が 11k</li>
+<li><a href="https://www.npmtrends.com/">npm trends</a> で検索しても多くの人がダウンロードしている</li>
+</ul>
+</li>
+<li><strong>コードの量が少ない</strong>
+<ul>
+<li>実装は src/index.js に全て書かれている</li>
+<li>コメント含めて 500 行にも満たず、しかもその 1/3 くらいはコメント</li>
+</ul>
+</li>
+<li><strong>テストカバレッジが高い</strong>
+<ul>
+<li>常に 100%</li>
+<li>初めて読むコードでテストカバレッジが高いと、テストコードを読むことで期待される挙動を確認できるので嬉しい</li>
+</ul>
+</li>
+</ul>
+<p>npm trends によると、一週間で 200 万件近くダウンロードされているようだ。</p>
+<p><img src="/2021/12/16/dataloader-npm-trends.png" alt="dataloader-npm-trends"></p>
+<h2 id="目次">目次</h2>
+<ul>
+<li><a href="#graphqldataloader-%E3%81%A8%E3%81%AF">graphql/dataloader とは</a></li>
+<li><a href="#%E4%B8%BB%E8%A6%81%E3%81%AA%E6%A9%9F%E8%83%BD">主要な機能</a>
+<ul>
+<li><a href="#batch">Batch</a></li>
+<li><a href="#cache">Cache</a></li>
+</ul>
+</li>
+<li><a href="#why-Using-with-GraphQL">Why Using with GraphQL</a></li>
+<li><a href="#%E8%A9%B3%E7%B4%B0%E3%81%AA%E5%AE%9F%E8%A3%85">詳細な実装</a></li>
+<li><a href="#dataLoader-%E3%81%AE%E5%9F%BA%E6%9C%AC%E7%9A%84%E3%81%AA%E4%BD%BF%E3%81%84%E6%96%B9">DataLoader の基本的な使い方</a></li>
+<li><a href="#dataLoader-%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E6%9B%B8%E3%81%8B%E3%82%8C%E3%81%9F%E8%A8%98%E4%BA%8B">DataLoader について書かれた記事</a></li>
+<li><a href="#%E5%8B%89%E5%BC%B7%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F%E7%82%B9">勉強になった点</a></li>
+<li><a href="#%E6%9C%AC%E8%A8%98%E4%BA%8B%E3%81%AE%E3%81%BE%E3%81%A8%E3%82%81">本記事のまとめ</a></li>
+</ul>
+<h2 id="graphqldataloader-とは">graphql/dataloader とは</h2>
+<p><a href="https://github.com/graphql/dataloader">graphql/dataloader</a> はアプリケーションのデータ取得に使用される汎用的なユーティリティであり、データソースからのデータ取得を Batch 処理したり結果を Cache するための簡単な API を提供する。これにより、データ取得リクエストを大幅に効率化することができる。</p>
+<p>元のアイデアは Facebook （現 Meta）社内で 2010 年に開発された “Loader” API で、これは当時存在していた様々な KVS の back-end API からデータを取得する方法を統一するために開発された。この “Loader” API を簡略化し Node.js アプリケーション等で使えるよう JavaScript で実装したのが graphql/dataloader で、現在は GraphQL Foundation によって MIT ライセンスで公開されている。</p>
+<p>アイデアとしては Facebook の Production 環境で使われている仕組みと同じだが、このリポジトリのコードはあくまで参考実装であり Facebook で使われているわけではない。当時 Facebook では PHP で同様の機構が実装されていたようだ。</p>
+<p>主に GraphQL サービスの構築に使われているが、特定のアーキテクチャやデータソースに依存するような実装にはなっていない。なお、GraphQL サービスのパフォーマンスを向上させるためには何かしら同じような仕組みが必要になる（詳しくは後述）ので、JavaScript に限らず様々な言語で様々な実装がされている。<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+<p>ちなみに graphql/dataloader を最初に書いた Lee Byron と Dan Schafer は Facebook 社で GraphQL を開発したメンバーでもある。</p>
+<h2 id="主要な機能">主要な機能</h2>
+<p><a href="https://github.com/graphql/dataloader/blob/master/README.md">README</a> を読むと、 graphql/dataloader には <code>Batch</code> と <code>Cache</code> の 2 つの機能があることが分かる。</p>
+<h3 id="batch"><a href="https://github.com/graphql/dataloader#batching">Batch</a></h3>
+<p>データ取得のリクエストを一定時間待ち、その間に行われたリクエストを統合して Batch 処理する。</p>
+<p>使う側は <a href="https://github.com/graphql/dataloader#batch-function">Batch Function</a> と呼ばれる関数を自身で定義して DataLoader のコンストラクタへ渡す。この関数は <strong>Batch 処理対象となる key の配列を受け取り、その key と対応する value（もしくは Error）の配列の Promise を返す</strong>ようにしておく。つまり…</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">BatchFunction</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">keys</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">$ReadOnlyArray</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Promise</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">$ReadOnlyArray</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">V</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Error</span><span style="color: #E1E4E8">>>;</span></span></code></pre>
+<p>実際に Batch Function をどのように定義するかは、リポジトリの <a href="https://github.com/graphql/dataloader/blob/master/examples/SQL.md">examples/SQL.md</a> が分かりやすいかもしれない。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">DataLoader</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">require</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"dataloader"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">sqlite3</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">require</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"sqlite3"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">db</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> sqlite3.</span><span style="color: #B392F0">Database</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"./to/your/db.sql"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// Dispatch a WHERE-IN query, ensuring response has rows in correct order.</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">userLoader</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">DataLoader</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">  (</span><span style="color: #FFAB70">ids</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Promise</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">resolve</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">reject</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">      db.</span><span style="color: #B392F0">all</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #9ECBFF">"SELECT * FROM users WHERE id IN $ids"</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">        { $ids: ids },</span></span>
+<span class="line"><span style="color: #E1E4E8">        (</span><span style="color: #FFAB70">error</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">rows</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">          </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (error) {</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">reject</span><span style="color: #E1E4E8">(error);</span></span>
+<span class="line"><span style="color: #E1E4E8">          } </span><span style="color: #F97583">else</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">            </span><span style="color: #B392F0">resolve</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">              ids.</span><span style="color: #B392F0">map</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">                (</span><span style="color: #FFAB70">id</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span></span>
+<span class="line"><span style="color: #E1E4E8">                  rows.</span><span style="color: #B392F0">find</span><span style="color: #E1E4E8">((</span><span style="color: #FFAB70">row</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> row.id </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> id) </span><span style="color: #F97583">||</span></span>
+<span class="line"><span style="color: #E1E4E8">                  </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Error</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">`Row not found: ${</span><span style="color: #E1E4E8">id</span><span style="color: #9ECBFF">}`</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">              )</span></span>
+<span class="line"><span style="color: #E1E4E8">            );</span></span>
+<span class="line"><span style="color: #E1E4E8">          }</span></span>
+<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color: #E1E4E8">      );</span></span>
+<span class="line"><span style="color: #E1E4E8">    })</span></span>
+<span class="line"><span style="color: #E1E4E8">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// Usage</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">promise1</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> userLoader.</span><span style="color: #B392F0">load</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"1234"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">promise2</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> userLoader.</span><span style="color: #B392F0">load</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"5678"</span><span style="color: #E1E4E8">);</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> [</span><span style="color: #79B8FF">user1</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">user2</span><span style="color: #E1E4E8">] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Promise</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">all</span><span style="color: #E1E4E8">([promise1, promise2]);</span></span>
+<span class="line"><span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(user1, user2);</span></span></code></pre>
+<p>上記の <code>ids => new Promise((resolve, reject) => { db.all(...) }</code> が Batch Function であり、何のことはない key の配列を受け取って value もしくは Error の配列（の Promise）を返すだけの関数である。</p>
+<p><code>DataLoader.load</code> に取得対象の key を渡して呼び出すと、 <a href="https://github.com/graphql/dataloader#batch-scheduling">Batch Scheduling</a> 内（デフォルトはイベントループ内の 1 tick。詳しくは後述）に行われたデータ取得リクエストの key を集めた配列を引数に Batch Function を呼び出し、結果として key に対応する value の配列の Promise を返す。</p>
+<p>「Batch Function は key 配列を受け取って value の配列の Promise を返す」が「<code>DataLoader.load</code> では単一の key を取りそれと対応する value の Promise を返す」という構造が肝で、ユーザー側としては key を渡して load するだけで裏側で DataLoader が一定時間分の key をまとめて Batch Function に配列として渡し、まとめてデータベースにリクエストを送ってくれる。</p>
+<p>この <code>DataLoader.load</code> はアプリケーションの複数の箇所から呼び出される可能性があるが、同一の DataLoader インスタンスからの load であれば Batch 処理（と結果の Cache が）できる。</p>
+<p>GraphQL の Resolver ではこれが非常に重要で、 DataLoader を使うと簡単に非同期 Resolver による N+1 問題を回避することができる。<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup></p>
+<p>DataLoader の Batch 処理を簡単に図解すると、次のようになる。</p>
+<p><img src="/2021/12/16/dataloader-batchloadfn.png" alt="dataloader-batchloadfn"></p>
+<h4 id="batch-の実行範囲">Batch の実行範囲</h4>
+<p><code>DateLoader.load(key)</code> はデフォルト 1 tick ごとに key を配列にまとめ Batch Function を呼ぶ。</p>
+<p>ここで 1 tick とはどういう意味か。graphql/dataloader は Batch Scheduling に Node.js の <a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#process-nexttick">process.nextTick()</a> を使っており、これに渡したコールバックは呼び出し時点のイベントループ内の phase に関わらず次の phase、つまり C/C++ ハンドラが JavaScript を実行するタイミング、の前に実行される。</p>
+<p>具体的には、下図のそれぞれの箱の中で process.nextTick() にコールバックを渡すと、各箱に固有の処理が行われたあと次の箱に進む前にそれが呼ばれる。</p>
+<p><img src="/2021/12/16/event-loop.png" alt="event-loop"></p>
+<p>上図は <a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#event-loop-explained">https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/#event-loop-explained</a> から引用。</p>
+<p>Batch が実行されるタイミングを自分で決めたい（例えば 16ms 後に実行する、とか）場合は <code>batchScheduleFn</code> を定義して DataLoader のコンストラクタに渡せばよい。詳しくは README の <a href="https://github.com/graphql/dataloader#batch-scheduling">Batch Scheduling</a> を参照。</p>
+<h3 id="cache"><a href="https://github.com/graphql/dataloader#caching">Cache</a></h3>
+<p>Batch と並ぶ graphql/dataloader の主要な機能として Cache がある。</p>
+<p>これは <strong>Batch に登録される key とそれに対応する value の Promise の組をメモ化</strong>する。</p>
+<p>これにより、同一の DataLoader インスタンスから実行された（≒ 同一のリクエストにおける） Batch 内で同一の key で複数回 value を取得しようとするとき、二回目以降のデータ取得リクエストには Cache から value の Promise を返すことができるようになる。これにより、データ取得のパフォーマンスが大きく向上する。</p>
+<p>Cache はデフォルトで es6 から追加された <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a> を使う。Cache 内の key と value の組み合わせは load する度に無限に増えていくので、 DataLoader インスタンスの寿命が長い場合はメモリを大量に消費する可能性があり安全ではない。</p>
+<p>ただし、 DataLoader インスタンスは原則的にリクエスト単位で作られるので、クライアントにレスポンスを返した後は DataLoader インスタンスへの参照がなくなり GC によってメモリが解放されるので、問題が起きる可能性は少ない。</p>
+<p>リクエスト毎に DataLoader インスタンスを作る理由は Cache を適切に扱うためで、<strong>仮にリクエスト間でこれを共有すると異なるリクエストのデータ取得結果が Cache としてそれぞれのクライアントから見えてしまい</strong>適切ではない。これは DataLoader を使うにあたって非常に重要な点で、例えば GraphQL と合わせて使う場合はリクエスト毎の context に attach することになると考えられる。</p>
+<p>以上の背景から、もし Cache の生存期間を長くしたい場合はカスタムの Cache をクライアントごとに生成することを検討すべきだろう。その場合は DataLoader のコンストラクタで <code>cacheMap</code> として自分が使いたい Cache のインスタンスを渡せばよい。詳しくは README の <a href="https://github.com/graphql/dataloader#custom-cache">Custom Cache</a> を参照。</p>
+<p>Cache の key は通常 string 等のスカラ値だが、オブジェクトを使うことも許容されている。その場合は Cache の key となるオブジェクトから実際に key と value （の Promise）の組を取り出す関数である <code>cacheKeyFn</code> を定義して DataLoader のコンストラクタに渡す必要がある。このとき、DataLoader は <code>cacheKeyFn</code> の返り値を Cache とみなす。</p>
+<h2 id="why-using-with-graphql">Why <a href="https://github.com/graphql/dataloader#using-with-graphql">Using with GraphQL</a></h2>
+<p>DataLoader は GraphQL サービスの構築によく使われる。この理由は GraphQL のドキュメントをよく読んでいくと分かる。</p>
+<p><a href="https://graphql.org/learn/">https://graphql.org/learn/</a></p>
+<p>GraphQL のクエリにおける各フィールドの値は、 Resolver と呼ばれる関数によって取得される。フィールドに文字列や数値などスカラ値が生成される場合は実行が完了し、オブジェクトが生成される場合はそのオブジェクトに含まれるフィールドを更に Resolve し、これをスカラ値に達するまで続ける。つまり GraphQL のクエリは必ずスカラ値に到達する。<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup></p>
+<p>Resolver がデータベースを読み書きする場合、これは通常 Promise を返す非同期関数となる。GraphQL はフィールドに値が生成されることを期待しており、非同期 Resolver が完了するのを待ってから「optimal concurrency」で処理を続行する。<sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup></p>
+<blockquote>
+<p>During execution, GraphQL will wait for Promises, Futures, and Tasks to complete before continuing and will do so with optimal concurrency.</p>
+</blockquote>
+<p>ここで Resolver が Promise の配列を返すとき、 GraphQL は全ての Promise を並行して（concurrently）待つ。</p>
+<p>それに加え、フィールドがオブジェクトの配列である場合、オブジェクトの各フィールドを解決するために処理を続行する。つまり、配列でオブジェクトを返すときはその配列要素ごとに Resolver が実行される。<sup><a href="#user-content-fn-5" id="user-content-fnref-5" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup></p>
+<p>つまり、これらの仕様を無視して素朴に GraphQL サービスを構築すると、フィールドが解決される度に新しいデータベースへのリクエストが発生してしまい、いわゆる N+1 問題が起きる。</p>
+<p>文章だけだと分かりにくいので具体例を用意した。例えば、次のような GraphQL スキーマがあると仮定する。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D"># 顧客</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Customer</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">id</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">ID</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">orders</span><span style="color: #E1E4E8">: [</span><span style="color: #79B8FF">Order</span><span style="color: #F97583">!</span><span style="color: #E1E4E8">]</span><span style="color: #F97583">!</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 顧客による注文</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Order</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">id</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">ID</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">items</span><span style="color: #E1E4E8">: [</span><span style="color: #79B8FF">Item</span><span style="color: #F97583">!</span><span style="color: #E1E4E8">]</span><span style="color: #F97583">!</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">amount</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">Int</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D"># 注文される商品</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Item</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">id</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">ID</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">name</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">String</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">description</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">String</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">price</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">Int</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Query</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">customer</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">id</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">ID</span><span style="color: #F97583">!</span><span style="color: #E1E4E8">): </span><span style="color: #79B8FF">Customer</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>このときある id を持つ顧客の注文一覧とそれぞれで注文された商品を取得するクエリは次のようになるだろう。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">query</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">GetOrdersAndItems</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">customer</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">id</span><span style="color: #E1E4E8">: '</span><span style="color: #79B8FF">foobar</span><span style="color: #E1E4E8">') {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">id</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #FFAB70">orders</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #FFAB70">items</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #FFAB70">name</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #FFAB70">description</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #FFAB70">price</span></span>
+<span class="line"><span style="color: #E1E4E8">      }</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #FFAB70">amount</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>GraphQL の各 Resolver が非同期かつ DataLoader を使わず個別に SQL データベースから注文や商品を取得するような実装になっている場合、次のような SQL が発行されると考えられる（あくまで例です）。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">-- 1. 顧客 id を使って注文を探す</span></span>
+<span class="line"><span style="color: #F97583">SELECT</span><span style="color: #E1E4E8"> item_id, amount </span><span style="color: #F97583">FROM</span><span style="color: #E1E4E8"> orders </span><span style="color: #F97583">WHERE</span><span style="color: #E1E4E8"> customer_id </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"foobar"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">-- 2. 1 の結果として得た item_id から各商品を探す</span></span>
+<span class="line"><span style="color: #F97583">SELECT</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">name</span><span style="color: #E1E4E8">, </span><span style="color: #F97583">description</span><span style="color: #E1E4E8">, price </span><span style="color: #F97583">FROM</span><span style="color: #E1E4E8"> items </span><span style="color: #F97583">WHERE</span><span style="color: #E1E4E8"> id </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"hoge"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">SELECT</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">name</span><span style="color: #E1E4E8">, </span><span style="color: #F97583">description</span><span style="color: #E1E4E8">, price </span><span style="color: #F97583">FROM</span><span style="color: #E1E4E8"> items </span><span style="color: #F97583">WHERE</span><span style="color: #E1E4E8"> id </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"fuga"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #F97583">SELECT</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">name</span><span style="color: #E1E4E8">, </span><span style="color: #F97583">description</span><span style="color: #E1E4E8">, price </span><span style="color: #F97583">FROM</span><span style="color: #E1E4E8"> items </span><span style="color: #F97583">WHERE</span><span style="color: #E1E4E8"> id </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"piyo"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #6A737D">-- 以下、2 が注文された商品数だけ実行される</span></span></code></pre>
+<p>これに対して DataLoader が提供する Batch や Cache の API を介してデータを取得するとデータベースのアクセスを大幅に減らすことができ、計算資源の節約やパフォーマンスの向上に繋がる。例えば上記の 2. であれば、</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">-- 2. 1 の結果として得た item_id から各商品を探す</span></span>
+<span class="line"><span style="color: #F97583">SELECT</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">name</span><span style="color: #E1E4E8">, </span><span style="color: #F97583">description</span><span style="color: #E1E4E8">, price</span></span>
+<span class="line"><span style="color: #F97583">FROM</span></span>
+<span class="line"><span style="color: #E1E4E8">  items</span></span>
+<span class="line"><span style="color: #F97583">WHERE</span></span>
+<span class="line"><span style="color: #E1E4E8">  id </span><span style="color: #F97583">IN</span><span style="color: #E1E4E8"> (</span><span style="color: #9ECBFF">"hoge"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"fuga"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"piyo"</span><span style="color: #E1E4E8">);</span></span></code></pre>
+<p>のようなクエリが一回だけ発行される（上記はあくまで例であり、実際にどのようなクエリが発行されるかは実装によります）。こちらの方がデータベースへのアクセスやクエリ結果の処理が少ないので、データベースへの負荷が低くレスポンスも速い。</p>
+<p>graphql/dataloader の実装は特定のアーキテクチャに依存しないが、 GraphQL の Resolver で非同期処理をすると容易に非効率なクエリが発行されてしまうので、それを防ぐため GraphQL サービスに使われることが多い。</p>
+<p>実は graphql/dataloader や類似のライブラリ以外にも GraphQL でこのような N+1 問題を解決する方法はあるのだが、個人的にはこれが最も単純明快な解決策だと思う。</p>
+<h2 id="詳細な実装">詳細な実装</h2>
+<p>ここからは <a href="https://github.com/graphql/dataloader/releases/tag/v2.0.0">v2.0.0</a> の <a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js">src/index.js</a> を上から順に読んでいく。</p>
+<p>YouTube の <a href="https://www.youtube.com/watch?v=OQTnXNCDywA">DataLoader - Source code walkthrough</a> の動画が非常に参考になる。この動画は v1 の解説なので最新の v2 とは若干の差があるが、基本的に大きな違いはない。<sup><a href="#user-content-fn-6" id="user-content-fnref-6" data-footnote-ref="" aria-describedby="footnote-label">6</a></sup></p>
+<h3 id="dataloader-flow-type-l10-l33">DataLoader flow type: L10-L33</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L10-L33">10 ~ 33 行目</a></p>
+<p>graphql/dataloader では JavaScript に静的な型を付けるために <a href="https://flow.org/">Flow</a> を使用している。</p>
+<p>index.js では最初に以下の 3 つの type が定義されている。まずは <code>BatchLoadFn</code> で、これは Batch 処理の対象 keys <code>K</code> を受け取って Values <code>V</code> の配列の Promise を返す関数。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// A Function, which when given an Array of keys, returns a Promise of an Array</span></span>
+<span class="line"><span style="color: #6A737D">// of values or Errors.</span></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">BatchLoadFn</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">keys</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">$ReadOnlyArray</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Promise</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">$ReadOnlyArray</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">V</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Error</span><span style="color: #E1E4E8">>>;</span></span></code></pre>
+<p>次に定義されているのは <code>Options</code> で、これにより DataLoader クラスのコンストラクタで初期値を設定できる。例えば Batch の最大サイズや Cache を使うかどうか等の設定をすることができる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// Optionally turn off batching or caching or provide a cache key function or a</span></span>
+<span class="line"><span style="color: #6A737D">// custom cache instance.</span></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Options</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">C</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">batch</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">boolean</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">maxBatchSize</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">batchScheduleFn</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">callback</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> () </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">cache</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">boolean</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">cacheKeyFn</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> (</span><span style="color: #FFAB70">key</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">C</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">cacheMap</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">CacheMap</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">C</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">Promise</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">>> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">null</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span></code></pre>
+<p>最後に <code>CacheMap</code> で、これは通常は使うことはないが、カスタムの Cache を定義したいときはこの型を持つインスタンスを Options として渡す。<sup><a href="#user-content-fn-7" id="user-content-fnref-7" data-footnote-ref="" aria-describedby="footnote-label">7</a></sup></p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// If a custom cache is provided, it must be of this type (a subset of ES6 Map).</span></span>
+<span class="line"><span style="color: #F97583">export</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">CacheMap</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">get</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">key</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">|</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">set</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">key</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #FFAB70">value</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">delete</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">key</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">clear</span><span style="color: #E1E4E8">()</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span></code></pre>
+<p>type 定義は ES6 で追加された <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a> の subset になっている。</p>
+<h3 id="dataloader-コンストラクタ-l34-l70">DataLoader コンストラクタ: L34-L70</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L34-L70">34 ~ 70 行目</a></p>
+<p>DataLoader のコンストラクタは BatchLoadFn と Options を受け取る。BatchLoadFn は前述の通り Batch 処理対象となる key の配列を受け取って配列の Promise を返す関数で、ユーザーが定義する。</p>
+<p>コンストラクタから呼ばれる関数（getValidMaxBatchSize など）については後述する。</p>
+<h3 id="load-l71-l113">load: L71-L113</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L71-L113">71 ~ 113 行目</a></p>
+<p>単一の key を受け取り、それを Batch Function に与えて得られる value の Promise を返す。 value そのものは返さない。</p>
+<p>行数はかなり多いが責任は単純で、</p>
+<ol>
+<li>まず引数の key が null でも undefined でもないことを確かめる</li>
+<li><code>getCurrentBatch</code> で load を実行する Batch 処理を取得する</li>
+<li>引数の key で Cache （key と対応する value の Promise）が存在するかを調べ、hit すればそれを返し hit しなければ Batch 処理に key を push してから key と Promise の組み合わせを Cache する</li>
+<li>3 の Promise を返す</li>
+</ol>
+<p>という処理を行なっている。</p>
+<p>load や loadMany をまとめて Batch 処理を実行するのは <code>dispatchBatch</code> という別の関数で、これは 2. の <code>getCurrentBatch</code> から呼ばれる。</p>
+<h3 id="loadmany-l114-l148">loadMany: L114-L148</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L114-L148">114 ~ 148 行目</a></p>
+<p>引数として複数の key を受け取り、それを Batch Function に引数として与えて得る value の配列の Promise を返す。 value の配列そのものは返さない。</p>
+<p>基本的には <code>DataLoader.load</code> を <code>Promise.all</code> でラップした関数と考えてよい。つまり…</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">var</span><span style="color: #E1E4E8"> [a, b] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> myLoader.</span><span style="color: #B392F0">loadMany</span><span style="color: #E1E4E8">([</span><span style="color: #9ECBFF">"a"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"b"</span><span style="color: #E1E4E8">]);</span></span></code></pre>
+<p>上記のコードは、下記のコードとほぼ同じ動作をする。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">var</span><span style="color: #E1E4E8"> [a, b] </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">await</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Promise</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">all</span><span style="color: #E1E4E8">([myLoader.</span><span style="color: #B392F0">load</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"a"</span><span style="color: #E1E4E8">), myLoader.</span><span style="color: #B392F0">load</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"b"</span><span style="color: #E1E4E8">)]);</span></span></code></pre>
+<p>異なる点としては、 <code>load</code> が失敗した際に <code>Promise.all</code> ではまとめて reject するが、 <code>loadMany</code> では Error インスタンスを resolve する。</p>
+<h3 id="clear-clearall-l149-l174">clear, clearAll: L149-L174</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L149-L174">149 ~ 174 行目</a></p>
+<p><code>clear</code> では key を指定して、それと対応する Cache を消去する。この Cache は DataLoader インスタンスごとに作られている。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">clear</span><span style="color: #E1E4E8">(key: </span><span style="color: #79B8FF">K</span><span style="color: #E1E4E8">): </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> cacheMap </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8">._cacheMap;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (cacheMap) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> cacheKey </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">_cacheKeyFn</span><span style="color: #E1E4E8">(key);</span></span>
+<span class="line"><span style="color: #E1E4E8">    cacheMap.</span><span style="color: #B392F0">delete</span><span style="color: #E1E4E8">(cacheKey);</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>積極的に Cache をクリアせずともメモリが枯渇する可能性は非常に低い。なぜなら、基本的には DataLoader インスタンスはリクエスト毎に作られ結果がクライアントに送られた後（参照がなくなるので） GC によってメモリが解放されるからだ。</p>
+<p>実際にこれを使う場面としては、 GraphQL の Mutation 等で key に対応する value が変わって前の Cache を消したいときだろう。</p>
+<p><code>clearAll</code> は DataLoader インスタンスの Cache を全て消去する。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #B392F0">clearAll</span><span style="color: #E1E4E8">(): </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> cacheMap </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8">._cacheMap;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (cacheMap) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    cacheMap.</span><span style="color: #B392F0">clear</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">this</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<h3 id="prime-l175-l205">prime: L175-L205</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L175-L205">175 ~ 205 行目</a></p>
+<p>引数として指定した key と value を Cache に書き込む。つまり load することなく Cache を使うことができる。</p>
+<p>value が Error インスタンスの場合は reject された Promise を Cache する。また、既に指定された key に対して何らかの value が Cache されている場合は何もしないので、上書きしたければ <code>clear</code> してから <code>prime</code> を呼び出す必要がある。</p>
+<p>これは <code>load</code> や <code>loadMany</code> によって書き込まれた Cache と挙動を揃えるため。</p>
+<h3 id="enqueuepostpromisejob-l206-l246">enqueuePostPromiseJob: L206-L246</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L206-L246">206 ~ 246 行目</a></p>
+<p>デフォルトの Batch Scheduling を定義する。</p>
+<p>DataLoader のコンストラクタで <code>batchScheduleFn</code> を渡さない場合、この enqueuePostPromiseJob で Batch 処理のスケジューリングを行う。その場合、この関数は次の手順で呼び出される。</p>
+<ul>
+<li><code>DataLoader.load</code> が <code>getCurrentBatch</code> を呼ぶ</li>
+<li><code>getCurrentBatch</code> は dispatch 待機中の Batch が無い場合、新しい Batch を作る</li>
+<li>この時、 <code>DataLoader._batchScheduleFn</code> のコールバックとして <code>dispatchBatch</code> を呼び新しく作った Batch を実行する
+<ul>
+<li>この時デフォルトで使われる <code>_batchScheduleFn</code> がこの <code>enqueuePostPromiseJob</code></li>
+</ul>
+</li>
+</ul>
+<p>実装としては次のようになっている。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">var</span><span style="color: #E1E4E8"> enqueuePostPromiseJob </span><span style="color: #F97583">=</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">typeof</span><span style="color: #E1E4E8"> process </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"object"</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&#x26;&#x26;</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">typeof</span><span style="color: #E1E4E8"> process.nextTick </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"function"</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">?</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">function</span><span style="color: #E1E4E8"> (</span><span style="color: #FFAB70">fn</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #F97583">!</span><span style="color: #E1E4E8">resolvedPromise) {</span></span>
+<span class="line"><span style="color: #E1E4E8">          resolvedPromise </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Promise</span><span style="color: #E1E4E8">.</span><span style="color: #B392F0">resolve</span><span style="color: #E1E4E8">();</span></span>
+<span class="line"><span style="color: #E1E4E8">        }</span></span>
+<span class="line"><span style="color: #E1E4E8">        resolvedPromise.</span><span style="color: #B392F0">then</span><span style="color: #E1E4E8">(() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">          process.</span><span style="color: #B392F0">nextTick</span><span style="color: #E1E4E8">(fn);</span></span>
+<span class="line"><span style="color: #E1E4E8">        });</span></span>
+<span class="line"><span style="color: #E1E4E8">      }</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> setImmediate </span><span style="color: #F97583">||</span><span style="color: #E1E4E8"> setTimeout;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #6A737D">// Private: cached resolved Promise instance</span></span>
+<span class="line"><span style="color: #F97583">var</span><span style="color: #E1E4E8"> resolvedPromise;</span></span></code></pre>
+<p>Node.js 環境では <a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/">process.nextTick</a> が使われる。nextTick に渡したコールバックは Node.js におけるイベントループ内の各 phase の終了時に実行される。各 phase には実行するコールバックの FIFO キューがあり、その phase に固有の operation を実行した後キューがなくなるかコールバックの最大数に達するまでコールバックを実行する。</p>
+<p>ここでは Promise の then コールバックで process.nextTick を呼び出しているが、これは他の Promise より前に nextTick が呼ばれないようにするため。この技法は<a href="https://youtu.be/OQTnXNCDywA?t=1434">解説動画の 23:55~</a> で説明されている。</p>
+<p>process.nextTick の注意点としては、全てのコールバックが nextTick を呼んだ時点の phase 終了後イベントループを継続する前に呼ばれるので、再帰的に呼び続けると I/O が実行できなくなる恐れがある。イベントループについて詳しくは Node.js のドキュメントを参照。</p>
+<ul>
+<li><a href="https://nodejs.org/en/docs/guides/dont-block-the-event-loop/">Don’t Block the Event Loop (or the Worker Pool)</a></li>
+<li><a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/">The Node.js Event Loop, Timers, and process.nextTick()</a></li>
+</ul>
+<p>下記の Synk 社のブログも参考になる。</p>
+<ul>
+<li><a href="https://snyk.io/blog/nodejs-how-even-quick-async-functions-can-block-the-event-loop-starve-io/">Node.js Event-Loop: How even quick Node.js async functions can block the Event-Loop, starve I/O</a></li>
+</ul>
+<p>なおブラウザ環境には Node.js の process.nextTick が無いので、 setImmediate や setTimeout を介して同様の処理が実行される。この場合、パフォーマンスが少し落ちる可能性がある。</p>
+<h3 id="batch-flow-type-l247-l257">Batch flow type: L247-L257</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L247-L257">247 ~ 257 行目</a></p>
+<p>ユーザーが定義する Batch Function の実行状況に責任を持つオブジェクトの型を定義している。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Batch</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">hasDispatched</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">boolean</span><span style="color: #E1E4E8">; </span><span style="color: #6A737D">// batch が dispatch されたかどうかのステータス</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">keys</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Array</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">>; </span><span style="color: #6A737D">// batch function に与える key の配列</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">callbacks</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Array</span><span style="color: #E1E4E8">&#x3C;{</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// batch promise の完了時に実行される callback</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">resolve</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> (</span><span style="color: #FFAB70">value</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">reject</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> (</span><span style="color: #FFAB70">error</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Error</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  }>;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">cacheHits</span><span style="color: #F97583">?:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Array</span><span style="color: #E1E4E8">&#x3C;() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8">>;</span></span>
+<span class="line"><span style="color: #E1E4E8">};</span></span></code></pre>
+<h3 id="getcurrentbatch-l258-l287">getCurrentBatch: L258-L287</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L258-L287">258 ~ 287 行目</a></p>
+<p>DataLoader インスタンスを引数に取り、 Batch （の実行状況）を返す。</p>
+<p>返す Batch はまだ dispatch されていない待機中の Batch があるかどうかによって 2 種類に分かれる。</p>
+<ul>
+<li><code>ある</code>: その Batch を返す</li>
+<li><code>なし</code>: 新しい Batch オブジェクトを作り、それを <code>dispatchBatch</code> で実行する</li>
+</ul>
+<p>なお、待機中の Batch にはコンストラクタで設定できる <code>maxBatchSize</code> に到達するまで取得対象の key を追加し続けることができる。 maxBatchSize のデフォルトは Infinity だが、実際には次の tick で Batch が dispatch されるので無限に追加されていくことはない。</p>
+<p><code>getCurrentBatch</code> という名前だが、この関数の責任としては Batch を作成したり返すだけでなく（この関数が load から呼ばれることで）Batch を dispatch することも含まれている。</p>
+<h3 id="dispatchbatch-l288-l352">dispatchBatch: L288-L352</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L288-L352">288 ~ 352 行目</a></p>
+<p>これも行数は多いが責任は単純で、</p>
+<ul>
+<li>Batch の発行ステータス（hasDispatched）を true にする</li>
+<li>load 対象の key 配列が空であれば Cache を返す</li>
+<li>load 対象の key があれば、 key を与えて Batch Function を実行する
+<ul>
+<li>Batch Function が不正、または実行そのものに失敗した場合は failedDispatch を呼ぶ</li>
+<li>成功した場合は結果が配列かつ与えた key と同じ長さであることを確かめ、個々の value の型（Error インスタンスかどうか）に沿って reject または resolve していく</li>
+</ul>
+</li>
+</ul>
+<p>この dispatchBatch を呼んでいるのは getCurrentBatch のみで、これを呼んでいるのは load のみなので、 <code>DataLoader.load</code> を呼んだ時は次のような手順で dispatch される。</p>
+<ul>
+<li>getCurrentBatch を呼んで dispatch されていない待機中の Batch があるか確認する</li>
+<li>待機中の Batch があれば、そこに取得対象の key を追加する</li>
+<li>なければ新しく作って dispatch し、そこに取得対象の key を追加する</li>
+</ul>
+<p>Batch の実行間隔はデフォルト 1 tick で、コンストラクタから渡せる <code>batchScheduleFn</code> でカスタマイズできる。</p>
+<h3 id="faileddispatch-l353-l367">failedDispatch: L353-L367</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L353-L367">353 ~ 367 行目</a></p>
+<p>Batch 実行に失敗したときに key と対応する Cache を消して、 Batch に登録された callback の Promise を reject する。</p>
+<p>これは Batch Function に与える key 毎に行われる。もし Cache に hit した場合は（Batch の実行に失敗しても）Cache を返して resolve する。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// Private: do not cache individual loads if the entire batch dispatch fails,</span></span>
+<span class="line"><span style="color: #6A737D">// but still reject each request so they do not hang.</span></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">failedDispatch</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">>(</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">loader</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">DataLoader</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">>,</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">batch</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Batch</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">V</span><span style="color: #E1E4E8">>,</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">error</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Error</span></span>
+<span class="line"><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// Cache hits are resolved, even though the batch failed.</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #B392F0">resolveCacheHits</span><span style="color: #E1E4E8">(batch);</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">for</span><span style="color: #E1E4E8"> (</span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> i </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8">; i </span><span style="color: #F97583">&#x3C;</span><span style="color: #E1E4E8"> batch.keys.</span><span style="color: #79B8FF">length</span><span style="color: #E1E4E8">; i</span><span style="color: #F97583">++</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    loader.</span><span style="color: #B392F0">clear</span><span style="color: #E1E4E8">(batch.keys[i]);</span></span>
+<span class="line"><span style="color: #E1E4E8">    batch.callbacks[i].</span><span style="color: #B392F0">reject</span><span style="color: #E1E4E8">(error);</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>Batch 失敗時に Cache を消す理由は、呼び出し側で reject を捕捉してリトライしたときに Cache hit しないようにするため。</p>
+<h3 id="resolvecachehits-l368-l376">resolveCacheHits: L368-L376</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L368-L376">368 ~ 376 行目</a></p>
+<p>Batch を引数に取り、その中で Cache に hit した Promise を resolve するだけの関数。</p>
+<h3 id="getvalidmaxbatchsize-l377-l394">getValidMaxBatchSize: L377-L394</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L377-L394">377 ~ 394 行目</a></p>
+<p>DataLoader のコンストラクタから呼び出され、 Batch の最大サイズを返す。デフォルトは Infinity。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// Private: given the DataLoader's options, produce a valid max batch size.</span></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">getValidMaxBatchSize</span><span style="color: #E1E4E8">(</span><span style="color: #FFAB70">options</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">?</span><span style="color: #B392F0">Options</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">>)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">number</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> shouldBatch </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">!</span><span style="color: #E1E4E8">options </span><span style="color: #F97583">||</span><span style="color: #E1E4E8"> options.batch </span><span style="color: #F97583">!==</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">false</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #F97583">!</span><span style="color: #E1E4E8">shouldBatch) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> maxBatchSize </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> options </span><span style="color: #F97583">&#x26;&#x26;</span><span style="color: #E1E4E8"> options.maxBatchSize;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (maxBatchSize </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">undefined</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Infinity</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #F97583">typeof</span><span style="color: #E1E4E8"> maxBatchSize </span><span style="color: #F97583">!==</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'number'</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">||</span><span style="color: #E1E4E8"> maxBatchSize </span><span style="color: #F97583">&#x3C;</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">throw</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">TypeError</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #9ECBFF">`maxBatchSize must be a positive number: ${</span><span style="color: #9ECBFF">(</span><span style="color: #79B8FF">maxBatchSize</span><span style="color: #F97583">:</span><span style="color: #9ECBFF"> </span><span style="color: #79B8FF">any</span><span style="color: #9ECBFF">)}`</span></span>
+<span class="line"><span style="color: #9ECBFF">    );</span></span>
+<span class="line"><span style="color: #9ECBFF">  }</span></span>
+<span class="line"><span style="color: #9ECBFF">  return maxBatchSize;</span></span>
+<span class="line"><span style="color: #9ECBFF">}</span></span></code></pre>
+<p>Batch の最大サイズを制限すると、 getCurrentBatch で待機中の Batch をより細かく切り分けて実行することができる。</p>
+<h3 id="getvalidbatchschedulefn-l395-l410">getValidBatchScheduleFn: L395-L410</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L395-L410">395 ~ 410 行目</a></p>
+<p>DataLoader のコンストラクタから呼び出され、 Batch を Schedule する関数を返す。</p>
+<p>デフォルトでは <code>enqueuePostPromiseJob</code> を使う。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// Private</span></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">getValidBatchScheduleFn</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #FFAB70">options</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">?</span><span style="color: #B392F0">Options</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">></span></span>
+<span class="line"><span style="color: #E1E4E8">)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> (() </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">void</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> batchScheduleFn </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> options </span><span style="color: #F97583">&#x26;&#x26;</span><span style="color: #E1E4E8"> options.batchScheduleFn;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (batchScheduleFn </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">undefined</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> enqueuePostPromiseJob;</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #F97583">typeof</span><span style="color: #E1E4E8"> batchScheduleFn </span><span style="color: #F97583">!==</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'function'</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">throw</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">TypeError</span><span style="color: #E1E4E8">(</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #9ECBFF">`batchScheduleFn must be a function: ${</span><span style="color: #9ECBFF">(</span><span style="color: #79B8FF">batchScheduleFn</span><span style="color: #F97583">:</span><span style="color: #9ECBFF"> </span><span style="color: #79B8FF">any</span><span style="color: #9ECBFF">)}`</span></span>
+<span class="line"><span style="color: #9ECBFF">    );</span></span>
+<span class="line"><span style="color: #9ECBFF">  }</span></span>
+<span class="line"><span style="color: #9ECBFF">  return batchScheduleFn;</span></span>
+<span class="line"><span style="color: #9ECBFF">}</span></span></code></pre>
+<h3 id="getvalidcachekeyfn-l411-l422">getValidCacheKeyFn: L411-L422</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L411-L422">411 ~ 422 行目</a></p>
+<p>DataLoader のコンストラクタから呼び出され、 key を通じて Cache から key と value の組み合わせを取得する関数を返す。</p>
+<p>デフォルトは <code>(key => key: any);</code> を返す。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// Private: given the DataLoader's options, produce a cache key function.</span></span>
+<span class="line"><span style="color: #F97583">function</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">getValidCacheKeyFn</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">C</span><span style="color: #E1E4E8">>(</span><span style="color: #FFAB70">options</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">?</span><span style="color: #B392F0">Options</span><span style="color: #E1E4E8">&#x3C;</span><span style="color: #B392F0">K</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">any</span><span style="color: #E1E4E8">, </span><span style="color: #B392F0">C</span><span style="color: #E1E4E8">>)</span><span style="color: #F97583">:</span><span style="color: #E1E4E8"> (</span><span style="color: #FFAB70">K</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">C</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">var</span><span style="color: #E1E4E8"> cacheKeyFn </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> options </span><span style="color: #F97583">&#x26;&#x26;</span><span style="color: #E1E4E8"> options.cacheKeyFn;</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (cacheKeyFn </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">undefined</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> (</span><span style="color: #FFAB70">key</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=></span><span style="color: #E1E4E8"> key: any);</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> (</span><span style="color: #F97583">typeof</span><span style="color: #E1E4E8"> cacheKeyFn </span><span style="color: #F97583">!==</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'function'</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">throw</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">new</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">TypeError</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">`cacheKeyFn must be a function: ${</span><span style="color: #9ECBFF">(</span><span style="color: #79B8FF">cacheKeyFn</span><span style="color: #F97583">:</span><span style="color: #9ECBFF"> </span><span style="color: #79B8FF">any</span><span style="color: #9ECBFF">)}`);</span></span>
+<span class="line"><span style="color: #9ECBFF">  }</span></span>
+<span class="line"><span style="color: #9ECBFF">  return cacheKeyFn;</span></span>
+<span class="line"><span style="color: #9ECBFF">}</span></span></code></pre>
+<p>key が string や number であればデフォルトで問題ないが、オブジェクトを key として使いたい場合は CacheKeyFn が必要になってくる。例えば MongoDB など。</p>
+<h3 id="getvalidcachemap-l423-l447">getValidCacheMap: L423-L447</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L423-L447">423 ~ 447 行目</a></p>
+<p>DataLoader のコンストラクタから呼び出され、 Cache を書き込むためのインスタンスを返す。コンストラクタに渡すオプションで Cache を無効にすることもでき、その場合はこの関数が null を返す。</p>
+<p>デフォルトでは ES6 で追加された <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a> オブジェクトを使う。</p>
+<h3 id="isarraylike-l448-l458">isArrayLike: L448-L458</h3>
+<p><a href="https://github.com/graphql/dataloader/blob/ef6d32f97cde16aba84d96dc806c4439eaf8efae/src/index.js#L448-L458">448 ~ 458 行目</a></p>
+<p>引数が配列かどうかを boolean で返す関数で、下記の 2 箇所で使われている。</p>
+<ul>
+<li>loadMany に key の配列を与えたときそれが配列でなければ例外を投げる</li>
+<li>dispatchBatch において、 Batch Function の Promise を resolve した結果が配列でなければ例外を投げる</li>
+</ul>
+<p>isArrayLike 関数に次のような引数を与えると、各行にコメントで記した結果を返す。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #79B8FF">undefined</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// false</span></span>
+<span class="line"><span style="color: #79B8FF">null</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// false</span></span>
+<span class="line"><span style="color: #9ECBFF">'x'</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// false</span></span>
+<span class="line"><span style="color: #E1E4E8">[] </span><span style="color: #6A737D">// true</span></span>
+<span class="line"><span style="color: #E1E4E8">[</span><span style="color: #9ECBFF">'x'</span><span style="color: #E1E4E8">] </span><span style="color: #6A737D">// true</span></span>
+<span class="line"><span style="color: #E1E4E8">[</span><span style="color: #9ECBFF">'x'</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">'y'</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">'z'</span><span style="color: #E1E4E8">] </span><span style="color: #6A737D">// true</span></span>
+<span class="line"><span style="color: #E1E4E8">[{</span><span style="color: #9ECBFF">'foo'</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">100</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">'bar'</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">200</span><span style="color: #E1E4E8">}, {</span><span style="color: #9ECBFF">'foo'</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">300</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">'bar'</span><span style="color: #E1E4E8">: </span><span style="color: #79B8FF">400</span><span style="color: #E1E4E8">}] </span><span style="color: #6A737D">// true</span></span>
+<span class="line"><span style="color: #E1E4E8">[</span><span style="color: #79B8FF">null</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">null</span><span style="color: #E1E4E8">, </span><span style="color: #79B8FF">null</span><span style="color: #E1E4E8">] </span><span style="color: #6A737D">// true</span></span></code></pre>
+<p>最後の条件では配列がその最後の要素を持つかどうかを判定している。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">x.</span><span style="color: #79B8FF">length</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">></span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&#x26;&#x26;</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">Object</span><span style="color: #E1E4E8">.</span><span style="color: #79B8FF">prototype</span><span style="color: #E1E4E8">.hasOwnProperty.</span><span style="color: #B392F0">call</span><span style="color: #E1E4E8">(x, x.</span><span style="color: #79B8FF">length</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">-</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">);</span></span></code></pre>
+<p>ロジックだけ読むと何のためかよく分からないのだが、 Object.prototype が上書きされた場合に安全に配列の要素を参照するためかもしれない。</p>
+<p>参考: <a href="https://sosukesuzuki.dev/posts/stage-3-object-hasown/">https://sosukesuzuki.dev/posts/stage-3-object-hasown/</a></p>
+<h2 id="dataloader-の基本的な使い方">DataLoader の基本的な使い方</h2>
+<ul>
+<li>まずは <strong>Batch Function</strong> を定義する
+<ul>
+<li>取得対象のデータを示す key の配列を受け取り、それと対応する value 配列の Promise を返す</li>
+</ul>
+</li>
+<li><strong>Batch Function</strong> をコンストラクタに渡して <code>DataLoader</code> のインスタンスを作る</li>
+<li>データを取得するときは <code>DataLoader.load(key)</code> を使う
+<ul>
+<li>これにより、同じ Batch Scheduling 内に行われたデータ取得リクエストを DataLoader が一つにまとめてくれる（<a href="https://github.com/graphql/dataloader#batch-scheduling">参考</a>）</li>
+<li>実際の挙動としては <strong>Batch Function</strong> に key の配列が渡されて実行される</li>
+<li>load は引数として与えた key に対応する value の Promise を返す</li>
+</ul>
+</li>
+<li><code>DataLoader</code> インスタンスごとに <code>Cache</code> の Map が作られる
+<ul>
+<li>key とそれに対応する value の Promise の組が入っている</li>
+<li>異なるクライアントのリクエストを Cache すると見えてはいけないものが見えてしまうので、必ずリクエスト毎あるいはクライアント毎に DataLoader インスタンスを作ること</li>
+</ul>
+</li>
+</ul>
+<h2 id="dataloader-について書かれた記事">DataLoader について書かれた記事</h2>
+<p>最後に DataLoader について書かれた記事を紹介する。実際に graphql/dataloader を使ってはいなくとも、基本的なアイデアとしては共通している。</p>
+<ul>
+<li><a href="https://engineering.mercari.com/blog/entry/20210818-mercari-shops-nestjs-graphql-server">mercari engineering: メルカリ Shops での NestJS を使った GraphQL Server の実装</a></li>
+<li><a href="https://dev.classmethod.jp/articles/graphql-dataloader-sample/">クラスメソッド: [GraphQL] N+1 問題を解決する DataLoader の仕組みとサンプル実装</a></li>
+<li><a href="https://qiita.com/yuku_t/items/2c1735cbf45e75c0bfb8">Qiita: GraphQL と N+1 SQL 問題と dataloader</a></li>
+<li><a href="https://zenn.dev/tatta/books/5096cb23126e64/viewer/e1ddb1">Zenn: TypeScript * GraphQL のバックエンド設計プラクティス</a></li>
+<li><a href="https://zenn.dev/alea12/articles/15d73282c3aacc">Zenn: GraphQL で N+1 問題を解決する４つのアプローチ</a></li>
+<li><a href="https://blog.potproject.net/2021/02/26/dataloader-architecture">最適化されたデータの取得をしてくれる Dataloader の仕組みを調べてみた</a></li>
+</ul>
+<h2 id="勉強になった点">勉強になった点</h2>
+<p>graphql/dataloader は自分自身のプログラミングの勉強になったので、感想を書いておく。</p>
+<p>これは簡潔かつ短いコードで限られた機能を提供しているが、非常に多くの人に使われている。多くの人に使われている理由は、 GraphQL の非同期 Resolver で出会う可能性が非常に高い問題を簡単に解決できるからだろう。</p>
+<p>それを簡単に解決できる理由としては、大元のアイデア（一定時間内のデータ取得リクエストを Batch 処理としてまとめ、データソースへのリクエスト回数を減らす）が単純に優れているだけでなく、アイデアを実現するために graphql/dataloader が責任を持つ範囲を明確に限定しているという点を挙げたい。</p>
+<p>graphql/dataloader の責任はデータ取得リクエストの Batch とその Cache であり、その中でも一部に限られている。 Batch 処理を行う関数はユーザー側が定義して DataLoader コンストラクタに渡す。Batch も Cache もインターフェイスは決まっているが、それさえ守ればユーザー側でカスタマイズできる。</p>
+<p>特定のアーキテクチャに依存するのはユーザーが実装する Batch Function やユーザーが与える CacheMap であり、 graphql/dataloader 自体は非同期でサービス内の様々な箇所から同じデータベースに向けて効率的なデータ取得要求をしたいというユースケースを上手に抽象化し、特定のアーキテクチャに依存しない実装となっている。これは簡単で分かりやすく、使いやすい設計といえる。</p>
+<p>機能に関して言えば、このような DataLoader は ORM の機能として実現することもできる（例えば <a href="https://www.prisma.io/docs/guides/performance-and-optimization/query-optimization-performance#solving-n1-in-graphql-with-findunique-and-prismas-dataloader">Prisma のように</a>）。しかし、 graphql/dataloader のように小さく責任範囲が明確で上手に実装されているライブラリは、実装を把握するのが簡単、組み込みやすい、取り替えやすいなど様々なメリットがあると考えられる。</p>
+<p>少人数で大きな価値を生み出すにはこのようにプログラムの責任を明確にしていくことが重要だと感じたので、自分もこれを心がけていきたい。</p>
+<h2 id="本記事のまとめ">本記事のまとめ</h2>
+<ul>
+<li>graphql/dataloader の本質は Batch と Cache の機能を提供する簡潔な API</li>
+<li>GraphQL におけるデータ取得の問題を簡単に解決してくれるのでよく使われる</li>
+<li>単純かつ率直な実装で素晴らしいアイデアを実装しており、プログラミングの参考になる</li>
+</ul>
+<p>本記事に誤りがあれば Twitter の DM や GitHub の連絡先へのメール等で教えていただけると助かります。どうぞよろしくお願いいたします。</p>
+<p>最後に、今回 Node.js の非同期処理について調べていて最も自分に刺さった言葉を置いておきます。</p>
+<blockquote>
+<p>the way that you should be doing things should be easy in the way you shouldn’t be doing things should be difficult</p>
+</blockquote>
+<p>— <a href="https://youtu.be/EeYvFl7li9E?t=1455">Ryan Dahl: Node JS, JSConf.eu 2009</a></p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>他言語による実装では Go の <a href="https://github.com/graph-gophers/dataloader">graph-gophers/dataloader</a> や Ruby の <a href="https://github.com/Shopify/graphql-batch">exAspArk/batch-loader</a>、<a href="https://github.com/Shopify/graphql-batch">Shopify/graphql-batch</a> がよく使われているようだ。 <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>ただし Batch Function 内部で N+1 問題を引き起こすようなループ処理内でのクエリ発行を行っている場合は、当然ながら N+1 問題が発生してしまう。もっとも、これは GraphQL の Resolver が起こすそれに比べればコード上で明確なぶん与しやすそうだ。 <a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p><a href="https://graphql.org/learn/execution/">https://graphql.org/learn/execution/</a> <a href="#user-content-fnref-3" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p><a href="https://graphql.org/learn/execution/#asynchronous-resolvers">https://graphql.org/learn/execution/#asynchronous-resolvers</a> <a href="#user-content-fnref-4" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-5">
+<p><a href="https://graphql.org/learn/execution/#list-resolvers">https://graphql.org/learn/execution/#list-resolvers</a> <a href="#user-content-fnref-5" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-6">
+<p>load や loadMany には v2.0.0 で breaking change があるので、詳しく知りたい場合は <a href="https://github.com/graphql/dataloader/releases/tag/v2.0.0">Releases/v2.0.0</a> を見ると良い。 <a href="#user-content-fnref-6" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-7">
+<p>DataLoader の Cache はデフォルトで無限に成長し、 DataLoader インスタンスへの参照がなくなったときに GC によってメモリが解放される。通常はリクエスト単位でインスタンスを作るので、 Cache は GC されメモリがすぐ解放されるため問題になることはない。開発者 Lee Byron 氏の<a href="https://youtu.be/OQTnXNCDywA?t=619">解説動画 10:19 ~</a>によれば、 Facebook でもそのような実装になっているようだ。 <a href="#user-content-fnref-7" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

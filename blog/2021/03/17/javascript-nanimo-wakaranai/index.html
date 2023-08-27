@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2021/03/17/javascript-nanimo-wakaranai/">
+
+<!-- Primary Meta Tags -->
+<title>React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話</title>
+<meta name="title" content="React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話">
+<meta name="description" content="React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2021/03/17/javascript-nanimo-wakaranai/">
+<meta property="og:title" content="React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話">
+<meta property="og:description" content="React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2021/03/17/javascript-nanimo-wakaranai/">
+<meta property="twitter:title" content="React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話">
+<meta property="twitter:description" content="React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/2021/03/17/lifecycle-diagram.png" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2021-03-16T15:00:00.000Z">
+	Mar 17, 2021
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">React と Redux における immutability の重要性、あるいは JavaScript を何も理解してなかった話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>JavaScript は奥が深い。<a href="https://lyohe.github.io/post/2021-02-04-programming-taihenda/">以前このブログに「JavaScript はそれほど難しくないと思う」と書いた</a>が、全くそんなことはなかった。</p>
+<h2 id="発端">発端</h2>
+<p>React と Redux のドキュメントや関連するブログを読んでいると、しつこいくらい <em>immutable</em> や <em>immutability</em> という単語が登場する。</p>
+<p><em>immutable</em> は <em>mutable</em> の対義語。 <em>mutable</em> は <em>mutate</em> + <em>-able</em> で、 <em>mutate</em> は「ミュータント - mutant」という言葉に使われるように「変異する」という意味。ちなみにこの単語はニューヨークの下水道で暮らす亀が忍者に変異して悪と戦うアニメで覚えた。</p>
+<p><em>immutable</em> はその対義語なので「不変性」を意味しており、要は「あるオブジェクトの中身を直接書き換える（<em>mutate</em>）のではなくて、そのコピーを作ってそれを書き換えなさい」ということを指している。一般的に、 JavaScript において object を immutable update することにはいくつかのメリットがある。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Immutable">https://developer.mozilla.org/en-US/docs/Glossary/Immutable</a></p>
+<p>実は <a href="https://ja.reactjs.org/tutorial/tutorial.html#why-immutability-is-important">React のチュートリアルでも immutability の重要性について説明されている</a>のだが、私はなぜそれが必要なのかを深く理解しないままやり過ごしてきた。</p>
+<p>しかし、どうも気になる…なんでわざわざこんな事をしなければならんのか。ということで、調べてブログに書くことにした。</p>
+<h2 id="javascript-における-immutability">JavaScript における immutability</h2>
+<p>React や Redux における immutability の重要性について調べる前に、まずは JavaScript の基本を学ぶ。</p>
+<p>JavaScript において、値は必ず <code>primitive</code> か <code>object</code> のいずれかになる。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures</a></p>
+<p>primitive は以下の 7 種類のデータ型で、これらに該当しない値が object となる。</p>
+<ul>
+<li>string</li>
+<li>number</li>
+<li>bigint</li>
+<li>boolean</li>
+<li>undefined</li>
+<li>symbol</li>
+<li>null</li>
+</ul>
+<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Primitive">https://developer.mozilla.org/en-US/docs/Glossary/Primitive</a></p>
+<p>primitive は「immutable」で object は「mutable」という互いに異なる性質を持つ。</p>
+<h3 id="primitive-の-immutability">primitive の immutability</h3>
+<p>primitive である文字列 <code>Hello</code> に別の文字列 <code>, World!</code> を連結すると、新しくできた文字列 <code>Hello, World!</code> は元々の 2 つの文字列とは全く別の新しい文字列として作られる。文字列 <code>Hello</code> が直接 mutate されるわけではない。これは C 言語とは異なる。</p>
+<p>実際の例を見てみる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">let</span><span style="color: #E1E4E8"> immutableString </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"Hello"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">immutableString </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> immutableString </span><span style="color: #F97583">+</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">", World!"</span><span style="color: #E1E4E8">; </span><span style="color: #6A737D">// update</span></span></code></pre>
+<p>上記のコードで変数 immutableString の update 時には</p>
+<ol>
+<li>変数 immutableString の値 <code>Hello</code> を取得し</li>
+<li><code>, World!</code> という値を <code>1.</code> の値に追加し</li>
+<li><code>2.</code> の結果を新しく確保されたメモリに割当て</li>
+<li>変数 immutableString が <code>3.</code> のメモリを参照し</li>
+<li>ガベージコレクション（以下 GC と呼ぶ）が update 前の参照先である <code>1.</code> のメモリを解放して利用可能にする</li>
+</ol>
+<p>という処理が行われる。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Mutable">https://developer.mozilla.org/en-US/docs/Glossary/Mutable</a></p>
+<h3 id="object-の-mutability">object の mutability</h3>
+<p>object は mutable であり、そのプロパティ（や Array の要素）は変更することができる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">book1</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> { title: </span><span style="color: #9ECBFF">"The Road of the Rings"</span><span style="color: #E1E4E8"> };</span></span>
+<span class="line"><span style="color: #E1E4E8">book1.title </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"The Lord of the Rings"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(book1); </span><span style="color: #6A737D">// { title: 'The Lord of the Rings' }</span></span></code></pre>
+<p>object は値への参照とみなすこともできる。下記のように、ある object がそのプロパティとして持つ値が等しくても、 object の参照先が等しくなければそれは異なる object となる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">book1</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> { title: </span><span style="color: #9ECBFF">"The Lord of the Rings"</span><span style="color: #E1E4E8"> };</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">book2</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> { title: </span><span style="color: #9ECBFF">"Harry Potter"</span><span style="color: #E1E4E8"> };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">book2.title </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"The Lord of the Rings"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(book1 </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> book2); </span><span style="color: #6A737D">// false</span></span>
+<span class="line"><span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(book1.title </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> book2.title); </span><span style="color: #6A737D">// true</span></span></code></pre>
+<p>下記の例では book1 と book3 は同じ参照先を持つ object なので、 book3.title を mutate すると book1.title も同時に mutate される。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">book1</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> { title: </span><span style="color: #9ECBFF">"The Lord of the Rings"</span><span style="color: #E1E4E8"> };</span></span>
+<span class="line"><span style="color: #F97583">const</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">book3</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> book1;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(book1 </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> book3); </span><span style="color: #6A737D">// true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">book3.title </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"The Chronicles of Narnia"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(book1 </span><span style="color: #F97583">===</span><span style="color: #E1E4E8"> book3); </span><span style="color: #6A737D">// true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">console.</span><span style="color: #B392F0">log</span><span style="color: #E1E4E8">(book1); </span><span style="color: #6A737D">// { title: 'The Chronicles of Narnia' }</span></span></code></pre>
+<p>このように、「object は mutable である」とは「object の参照先を変えないまま参照先の値を書き換えることができる」と言い換えることができる。</p>
+<h2 id="react-における-immutability-の重要性">React における immutability の重要性</h2>
+<p>本記事の冒頭で挙げたように、 React において「なぜ immutability が重要なのか」という理由はチュートリアルに書いてある。それによると、 object を immutable update することで</p>
+<ol>
+<li>変更履歴を活用するような機能を簡単に実装できる</li>
+<li>（React が）簡単にオブジェクトの変更を検出できる</li>
+<li><code>2.</code> によって（React が）コンポーネントをいつ再描画するかを決定しやすくなる</li>
+</ol>
+<p>というメリットがあるそうだ。</p>
+<p><a href="https://ja.reactjs.org/tutorial/tutorial.html#why-immutability-is-important">https://ja.reactjs.org/tutorial/tutorial.html#why-immutability-is-important</a></p>
+<p>上記のうち 1. は自明だが 2. と 3. については React 内部の動作を知らないと納得がいかないと思う。自分はここを深く理解せず思考停止で immutable update をしていた。</p>
+<p>React.Component では shouldComponentUpdate() という API を通じて、いつ再描画すべきかをコンポーネントに伝えている。この shouldComponentUpdate() はコンポーネントの引数（props）か状態（state）が更新される度に render() の前に呼び出されて真偽値（デフォルトは true）を返し、これが false を返す場合は render() が実行されず再描画されない。</p>
+<p><a href="https://ja.reactjs.org/docs/react-component.html#shouldcomponentupdate">https://ja.reactjs.org/docs/react-component.html#shouldcomponentupdate</a></p>
+<p><img src="/2021/03/17/lifecycle-diagram.png" alt="component-lifecycle-diagram"></p>
+<p>上の図は ↓ から引用した。</p>
+<p><a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/</a></p>
+<p>shouldComponentUpdate() の詳細な動作についてはドキュメントで説明されている。これによると、ツリー状に連なったコンポーネントにおいて shouldComponentUpdate() の結果が true かつ描画される React 要素が等しいかどうかで Reconciliation （差分を検出する処理）を実行するかを判定している。</p>
+<p><a href="https://ja.reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action">https://ja.reactjs.org/docs/optimizing-performance.html#shouldcomponentupdate-in-action</a></p>
+<p>Reconciliation の詳細な仕組みについてもドキュメントに記載されている。ツリー構造の全体で差分比較をすることは計算コストが高すぎる（ドキュメントによるとツリーの要素数を n として O(n^3) らしい）ので、 React ではツリーの差分検出を O(n) 程度の計算量で行うためにいくつかの前提を置いているそうだ。</p>
+<p><a href="https://ja.reactjs.org/docs/reconciliation.html">https://ja.reactjs.org/docs/reconciliation.html</a></p>
+<p>Reconciliation の結果として「差分がある」ということになれば、 React は render() が返す JSX <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>を使って生成した DOM で実 DOM を更新する。</p>
+<p>このようなコンポーネントのライフサイクルを見ると、 React において immutability が重要である詳細な理由が見えてくる。それは、「<strong>props や state の更新が行われるたびに</strong>」 shouldComponentUpdate() が呼び出されることにある。shouldComponentUpdate() が呼び出されれば、それはデフォルトで true を返す。すると React は render() を呼び出し JSX を得る。React はその結果を使って Reconciliation を行い、差分があれば実 DOM を更新する。ここで、ライフサイクルの最初で props や state が変わったことをどのように検出するかという問題がある。JavaScript の object は mutable で、その参照先を書き換えた上で書き換え前の object と比較しても等しいままなのであった。</p>
+<p>論理的には object のプロパティを辿ってその一つ一つを比較することで object が更新されたかどうかを検出することは可能ではあるものの、現実的には計算コストが高そうで、要素数が n なら <strong>O(n)</strong> の計算量になるはずだ。この点、 immutable な更新を行えば参照が異なるというだけで中身を見なくても変更されていることが分かるので、この前提を守るだけで非常に少ない計算コスト <strong>O(1)</strong> で変更を検出できることが分かる。</p>
+<p>具体例としては、 React では state object の中身を（setState 関数を使わずに）直接 mutate しても DOM は再描画されないという仕様がある。これは、 setState が state object の immutable な更新を行っているが、この state object を直接書き換えるとその参照先は同じなので（React からすると）変わったように見えないからだ。</p>
+<p><a href="https://ja.reactjs.org/docs/state-and-lifecycle.html#do-not-modify-state-directly">https://ja.reactjs.org/docs/state-and-lifecycle.html#do-not-modify-state-directly</a></p>
+<h3 id="redux-における-immutability-の重要性">Redux における immutability の重要性</h3>
+<p>実世界で React コンポーネントを作るときはクラスで状態を持つことは少なく、多くのコンポーネントは props を受け取り JSX を返す関数として構成され、少数の閉じたコンポーネントで使う状態は React Hooks で、コンポーネントツリー内のあちこちで共通の状態を使い回すのであれば Redux 等のライブラリで状態を管理することになると思う。</p>
+<p>Redux で管理する状態は Store と呼ばれるグローバルな単一の object に統一されている。この Store は Reducer と呼ばれる、 Action と現在の状態を引数に取り新しい状態を返す関数によってのみ更新される。 Action は Reducer が識別に使うための type 要素を持つ単なる JavaScript object で、 UI 等から呼び出される Dispatch と呼ばれる関数によって Store に送られる。</p>
+<p><a href="https://redux.js.org/tutorials/essentials/part-1-overview-concepts">https://redux.js.org/tutorials/essentials/part-1-overview-concepts</a></p>
+<p><img src="/2021/03/17/ReduxDataFlowDiagram-49fa8c3968371d9ef6f2a1486bd40a26.gif" alt="redux-dataflow-diagram"></p>
+<p>Redux において immutability が重要になるのは、 object を直接 mutate するようなコードが React-Redux のような Redux の Store に依存するライブラリにおいて様々な問題を引き起こすためとドキュメントには書かれている。 React-Redux では root state object を shallow check することで state をラップするコンポーネントの再描画が必要かどうかを検出するため、直接 mutate していると再描画がトリガーされない。</p>
+<p><a href="https://redux.js.org/faq/immutable-data#does-shallow-equality-checking-with-a-mutable-object-cause-problems-with-redux">https://redux.js.org/faq/immutable-data#does-shallow-equality-checking-with-a-mutable-object-cause-problems-with-redux</a></p>
+<h4 id="redux-toolkit-を使う">Redux-Toolkit を使う</h4>
+<p>上記のように、 Redux においても object を immutable update することが重要だ。</p>
+<p>しかし、実世界で Redux アプリケーションを作る際に使うであろう Redux Toolkit の createSlice や createReducer は内部で <a href="https://github.com/immerjs/immer">Immer</a> を使っていて、その中では object を mutate するようなコードを書いたとしても Immer が immutability を担保してくれるので開発者側からすると意識しないかもしれない…これを知らずに自力で state の immutable update を試みるとかえって余計なバグを生み出しそうだ。つまり、 immutability は重要だが、必ずしもそれを担保するコードを自分で書く必要はない。</p>
+<p><a href="https://redux.js.org/tutorials/fundamentals/part-8-modern-redux#writing-slices">https://redux.js.org/tutorials/fundamentals/part-8-modern-redux#writing-slices</a></p>
+<p>Immer は現在の状態と次の状態の間を取り持つ proxy を用意し、開発者が試みた全ての変更を追跡し安全に immutable update をしてくれる。</p>
+<p><a href="https://hackernoon.com/introducing-immer-immutability-the-easy-way-9d73d8f71cb3">https://hackernoon.com/introducing-immer-immutability-the-easy-way-9d73d8f71cb3</a></p>
+<p>ちなみに Immer の名前は immutable から取ってるのかなと思ったら、（それもあるだろうけど）ドイツ語で「いつも」という意味でもあるらしい。名前の付け方がおしゃれだ…</p>
+<p><a href="https://immerjs.github.io/immer/docs/introduction">https://immerjs.github.io/immer/docs/introduction</a></p>
+<h2 id="おまけ-javascript-のメモリ管理">おまけ: JavaScript のメモリ管理</h2>
+<p>プログラミングを始めたばかりの頃に C 言語を使って libc の再実装をやっていた時期があって、そのときは malloc や calloc でメモリを確保して free で解放するプログラムを書いていた。普段 JavaScript や TypeScript を書いているとメモリ管理について意識することが少ないのだが、この機会にどうなっているのか調べてみた。</p>
+<p>JavaScript では object の生成時に自動的にメモリを割り当て、それが “不要” になると GC によって自動的にメモリが解放される。 GC が既に割り当てられたメモリを “不要” とするアルゴリズムはいろいろある。</p>
+<p>例えば、 Reference-counting と呼ばれるやり方では、「ある object が他の object から参照されていない（つまり reference-count が 0 である）」ことを以てその object を “不要” とみなす。これは一見うまく行くように見えるが、 object 間に循環参照がある場合 GC の対象にならないという欠点がある。</p>
+<p>Mark-and-sweep algorithm と呼ばれるやり方では、 root と呼ばれる global object からスタートして参照を辿り、そこから到達不可能な object を “不要” とみなしてメモリを解放する。 root から到達可能かどうかによって GC の必要性を判断するので、お互いにお互いを参照する object が存在してもそれが root から到達不可能であれば GC の対象となる。</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management</a></p>
+<h3 id="gc-があってもメモリ管理は必要">GC があってもメモリ管理は必要</h3>
+<p>何を今更という話かもしれないが、上記の通り JavaScript はメモリの割当や解放を勝手にやってくれるだけで、それはメモリ管理についての配慮が不要であることを意味しない。</p>
+<p>例えば GC のアルゴリズムでは “不要” とみなされないが開発者や利用者の視点からは “不要” なメモリをたくさん確保しそれらを解放しないまま動作し続けるようなプログラムを実行したらクラッシュするだろう。</p>
+<p>家にゴミ箱があっても、ちゃんとゴミ箱に捨てて収集日にゴミ出しする習慣が無いと家がゴミだらけになってしまう。</p>
+<h3 id="gc-以外のメモリ管理方法-rust">GC 以外のメモリ管理方法: Rust</h3>
+<p>最近ちょっとだけ Rust の勉強をした。といっても <a href="https://doc.rust-jp.rs/book-ja/title-page.html">The Rust Programming Language 日本語版</a>を一通り読んだだけだが…</p>
+<p>Rust には JavaScript のような GC が存在しない。ではどうやって “不要” なメモリを OS に返却し再割当可能にしているかというと、「所有権 - Ownership」という独特な仕組みが用意されている。 Rust の値は「所有者 - Owner」と呼ばれる変数と対応している。所有者は必ず 1 つの変数で、その変数がスコープを抜けたらメモリは自動的に解放される。</p>
+<p><a href="https://doc.rust-jp.rs/book-ja/ch04-01-what-is-ownership.html">https://doc.rust-jp.rs/book-ja/ch04-01-what-is-ownership.html</a></p>
+<p>Rust は所有権を中心に様々な特殊な文法を持っていて、解放されたメモリにアクセスしたり確保されたメモリを二重に解放してしまうようなメモリ関連のバグを強制的に防ぐことができる。つまり言語仕様のレベルでメモリの安全性が担保されている。コンパイルの段階つまりプログラムの実行前にそれを知ることができるので、とても便利だ。</p>
+<p>仕事で使うことは無さそうだが、面白かったので引き続き勉強して趣味で使おうと思う。</p>
+<h2 id="プログラミングは奥が深い">プログラミングは奥が深い</h2>
+<p>プログラミング、たぶん一生理解できないまま寿命かやる気のどっちかが尽きるんだろうな〜という思いがある。</p>
+<p>今回はドキュメントベースで勉強していったけど、直接いじりながら動かした方がドキュメント化されていない挙動を確認したり詳細を理解できるので勉強になりそうだ。 <a href="https://preactjs.com/">preact</a> という小さな React があるので、時間があるときに触ってみたい。</p>
+<p>あと私は初心者なのでこの記事に間違いあったらすみません。各自の責任で調べて下さい。</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>実は <a href="https://ja.reactjs.org/docs/react-without-jsx.html">JSX を使わずに React を使うこともできる</a> <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

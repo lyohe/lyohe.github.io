@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2022/08/20/typescript-pro/">
+
+<!-- Primary Meta Tags -->
+<title>プロを目指す人のための TypeScript 入門を読んだ話</title>
+<meta name="title" content="プロを目指す人のための TypeScript 入門を読んだ話">
+<meta name="description" content="プロを目指す人のための TypeScript 入門を読んだ話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2022/08/20/typescript-pro/">
+<meta property="og:title" content="プロを目指す人のための TypeScript 入門を読んだ話">
+<meta property="og:description" content="プロを目指す人のための TypeScript 入門を読んだ話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2022/08/20/typescript-pro/">
+<meta property="twitter:title" content="プロを目指す人のための TypeScript 入門を読んだ話">
+<meta property="twitter:description" content="プロを目指す人のための TypeScript 入門を読んだ話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/blog-placeholder-5.jpg" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2022-08-19T15:00:00.000Z">
+	Aug 20, 2022
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">プロを目指す人のための TypeScript 入門を読んだ話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>「プロを目指す人のための TypeScript 入門　安全なコードの書き方から高度な型の使い方まで」、通称ブルーベリー本を読んだので読書メモを書いておく。</p>
+<p><a href="https://www.amazon.co.jp/dp/B09Y527YPV">https://www.amazon.co.jp/dp/B09Y527YPV</a></p>
+<p>読者である私自身の技術レベルは以下の通り。</p>
+<ul>
+<li>2020 年からプログラミングを始めたので、最近の垢抜けた TypeScript/JavaScript しか知らない</li>
+<li>2 年くらい仕事で React/Node.js を使っており TypeScript を書いている</li>
+<li>型の表現に自信がないので、自分ではあまり複雑な型を書かない</li>
+</ul>
+<p>入門とはいえ分厚い本なので全てを紹介することはできず、自分の印象に残った箇所に止める。</p>
+<h2 id="この本の位置付け">この本の位置付け</h2>
+<p>TypeScript（や React, Node.js）で実践的なアプリケーションを作ろう！という書籍<strong>ではなく</strong>、その仕様や使い方を詳細に紹介する書籍。</p>
+<p>基本的な文法の解説もされているが、プログラミング初学者が読む本ではないと思う。というのも、この本が提供する「TypeScript を使って型安全なプログラムを書くにはどうしたらいいか」という情報そのものが初学者にとって興味が湧かないと考えられるためだ（初学者であっても型安全の恩恵は受けるに違いないのだが）。</p>
+<p>一方で、仕事や趣味である程度 TypeScript を書いており「何となく動いてるけどこれ裏側ではどうなってるのかな」と気になっている人、「TypeScript でより型安全なプログラムを書きたい」と思ってる人、もしくは JavaScript を書いており「TypeScript ってどういう言語なのか知りたい」という人に非常に役に立つ本であることは間違いない。</p>
+<p>JavaScript を読み書きしたことがない人はまず <a href="https://jsprimer.net/">JavaScript Primer</a> などを読んでからこの本を読んだ方が良い。</p>
+<p>6 章を中心に TypeScript の特徴である型システムで高度な型を表現する方法を紹介している。「プロを目指す人のための〜」というタイトルにふさわしい。</p>
+<h2 id="第-1-章-イントロダクション">第 1 章: イントロダクション</h2>
+<p>TypeScript の特徴や歴史の紹介、開発環境の整備。</p>
+<p>TypeScript の型システムを利用することで、型チェックによるコンパイルエラー、ソースコードのドキュメント化、エディタや IDE による入力補完など様々なメリットを享受することができる。</p>
+<p>TypeScript コンパイラは型チェックによりソースコードの文面から静的にプログラマの型注釈との矛盾をチェックし、JavaScript へトランスパイルする。静的チェックによりエディタや IDE での開発中に簡単にミスを発見し修正することができる。</p>
+<p>JavaScript には静的な型チェックはなく、ランタイムの挙動は型情報に依存しない。JavaScript へのトランスパイルでは基本的に型情報を取り除く（後は一部の新しい構文を古い構文に変換する）だけで、プログラムの挙動は型によって変わることはない。つまり、ある程度 JavaScript の経験があるプログラマーにとっては型の扱いを覚えるだけでよいため非常に使いやすい言語となっている。</p>
+<p>Node.js をインストールして簡単な環境設定（tsconfig）をする箇所については、tsconfig 自体が膨大なオプションがあり初学者にわかりづらい中で簡単な説明と後で詳しく解説する箇所へのリファレンスがついていて素晴らしかった。</p>
+<h2 id="第-2-章--第-5-章">第 2 章 ~ 第 5 章</h2>
+<ul>
+<li>第 2 章: 基本的な文法・基本的な型</li>
+<li>第 3 章: オブジェクトの基本とオブジェクトの型</li>
+<li>第 4 章: TypeScript の関数</li>
+<li>第 5 章: TypeScript のクラス</li>
+</ul>
+<p>TypeScript の文法や型、オブジェクト、関数、クラスなど基本的な知識に関する章。</p>
+<p>既に仕事や趣味で TypeScript を書いていればこれらの章に書いてあることは基本的に日常のプログラミングで使っているので、退屈な章に見えるかもしれない。しかし、新たな再発見があるかもしれないし第 6 章の高度な型の前提となる知識でもあるので読み飛ばさず、ささっと読んでみることをおすすめしたい。</p>
+<p>例えば自分の場合、第 3 章の computed property name （オブジェクトのプロパティ名を動的に決めるための構文）については全く知らなかった。他にもこんな機能があったのか！という記述がそこかしこにあり、自分の知識の欠けていた箇所を見つけ出すことができた。</p>
+<p>「4.2.3 返り値の型注釈は省略すべきか」という項も面白かった。TypeScript では型推論によって関数の返り値を調べており、もし返り値の型が代入先と合わない（例えば <code>number[]</code> を返さなければいけないのに何も返してなかった）時には当然コンパイルエラーを出してくれる。しかし、関数の返り値の型注釈を書いていれば関数内部でコンパイルエラーを出すことができるのに対し、書かない場合は関数を呼び出して結果を使う側でコンパイルエラーが出る。基本的には関数の返り値の型注釈を書く方がエラーを発見しやすくなるので望ましいだろう。</p>
+<p>このように、TypeScript における型注釈には「開発者による真実の源としての型の表明」という意図を表している。つまり、型を明示しないということは呼び出し側が型や実行時の動作に責任を持つことを意味する。型注釈や型定義を書くときはプログラムの構造における真実の源をどこに置くべきか考えながら書くのが良さそうだ。</p>
+<p>型以外にも式と文の違いなど、普段プログラミングをする上ではあまり意識しない（？）ような前提となる事柄も丹念に説明されており、「プロを目指す人のための〜」というタイトルを思い起こさせる。「プロ」という言葉をどう捉えるかはその人次第だが、自分は「基礎から応用まで幅広い知識を持ち状況に応じて問題を解決するための最適な選択肢を導き出せる人」だと考えているので、この本に垣間見える用語の正確さへのこだわりであったり基礎的な部分を疎かにしない姿勢にはプロを感じる。</p>
+<p>プログラマー歴 2 年かそこらの自分が偉そうに語れる話でもないのだが…</p>
+<h2 id="第-6-章-高度な型">第 6 章: 高度な型</h2>
+<p>この本で最も重要な章かもしれない。ユニオン型とインターセクション型、リテラル型、代数的データ型などの解説。</p>
+<p>関数のオプショナルチェイニング（<code>getTimeFunc?.()</code> のような書き方）が紹介されてたのだが、これできるの初めて知った（変数でしか使ったことなかった）。</p>
+<p><code>keyof</code> や <code>typeof</code> を使った型レベルの計算はなかなか面白い。TypeScript 以外の言語ではあまり見たことない気がする（あったらすみません）。これによって型の表現力が大きく高まっているように見える。</p>
+<p>オブジェクトにリテラル型の tag プロパティを用意して扱うデータの形と可能性を型として正確に表現する、そしてそれを使って if や switch 文で型の絞り込みを行うという方法は便利そうなので覚えておきたい。</p>
+<p>型アサーション（<code>as</code> で型を上書きするやつ）はランタイムエラーを引き起こす可能性があるのでなるべく使わない。使う場合は不正確な型を正しく直すために使うべきである（つまり、TypeScript の型推論を補助するために使うべきで刃向かうために使うべきではない）。</p>
+<p><code>any</code> 型は型安全性を破壊するので避けるべき。型チェックが行われないのでコンパイルで発見できたはずのエラーもランタイムエラーとなり、 TypeScript を使う意味が薄れてしまう。依存先が JavaScript から TypeScript に移行中で any を使っていたのが型を付けるようになりその型を使わないとコンパイルで引っかかるという落とし穴もあるので迷惑な存在だが、これによって TypeScript への移行が早まったという背景もあると思うので必要悪的な存在なのかもしれない。</p>
+<p>ユーザー定義型ガードや型アサーションも同様だが、TypeScript が提供する型安全性を犠牲にしてプログラマの責任とすることを十分に意識すべき。</p>
+<h2 id="第-7-章-typescript-のモジュールシステム">第 7 章: TypeScript のモジュールシステム</h2>
+<p>Import / export でデータや関数を受け渡す方法について。</p>
+<p>簡単な変数や関数、型の export から始めて、モジュール間でデータや関数を受け渡す方法が解説されている。</p>
+<p>Default export 使わない理由（明確な名前がないので補完が働かない）というのは確かになと思った（私も基本的に使わないのだが）。</p>
+<p>スクリプトとモジュールの違い、ES Modules と CommonJS Modules の違いなど、普段意識しないところまで書かれていてありがたい。特に ES Modules は最近会社のプロジェクトの依存関係を更新していて詰まることが多かったので個人的にタイムリーな話題だった。具体的には今まで CommonJS だったモジュールがあるバージョンから ESM only になるとか。</p>
+<h2 id="第-8-章-非同期処理">第 8 章: 非同期処理</h2>
+<p>この章については JavaScript における非同期処理（通信など時間がかかったり、ファイルへの保存など I/O を伴うため即時に完了できない処理）を基本から説明している。</p>
+<p>Promise の理解があやしい人は <a href="https://azu.github.io/promises-book/">JavaScript Promise の本</a> もあわせて読むのがおすすめ。</p>
+<p>TypeScript 特有の注意点として挙げられていたのが、 Promise 失敗時のコールバック関数に渡される引数 error の型が <code>any</code> となってしまい型システム上はどのようなエラーが生じるか明らかでないという仕様がある。なんで unknown じゃなくて any なんだろうと疑問だが、歴史的経緯によるものだそうだ。</p>
+<p>何でも入るという点では <code>any</code> と同じだができることが限られる（プロパティアクセスができなくなる） <code>unknown</code> 型を注釈に入れることで少しだけ安全になる。これも意識したことなかったけど型安全性を意識するなら可能な限り any を使うべきではないので覚えておきたい。</p>
+<h2 id="第-9-章-typescript-のコンパイラオプション">第 9 章: TypeScript のコンパイラオプション</h2>
+<p>TypeScript のコンパイル時の挙動を制御するオプション（tsconfig.json）について。</p>
+<p>環境構築する際に package.json や tsconfig.json を書くのだが、基本的に他のプロジェクトやよくある設定のやつをコピペしてドキュメントを軽く読むだけであまり幅広いオプションを利用してこなかった。strict を絶対 true にするくらい。</p>
+<p>TypeScript の型チェックは後方互換性を重視しており、厳しいオプションは明示的に設定しなければ有効とならない。つまり、既存のプロジェクトからコピペすると（後方互換性を考えなくていいにも関わらず）古い書き方をそのまま使ってしまうので、コンパイラオプションが緩くなりがちになるなーと思った。</p>
+<p><code>noUncheckedIndexedAccess</code>（インデックスシグネチャを通じたプロパティアクセスで得られる値を常に <code>undefined</code> とのユニオン型にする）と <code>exactOptionalPropertyTypes</code> （オプショナルプロパティに明示的に <code>undefined</code> を代入することができなくなる）についても知らなかった。</p>
+<p>コンパイラオプションを羅列して解説するというよりは、基本的な有効にすべきオプションの挙動の説明とコンパイラオプションの立ち位置を。後から厳しくするのは難しいので最初から厳しくしておくというのは良さそう。実際、コンパイルエラーをちゃんと出してくれた方が結果的に速く開発が進むため。</p>
+<h2 id="感想">感想</h2>
+<p>この本を読んで TypeScript の型との向き合い方が変わったかもしれない。</p>
+<p>今まではプロジェクトの既存のコンパイラオプションや型定義、開発メンバーで定めたガイドラインに沿ってプログラムを書いていたが、積極的に新情報を調べたりより型安全なプログラムを書くための工夫を探求していこうと思った。</p>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

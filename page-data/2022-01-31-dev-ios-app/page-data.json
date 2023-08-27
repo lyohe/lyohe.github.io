@@ -1,5 +1,0 @@
-{
-    "componentChunkName": "component---src-templates-blog-post-js",
-    "path": "/2022-01-31-dev-ios-app/",
-    "result": {"data":{"site":{"siteMetadata":{"title":"ここにかく"}},"markdownRemark":{"id":"192ac801-2324-576a-8fcf-b601358a407e","excerpt":"生まれて初めてスマホアプリを開発したので、その話を書く。 技術的な話については Zenn に書く。","html":"<p>生まれて初めてスマホアプリを開発したので、その話を書く。</p>\n<p>技術的な話については Zenn に書く。</p>","tableOfContents":"","frontmatter":{"title":"初めて iOS アプリを作った","date":"January 31, 2022","description":null}},"previous":{"fields":{"slug":"/2021-12-19-best-reading/"},"frontmatter":{"title":"2021年に読んだ本 BEST 5"}},"next":null},"pageContext":{"id":"192ac801-2324-576a-8fcf-b601358a407e","previousPostId":"5398d518-8453-5338-8232-633e842d35b9","nextPostId":null}},
-    "staticQueryHashes": ["1445466728","2841359383"]}

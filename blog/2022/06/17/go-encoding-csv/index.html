@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2022/06/17/go-encoding-csv/">
+
+<!-- Primary Meta Tags -->
+<title>Go の encoding/csv を読んだ話</title>
+<meta name="title" content="Go の encoding/csv を読んだ話">
+<meta name="description" content="Go の encoding/csv を読んだ話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2022/06/17/go-encoding-csv/">
+<meta property="og:title" content="Go の encoding/csv を読んだ話">
+<meta property="og:description" content="Go の encoding/csv を読んだ話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2022/06/17/go-encoding-csv/">
+<meta property="twitter:title" content="Go の encoding/csv を読んだ話">
+<meta property="twitter:description" content="Go の encoding/csv を読んだ話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/blog-placeholder-4.jpg" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2022-06-16T15:00:00.000Z">
+	Jun 17, 2022
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">Go の encoding/csv を読んだ話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>ここ 1 ヶ月くらい空き時間で <a href="https://go.dev/">Go</a> をやっている。</p>
+<p>有名なチュートリアル <a href="https://go-tour-jp.appspot.com/list">A Tour of Go</a> を二周したので、次の課題として言語標準のパッケージがどのように書かれているのかを調べることにした。理由としては、 Go は Go で書かれており標準パッケージのコードを読むとより Go らしい書き方を身につけられそうと考えたため。</p>
+<p>その題材として <code>CSV</code> 形式の入出力を処理する <a href="https://pkg.go.dev/encoding/csv">encoding/csv</a> のドキュメントとソースコードを読んだので、この記事にまとめておく。これを選んだのは CSV が自分が経理の仕事で慣れ親しんだフォーマットだったからで、それ以上の理由はない。</p>
+<p>ちなみに <a href="https://twitter.com/tenntenn/status/1528090919597375489">twitter で質問したら io と error をお薦めされた</a>。この 2 つは回答者 tenntenn さんがお薦めされている理由に加えて頻出でもあるので、コードリーディングの題材としてよさそう。実際に encoding/csv の処理をデバッガ等で追っていくと最終的に io や error も現れてくる。</p>
+<h2 id="コードリーディングの前に">コードリーディングの前に</h2>
+<p>Go のコードを読む際にはこの動画が参考になった。</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=X0tzCL5gqr8">コードリーディングをしよう！ - tenntenn Conference 2022</a></li>
+<li><a href="https://www.youtube.com/watch?v=cZJE-pK_uKs">errors パッケージを読む - tenntenn.go#1</a></li>
+</ul>
+<p>Go はコメントが充実していて読みやすい。ソースコードはこちら。</p>
+<p><a href="https://cs.opensource.google/go/go">https://cs.opensource.google/go/go</a></p>
+<h2 id="csv-について">CSV について</h2>
+<p>コードを読む前に CSV について復習していく。</p>
+<p>一般的には <code>Comma-Separated Values</code> で略して <code>CSV</code> と呼ばれる。仕様は <a href="https://datatracker.ietf.org/doc/html/rfc4180">RFC 4180</a> で定められているが、分類は Informational となっており、つまりは国際的に標準化されたものではなく単なる参考と言える。</p>
+<p>CSV はデータを受け渡すフォーマットとして幅広く利用されており、例えば Excel や Google Sheets などの表計算ソフトウェアで CSV を取り込んだり出力したりできる。私は長年に亘り経理の仕事をしていたのだが、何かと CSV にはお世話になった。</p>
+<p>例えば…</p>
+<ul>
+<li>銀行に総合振込（振込先と金額を記載したファイルを送り、一括で振込する処理）を指示するために銀行の指定する形式の CSV を専用の Web サイトからアップロードする</li>
+<li>財務会計ソフトに取り込む仕訳データを CSV で作る</li>
+<li>ERP などの業務システムから CSV 形式でデータを取得し、それを加工して資料を作る</li>
+</ul>
+<h2 id="rfc-4180-の概要">RFC 4180 の概要</h2>
+<p>CSV の仕様はマネックス社の技術ブログで取り上げられているので、詳しく気になる方はそちらもご覧いただくのがよさそう。</p>
+<ul>
+<li><a href="https://blog.tech-monex.com/entry/2021/03/26/160000">CSV の国際標準 RFC 4180 と JSON の国際標準 RFC 8259 をいまさら読みなおしてみた 前編</a> / <a href="https://blog.tech-monex.com/entry/2021/04/02/160000">後編</a></li>
+</ul>
+<p>以下に特徴的な CSV の仕様についてまとめる。</p>
+<h3 id="レコード">レコード</h3>
+<p>CSV では、レコードは改行 <code>CRLF</code> によって区切られている。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">aaa, bbb, ccc CRLF</span></span>
+<span class="line"><span style="color: #e1e4e8">aaa, bbb, ccc CRLF</span></span></code></pre>
+<p>このとき、最後の行には改行はなくても構わない。</p>
+<h3 id="ヘッダー">ヘッダー</h3>
+<p>最初のレコードをヘッダーとすることができる。ヘッダーレコードは<strong>2 つ目以降のレコードと同数のフィールド</strong>を持ち、それぞれのフィールドに対応する名前を持つ。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">field_a,field_b,field_c CRLF</span></span>
+<span class="line"><span style="color: #e1e4e8">aaa,bbb,ccc CRLF</span></span>
+<span class="line"><span style="color: #e1e4e8">aaa,bbb,ccc CRLF</span></span></code></pre>
+<p>このとき、 MIME type でヘッダーの有無を指定すべきである。</p>
+<h3 id="区切り文字">区切り文字</h3>
+<p>CSV という名前の通り、レコードとヘッダーはコンマ <code>,</code> で区切られる。</p>
+<p>ファイル全体に渡り、全てのレコードおよびヘッダーは同じ数のフィールドを持つべきである。スペースは無視されず、フィールドの一部として扱われる。</p>
+<p>各レコードの最後のフィールドにはコンマ <code>,</code> を<strong>つけてはいけない</strong>。</p>
+<p>つまり、下記は RFC 通りだが</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">aaa,bbb,ccc</span></span></code></pre>
+<p>以下の書き方は RFC に反している。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">aaa,bbb,ccc,</span></span></code></pre>
+<h3 id="二重引用符">二重引用符</h3>
+<p>各フィールドは二重引用符 <code>"</code> で囲んでも良いし、囲まなくても良い。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">"aaa","bbb","ccc" CRLF</span></span>
+<span class="line"><span style="color: #e1e4e8">xxx,yyy,zzz</span></span></code></pre>
+<p>ただし、フィールド内に改行 <code>CRLF</code>、二重引用符 <code>"</code>、コンマ <code>,</code> を持つ場合は、フィールドを二重引用符 <code>"</code> で囲むべきである。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">"aaa","b CRLF</span></span>
+<span class="line"><span style="color: #e1e4e8">bb","ccc" CRLF</span></span>
+<span class="line"><span style="color: #e1e4e8">xxx,yyy,zzz</span></span></code></pre>
+<p>上記の CSV は見た目は 3 行だが、1 行目と 2 行目がひとつのレコードであり、レコード数は 2 となる。</p>
+<p>もし <code>"</code> でフィールドを囲む場合、その内側では <code>"</code> を使うべきではない。もし使う場合は、下記のように別の <code>"</code> でエスケープする。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">"aaa","b""bb","ccc"</span></span></code></pre>
+<p>まとめると、 CSV ファイルで使われる二重引用符 <code>"</code> には以下 3 つの役割がある。</p>
+<ul>
+<li>フィールドの最初と最後につけることでフィールドを囲む</li>
+<li>フィールドの内容を表す（このとき、<strong>エスケープしなければならない</strong>）</li>
+<li>フィールドの内容を表す二重引用符をエスケープする</li>
+</ul>
+<p>Go の encoding/csv は利用者にこの RFC 4180 に準拠した入力を与えるよう期待している。ただし、 Reader や Writer の構造体に用意されているフィールドを<strong>明示的に書き換えることで RFC 4180 に反するような入出力が可能</strong>となる。</p>
+<h2 id="まず簡単に使ってみる">まず簡単に使ってみる</h2>
+<p>ドキュメントやソースコードを読む前にとりあえず <code>encoding/csv</code> を使った簡単なプログラムを書いてみることにした。</p>
+<p>このような CSV に test.csv という名前をつけて読んでみる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">従業員コード,名前,メールアドレス</span></span>
+<span class="line"><span style="color: #e1e4e8">1,ヤマダ,yamada@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">2,サトウ,sato@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">3,スズキ,suzuki@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">4,タナカ,tanaka@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">5,ハシモト,hashimoto@example.com</span></span></code></pre>
+<p>このファイルをゼロから自分で解析する場合は先に挙げた仕様を満たすような実装を自分で書く必要があるが、 encoding/csv を使うと <code>NewReader</code> を呼んで返ってくる構造体 Reader を使うだけでよい。</p>
+<p><code>NewReader</code> が返す構造体を使って CSV を読むにはファイル全体を読む <code>ReadAll()</code> と 1 レコードずつ読む <code>Read()</code> の 2 種類の方法があるが、以下では Read() を使った。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">encoding/csv</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">fmt</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">io</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">os</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// CSV ファイルを開く</span></span>
+<span class="line"><span style="color: #E1E4E8">	file, err </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> os.</span><span style="color: #79B8FF">Open</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"test.csv"</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #79B8FF">panic</span><span style="color: #E1E4E8">(err)</span></span>
+<span class="line"><span style="color: #E1E4E8">	}</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">defer</span><span style="color: #E1E4E8"> file.</span><span style="color: #79B8FF">Close</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// CSV ファイルを読む</span></span>
+<span class="line"><span style="color: #E1E4E8">	csvReader </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> csv.</span><span style="color: #79B8FF">NewReader</span><span style="color: #E1E4E8">(file)</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">for</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">		line, err </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> csvReader.</span><span style="color: #79B8FF">Read</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"><span style="color: #E1E4E8">		</span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">==</span><span style="color: #E1E4E8"> io.EOF {</span></span>
+<span class="line"><span style="color: #E1E4E8">			</span><span style="color: #F97583">break</span></span>
+<span class="line"><span style="color: #E1E4E8">		}</span></span>
+<span class="line"><span style="color: #E1E4E8">		</span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">			</span><span style="color: #79B8FF">panic</span><span style="color: #E1E4E8">(err)</span></span>
+<span class="line"><span style="color: #E1E4E8">		}</span></span>
+<span class="line"><span style="color: #E1E4E8">		fmt.</span><span style="color: #79B8FF">Println</span><span style="color: #E1E4E8">(line)</span></span>
+<span class="line"><span style="color: #E1E4E8">	}</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>実行すると次のような出力を得る。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">[従業員コード 名前 メールアドレス]</span></span>
+<span class="line"><span style="color: #e1e4e8">[1 ヤマダ yamada@example.com]</span></span>
+<span class="line"><span style="color: #e1e4e8">[2 サトウ sato@example.com]</span></span>
+<span class="line"><span style="color: #e1e4e8">[3 スズキ suzuki@example.com]</span></span>
+<span class="line"><span style="color: #e1e4e8">[4 タナカ tanaka@example.com]</span></span>
+<span class="line"><span style="color: #e1e4e8">[5 ハシモト hashimoto@example.com]</span></span></code></pre>
+<p>この各行は Read() が返すスライス <code>[]string</code> である。 <code>Read()</code> ではなく <code>ReadAll()</code> を使うとファイル全体を二次元のスライス <code>[][]string</code> で返す。</p>
+<p>次に、より詳細な挙動を把握するためドキュメントを読んでみる。</p>
+<h2 id="ドキュメントとソースコードを読む">ドキュメントとソースコードを読む</h2>
+<p>encoding/csv には reader.go と writer.go の 2 つのファイルがある。それぞれ CSV を読み書きするための構造体や関数が書かれている。</p>
+<h3 id="readergo">reader.go</h3>
+<h4 id="type-reader"><a href="https://pkg.go.dev/encoding/csv#Reader">type Reader</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=99-174;bpv=0;bpt=0">src</a></p>
+<p><code>Reader</code> は <code>NewReader()</code> 関数が返す構造体で、これを通じて RFC 4180 に準拠した入力を読み取ることができる。また、この構造体に定義されているフィールドを書き換えることで Reader の挙動をカスタマイズできる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// ソースコードには大量のコメントがついているが省略した</span></span>
+<span class="line"><span style="color: #6A737D">// 大文字で始まるフィールドの値を書き換えることで、 RFC 4180 に反する入力を読み取ることができる</span></span>
+<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Reader</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">struct</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">	Comma </span><span style="color: #F97583">rune</span></span>
+<span class="line"><span style="color: #E1E4E8">	Comment </span><span style="color: #F97583">rune</span></span>
+<span class="line"><span style="color: #E1E4E8">	FieldsPerRecord </span><span style="color: #F97583">int</span></span>
+<span class="line"><span style="color: #E1E4E8">	LazyQuotes </span><span style="color: #F97583">bool</span></span>
+<span class="line"><span style="color: #E1E4E8">	TrimLeadingSpace </span><span style="color: #F97583">bool</span></span>
+<span class="line"><span style="color: #E1E4E8">	ReuseRecord </span><span style="color: #F97583">bool</span></span>
+<span class="line"><span style="color: #E1E4E8">	TrailingComma </span><span style="color: #F97583">bool</span></span>
+<span class="line"><span style="color: #E1E4E8">	r </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">bufio.Reader</span></span>
+<span class="line"><span style="color: #E1E4E8">	numLine </span><span style="color: #F97583">int</span></span>
+<span class="line"><span style="color: #E1E4E8">	offset </span><span style="color: #F97583">int64</span></span>
+<span class="line"><span style="color: #E1E4E8">	rawBuffer []</span><span style="color: #F97583">byte</span></span>
+<span class="line"><span style="color: #E1E4E8">	recordBuffer []</span><span style="color: #F97583">byte</span></span>
+<span class="line"><span style="color: #E1E4E8">	fieldIndexes []</span><span style="color: #F97583">int</span></span>
+<span class="line"><span style="color: #E1E4E8">	fieldPositions []position</span></span>
+<span class="line"><span style="color: #E1E4E8">	lastRecord []</span><span style="color: #F97583">string</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>特徴的なフィールドは <code>Comment</code> で、 CSV 中にコメントを残しそのレコードを読み取り時に無視することができる。ちなみに RFC 4180 にはコメントについて特に記述はない。</p>
+<p>例えば先述の CSV で、以下のように <code>#</code> をつけたレコードをコメントアウトしたい（つまり、そのレコードを無視したい）とする。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">従業員コード,名前,メールアドレス</span></span>
+<span class="line"><span style="color: #e1e4e8">1,ヤマダ,yamada@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">2,サトウ,sato@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">3,スズキ,suzuki@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">4,タナカ,tanaka@example.com</span></span>
+<span class="line"><span style="color: #e1e4e8">#メールアドレス変更予定につき一時的にコメントアウト　5,ハシモト,hashimoto@example.com</span></span></code></pre>
+<p>このとき、先程のプログラムで Comment フィールドにコメントを表す記号 <code>#</code> を入れておくとそのレコードを無視できる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">csvReader </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> csv.</span><span style="color: #79B8FF">NewReader</span><span style="color: #E1E4E8">(file)</span></span>
+<span class="line"><span style="color: #E1E4E8">csvReader.Comment </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">'</span><span style="color: #79B8FF">#</span><span style="color: #9ECBFF">'</span></span></code></pre>
+<p>出力は以下のようになる。 <code>#</code> でコメントアウトしたレコードが除かれている。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">[従業員コード 名前 メールアドレス]</span></span>
+<span class="line"><span style="color: #e1e4e8">[1 ヤマダ yamada@example.com]</span></span>
+<span class="line"><span style="color: #e1e4e8">[2 サトウ sato@example.com]</span></span>
+<span class="line"><span style="color: #e1e4e8">[3 スズキ suzuki@example.com]</span></span>
+<span class="line"><span style="color: #e1e4e8">[4 タナカ tanaka@example.com]</span></span></code></pre>
+<p>なお、コメントアウトできるのはレコードの先頭に記号をつけたときのみである。</p>
+<p>より詳しくはドキュメントの Example (Options) を参照。</p>
+<p><a href="https://pkg.go.dev/encoding/csv#example-Reader-Options">https://pkg.go.dev/encoding/csv#example-Reader-Options</a></p>
+<p>他にも様々なフィールドがある。よく使いそうなのだと…</p>
+<ul>
+<li><code>Comma</code> rune: 区切り文字を設定する（つまりタブなど他の文字も区切りにできる）</li>
+<li><code>FieldsPerRecord</code> int: 各レコードに期待されるフィールド数を設定する（負の数字を入れるとチェックしないようにできる）</li>
+<li><code>TrimLeadingSpace</code> bool: 先頭の white space を無視する（区切り文字がスペースでも無視する）</li>
+</ul>
+<p>FieldsPerRecord に負の数字を入れると各行のフィールド数チェックをしないためレコードごとにフィールド数が異なる（つまり RFC 4180 に準拠しない） CSV を読み書きできるようになる。一見これは何のためにあるんだ？と思うかもしれないが、世の中には RFC 4180 に準拠しない CSV が平然と使われているので便利と言えるかもしれない。</p>
+<p>例えば「全銀フォーマット CSV」と呼ばれる銀行の総合振込に用いられるデータ形式では、レコードの種類を各レコード最初のフィールドで指定し、その種類ごとにフィールド数が異なるという仕様になっている。</p>
+<p>参考: <a href="https://www.rakuten-bank.co.jp/business/howto/pdf/h07_06_10.pdf">楽天銀行 - 依頼ファイル仕様（全銀フォーマット CSV 形式）</a></p>
+<h4 id="newreader"><a href="https://pkg.go.dev/encoding/csv#NewReader">NewReader()</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=176-182;bpv=0;bpt=0">src</a></p>
+<p>io.Reader を満たす引数（ファイルや標準入力）を受け取り、上述の構造体 <code>Reader</code> を作ってそのポインタを返すだけの関数。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">NewReader</span><span style="color: #E1E4E8">(r io.Reader) </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">Reader {</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8">Reader{</span></span>
+<span class="line"><span style="color: #E1E4E8">		Comma: </span><span style="color: #9ECBFF">'</span><span style="color: #79B8FF">,</span><span style="color: #9ECBFF">'</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">		r:     bufio.</span><span style="color: #79B8FF">NewReader</span><span style="color: #E1E4E8">(r),</span></span>
+<span class="line"><span style="color: #E1E4E8">	}</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>区切り文字がデフォルトで <code>,</code> にされていることが分かる。</p>
+<p><code>bufio.NewReader()</code> は io.Reader 用のバッファをデフォルトのサイズ 4096 byte で作って返す関数。</p>
+<h4 id="readerfieldpos"><a href="https://pkg.go.dev/encoding/csv#Reader.FieldPos">(*Reader).FieldPos()</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=202-214;bpv=0;bpt=1">src</a></p>
+<p>CSV 処理中のレコードとカラムのインデックスを返す関数。カラムのインデックスはバイト単位で数える。あまり使う場面は多くないが、ループで Read を呼び出す中で CSV の解析エラーをデバッグするのに便利そう。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> (r </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">Reader) </span><span style="color: #B392F0">FieldPos</span><span style="color: #E1E4E8">(field </span><span style="color: #F97583">int</span><span style="color: #E1E4E8">) (line, column </span><span style="color: #F97583">int</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> field </span><span style="color: #F97583">&#x3C;</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">0</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">||</span><span style="color: #E1E4E8"> field </span><span style="color: #F97583">>=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">len</span><span style="color: #E1E4E8">(r.fieldPositions) {</span></span>
+<span class="line"><span style="color: #E1E4E8">		</span><span style="color: #79B8FF">panic</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"out of range index passed to FieldPos"</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">	}</span></span>
+<span class="line"><span style="color: #E1E4E8">	p </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8">r.fieldPositions[field]</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> p.line, p.col</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>これは Go 1.17 で追加された新しい関数で、その背景や使い方については以下の記事が詳しい。</p>
+<ul>
+<li><a href="https://future-architect.github.io/articles/20210811a/">Future Tech Blog - Go1.17 の encoding/csv</a></li>
+</ul>
+<p>次に示す <code>Read()</code> 関数が最後に返した string スライスのうち、引数で指定したバイト単位のインデックスを持つフィールドの先頭に対応する行と列の番号を返す。</p>
+<h4 id="readerread"><a href="https://pkg.go.dev/encoding/csv#Reader.Read">(*Reader).Read()</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=184-200;bpv=0;bpt=0">src</a></p>
+<p>構造体 <code>Reader</code> をポインタレシーバで受け取り csv を一行ずつ読んで結果を string のスライスで返す関数。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> (r </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">Reader) </span><span style="color: #B392F0">Read</span><span style="color: #E1E4E8">() (record []</span><span style="color: #F97583">string</span><span style="color: #E1E4E8">, err </span><span style="color: #F97583">error</span><span style="color: #E1E4E8">) {</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> r.ReuseRecord {</span></span>
+<span class="line"><span style="color: #E1E4E8">		record, err </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> r.</span><span style="color: #79B8FF">readRecord</span><span style="color: #E1E4E8">(r.lastRecord)</span></span>
+<span class="line"><span style="color: #E1E4E8">		r.lastRecord </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> record</span></span>
+<span class="line"><span style="color: #E1E4E8">	} </span><span style="color: #F97583">else</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">		record, err </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> r.</span><span style="color: #79B8FF">readRecord</span><span style="color: #E1E4E8">(</span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">	}</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> record, err</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>コメントによると、この関数は常に non-nil のレコード（string のスライス）もしくは non-nil エラーのいずれか片方を返すが、もしフィールドの数が異なるレコードが存在する（RFC 4180 に反する）場合は読み取ったレコードと共に <code>ErrFieldCount</code> というエラーを返す。このとき、 Reader 構造体の FieldsPerRecord に負の数字（例えば -1）を設定しておくとこのエラーチェックを迂回できる。</p>
+<p>また、最後の行にたどり着くとレコードとしては nil を返し err として <code>io.EOF</code> を返すので、これをチェックしておけばファイルの最後まで読んだことを検知できる。</p>
+<p>これら <code>Reader</code> 構造体の各フィールドの設定に応じた実際の読み取り処理は <code>readRecord</code> という別の関数（とても長い）で行われている。</p>
+<h4 id="readrecord">readRecord</h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=292-462">src</a></p>
+<p><code>readRecord</code> は 160 行以上ある巨大な関数で、実際に csv を読み取る実装がほぼ全て含まれている。小文字で始まっているので、この関数をパッケージ外から呼ぶことはできない。つまり、パッケージ内部でのみ使われている。全部読んでいくのはしんどいが、コメントを追っていけば処理の流れはわかりやすい。</p>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=293-296">L293-296</a> 区切り文字とコメントに使う文字は異なる文字でなければならない。</p>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=297-315">L297-315</a>: <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=246-277">readLine</a> で bufio の ReadSlice を呼び、区切り文字までのバイト列を読み込む。このとき <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=278-285">lengNL</a> と <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=286-291">nextRune</a> を使って行頭にコメントがあるレコードや空のレコードを読み飛ばしている。</p>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=316-433">L316-433</a>: 読み込んだレコードに対して、 Reader 構造体のフィールドに応じた処理をしていく。このときレコードの中身は Reader 構造体の <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=158-162;bpv=0;bpt=1">recordBuffer</a> フィールドにまとめて <code>[]byte</code> で書き込まれ、各フィールド終了位置のインデックスは <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=164-166;bpv=0;bpt=1">fieldIndexes</a> に <code>[]int</code> で、どのバイトまで読んだかは <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=168-170">fieldPositions</a> に行と列をそれぞれ int で持つ type <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=223-226">position</a> のスライスとして書き込まれる。</p>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=434-447">L434-447</a>: recordBuffer への読み込みが一通り終わったら、それを fieldIndexes に記録したインデックス毎に区切って <code>[]string</code> に変換する。</p>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=448-460">L448-460</a>: 最後に Reader 構造体の FieldsPerRecord が正の数であるときに各レコードのフィールド数が同じかどうかをチェックする。デフォルト値は最初に読み取ったレコードのフィールド数となる。読み取り前に負の値を設定しておけばこのフィールド数チェックを迂回できる。</p>
+<p>この関数で <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=325;bpv=0;bpt=1">L325</a> 以降のような長い for 文を書くときにラベルをつけて break や continue できるのを知った。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">parseField:</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">for</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// 数十行のクソ長い処理</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">break</span><span style="color: #E1E4E8"> parseField</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// 数十行のクソ長い処理</span></span>
+<span class="line"><span style="color: #E1E4E8">      </span><span style="color: #F97583">continue</span><span style="color: #E1E4E8"> parseField</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span></code></pre>
+<p>ループの行数が多くなると <code>break</code> や <code>continue</code> が指す先が分かりにくくなるので、これは便利そう。</p>
+<h3 id="writergo">writer.go</h3>
+<p>reader.go に比べると writer.go は行数も半分以下で読みやすい。</p>
+<h4 id="type-writer"><a href="https://pkg.go.dev/encoding/csv#Writer">type Writer</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=15-34;bpv=0;bpt=1">src</a></p>
+<p>Reader と同様に Comma フィールドで区切り文字を書き換えることができる。UseCRLF が true の場合、Writer は各出力行の最後に <code>\n</code> の代わりに <code>\rn</code> を出力する。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Writer</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">struct</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">	Comma   </span><span style="color: #F97583">rune</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// Field delimiter (set to ',' by NewWriter)</span></span>
+<span class="line"><span style="color: #E1E4E8">	UseCRLF </span><span style="color: #F97583">bool</span><span style="color: #E1E4E8"> </span><span style="color: #6A737D">// True to use \r\n as the line terminator</span></span>
+<span class="line"><span style="color: #E1E4E8">	w       </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">bufio.Writer</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>注意点として、 Writer を使って CSV に書き込んだ後に Flush() 関数を呼ばなければならない。</p>
+<p>詳しくは <a href="https://pkg.go.dev/encoding/csv#example-Writer">example</a> を参照。</p>
+<h4 id="newwriter"><a href="https://pkg.go.dev/encoding/csv#NewWriter">NewWriter()</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=36-42">src</a></p>
+<p>io.Writer インターフェイスを満たす引数を受け取って Writer 構造体を返す関数。この引数が Write する先になるので、 <code>os.Stdout</code> を指定すれば標準出力できる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// NewWriter returns a new Writer that writes to w.</span></span>
+<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">NewWriter</span><span style="color: #E1E4E8">(w io.Writer) </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">Writer {</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8">Writer{</span></span>
+<span class="line"><span style="color: #E1E4E8">		Comma: </span><span style="color: #9ECBFF">'</span><span style="color: #79B8FF">,</span><span style="color: #9ECBFF">'</span><span style="color: #E1E4E8">,</span></span>
+<span class="line"><span style="color: #E1E4E8">		w:     bufio.</span><span style="color: #79B8FF">NewWriter</span><span style="color: #E1E4E8">(w),</span></span>
+<span class="line"><span style="color: #E1E4E8">	}</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<h4 id="writerwrite"><a href="https://pkg.go.dev/encoding/csv#Writer.Write">(*Writer).Write()</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=44-119">src</a></p>
+<p>CSV のレコード 1 行（つまり各フィールドのスライス）を <code>[]string</code> で受け取り、フィールドの数だけループして Writer 構造体が示すバッファに書き込む関数。</p>
+<p>次の順序で処理する。</p>
+<ul>
+<li><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=60-67">L60-67</a>: 引用符で囲む必要があるかどうかをチェックする
+<ul>
+<li>必要なければそのまま書いて次のフィールドへ continue</li>
+</ul>
+</li>
+<li><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=69-71">L69-71</a>: 引用符が必要な場合はまず最初の <code>"</code> を書く</li>
+<li><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=72-111">L72-111</a>: フィールドの長さが 0 でなければ特殊文字（改行 <code>\r</code> <code>\n</code> と引用符 <code>"</code>）を数える
+<ul>
+<li>特殊文字の中身と Writer 構造体の UseCRLF フィールドの設定に応じて特殊文字を書き込む
+<ul>
+<li>例えば UseCRLF が true なら、 <code>\n</code> に対して <code>\r\n</code> を書く</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=113-117">L113-117</a>: UseCRLF が true なら各レコードの末尾に <code>\r\n</code> を、 false なら <code>\n</code> を書く</li>
+</ul>
+<p>実際に Write を使って CSV に書き込むコードは以下のようになる。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> (</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">encoding/csv</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">log</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color: #E1E4E8">	</span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">os</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color: #E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">  records </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> [][]</span><span style="color: #F97583">string</span><span style="color: #E1E4E8">{</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span><span style="color: #9ECBFF">"first_name"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"last_name"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"username"</span><span style="color: #E1E4E8">},</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span><span style="color: #9ECBFF">"Rob"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"Pike"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"rob"</span><span style="color: #E1E4E8">},</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span><span style="color: #9ECBFF">"Ken"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"Thompson"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"ken"</span><span style="color: #E1E4E8">},</span></span>
+<span class="line"><span style="color: #E1E4E8">    {</span><span style="color: #9ECBFF">"Robert"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"Griesemer"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"gri"</span><span style="color: #E1E4E8">},</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  file, err </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> os.</span><span style="color: #79B8FF">Create</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"users.csv"</span><span style="color: #E1E4E8">) </span><span style="color: #6A737D">// CSV のファイル名</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  	log.</span><span style="color: #79B8FF">Fatal</span><span style="color: #E1E4E8">(err)</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  csvWriter </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> csv.</span><span style="color: #79B8FF">NewWriter</span><span style="color: #E1E4E8">(file)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">for</span><span style="color: #E1E4E8"> _, record </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">range</span><span style="color: #E1E4E8"> records {</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// ここで Writer 構造体のバッファにデータを書き込む</span></span>
+<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> csvWriter.</span><span style="color: #79B8FF">Write</span><span style="color: #E1E4E8">(record); err </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">      log.</span><span style="color: #79B8FF">Fatalln</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"error writing record to csv:"</span><span style="color: #E1E4E8">, err)</span></span>
+<span class="line"><span style="color: #E1E4E8">    }</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// バッファのデータを io.Writer （ここでは CSV ファイル）に書き込む関数</span></span>
+<span class="line"><span style="color: #E1E4E8">  csvWriter.</span><span style="color: #79B8FF">Flush</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> csvWriter.</span><span style="color: #79B8FF">Error</span><span style="color: #E1E4E8">(); err </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">    log.</span><span style="color: #79B8FF">Fatal</span><span style="color: #E1E4E8">(err)</span></span>
+<span class="line"><span style="color: #E1E4E8">  }</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>注意点として、（デバッガで動かすとすぐに分かるが）Write は内部的には bufio のバッファに入力をコピーしているだけなので、これを呼んだ後に後述の Flush を呼ばないと何も書き込まれない。</p>
+<p>bufio のコードを読む限りではバッファに空きがないときは Flush するようになっているようで、よくできた仕組みだと思った。</p>
+<h4 id="writerflush"><a href="https://pkg.go.dev/encoding/csv#Writer.Flush">(*Writer).Flush</a></h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=121-125">src</a></p>
+<p>encoding/csv の Write 関数は bufio のバッファに書き込む。これを io.Writer に渡すにはこの Flush 関数を呼ばなければならない。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #6A737D">// Flush writes any buffered data to the underlying io.Writer.</span></span>
+<span class="line"><span style="color: #6A737D">// To check if an error occurred during the Flush, call Error.</span></span>
+<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> (w </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">Writer) </span><span style="color: #B392F0">Flush</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">	w.w.</span><span style="color: #79B8FF">Flush</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>内部ではこのように <a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/bufio/bufio.go;l=621-643">bufio の Flush</a> を呼んでいるだけ。 bufio の方ではバッファと io.Writer を持つ構造体があって、それを使って io.Writer に書き込んでいる。</p>
+<p>繰り返しになるが Write を呼んだ後に Flush を呼ばないと書き込まれないので注意する。</p>
+<h4 id="fieldneedsquote">fieldNeedsQuote</h4>
+<p><a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/writer.go;l=145-181">src</a></p>
+<p>CSV のレコード中のフィールドを 1 つ受け取り、それが引用符で囲まれなければならないかどうかを bool で返す関数。Write 関数から呼び出される。小文字で始まっていることから分かるように、パッケージ内部でのみ使う。</p>
+<p>フィールドが以下の 5 通りのいずれかを満たすとき、この関数は <code>true</code> を返す。</p>
+<ul>
+<li>引用符 <code>"</code> を含む</li>
+<li>改行 <code>\r</code> もしくは <code>\n</code>を含む</li>
+<li>コンマ <code>,</code> 、または Writer 構造体の Comma フィールドで設定された区切り文字を含む</li>
+<li><code>\.</code></li>
+<li>スペースで始まる</li>
+</ul>
+<p>なお、空文字列に対しては <code>false</code> を返す。つまり、空文字列は引用符で囲まなくてもよい（Go 1.4 以降）。これは Excel や Google Sheets が CSV を作る際の挙動と合わせるため。</p>
+<h2 id="感想">感想</h2>
+<p>読んでみて非常に面白かったので感想を残しておく。</p>
+<p>Go に限らない一般的なプログラミング手法について、および Go の読み書きについて大変参考になった。</p>
+<h3 id="go-に限らない一般的なプログラミング手法">Go に限らない一般的なプログラミング手法</h3>
+<p>まず有用かつ単純なコメントが多いため、初めて読む人間にとっても関数や構造体の振る舞いが分かりやすい。</p>
+<p><a href="https://lyohe.github.io/2022-05-21-readable-code/">最近リーダブルコードを読んだ</a>のだが、 encoding/csv のコメントを読んでいて「これリーダブルコードじゃん」と思った。むしろリーダブルコードがプログラマーの経験知をまとめた著作なので、順序としては逆かもしれない。皆さんもぜひ読んでみてください。</p>
+<p>また、関数の分割方法についても参考になった。encoding/csv ではパッケージの利用者が呼び出す関数はせいぜい数行で、それらの具体的な処理の大部分は内部でしか使わない関数に切り分けられている。例えば RFC に沿って CSV を読む処理の実装はほぼ <code>readLine</code> という巨大な関数に書かれている。</p>
+<p>Go では名前が大文字で始まる関数はパッケージ外部から呼び出すことができ、小文字から始まる関数は外部から呼び出せない。この仕様は Go 独特だが、他の言語にも違う記法で同等のことを実現する仕組みはあると思う。利用者が詳しく知る必要がない内部実装を <code>readRecord</code> など内部でのみ使う関数にまとめておいて、大文字で始まるつまり外部から使える関数では<strong>それを呼び出す状況や引数をコントロールする</strong>というのは、プログラムを読み書きしやすくする上で非常に合理的だと思った。</p>
+<p>例えば Read 関数では Reader 構造体の ReuseRecord フィールドの値によって readRecord を呼び出す引数を変えている（<a href="https://cs.opensource.google/go/go/+/3474cd4eee82ac442618391f8bc4a70d7b1cb65a:src/encoding/csv/reader.go;l=184-200">src</a>）。</p>
+<p>これもリーダブルコードの「コードの再構成」で読んだ話に近い。プロとして長年プログラミングをやっている人にとっては当然のことかもしれないが、こうすると読みやすくなるな〜と実感できて良かった。</p>
+<h3 id="go-の書き方">Go の書き方</h3>
+<p>Go の特徴？として、エラー処理が挙げられる。</p>
+<p>Go では（例えば Java や JavaScript 等で可能なように）例外を投げて try-catch で捕捉するようなエラー処理をせず、原則的には関数から複数の値（処理結果と error）を返すように実装し、呼び出し側で以下のように if 文で分岐することでエラー処理をすることが多い。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">line, err </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> csvReader.</span><span style="color: #79B8FF">Read</span><span style="color: #E1E4E8">()</span></span>
+<span class="line"><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8"> {</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// Read() は正常に処理を行ったとき err が nil になる</span></span>
+<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #6A737D">// この条件分岐では err が nil ではない、つまりエラーがあるときの処理を書く</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>これはコードが冗長になる一方で、メリットもある。<a href="https://go.dev/doc/faq#exceptions">Go の Frequently Asked Questions (FAQ) によれば</a>、</p>
+<ul>
+<li>例外を制御機構に結びつけるとコードが複雑になってしまうので、それを防ぐ</li>
+<li>エラー処理すべきところを例外で処理させないよう促す</li>
+</ul>
+<p>という意図があるようだ。</p>
+<blockquote>
+<p>We believe that coupling exceptions to a control structure, as in the try-catch-finally idiom, results in convoluted code. It also tends to encourage programmers to label too many ordinary errors, such as failing to open a file, as exceptional.</p>
+</blockquote>
+<p>他にも開発者がエラー処理について書いた記事として以下が挙げられる。</p>
+<p><a href="https://go.dev/blog/error-handling-and-go">https://go.dev/blog/error-handling-and-go</a></p>
+<blockquote>
+<p>In Go, error handling is important. The language’s design and conventions encourage you to explicitly check for errors where they occur (as distinct from the convention in other languages of throwing exceptions and sometimes catching them).</p>
+</blockquote>
+<p>過去には様々な議論があると思うので、Go の特徴的な仕様に触れる度に深掘りしていきたい。</p>
+<p>とにかく、 Go では処理結果と error を返して呼び出し側で責任持ってその処理をする、プロセス自体は止めない、止める場合は panic を使うがあくまで例外的な状況、という方針が推奨されている。</p>
+<h2 id="次の課題">次の課題</h2>
+<p>全銀の総合振込フォーマットを検証するパッケージとそれを使ったコマンドラインツールを作る。</p>
+<p>自分もプログラミングの傍ら？経理をやっていて、普段は過去のデータをコピペして作っているのだが、より頭を使わずに処理したいため。</p>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

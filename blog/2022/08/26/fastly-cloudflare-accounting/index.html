@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2022/08/26/fastly-cloudflare-accounting/">
+
+<!-- Primary Meta Tags -->
+<title>Fastly と Cloudflare の財務数値比較メモ</title>
+<meta name="title" content="Fastly と Cloudflare の財務数値比較メモ">
+<meta name="description" content="Fastly と Cloudflare の財務数値比較メモ">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2022/08/26/fastly-cloudflare-accounting/">
+<meta property="og:title" content="Fastly と Cloudflare の財務数値比較メモ">
+<meta property="og:description" content="Fastly と Cloudflare の財務数値比較メモ">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2022/08/26/fastly-cloudflare-accounting/">
+<meta property="twitter:title" content="Fastly と Cloudflare の財務数値比較メモ">
+<meta property="twitter:description" content="Fastly と Cloudflare の財務数値比較メモ">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/blog-placeholder-2.jpg" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2022-08-25T15:00:00.000Z">
+	Aug 26, 2022
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">Fastly と Cloudflare の財務数値比較メモ</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<p>これは <a href="https://www.fastly.com/">Fastly</a> と <a href="https://www.cloudflare.com/">Cloudflare</a> の財務諸表を読んで数字を比較する<strong>だけ</strong>の記事です。機能や仕様については<strong>一切触れません</strong>。</p>
+<p>金額や数量は 1M = 1,000,000, 1K = 1,000 と表記します。私は財務の専門家ではないので記述に誤りがあったらすみません。</p>
+<h2 id="情報源">情報源</h2>
+<h3 id="fastly">Fastly</h3>
+<ul>
+<li><a href="https://cloudflare.net/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15620186">Form 10-K FY2021/12</a></li>
+<li><a href="https://cloudflare.net/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15993242">Form 10-Q FY2022/12 Q2</a></li>
+<li><a href="https://investors.fastly.com/files/doc_financials/2022/q2/FSLY_Corrected_Transcript-(1).pdf">Fastly Q2 2022 Earnings Call Transcript</a></li>
+</ul>
+<h3 id="cloudflare">Cloudflare</h3>
+<ul>
+<li><a href="https://investors.fastly.com/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15621389">Form 10-K FY2021/12</a></li>
+<li><a href="https://investors.fastly.com/financials/sec-filings/sec-filings-details/default.aspx?FilingId=15994503">Form 10-Q FY2022/12 Q2</a></li>
+<li><a href="https://cloudflare.net/files/doc_downloads/Presentations/2022/05/Cloudflare-Investor-Day-2022-%5BPublished-Deck%5D-FINAL.pdf">Cloudflare Investor Day 2022 - CFO Session Slides</a></li>
+<li><a href="https://cloudflare.net/files/doc_financials/2022/q2/Q2-2022-Investor-Presentation.pdf">Cloudflare Q2 2022 Investor Presentation</a></li>
+<li><a href="https://cloudflare.net/files/doc_financials/2022/q2/CORRECTED-TRANSCRIPT_-Cloudflare-Inc.(NET-US)-Q2-2022-Earnings-Call-4-August-2022-5_00-PM-ET.pdf">Cloudflare Q2 2022 Earnings Call Transcript</a></li>
+</ul>
+<h2 id="最近の決算概要">最近の決算概要</h2>
+<p>両社の最近の決算から損益、財政状態、キャッシュ・フローの状況を比較する。</p>
+<h3 id="損益">損益</h3>
+<p><strong>FY2021/12 の売上と当期純損失</strong></p>
+<ul>
+<li>Fastly:
+<ul>
+<li>売上: $354M - YoY +21.8%</li>
+<li>損失: $(222M)</li>
+</ul>
+</li>
+<li>Cloudflare:
+<ul>
+<li>売上: $656M - YoY +52.3%</li>
+<li>損失: $(260M)</li>
+</ul>
+</li>
+</ul>
+<p><strong>FY2022/12 Q2 （2022 年 1 月 ~ 6 月）の売上と当期純損失</strong></p>
+<ul>
+<li>Fastly:
+<ul>
+<li>売上: $204M - YoY +20.6%</li>
+<li>損失: $(80M)</li>
+</ul>
+</li>
+<li>Cloudflare:
+<ul>
+<li>売上: $446M - YoY +53.8%</li>
+<li>損失: $(104M)</li>
+</ul>
+</li>
+</ul>
+<p>どちらも成長しているが、特に Cloudflare の成長率が高い。</p>
+<p>Cloudflare は FY2016 - FY2021 の 6 年間で年平均 +51% の驚異的な成長を続けている。特に年間利用料 $100K 以上の大口顧客への売上が伸びていて、 FY2018 では $62M だったのが FY2022 には $492M となる見込み（冒頭の Cloudflare Investor Day 2022 CFO Session Slides を参照）。</p>
+<h4 id="dollar-based-net-retention-rate">Dollar-based Net Retention Rate</h4>
+<p>これらの売上の差はどこから生じているのか確かめるために、既存顧客からの売上増加率について比較してみる。両社で定義が異なるのだが、参考までに。</p>
+<p>Fastly は前年同月に有料顧客だった顧客の売上を決算月と比較して算出しており、Cloudflare は決算期の 4 四半期前時点で有料顧客だった顧客の売上を四半期で比較して算出している。両社ともその年にお金を払い初めた新規有料顧客を含まず、前年同期の顧客による解約を含んでいる。</p>
+<p>つまり、その年に新規顧客が増えても Retention Rate には加算されないが、既存顧客に解約されれば Retention Rate は減る。</p>
+<p><strong>FY2021/12 の Net Retention</strong></p>
+<ul>
+<li>Fastly: 106.6%</li>
+<li>Cloudflare: 125%</li>
+</ul>
+<p><strong>FY2022/12 Q2 の Net Retention</strong></p>
+<ul>
+<li>Fastly: 127.5%</li>
+<li>Cloudflare: 126%</li>
+</ul>
+<p>Fastly と Cloudflare の売上成長率には大きな差があるが、FY2021 では Net Retention に大きな差がありこれがそのまま成長率に影響していそうに見える。しかし、Fastly は LTM NRR という 12 ヶ月間同士で算出した NRR も開示しているが、これは FY2021/12 で 117.6% とそれ程凹んでんでいないので、たまたま 2021 年 12 月に既存顧客の利用料が伸び悩んだのかもしれない。解約率は 1% 未満とのことだが、 Fastly は大口顧客への依存度が高いので解約の影響もあるかもしれない。</p>
+<p>Fastly の FY2021 の LTM NRR や両社の FY2022/Q2 の Net Retention を見る限りでは既存顧客からの売上増加率に大きな差は見受けられないので、実質的には新規顧客からの売上によって成長率に大きな差が生じていると言えそう。</p>
+<h3 id="財政状態">財政状態</h3>
+<p><strong>FY2021/12 の総資産</strong></p>
+<ul>
+<li>Fastly: $2,159M</li>
+<li>Cloudflare: $2,372M</li>
+</ul>
+<p><strong>FY2022/12 Q2 の総資産</strong></p>
+<ul>
+<li>Fastly: $1,932M</li>
+<li>Cloudflare: $2,468M</li>
+</ul>
+<p>Fastly は<a href="https://lyohe.github.io/2021-07-11-fastly-2/">以前の記事</a>で取り上げたように大規模な買収を行っており Goodwill（のれん）が資産の 3 割ほどを占めている。一方の Cloudflare の資産は 9 割が現預金や短期売買目的の証券で買収は行っておらず、非常に単純な BS になっている。</p>
+<p>Fastly は FY2021 → FY2022/Q2 で総資産が減っているが、これは固定資産として計上していた証券 $243M を売却したため。</p>
+<h3 id="営業キャッシュフロー">営業キャッシュ・フロー</h3>
+<p><strong>FY2021/12 の営業キャッシュ・フロー</strong></p>
+<ul>
+<li>Fastly: $(38M)</li>
+<li>Cloudflare: $64M</li>
+</ul>
+<p><strong>FY2022/12 Q2 の営業キャッシュ・フロー</strong></p>
+<ul>
+<li>Fastly: $(29M)</li>
+<li>Cloudflare: $2M</li>
+</ul>
+<p>FY2021 の損益で Fastly は $(222M)、 Cloudflare は $(260M) の赤字を計上しているが、営業キャッシュ・フローはそれほど大きなマイナスにはなっていない。これは両社とも減価償却や株式報酬などキャッシュアウトしない費用が多いため。株式報酬については後述する。</p>
+<h2 id="convertible-notes-での資金調達">Convertible Notes での資金調達</h2>
+<p>資金調達に関しては、両社とも Convertible Notes つまり転換社債を利用している。</p>
+<p>両社の投資キャッシュ・フローを見ると、短期で売買目的の証券をやりくりしてるだけで大きな動きはない。Fastly は<a href="https://lyohe.github.io/2021-07-11-fastly-2/">以前の記事</a>で取り上げた通り FY2020 に Signal Sciences を買収しており、 $200M の現金を支出している（残り $550M は Fastly の普通株式）。</p>
+<p>財務キャッシュ・フローを見ると FY2021 に Fastly は $930M を、Cloudflare は $1,293M を転換社債で調達している。私は財務の専門家ではないのだが、米国の急成長中のテック企業は特に上場後に株式より転換社債で調達する方が多い気がする。</p>
+<p>転換社債は債権として額面で償還を受けることができ、株価が転換価格より上昇すればその分だけ時価も上がる。また、株価のボラティリティ等の状況にもよるが利息がつくこともある。投資家からすると、株価下落のリスクを抑えつつ株価が上昇したり利息があればその分だけ利益を得ることができるというメリットがある。当然デフォルトのリスクはある。</p>
+<p>一方で、発行体である会社からすると転換価格を現状の株価より高い水準に設定することができ、実質的に<strong>将来の企業価値で現在の資金を調達する</strong>のと同等の効果を得られる。もちろん転換価格が高過ぎて投資家にとって現実的でなければ転換オプションの価値は無いので、利息など魅力的な条件がついてなければ誰も買ってくれないだろう。また、株価が下落すれば転換はされないので、その場合は実質的にただの借入となる。</p>
+<p>成長中の会社はお金があれば成長に投資するため基本的に赤字決算が続くので、金融機関から借入をする場合はリスクに見合った高い金利を負担しなければならない。そのリスクとリターンを投資家と分け合いながら成長に必要な資金を調達できるのが転換社債のメリットと言える。</p>
+<p>これだけ見るととても便利で何故日本のベンチャーやスタートアップと呼ばれる会社で流行ってないのか分からないのだが、自分の知らないところで流行ってるだけかもしれない。</p>
+<h2 id="株式報酬-stock-based-compensation">株式報酬 Stock-based Compensation</h2>
+<p>両社とも共通して多大な株式報酬を役員や従業員に支払っている。</p>
+<p><strong>FY2021/12 の株式報酬</strong></p>
+<ul>
+<li>Fastly: $140M</li>
+<li>Cloudflare: $90M</li>
+</ul>
+<p><strong>FY2022/12 Q2 の株式報酬</strong></p>
+<ul>
+<li>Fastly: $75M</li>
+<li>Cloudflare: $88M</li>
+</ul>
+<p>Fastly は販管費の約 3 割、 Cloudflare では約 2 割を株式報酬が占めている。これは会計上では費用として計上されるが現金支出を伴わないため、キャッシュ・フロー️計算書上はプラスの効果がある。報酬の受け取り側からするとボーナスをもらってそのお金で会社の株を買うのと同じ影響がある。この株式には一般的に譲渡制限が付けられていて、税制にもよるが基本的にはその譲渡制限が解除された時点の時価で所得税が計算される。</p>
+<p>RSU 等の株式報酬を活用することで、優秀な人間を高い報酬で雇いつつ現金支出を減らすことができ、その分だけ資金を別の成長投資に注ぎ込むことができる。当然だが株価が下落傾向にあればその分だけ報酬の魅力は薄れるので、いいことばかりではない。</p>
+<h3 id="従業員数">従業員数</h3>
+<p><strong>FY2021 末時点の従業員数</strong></p>
+<ul>
+<li>Fastly: 976 人（うち 188 人が米国外）</li>
+<li>Cloudflare: 2,440 人（うち 975 人が米国外）</li>
+</ul>
+<p>従業員 1 人あたりの株式報酬について。</p>
+<p>Fastly は 2021 年 12 月末時点の従業員が 976 人であり、前述の通りこの年の株式報酬だけで $140M を支払っているので単純に一人当たりに換算すると日本円で平均 2,000 万円程度になる。もちろん全員がこれだけ貰えるということではなく、決算を見ると Cost of revenue として計上されるカスタマーサポートやインフラの管理人員の方々はほとんど貰えていないようだ（人数が少ない可能性もある）。</p>
+<p>FY2021 の Fastly の原価、販管費の内訳は次の通り。</p>
+<ul>
+<li>Cost of revenue: $167M</li>
+<li>Research and development: $126M</li>
+<li>Sales and marketing: $152M</li>
+<li>General and administrative: $126M</li>
+</ul>
+<p>株式報酬の内訳は次の通り。</p>
+<ul>
+<li>Cost of revenue: $7M</li>
+<li>Research and development: $47M</li>
+<li>Sales and marketing: $31M</li>
+<li>General and administrative: $55M</li>
+</ul>
+<p>それぞれに含まれる人件費は次の通り。</p>
+<ul>
+<li>Cost of revenue: サーバーやネットワーク機器の調査・設計・配備・保守を行うインフラチーム、顧客向けの技術サポートを行うカスタマーサポート</li>
+<li>Research and development: エッジクラウドプラットフォームの設計・開発・信頼性担保に責任を負う開発者</li>
+<li>Sales and marketing: 営業とマーケティングのチーム</li>
+<li>General and administrative: 経理や法務、人事など管理部門 + 役員</li>
+</ul>
+<p>Research and development の費用に属する人員の数だけ公開されている（321 名）。</p>
+<h2 id="株価が会社に与える影響">株価が会社に与える影響</h2>
+<p>役員や従業員に株式で多額の報酬を支払っている場合、株価の上昇や下落が彼らに大きな影響を与えることになる。</p>
+<p>株式報酬にも様々な形があるが、一般的な RSU なら譲渡制限が解除された時点で給与所得として課税されるため解除後に株価が下落すると「キャピタルゲインをほぼ得られないのに税金をたくさん払わなければならない」という状況が生まれる可能性がある。一方で株価が上昇していけば所得が多いほど（税制にもよるが）給与所得より株式譲渡所得の方が税率が低いので、多大なキャピタルゲインを得つつ同額の給与所得より課税を抑えることができる。</p>
+<p>また、株価の上昇や下落は資金調達にも大きく影響する。</p>
+<p>転換社債であれば、株価が上昇していれば実質的に未来の企業価値で資金を調達できるので、より希薄化を抑えつつ成長に投資できる。また、新たに転換社債で資金を調達する際も転換価格や利息などの条件を会社や既存株主の側に有利に設定することもできる。一方で、株価が下落していけばより魅力的な条件をつけないと誰も社債を買ってくれないだろう。新株発行して調達しようにも既存株主はより大きな希薄化を受け入れなければならなくなる。</p>
+<p>このように会社が報酬や資金調達において株価に大きく依存している場合、株価が中長期的に下落する傾向に入ると成長のエンジンが失われてしまうので経営陣の刷新やレイオフ、IR 等で早めに市場に対してアピールしつつ成長の見込みや実績を出していくことが重要になると考えられる。</p>
+<h2 id="客層の違い">客層の違い</h2>
+<h3 id="ar-annualized-revenue--100k-の顧客数と売上">AR: Annualized Revenue > $100K 　の顧客数と売上</h3>
+<p>両社で定義が異なるので単純に比較はできないのだが、参考までに。</p>
+<p>Fastly では過去 12 ヶ月の売上が $100K を超えている顧客を、Cloudflare では顧客ごとに直近四半期の売上を 4 倍して $100K を超えている顧客を数えている。</p>
+<p><strong>FY2021/12 の AR > $100K の顧客数</strong></p>
+<ul>
+<li>Fastly: 445 社 - YoY +18%</li>
+<li>Cloudflare: 1,416 社 - YoY +71%</li>
+</ul>
+<p><strong>FY2021/12 の AR > $100K の顧客からの売上</strong></p>
+<ul>
+<li>Fastly: $313M - 売上全体の 88%</li>
+<li>Cloudflare: $353M - 売上全体の 54%</li>
+</ul>
+<p><strong>FY2022/12 Q2 時点の AR > $100K の顧客数</strong></p>
+<ul>
+<li>Fastly: 471 社 - YoY +15%</li>
+<li>Cloudflare: 1,749 社 - YoY +61%</li>
+</ul>
+<p><strong>FY2022/12 Q2 時点の AR > $100K の顧客からの売上</strong></p>
+<ul>
+<li>Fastly: $182M - 売上全体の 89%</li>
+<li>Cloudflare: 開示なし？ CEO の発言によれば 60% 近くとのこと</li>
+</ul>
+<p>Fastly は AR > $100K の顧客からの売上が全体の 9 割近くを占めている。FY2021 では上位 10 社の売上が全体の 33% 、FY2022/Q2 では 34% を占め、（おそらく Salesforce や PayPal などの）大口顧客への依存度が非常に高い。Q2 の Earnings Call によれば AR > $100K の顧客は平均して $730K を支出しているそうだ。一方の Cloudflare は上位 100 社で全体の 29% なので、Fastly と比べると分散している。Cloudflare は無料枠がたくさんあるので小口の利用でも始めやすいという事情もあるのかもしれない。</p>
+<p>しかし、 Cloudflare は近年急速に AR > $100K の顧客数及び売上に占める割合が増加している。FY2022/12 Q2 については Earnings Call の Transcript を見たところ CEO が次のような発言をしており、FY2021 の 54% からさらに上昇しているようだ。</p>
+<blockquote>
+<p>We added a record 212 new large customers, those paying us more than $100,000 per year and now have 1,749 customers over this threshold. These large customers now represent 60% of our revenue, up from 50% six quarters ago. This trend illustrates how large, established enterprises increasingly formed the foundation of Cloudflare’s business. In fact, today, 29% of the Fortune 1000 are already paying Cloudflare customers, a nearly threefold increase over when we went public less than three years ago.</p>
+</blockquote>
+<h3 id="どの地域で売れているか">どの地域で売れているか</h3>
+<p>（）内は売上全体に占めるその地域の割合</p>
+<p>FY2021/12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>region</th><th align="left">Fastly</th><th align="left">Cloudflare</th></tr></thead><tbody><tr><td>United States</td><td align="left">$ 260 M (74%)</td><td align="left">$ 342 M (52%)</td></tr><tr><td>Asia Pacific</td><td align="left">$ 39 M (11%)</td><td align="left">$ 96 M (15%)</td></tr><tr><td>Europe</td><td align="left">$ 35 M (10%)</td><td align="left">$ 172 M (26%)</td></tr><tr><td>All other countries</td><td align="left">$ 19 M (5%)</td><td align="left">$ 45 M (7%)</td></tr><tr><td>Total revenue</td><td align="left">$ 354 M</td><td align="left">$ 656 M</td></tr></tbody></table>
+<p>FY2022/12 Q2</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>region</th><th align="left">Fastly</th><th align="left">Cloudflare</th></tr></thead><tbody><tr><td>United States</td><td align="left">$ 151 M (74%)</td><td align="left">$ 235 M (53%)</td></tr><tr><td>Asia Pacific</td><td align="left">$ 24 M (12%)</td><td align="left">$ 62 M (14%)</td></tr><tr><td>Europe</td><td align="left">$ 18 M (9%)</td><td align="left">$ 116 M (26%)</td></tr><tr><td>All other countries</td><td align="left">$ 10 M (5%)</td><td align="left">$ 31 M (7%)</td></tr><tr><td>Total revenue</td><td align="left">$ 204 M</td><td align="left">$ 446 M</td></tr></tbody></table>
+<p>Fastly と比べて Cloudflare はヨーロッパの売上割合が高く、全体の 1/4 を占めている。</p>
+<p>Asia Pacific ではどちらも伸び悩んでいるようだ。Fastly は FY2020 に Asia Pacific での売上が $44M だったのが FY2021 では $39M に減少しており、 Cloudflare は売上こそ伸びているが売上全体に占める構成比は FY2019 の 19% から FY2021 では 15% に下落している。</p>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="astro-BVZIHDZO">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2021/09/12/rails-tutorial/">
+
+<!-- Primary Meta Tags -->
+<title>ゼロから Rails チュートリアルをやってみた話</title>
+<meta name="title" content="ゼロから Rails チュートリアルをやってみた話">
+<meta name="description" content="ゼロから Rails チュートリアルをやってみた話">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2021/09/12/rails-tutorial/">
+<meta property="og:title" content="ゼロから Rails チュートリアルをやってみた話">
+<meta property="og:description" content="ゼロから Rails チュートリアルをやってみた話">
+<meta property="og:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2021/09/12/rails-tutorial/">
+<meta property="twitter:title" content="ゼロから Rails チュートリアルをやってみた話">
+<meta property="twitter:description" content="ゼロから Rails チュートリアルをやってみた話">
+<meta property="twitter:image" content="https://lyohe.github.io/blog-placeholder-1.jpg">
+		
+	<link rel="stylesheet" href="/_astro/about.ebe30d9f.css" />
+<link rel="stylesheet" href="/_astro/about.ee60a110.css" /></head>
+
+	<body class="astro-BVZIHDZO">
+		<header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+		<main class="astro-BVZIHDZO">
+			<article class="astro-BVZIHDZO">
+				<div class="hero-image astro-BVZIHDZO">
+					<img width="1020" height="510" src="/2021/09/12/rails-example.png" alt="" class="astro-BVZIHDZO">
+				</div>
+				<div class="prose astro-BVZIHDZO">
+					<div class="title astro-BVZIHDZO">
+						<div class="date astro-BVZIHDZO">
+							<time datetime="2021-09-11T15:00:00.000Z">
+	Sep 12, 2021
+</time>
+							
+						</div>
+						<h1 class="astro-BVZIHDZO">ゼロから Rails チュートリアルをやってみた話</h1>
+						<hr class="astro-BVZIHDZO">
+					</div>
+					
+	<h2 id="三行で要約">三行で要約</h2>
+<ul>
+<li>「<a href="https://railstutorial.jp/chapters/beginning?version=6.0">Ruby on Rails チュートリアル - プロダクト開発の０ → １を学ぼう</a>」をやってみた</li>
+<li>Rails 便利そう</li>
+<li>Ruby をある程度やってから Rails チュートリアルを始めましょう</li>
+</ul>
+<h2 id="rails-チュートリアルについて">Rails チュートリアルについて</h2>
+<p><a href="https://rubyonrails.org/">Ruby on Rails</a> はプログラミング言語 Ruby を使って Web アプリケーションを作るためのフレームワーク。</p>
+<p>Rails チュートリアルは Ruby on Rails の初心者向けに Twitter ライクな Web アプリケーションを一から作るという基本無料（最新版は 4 章から有料: 980 円+消費税）の教材で、毎日 1<del>2 時間 + 休日を丸々使って 2 週間</del>1 ヶ月かかる程度の分量がある<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>。</p>
+<p>最後までやるとこんな感じの Web アプリケーションができる。</p>
+<p><img src="/2021/09/12/rails-example.png" alt="rails-example"></p>
+<h2 id="背景">背景</h2>
+<p>プログラミングを始めた当初から TypeScript + Node.js を使っているのだが、 Web アプリケーションの開発に携わる身として全く Ruby on Rails に触れたことが無いのもどうなんだ？？と感じていた。そんなときとある筋から勧められたこともあって、 Rails チュートリアルを一通りやることにした。</p>
+<p>事前に Ruby を書いた経験は完全にゼロ。結果としては、 Ruby 経験なしで取り組むのは無謀だった。仕事でアプリケーションを作るレベルには全く達してはいないが、Rails がどういうものか雰囲気はつかめたと思う。</p>
+<h2 id="結論から-自分の-ruby-on-rails-に対する印象">結論から: 自分の Ruby on Rails に対する印象</h2>
+<p>まず明らかに優れている点として、機能を作って一通り動くまでが異常に早い。早いというより速い。雑な表現をすると「Web アプリケーション開発 RTA」のような存在だと思った。</p>
+<p>自分なりに考えた理由としては、</p>
+<ul>
+<li><strong>そもそも Ruby 自体が記述量を減らす工夫をいろいろしていそう</strong>
+<ul>
+<li>作者の思想？</li>
+</ul>
+</li>
+<li><strong>Rails がコマンドで自動生成するコードや組み込みの関数、特殊な記法でコードを書く量が大幅に減る</strong>
+<ul>
+<li>第 2 章を除いて <code>scaffold</code> を使わないが、それでも早い</li>
+<li>Web アプリケーションフレームワークって何なんだ？と不思議に思っていたが、以下の要素を集めたものということが分かってきた
+<ul>
+<li>ORM</li>
+<li>ファイルをいい感じに連結してまとめるためのモジュールバンドラー</li>
+<li>便利なヘルパー関数やクラスを集めたライブラリ</li>
+<li>ビューのテンプレート</li>
+<li>フレームワークの思想に沿った雛形のコードを自動生成したり定型的な作業（例えば migration 実行や seed 投入）を自動化するコマンド</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Rails ではアプリケーションを構成する概念が明確に定義され互いに密結合しているので、どこに何を書くべきかが明確</strong>
+<ul>
+<li>ビジネスロジックやデータの操作を行う関数は全てモデルに書く</li>
+<li>ルーティングでどのコントローラーを呼ぶかを決める</li>
+<li>コントローラーが権限の制御をしつつモデルを呼んでビジネスロジックやデータベースの操作を実行する</li>
+<li>ビューは erb で組み立て、コントローラーからパラメータを渡して描画する</li>
+</ul>
+</li>
+</ul>
+<p>というところがある。</p>
+<p>しかしながら、この早さは Ruby と Rails に慣れている人が使ってこその早さであって、初心者は Rails のやり方を理解して自分の手で実践するまでに苦労すると思う。よくいえば「魔法」みたいな存在。慣れていない人は恩恵を受けるのが難しいし、逆に Rails に慣れている人を何人か集めたら物凄い早さで Web アプリ作れそう。</p>
+<p>また、自分が気になった点として、モデルが DB のテーブル定義と 1:1 で対応（n:1 も可能？）していて、データの操作とビジネスロジックをふんだんに含みそうなところがある。これは欠点というか状況に応じて評価が変わる点で、コントローラーとモデル、ビューの関係がシンプルであれば特に困ることは無いと思う。</p>
+<p>チュートリアルで作る単純な Web アプリケーションのモデルでも結構いろいろ書かれている状態になる。</p>
+<p><img src="/2021/09/12/rails-model-code.png" alt="rails-model-code"></p>
+<p>あとフロントエンド周りは気になった。クライアントサイドで仮想的な DOM を使って必要に応じてサーバーから取得したデータを使って更新があった箇所だけ再レンダリングする、というやり方はあまり Rails には合わなさそうな気がする。 もちろん、やってる会社はたくさんあるだろうし不可能ということは無いだろうけど…</p>
+<p>結局のところは長所と短所は表裏一体でそれぞれをどう評価するかというだけの話かもしれない。経験者を数人集めてそれなりの機能を備えた Web アプリケーションを素早く作るのにはとても向いてそう。10 年以上にわたって多くの成功したスタートアップで使われてきた理由が分かった。<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup></p>
+<h2 id="要約">要約</h2>
+<p>第 1 章から第 14 章までの内容を一通り要約してみた。ちょっとだけ自分の感想が入っている。</p>
+<h3 id="第-1-章-ゼロからデプロイまで">第 1 章 ゼロからデプロイまで</h3>
+<p>Ruby on Rails の簡単な説明、環境設定、 Cloud9 や Git/GitHub など基本的なツールの使い方、サンプルのアプリケーションを Heroku にデプロイする方法などを教えてくれる。</p>
+<p>Rails Tutorial では Cloud9 という AWS のクラウド IDE を使っている。これは環境設定の手間を省いてミスを防ぐためらしい。私は自分が使い慣れている Visual Studio Code とターミナルで進めることにしたが、特に問題はなかった。</p>
+<p><code>rails new</code> で指定ディレクトリに簡単に Rails アプリケーションのスケルトンを作れるのは（create-react-app みたいで）とても便利だ。Rails 使ってる人からすると当たり前のことなのだろうが、 Web アプリケーションのディレクトリ構造を考えるのは面倒だし、これに沿ってやれ！！というのを強制された方が他人や他社のコードを読む上で楽そう。少なくとも Rails が向いているアプリケーションでは。</p>
+<p>なお、 rails new すると大量のディレクトリとファイルが生成されて初見では意味不明なのだが、デフォルトでどのディレクトリに何が格納されているかは本章内で説明されている。</p>
+<p>最後に何も機能がないシンプルな Web アプリを Heroku にデプロイしインターネットからアクセスできるようにする。 Heroku へのデプロイはアカウントを作って CLI からログインし Heroku にリポジトリを push するだけでよくて楽。<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup></p>
+<h3 id="第-2-章-toy-アプリケーション">第 2 章 Toy アプリケーション</h3>
+<p>ユーザーや投稿を作成したり削除したりするおもちゃ（Toy）のようなアプリケーションを作成しながら Rails の便利な機能を学ぶ。</p>
+<p>まずはデータモデルを考え、 <code>scaffold</code> を使ってデータを取得・操作するコードを自動生成する。これは短時間でアプリケーションを作るために非常に強力なツールだが、 Rails アプリケーションの初心者がこれを使うとアプリがどうやって動いているのか全く分からなくなってしまうそうなので第 3 章以降では一切使用しない。</p>
+<p><code>scaffold</code> では定義したデータモデルに沿って実際のデータを作成 / 更新 / 削除をするためのルーティング、 Model / View / Controller を自動生成する。例えばチュートリアル内で定義された User モデルについては、<code>config/routes.rb</code> で <code>/users</code> のルートが Users Controller の index に割り当てられており、 Controller はアクションを実行して View の .erb を呼びだし結果として生成された HTML をルーターに返す。</p>
+<p>また、 ActiveRecord を使った簡単なデータモデル同士の関連付けを学ぶ。</p>
+<p>このように、ブラウザから操作をしたときに Rails のそれぞれの部品が何をしているのかを簡単に解説してくれる。第 3 章以降はこの <code>scaffold</code> を使って自動生成されるコードを手動で実装したり穴を埋めていくことで Rails の使い方を理解していく。</p>
+<h3 id="第-3-章-ほぼ静的なページの作成">第 3 章 ほぼ静的なページの作成</h3>
+<p>静的なページの生成やそれに対する自動テストを実装する。</p>
+<p><code>rails generate HogeController fuga piyo</code> のように generate コマンド（逆は destroy コマンド）でルーティングや Controller, View を生成し、それを編集していく。</p>
+<p>さらに、アプリケーションが期待通り動作しているか確かめるために自動テストを追加する。まずは Controller のテストを書き、Model のテストや統合テストは別の章で行う。</p>
+<p>テストは「実行可能なドキュメント」ということができ、バグを発見しやすくなるため一度上達すれば確実に開発速度が上がる。<sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup></p>
+<p>Controller のテスト自体は rails generate コマンドの実行時に <code>/test/</code> 以下に自動生成されるので、これを変更していく。未実装のアクションをテストして故意に失敗させ、そのメッセージを読みながらテストや実装を修正していく。</p>
+<p>個人的にこの方法は仕様を理解するのに良いなと思っていて、アプリケーションが何がどうなってるのか分からない内は特にテストを失敗させて仕様を学んでいくことで効率よく学習できそうだと感じた。ドキュメントがあるならそっち読んだ方が早いけど。</p>
+<h3 id="第-4-章-rails-風味の-ruby">第 4 章 Rails 風味の Ruby</h3>
+<p>最新のチュートリアルは 4 章から有料だったので、少し古い ver 5.1 を読むことにした。とりあえずやってみて良さそうだったら有料版を買おうかなと考えていたが、気づいたら最終章までやってしまった。Rails 6 で古いチュートリアルを進めるとたまにテストが落ちるので注意。</p>
+<p>4 章では Rails で Web アプリケーションを開発する際によく登場する Ruby の機能、概念などを紹介している。コメント、文字列、オブジェクト、メソッドの定義、配列、ハッシュ（連想配列）とシンボル、クラスと継承など。</p>
+<p>印象的だったのはブロックを使ったイテレーションで、これを使うことで特定のデータの塊に対してコードを繰り返し実行することができる。同じような機能はほとんどのプログラミング言語に備わっていると思うけど、 Ruby のブロックはかなり簡潔に書ける気がする。
+<a href="https://docs.ruby-lang.org/ja/2.7.0/doc/spec=2fcall.html#block">https://docs.ruby-lang.org/ja/2.7.0/doc/spec=2fcall.html#block</a></p>
+<p>Ruby 書いたことなかったので役に立ったけど、本来は Ruby 書けるようになってから読むべきコンテンツなので今からやる人は別のところで Ruby を勉強してください。</p>
+<h3 id="第-5-章-レイアウトを作成する">第 5 章 レイアウトを作成する</h3>
+<p>アプリケーションに簡単なレイアウトや Bootstrap による CSS を追加していく。また、 <code>.html.erb</code> 内で使う Rails のヘルパー関数を紹介してくれる。</p>
+<p>本章では Rails のモジュールバンドラーである Asset Pipeline や、静的なページへのルーティングを追加してページから遷移するためのビューの書き方などが説明されている。</p>
+<p>新しい Rails 6 を使って古いチュートリアルを勧めている場合は途中の <code>javascript_include_tag</code> で <code>application.js</code> が無いよというエラーが出てくるが、 <code>javascript_pack_tag</code> に変えれば動く。
+<a href="https://qiita.com/yaaasuuu/items/1d29954fda1f5fb8fc27">https://qiita.com/yaaasuuu/items/1d29954fda1f5fb8fc27</a></p>
+<h3 id="第-6-章-ユーザーのモデルを作成する">第 6 章 ユーザーのモデルを作成する</h3>
+<p>第 6 章から第 11 章までは、第 5 章までに作ってきたアプリケーションにユーザー登録やログイン、パスワードを用いた認証システムを実装し、データを保存したり取得したりする実戦的なやり方を学ぶ。</p>
+<p>本章では、第 2 章で scaffold を使って生成したようなデータモデルの生成とデータを保存する手段を用意する。</p>
+<p><code>rails generate model</code> コマンドでモデル、テスト、マイグレーション（データベースの構造をインクリメンタルに変更する手段を提供する）を自動生成し、変更を加えていく。なお、生成したマイグレーションは <code>db:migrate</code> コマンドで適用できる。</p>
+<p>自動生成されたモデルのクラスは <code>ApplicationRecord</code> を継承しており、 <code>ApplicationRecord</code> は <code>ActiveRecord::Base</code> を継承している。この <code>ActiveRecord::Base</code> が提供するメソッドを使ってデータの取得や操作、検証を行う。</p>
+<p>ActiveRecord はデータベースのテーブルの行をラップしたクラス（要はインスタンスと DB のレコードをマッピングしていろいろな処理ができる ORM）で、様々な便利メソッドが用意されている。</p>
+<h3 id="第-7-章-ユーザー登録">第 7 章 ユーザー登録</h3>
+<p>6 章で作ったユーザーのモデルクラスをもとに、ユーザー登録するためのページを作成する。</p>
+<p>一口に「ユーザー登録するためのページ」と言っても必要な画面はいろいろある。「すでに登録されたユーザーを表示する」「ユーザーを登録する（フォーム）」「ユーザー登録成功 / 失敗したときの画面」などを作る。</p>
+<p>本章ではルーティングの定義やエラーページ追加、登録成功時のリダイレクトなどを実装し、よくあるフォーム付きのページとそのテストを完成させる。</p>
+<h3 id="第-8-章-基本的なログイン機構">第 8 章 基本的なログイン機構</h3>
+<p>第 7 章で追加したユーザー登録の仕組みを使って、ログインやログアウトの基本的な仕組みを実装する。</p>
+<p>HTTP はステートレスなプロトコルなので、本来リクエスト一つ一つは独立しておりそれより前のリクエストの情報を利用することはできない。したがって、ユーザーのログインが必要な Web アプリケーションでは「セッション」と呼ばれる半永続的な接続の識別情報をクライアントとサーバーで持つ。</p>
+<p>Rails でセッションを実装する方法として一般的なのは cookie を利用すること。セッションはサーバー上に保存されるが Active Record オブジェクトではないのでユーザー登録や削除とは少し実装のやり方が異なる。</p>
+<p>ログイン/ログアウトを実装したらログイン状態を判定するヘルパー関数を実装して、「ログインしているユーザーのみがこのページを見られる」等のテストを簡単に追加できるようにする。</p>
+<h3 id="第-9-章-発展的なログイン機構">第 9 章 発展的なログイン機構</h3>
+<p>第 8 章で追加した基本的なログイン機構では、ログアウト時にセッションが破棄され再度ログインが必要になるようなシンプルな実装をしていた。実際の一般的な Web アプリケーションでは cookie を使ってログイン情報を記憶することが多いので、本章ではそれを実装していく。</p>
+<p>また、Cookie を盗む方法は幾つかあるので、盗まれてもセッションハイジャックされないように cookie に保存するセッショントークンを暗号化する。</p>
+<p>Rails には、このような発展的なログイン機構を簡単に作るための便利な機能がいろいろ用意されている。</p>
+<h3 id="第-10-章-ユーザーの更新表示削除">第 10 章 ユーザーの更新・表示・削除</h3>
+<p>第 7 章で作ったユーザー登録の機能を拡張子、ユーザーの編集や削除、ページネーションを含む一覧表示を行えるようにする。また、それらの機能を使う管理者として新たなロールのユーザーを追加し、一般のユーザーにはユーザーの編集や削除などの操作ができないようにセキュリティ上の制御機構を追加する。</p>
+<p>新しい Rails で 5 以前の rails チュートリアルを進めている場合は test で <code>update_attributes</code> メソッドを使っている箇所があるが、 rails 6.1 以降では非推奨になっているため動かない。該当箇所を <code>update</code> に書き換えると動くようになる。</p>
+<h3 id="第-11-章-アカウントの有効化">第 11 章 アカウントの有効化</h3>
+<p>第 10 章までのアプリケーションでは、登録したユーザーはログインすれば直ちに全ての機能を使えるようになっていた。しかし、一般的な Web アプリケーションではメールアドレスを使ってアカウントを作成した際に本当にそのメールアドレスの所有者であるかを確認する必要がある。</p>
+<p>第 11 章ではメールを使ってアカウントを有効化するためのトークンを生成しそれをメールで送付、メールに記載されたリンクをクリックすることでアカウントを有効化する機能を実装する。</p>
+<p>Rails でアプリケーションを作るときの流れ（↓）がよく分かるいい章だった。</p>
+<ol>
+<li>rails generate</li>
+<li>テスト書く（失敗)</li>
+<li>実装</li>
+<li>テスト（成功）- 必要に応じて migrate &#x26; seed 投入</li>
+</ol>
+<h3 id="第-12-章-パスワードの再設定">第 12 章 パスワードの再設定</h3>
+<p>第 11 章で追加したアカウントの有効化メールを使って、パスワードの再設定を実装する。</p>
+<p>基本的な手順は以下の通り。</p>
+<ul>
+<li>ユーザーがパスワードの再設定をリクエストすると、メールアドレスをキーにしてユーザーを見つける</li>
+<li>該当ユーザーがいれば再設定用トークンとそれに対応する再設定用ダイジェストを生成する</li>
+<li>再設定用ダイジェストはデータベースに保存しておき、再設定用トークンはユーザーに送信する</li>
+<li>ユーザーがメールのリンクをクリックすると、データベースに保存しておいた再設定用ダイジェストと比較して認証する</li>
+<li>認証に成功したらパスワード変更用のフォームをユーザーに表示する</li>
+</ul>
+<p>再設定機能を使ってアカウントを乗っ取られないように、再設定用のリンクには短い期限を設定することと、再設定用のダイジェストを使うことが重要。</p>
+<h3 id="第-13-章-ユーザーのマイクロポスト">第 13 章 ユーザーのマイクロポスト</h3>
+<p>Twitter のかんたんなクローンを作るためにユーザーが投稿するためのモデルやコントローラー、基本的なビューを作成する。さらに、そのビューにユーザーを関連付け、結果を処理し表示するために必要なフォームを作成する。</p>
+<p>個人的には第 11 章とこの章が Rails の威力、というか開発の早さを実感できると思う。ユーザーが投稿する画面や投稿一覧のフィードを一瞬で作れて、一気に Web アプリケーションっぽさが増す。初期の Twitter は Ruby on Rails を使って作られたらしいけど、それも納得できる便利さだった。</p>
+<p>新しい Rails で古いチュートリアルを進めている場合はこの章の途中で謎に NameError というエラーでテストが落ちるのでこれをやる必要がある（spring を再起動したら治った）。
+<a href="https://qiita.com/yokoyan/items/0f82fc3eede75cd6db55">https://qiita.com/yokoyan/items/0f82fc3eede75cd6db55</a></p>
+<h3 id="第-14-章-ユーザーをフォローする">第 14 章 ユーザーをフォローする</h3>
+<p>最終章。</p>
+<p>13 章までで作った Twitter ライクな Web アプリケーションに他のユーザーをフォロー・フォロー解除できる仕組みと、フォローしたユーザーの投稿を表示する機能を追加する。ある機能を実現するためのデータをどうモデリングするか、 SQL を利用したデータの取得の工夫などを取り扱う。また、ちょっとした jQuery を通じてフォロー・フォロー解除の Web インターフェースを追加する。</p>
+<p>最後にサンプルとして作ったアプリケーションの機能を拡張するためのアイデアや今後役に立つであろう読み物を紹介して終了。</p>
+<p>分からないことがあったら <a href="https://railsguides.jp/">Ruby on Rails ガイド</a>という Web サイトを見ればいいらしい。</p>
+<h2 id="最後に">最後に</h2>
+<p>Rails チュートリアル、とても長いけど「フレームワークってこんなことしてるんだ」というのを掴むのには良い教材なので、興味ある人はやってみてはどうでしょうか。</p>
+<p>これを 1 周やっただけでは自力でアプリケーションを開発できるようにはならないけど、 Ruby にしても他の言語で Web アプリケーションを作るにしてもこれをやった経験は役に立つと思う。</p>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>最初に推薦文を書いてる人が「3 日で終わらせました」って書いてあったけど絶対嘘だろって思う分量だった。 <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>日本だと <a href="https://www.ruby.or.jp/ja/showcase/case22.html">freee</a> や<a href="https://codezine.jp/article/detail/10988">クックパッド</a>、アメリカだと <a href="https://github.blog/2019-09-09-running-github-on-rails-6-0/">GitHub</a> や <a href="https://www.youtube.com/watch?v=ohHdZXnsNi8&#x26;t=716s">初期の Twitter</a> が有名？AirBnB も創業から最近まで？ずっと Rails 使ってたらしい（<a href="https://medium.com/airbnb-engineering/rearchitecting-airbnbs-frontend-5e213efc24d2">Rearchitecting Airbnb’s Frontend</a>）。 <a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p>ちなみに Heroku では利用開始時にイタリアに住んでるか聞かれるのだが、これはイタリア民法 1341 条で明示的に同意が必要な内容が利用規約内に存在するらしい。イタリア以外はいいのか？？ <a href="#user-content-fnref-3" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p>テストをいつ何に対して書くかは流派が分かれるが、アプリケーションのコードより明らかにテストコードが短くシンプルであれば先にテストを書くほうがよいと思う。 <a href="#user-content-fnref-4" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+				</div>
+			</article>
+		</main>
+		<footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+	</body></html>
