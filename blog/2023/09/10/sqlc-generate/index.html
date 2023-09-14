@@ -82,7 +82,12 @@ main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero
             <hr class="astro-BVZIHDZO">
           </div>
           
-	<p>最近、個人開発で Go のアプリケーションからデータベースを操作するために <a href="https://github.com/sqlc-dev/sqlc">sqlc</a> を使っている。sqlc は SQL で書いたスキーマのファイルから <code>sqlc generate</code> コマンド一つで Go の構造体を、クエリのファイルから型安全な Go の SQL クライアントを生成することができる。<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
+	<p>[2023-09-11 追記] 以下のブログの方が分かりやすいので、そちらを読むことをお勧めします。</p>
+<ul>
+<li><a href="https://orisano.hatenablog.com/entry/2023/09/11/232741">sqlc internals - 薄いブログ</a></li>
+</ul>
+<hr>
+<p>最近、個人開発で Go のアプリケーションからデータベースを操作するために <a href="https://github.com/sqlc-dev/sqlc">sqlc</a> を使っている。sqlc は SQL で書いたスキーマのファイルから <code>sqlc generate</code> コマンド一つで Go の構造体を、クエリのファイルから型安全な Go の SQL クライアントを生成することができる。<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></p>
 <p>私は普段の仕事で ORM が提供するメソッドやクエリビルダを使って SQL を組み立てている。ORM は便利ではあるが、最終的に実行される SQL は可読性が低くてデバッグしづらいことが多い。そのため「最初から SQL を書けば良いのでは…？」と考えるようになり、初めて sqlc を見たとき自分の好みに合うツールと確信した。</p>
 <p>使い方は簡単で便利なのだが、どうやって <code>sqlc generate</code> コマンドで Go のコードを生成しているのか想像がつかなかったのでコードを読んでみることにした。対象バージョンは <a href="https://github.com/sqlc-dev/sqlc/tree/98ef71db35880c939855b971a8be979746085283">v1.20.0</a> とする。</p>
 <h2 id="sqlc-の使い方">sqlc の使い方</h2>
@@ -721,7 +726,7 @@ main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero
 <span class="line"><span style="color: #E1E4E8">	}</span></span>
 <span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> stmts, </span><span style="color: #79B8FF">nil</span></span>
 <span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
-<p><a href="https://github.com/sqlc-dev/sqlc/blob/faa1c9d156272eea4d33a31de2ab94951ba6af58/internal/engine/postgresql/parse.go#L209">translate 関数</a>は非常に長いので読むのが大変だが、基本的には pganalyze を使って解析された PostgreSQL のノードを sqlc 内の処理で使う AST に変換する責務を負っていると考えてよい。</p>
+<p><a href="https://github.com/sqlc-dev/sqlc/blob/faa1c9d156272eea4d33a31de2ab94951ba6af58/internal/engine/postgresql/parse.go#L209">translate 関数</a>は非常に長いので読むのが大変だが、基本的には pganalyze/pg_query_go を使って解析された PostgreSQL のノードを sqlc 内の処理で使う AST に変換する責務を負っていると考えてよい。</p>
 <p>sqlc 内の処理で使う AST は <a href="https://github.com/sqlc-dev/sqlc/tree/faa1c9d156272eea4d33a31de2ab94951ba6af58/internal/sql/ast">internal/sql/ast</a> 以下に定義されている。</p>
 <h5 id="parsecatalog-について">ParseCatalog について</h5>
 <p>Catalog はクエリを解析するために持つデータを集めた sqlc の内部的なデータ構造。PostgreSQL、MySQL、SQLite などデータベースエンジンごとに異なる Catalog を持つ。</p>
@@ -742,7 +747,7 @@ main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero
 <span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> (n </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">CreateTableStmt) </span><span style="color: #B392F0">Pos</span><span style="color: #E1E4E8">() </span><span style="color: #F97583">int</span><span style="color: #E1E4E8"> {</span></span>
 <span class="line"><span style="color: #E1E4E8">	</span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">0</span></span>
 <span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
-<p>例えば CREATE TABLE 文で使われる <code>IF NOT EXISTS</code> は <code>IfNotExists</code> として構造体のメンバーとして定義されている。pganalyze の処理結果として取得した node を translate 関数でこれらの構造体にマッピングして sqlc 内でコードを生成するための AST に変換する。</p>
+<p>例えば CREATE TABLE 文で使われる <code>IF NOT EXISTS</code> は <code>IfNotExists</code> として構造体のメンバーとして定義されている。pganalyze/pg_query_go の処理結果として取得した node を translate 関数でこれらの構造体にマッピングして sqlc 内でコードを生成するための AST に変換する。</p>
 <h5 id="parsequeries-について">ParseQueries について</h5>
 <p>catalog と同様 SQL 文を表す構造体は <a href="https://github.com/sqlc-dev/sqlc/tree/faa1c9d156272eea4d33a31de2ab94951ba6af58/internal/sql/ast">internal/sql/ast</a> に格納されている。例えば SELECT 文は <a href="https://github.com/sqlc-dev/sqlc/blob/faa1c9d156272eea4d33a31de2ab94951ba6af58/internal/sql/ast/select_stmt.go">select_stmt.go</a> で以下のように定義されている。</p>
 <pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">ast</span></span>

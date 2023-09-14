@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ja" class="astro-BVZIHDZO">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2023/09/14/instacart-ipo/">
+
+<!-- Primary Meta Tags -->
+<title>Instacart の Form S-1 を読んだ話</title>
+<meta name="title" content="Instacart の Form S-1 を読んだ話">
+<meta name="description" content="Instacart が IPO するので Form S-1 を読んで決算をまとめるついでに Form S-1 のような開示資料の読み方について説明する記事です">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2023/09/14/instacart-ipo/">
+<meta property="og:title" content="Instacart の Form S-1 を読んだ話">
+<meta property="og:description" content="Instacart が IPO するので Form S-1 を読んで決算をまとめるついでに Form S-1 のような開示資料の読み方について説明する記事です">
+<meta property="og:image" content="https://lyohe.github.io/2023/09/14/instacart-cover.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2023/09/14/instacart-ipo/">
+<meta property="twitter:title" content="Instacart の Form S-1 を読んだ話">
+<meta property="twitter:description" content="Instacart が IPO するので Form S-1 を読んで決算をまとめるついでに Form S-1 のような開示資料の読み方について説明する記事です">
+<meta property="twitter:image" content="https://lyohe.github.io/2023/09/14/instacart-cover.png">
+    
+  <style type="text/css">:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a:where(.astro-EIMMU3LG){display:inline-block;text-decoration:none}a:where(.astro-EIMMU3LG).active{font-weight:bolder;text-decoration:underline}header:where(.astro-3EF6KSR2){margin:0;padding:0 1em;background:white;box-shadow:0 2px 8px rgba(var(--black),5%)}h2:where(.astro-3EF6KSR2){margin:0;font-size:1em}h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2),h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none}nav:where(.astro-3EF6KSR2){display:flex;align-items:center;justify-content:space-between}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none;border-bottom-color:var(--accent)}.social-links:where(.astro-3EF6KSR2),.social-links:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){display:flex}@media (max-width: 720px){.social-links:where(.astro-3EF6KSR2){display:none}}footer:where(.astro-SZ7XMLTE){padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links:where(.astro-SZ7XMLTE){display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE){text-decoration:none;color:rgb(var(--gray))}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE):hover{color:rgb(var(--gray-dark))}
+main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero-image:where(.astro-BVZIHDZO){width:100%}.hero-image:where(.astro-BVZIHDZO) img:where(.astro-BVZIHDZO){display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose:where(.astro-BVZIHDZO){width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title:where(.astro-BVZIHDZO){margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title:where(.astro-BVZIHDZO) h1:where(.astro-BVZIHDZO){margin:0 0 .5em}.date:where(.astro-BVZIHDZO){margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on:where(.astro-BVZIHDZO){font-style:italic}
+</style></head>
+
+  <body class="astro-BVZIHDZO">
+    <header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+    <main class="astro-BVZIHDZO">
+      <article class="astro-BVZIHDZO">
+        <div class="hero-image astro-BVZIHDZO">
+          <img width="1020" height="510" src="/2023/09/14/instacart-cover.png" alt="" class="astro-BVZIHDZO">
+        </div>
+        <div class="prose astro-BVZIHDZO">
+          <div class="title astro-BVZIHDZO">
+            <div class="date astro-BVZIHDZO">
+              <time datetime="2023-09-13T15:00:00.000Z">
+  2023年9月14日
+</time>
+              
+            </div>
+            <h1 class="astro-BVZIHDZO">Instacart の Form S-1 を読んだ話</h1>
+            <hr class="astro-BVZIHDZO">
+          </div>
+          
+	<p>Instacart を運営する Maplebear Inc. が IPO にあたり提出した <a href="https://www.sec.gov/Archives/edgar/data/1579091/000119312523221345/d55348ds1.htm">Form S-1</a> を読んだ話を書く。</p>
+<p>今回は SEC Filings をあまり読んだことない方でも分かりやすいよう、できるだけ開示特有の表現や会計の概念に関する説明や参照したページ数を書くようにした。分かりづらい箇所や誤りなどあれば Twitter (X) 等で気軽に遠慮なくご指摘ください。</p>
+<h2 id="用語について">用語について</h2>
+<p><code>FY2022</code> と書いた場合は Fiscal Year（会計年度）で 2022 年を表す。Instacart は 12 月決算なので FY2022 は 2022 年 12 月期を意味する。</p>
+<p>金額の単位で <code>M</code> と書いた場合は millions=1,000,000、<code>B</code> は billions=1,000,000,000（10 億）とする。例えば $100M は $100 * 1,000,000 で $100,000,000=1 億ドルとなる。</p>
+<h2 id="form-s-1-とは">Form S-1 とは</h2>
+<p>Form S-1 は米国企業が新規株式公開（IPO）時に証券取引委員会（SEC）に提出する開示書類の一種で、日本でいう有価証券届出書や目論見書にあたる。</p>
+<p>300 ページ以上にわたるので全てを読むことは難しいが、簡単にまとめると以下のような情報が記載されている。</p>
+<ul>
+<li>重要な経営指標</li>
+<li>経営方針やビジネスモデル</li>
+<li>財務諸表や注記、適用されている会計基準</li>
+</ul>
+<h3 id="おすすめの読み方">おすすめの読み方</h3>
+<p>開示書類の読み方は人の数だけあるが、全てを読むと非常に時間がかかってしまうので個人的なおすすめの読み方を紹介したい。</p>
+<p>まず 1 ページ目から読むのではなく、以下の 2 箇所から読む。</p>
+<ul>
+<li><strong>Management’s Discussion and Analysis（MD&#x26;A）</strong> … 101 ページ以降</li>
+<li>注記の <strong>Revenue Recognition</strong> … 165 ~ 167 ページ</li>
+</ul>
+<p>上記のページ数は Instacart の Form S-1 を参照している。</p>
+<p>Form S-1 のような長文の開示書類から自分の役に立つ情報を効率的に引き出すためには、自分の頭の中で「その会社が過去から現在にわたりどのように収益を得てきたか」「将来的にどのように収益を成長させていこうとしているか」など分析の前提となるモデルを構築する必要がある。</p>
+<p>一度その会社の財務モデルや成長の傾向が理解できると、開示書類の詳細な項目を読んだ際に全体の中でそれがどのくらい重要なのかを把握しやすくなったり、異常値や特徴的な情報に気づくことが容易になる。しかし、逆に詳細に入り込みすぎて全体が見えなくなると、目の前のテキストから必要な情報を引き出すのに時間がかかってしまう。</p>
+<p>MD&#x26;A は経営陣による経営状況の分析で、経営上重要視されている指標や会社の収益・財務モデル、将来の見通し等がまとめられている。これを読めば会社を取り巻くお金の流れが一通り分かるので、私は初めて開示資料を読む会社では財務諸表を読む前に必ず MD&#x26;A を読むようにしている。</p>
+<p>Revenue Recognition は収益認識のタイミングが記述されている箇所で、会社の主要な収益の定義とそれが計上される条件が分かる。事業における取引先や顧客との権利義務関係が整理されているので読んでいて面白い。</p>
+<p>しかし、会計の専門的な用語が使われているので初めて読む人は分かりにくいかもしれない。会計の仕事をやっている人はここから読むのがいいだろうが、初めて開示を読む人はまず MD&#x26;A を読むのがよいと思う。</p>
+<p>本記事では簡単に Instacart のビジネスを紹介し、その後 MD&#x26;A を読んでから財務諸表を読む。</p>
+<h2 id="instacart-とは">Instacart とは</h2>
+<p>Instacart はアメリカで展開している食料品（grocery）のオンラインショッピングサービスで、2012 年に設立された。</p>
+<p>食料品を販売しているが自社では在庫を持たず、商品は全て提携先の小売企業が提供している。2023 年 6 月末の時点で提携先の小売企業は 1,400 社以上あり、それらの会社で米国の食料品市場の 85% 以上を占めている。</p>
+<p>食料品は米国で年間 1.1 兆ドル以上が消費されているが、オンライン化されているのは 12% に過ぎない。2019 年は更に低くわずか 3% だったが、コロナ禍でオンライン化が急速に進んだ。Instacart もコロナ禍で爆発的に成長し、取引総額 GTV <sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup> は 2019 年に $5,144M だったのが 2022 年には $28,826M となった。</p>
+<p>この GTV を日本円に換算すると 4.3 兆円となるが、これは日本の食品・飲料・酒類の EC 市場規模<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>全体の倍近くになる。</p>
+<p>2018 年 ~ 2022 年の 4 年間で年平約 80% も成長している。同期間で米国のオンライン食料品市場が年平均 50%、オフラインは 1% それぞれ成長しているのに比べると Instacart の成長率は凄まじく、GTV の成長を示す以下のグラフは切り立った崖のように見える。</p>
+<p><img src="/2023/09/14/history.jpeg" alt="history"></p>
+<p><img src="/2023/09/14/1-50-80.jpeg" alt="1-50-80"></p>
+<h2 id="instacart-の-mda-を読んでいく">Instacart の MD&#x26;A を読んでいく</h2>
+<p>MD&#x26;A を読みながら Instacart のビジネスについて理解を深めた後で財務諸表をさらっと読む。参照した Form S-1 のページを記載するので興味がある方は原文を読んでみてください。</p>
+<h3 id="どのように収益を得ているか">どのように収益を得ているか</h3>
+<p>101 ~ 103 ページ</p>
+<p>Instacart の収益は主として顧客による商品購入から発生する手数料である。顧客が Instacart を通じて買い物するには 2 種類の経路がある。</p>
+<ul>
+<li><strong>Instacart Marketplace</strong>: Instacart が自社で運営するアプリや Web サイト</li>
+<li><strong>Instacart Enterprise Platform</strong>: Instacart が提供する EC や配送、広告、在庫管理、売上分析ツールなどを含む end-to-end のソリューションによって提携先の小売事業者自身が運営するオンラインストア（提供している機能は 212 - 216 ページに詳細な説明あり）</li>
+</ul>
+<p><img src="/2023/09/14/enterprise-platform.jpeg" alt="enterprise-platform"></p>
+<p>Instacart は主として顧客による購入額に応じて小売業者から受け取る手数料により収益を得ている。手数料は通常、注文金額に対するパーセンテージで請求されるが、場合によっては固定手数料として請求されることもある。</p>
+<p>また、顧客に提供する有料サブスクの Instacart+ （無料配達や限定特典など）によっても収益を得ている。</p>
+<p>Instacart では食料品の販売やサブスクだけでなく、広告でも収益を得ている。広告商品としては、商品の一覧で優先的に表示する <a href="https://www.instacart.com/company/ads/products/sponsored-product">Sponsored product ads</a> や値引きクーポンを提示できる <a href="https://www.instacart.com/company/ads/products/promotions">Promotions</a>、ブランドのストーリーやコレクションをまとめる<a href="https://www.instacart.com/company/ads/products/pages">Pages</a>、 <a href="https://www.instacart.com/company/ads/products/display-ads">Display ads</a>、広告されている商品を直接カートに追加できる <a href="https://www.instacart.com/company/ads/products/shoppable-display-ads">Shoppable display ads</a> や <a href="https://www.instacart.com/company/ads/products/shoppable-video-ads">Shoppable video ads</a> などを提供している。</p>
+<h3 id="1-注文ごとの粗利益">1 注文ごとの粗利益</h3>
+<p>104 ~ 105 ページ</p>
+<p>Form S-1 の 104 ページに FY2022 における 1 注文ごとの取引総額から粗利益に至るまでのウォーターフォールチャートがある。</p>
+<p><img src="/2023/09/14/order_economics.jpeg" alt="order_economics"></p>
+<p>これによると 1 注文あたりの取引総額は $110 となっている。その内 Instacart の Transaction Revenue となるのは GTV の 6.3% で、金額では $7 となる。</p>
+<p>この $7 は以下の 4 種類の収益費用を足し引きした結果である。</p>
+<ol>
+<li>小売業者から受け取る手数料（Marketplace / Enterprise Platform を含む）</li>
+<li>顧客から受け取る配送料 及び Instacart+ の会費</li>
+<li>ショッパー（商品の購入や配送を代行する個人のギグワーカー）に支払う報酬</li>
+<li>顧客向けのクーポンや返金</li>
+</ol>
+<p><code>1.</code> と <code>2.</code> の合計は FY2022 で GTV の 14.9% を占めており、1 注文あたり <strong>$16</strong> だった。</p>
+<p><code>3.</code> は FY2022 で GTV の 8.2% で、1 注文あたり約 <strong>$9</strong> となる。つまり、小売業者および顧客から受け取った代金のうち半分以上はショッパーが得ている計算になる。なお、この金額にはショッパーが顧客から受け取るチップや Instacart から受け取るインセンティブは含まれていない。ショッパーが受け取る金額はその配達を完了するのにかかる労力（商品の数や重さ、配達距離、時間など）に基づいている。</p>
+<p><code>4.</code> は小さく FY2022 で GTV の 0.4% で、<code>3.</code> と <code>4.</code> の合計は $9 となり、これが 1 注文あたりの収入 $16 から引かれて最終的な Instacart の 1 注文あたり売上は $7 となる。</p>
+<p>1 注文から得られる Transaction Revenue が <strong>$7</strong> で広告収益を 1 注文あたりに換算すると <strong>$3</strong>（GTV の 2.6%）なので、1 注文あたり売上の合計は <strong>$10</strong>（取引総額の 8.9%）となる。</p>
+<p>売上原価が $3（取引総額の 2.5%）で最終的に残る粗利益は <strong>$7</strong>。なお、売上原価には主に以下の費用が含まれる。</p>
+<ul>
+<li>決済代行業者に支払う手数料</li>
+<li>チャージバック</li>
+<li>サービスのホスティング費用</li>
+<li>配送の保険料や補償</li>
+<li>自社開発ソフトウェアの減価償却費</li>
+</ul>
+<h3 id="instacart-を取り巻くお金の流れ">Instacart を取り巻くお金の流れ</h3>
+<p>Instacart を取り巻く利害関係者は大きく分けて以下の 4 者が存在する。</p>
+<ul>
+<li><code>Customer</code>: Instacart 上で商品を購入する消費者</li>
+<li><code>Retail partner</code>: Instacart Marketplace や Instacart Enterprise Platform を通じて Customer に商品を販売する小売事業者</li>
+<li><code>Brand partner</code>: 消費者向けの製品を作る企業。Instacart Marketplace に広告を出稿する</li>
+<li><code>Shopper</code>: Instacart を通じて購入された商品の店舗での受け取りと Customer への配送を請け負う個人事業主</li>
+</ul>
+<p>利害関係者間でのお金と商品の流れを図として表す。人数・社数は 2023 年 6 月末時点の数字。</p>
+<p><img src="/2023/09/14/okane-no-nagare.png" alt="okane-no-nagare"></p>
+<p>Shopper は全体の 2/3 が女性で、1/2 が子供を持つ親。週平均で 9 時間働き、その時間の半分近くが商品のピッキング、梱包に当てられる（残りは配送のための運転）。ごく一部 Instacart の従業員がいて、店舗内でのピッキングのみを行う。</p>
+<h3 id="annual-gtv-by-cohort">Annual GTV by Cohort</h3>
+<p>105 - 107 ページ</p>
+<p>年ごとのコホートを見ると、FY2020 には如実にコロナ禍の影響が見て取れる。それ以外の年では年ごとに GTV が向上しているが、FY2020 だけは 2020 を 1.00x として 2021 で 0.95x → 2022 で 0.85x と減少している。</p>
+<p><img src="/2023/09/14/annual_gtv_by_cohort.jpeg" alt="annual_gtv_by_cohort"></p>
+<p>とはいえ FY2022 - FY2023 の Q1, Q2 における四半期間の比較を見ると、他の年と比べて FY2020 に使い始めた顧客の Cohort に異常な傾向は見られない。</p>
+<p><img src="/2023/09/14/quartly_gtv_by_annual_cohort.jpeg" alt="quartly_gtv_by_annual_cohort"></p>
+<p>よって、FY2020 に使い始めた顧客がこれから大量に離脱することはないと言えそう。</p>
+<h3 id="コロナ影響">コロナ影響</h3>
+<p>129 ~ 132 ページ</p>
+<p>COVID-19 により Instacart の GTV は大きな影響を受けており、Form S-1 にもそれが記載されている。</p>
+<p>以下は同社が考える COVID-19 のパンデミックの影響を受けて行われたと推定できる注文を通常の注文と分けたもの。</p>
+<ul>
+<li>米国での食料品店への訪問頻度を示す移動データ</li>
+<li>米国内の COVID-19 の症例数</li>
+<li>マーケティング施策やインセンティブ等による購入増加の過去データ</li>
+</ul>
+<p>を使ってモデル化したそうだ。2020 年の 4-5 月は半分以上が COVID-Influenced に分類されているが、この時期は米国内で外出規制が行われていたので Instacart のようなサービスの需要が高かったと思われる。</p>
+<p><img src="/2023/09/14/impact_of_covid19_on_orders.jpeg" alt="impact_of_covid19_on_orders"></p>
+<p>AOV を見ると、FY2020 Q2 に急増し、その後は落ち着いている。Instacart としては（注文単価はマクロ経済や COVID-19 のような外的要因の影響を受けるので）新たなユースケースや商品カテゴリを導入してより注文頻度を高めることに注力していきそう。</p>
+<p><img src="/2023/09/14/aov.jpeg" alt="aov"></p>
+<p>創業年からの GTV の成長を見ると FY2019 と FY2020 に明らかな崖があることが分かる。</p>
+<p><img src="/2023/09/14/gtv_since_founding.jpeg" alt="gtv_since_founding"></p>
+<h3 id="aov-average-order-value">AOV: Average Order Value</h3>
+<p>107 ~ 108 ページ</p>
+<p>FY2022 の GTV が $28,826M で注文件数が 262.8M、AOV（注文単価）は $110 だった。AOV は FY2020 にコロナ影響で 17% 増加して翌年以降にほぼ元に戻った以外は大きな変化はなく、GTV と注文件数はほぼ比例している。</p>
+<p><img src="/2023/09/14/gtv-orders-aov.jpeg" alt="gtv-orders-aov"></p>
+<p>一方で、アクティブな顧客一人あたりの数字を見ると注文頻度と GTV が増加していることが分かる。Instacart を使い始めて 1 年目に少なくとも一度購入した顧客は月間で平均 2.1 回の注文をするが、6 年目にはそれが 3.9 回に増加している。そして、注文者一人あたりの月間 GTV は 1 年目の $226 に対し 6 年目は $480 と倍増している。</p>
+<p>前述の通り AOV には大きな変化は見られないが、注文頻度は Instacart を使い続けるごとに増加している。</p>
+<p><img src="/2023/09/14/aov-average-order.jpeg" alt="aov-average-order"></p>
+<p><strong>米国の世帯平均月間食料品購入額が $438.80 <sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup>なので、Instacart を 6 年間使っている顧客は食料品の予算ほぼ全てを Instacart で消費している</strong>と考えることもできる。</p>
+<p>AOV が高いことには当然メリットがあるものの、企業努力でコントロールしがたい理由で変化することが考えられるため（例えばインフレ影響により購入対象商品が低価格にシフトするなど）、Instacart としては顧客一人あたりの注文数と GTV を（製品の継続的なアップデートや顧客エンゲージメントの施策などで購入を習慣化させることにより）上昇させることを目指しているようだ。</p>
+<h4 id="instacart-について">Instacart+ について</h4>
+<p>Instacart が顧客エンゲージメントを高める手段として、Instacart+ という有料サービスがある。</p>
+<p>Instacart+ の会員は 2022 年 6 月末で 460 万人、2023 年 6 月末時点で 510 万人だった。会費は年払いで $99 月払いで $9.99 なので、少なめに見積もって $100 / 人*年 と仮定してもこれだけで $500M 近い収入を得ている。</p>
+<p>会員の注文頻度は月当たり 4.0 件で GTV は $461、非会員は 2.0 件で $223 なので AOV はほぼ等しいが、注文頻度には約 2 倍になっている。会員による購入は 2022 年上半期で GTV の 53% に相当する $7,597M で、2023 年上半期で GTV の 57% に相当する $8,533M を占める。</p>
+<h3 id="小売業者との提携関係">小売業者との提携関係</h3>
+<p>109 - 110 ページ</p>
+<p>Instacart は顧客との接点となる小売業者と良好な関係を築いている。Instacart でアルコールを提供する小売業者は 2016 年には上位 20 社のうち 25% だったが、2023 年 6 月末には 80% に増加した。</p>
+<p><img src="/2023/09/14/top_20_grocers.jpeg" alt="top_20_grocers"></p>
+<p>EBT SNAP も TOP 20 のうち 65% の小売業者が導入している。SNAP（Supplemental Nutrition Assistance Program）はいわゆるフードスタンプで、米国で政府により行われている食料品購入の補助政策。対象者にカードが配られて一定の範囲内で食料品を購入できる。米国では 4,200 万人が SNAP を利用している<sup><a href="#user-content-fn-7" id="user-content-fnref-7" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>。</p>
+<p>EBT SNAP は公的機関からお金を受け取る必要があるので回収サイクルが長く、運転資金にマイナスの影響がある。</p>
+<h3 id="ブランドとの関係">ブランドとの関係</h3>
+<p>110 - 111 ページ</p>
+<p>Instacart に広告を出稿しているブランドは FY2022 で 5,754 社ある。広告売上は FY2022 で $740M だが、FY2019 は $67M だったので 3 年で 10 倍以上に成長したことになる。</p>
+<p><img src="/2023/09/14/brands.jpeg" alt="brands"></p>
+<p>GTV に対する比率は FY2019 の 1.3% に対して FY2022 では 2.6% となった。GTV に対する広告収益の比率が上昇しているのはそれだけ広告主にとって魅力的なプラットフォームになっていることを意味する。</p>
+<h3 id="粗利益の改善">粗利益の改善</h3>
+<p>111 - 117 ページ</p>
+<p>Instacart は他の digital-first な食料品購入のプラットフォームと比較して、一度に購入される金額（Basket Size）が大きい。2023 年上半期には $75 以上の取引から生じる売上は約 75% を Instacart が占めているようだ。2020 年から徐々に割合が上昇している。</p>
+<p>Basket size が大きいと「これを買った人はこれも買っています」のような推薦や購買意欲を高めるクーポンで顧客体験を高めたり、一度の購入で得られる収益が多いからショッパーを集めやすかったりさまざまなメリットがありそう。</p>
+<p>（下図は 135 ページからの引用）</p>
+<p><img src="/2023/09/14/basket_size.jpeg" alt="basket_size"></p>
+<p>FY2019 では Gross Profit の GTV に対する比率が 0.0% だったが、FY2023/Q2 では 7.1% に改善している。費用の効率化というより単純に売り上げが伸びたことが主な原因らしい。</p>
+<p><img src="/2023/09/14/gross_profit_vs_gtv.jpeg" alt="gross_profit_vs_gtv"></p>
+<p>粗利益は年々改善し、売上高に対する粗利益の割合（Margin）も向上している。</p>
+<p><img src="/2023/09/14/gross_profit.jpeg" alt="gross_profit"></p>
+<p>注文者 1 人から得られる粗利益は 1 年目は $9 だが 4 年目は $25 に増加する。これは Instacart を使い続けるうちに注文の単価と頻度が増加するため。</p>
+<p><img src="/2023/09/14/gross_profit_by_years.jpeg" alt="gross_profit_by_years"></p>
+<p>年別に見ると全てのコホートで年ごとに向上していること、年ごとに粗利益が改善していることが分かる。</p>
+<p><img src="/2023/09/14/annual_gross_profit_cohort.jpeg" alt="annual_gross_profit_cohort"></p>
+<h3 id="販管費の改善">販管費の改善</h3>
+<p>粗利益だけではなく GTV に対する販管費の割合も改善している。FY2019 は Operating and Support Expense（顧客やショッパーにかかる費用）と General and Administrative Expense（その他の一般管理費）がそれぞれ GTV の 3.7%, 2.6% だったが FY2022 は 0.9%, 1.2% となった。</p>
+<p><img src="/2023/09/14/operations_expense.jpeg" alt="operations_expense"></p>
+<p>GTV が爆発的に増加しても販管費の増加が抑えられているので、今後も安定して利益を成長させることができそう。</p>
+<h3 id="成長のための再投資">成長のための再投資</h3>
+<p>117 - 119 ページ</p>
+<p>顧客獲得コストの GTV に対する比率は FY2020 → FY2022 にかけて 0.8% → 1.6% → 2.2% 増加している。これには広告やクーポン、紹介クレジット、それらに関わる人件費が含まれる。コロナ禍で粗利益が伸びていたので顧客獲得コストをかけるべきという判断がされたようだ。</p>
+<p><img src="/2023/09/14/cac.jpeg" alt="cac"></p>
+<p>顧客獲得コストと同様に FY2020 以降は Research and Development Expense（Marketplace や Enterprise Platform の開発を担うソフトウェアエンジニアの人件費）も対 GTV 比で 0.9% → 1.5% → 1.8% と増加している。</p>
+<p><img src="/2023/09/14/rd.jpeg" alt="rd"></p>
+<h2 id="key-business-metrics">Key Business Metrics</h2>
+<p>119 - 121 ページ</p>
+<p>Instacart の経営上の戦略的意思決定にとって重要な事業指標が 3 つ挙げられている。</p>
+<h3 id="order-注文数">Order: 注文数</h3>
+<p>コロナで爆発的に成長した後は成長が鈍化しているように見える。</p>
+<p><img src="/2023/09/14/order.jpeg" alt="order"></p>
+<h3 id="gtv-取引総額">GTV: 取引総額</h3>
+<p>注文数と比例した動きが見て取れる。前述の通り AOV に大きな変化はないので、いかに購入頻度の低い顧客を活性化したり新たな顧客を獲得するかが今後の成長にとって重要になりそう。</p>
+<p><img src="/2023/09/14/gtv.jpeg" alt="gtv"></p>
+<h3 id="gross-profit-粗利益">Gross Profit: 粗利益</h3>
+<p>年々改善している。FY2019 は粗利益がマイナスだったが、FY2022 は $1,831M で GTV に対して 6.4% の粗利益が出るようになった。</p>
+<p><img src="/2023/09/14/gross-profit-and-margin.jpeg" alt="gross-profit-and-margin"></p>
+<h2 id="財務諸表を読む">財務諸表を読む</h2>
+<p>ここまでで Instacart の収益や資金の流れがだいたい頭に入ってきたので、ここからは財務諸表を読んでいく。</p>
+<h3 id="bs">BS</h3>
+<p>F-4 ページ他</p>
+<p>BS を簡単に図にしてみる。</p>
+<p><img src="/2023/09/14/bs.png" alt="bs"></p>
+<p>資産はほぼ流動資産で、その半分は現預金。非流動資産は大部分が DTA（繰延税金資産）と Goodwill（のれん）で、買収した会社については F-38 ~ F-40 ページに記載されている。DTA については後述する。</p>
+<p>提携先の小売業者は 80,000 以上の店舗があるが Instacart は自社では在庫を持たず、大きな固定資産は持っていない。</p>
+<p>流動資産に含まれる売掛金は FY2021 で $832M、FY2022 で $842M、FY2023/Q2 で $765M。同一期間の売上と比較すると…</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Fiscal Year</th><th align="left">売上 ($)</th><th align="left">売掛金 ($)</th><th>売掛金 / 売上 (%)</th></tr></thead><tbody><tr><td>2021</td><td align="left">$ 1,834 M (74%)</td><td align="left">$ 832 M</td><td>45.4%</td></tr><tr><td>2022</td><td align="left">$ 2,551 M (11%)</td><td align="left">$ 842 M</td><td>33.0%</td></tr><tr><td>2023/Q2</td><td align="left">$ 1,475 M (10%)</td><td align="left">$ 765 M</td><td>51.9%</td></tr></tbody></table>
+<p>となり、売上債権の回転日数は（年度によって増減はあるが） 120 ~ 190 日と非常に長い。売掛金は 55 ページの記載によると小売業者は 45 日以内、広告主であるブランドは 30-90 日以内に支払う必要がある。</p>
+<p>Instacart は基本的に顧客と小売業者との仲介者として決済を行うので、売掛金は決済代行業者からの未回収分なので回収期間はかなり短いと考えられる。しかし、開示によると小売業者が顧客から商品代金を回収し Instacart に支払うケースがある（おそらく Instacart Enterprise Platform の場合？）。この金額は FY2021, FY2022, FY2023/Q2 でそれぞれ $427M, $380M, $309M なので売掛金の半分程度を占めている。</p>
+<p>F-17 ページの表によると、大手顧客 4 社で売掛金の半分以上を占めているようだ。</p>
+<p><img src="/2023/09/14/accounts-receivable.png" alt="accounts-receivable"></p>
+<p>36 - 37 ページによると、<strong>主要な 3 社の小売業者で FY2021, FY2022, FY2023/Q2 の GTV の約 43%</strong> を占めている。</p>
+<h3 id="pl">PL</h3>
+<p>F-5 ページ他</p>
+<p>売上全体に占める広告収益の割合の推移を FY2019 以降で見ると、増減はあるものの 30% 前後で推移していることが分かる。</p>
+<p><img src="/2023/09/14/tr-ad-rate.png" alt="tr-ad-rate"></p>
+<p>FY2023/Q2 について、売上から粗利益までのウォーターフォールチャートを作ってみた。粗利益率が年々向上していることもあり、安定して粗利益が出る構造ができている。</p>
+<p><img src="/2023/09/14/operating-2023-q2.png" alt="operating-2023-q2"></p>
+<p>Instacart が爆発的に成長した FY2020 と比較すると分かりやすい。FY2023/Q2 の粗利益率は 75.2% だが、この年は 59.5% となっている。</p>
+<p><img src="/2023/09/14/operating-2020.png" alt="operating-2020"></p>
+<p>もう一点気になることとして、 Operations and support と General and administrative の割合が減少して Research and development と Sales and marketing の割合が増加していることが分かる。売上に対するそれぞれの割合を FY2020 以降でグラフにしてみる。</p>
+<p><img src="/2023/09/14/expense-by-revenue.png" alt="expense-by-revenue"></p>
+<p>各費用に何が含まれているかは 137 ページの Components of Results of Operations に記載されている。</p>
+<ul>
+<li><strong>Cost of revenue</strong>: 決済代行手数料、チャージバック、fulfillment に係る保険料や従業員の報酬、ホスティング費用、減価償却費、自社利用ソフトウェアの原価バンドラー送客費</li>
+<li><strong>Operations and support</strong>: 小売店舗の運営をサポートする従業員の報酬、顧客やショッパーのサポート費用、新規ショッパーの獲得費用</li>
+<li><strong>Research and development</strong>: ソフトウェアエンジニアや技術コンサルタントの報酬</li>
+<li><strong>Sales and marketing</strong>: 広告宣伝費、営業やマーケティングに係る従業員やコンサルタントの報酬</li>
+<li><strong>General and administrative</strong>: 財務・経理・人事・政策・法務など管理部門の従業員やコンサルタントの報酬、特許や商標などの費用</li>
+</ul>
+<p>Instacart は新規顧客を獲得するためにユースケースを拡大したり既存顧客の注文頻度を高めるような機能を追加したり広告収益を効率化したりなどの事業課題を解決していく上で、より多くのソフトウェアエンジニアを雇用することが重要と考えているようだ。</p>
+<h3 id="cf">CF</h3>
+<p>F-12 ページ他</p>
+<p>Instacart のキャッシュ・フロー計算書は非常に単純で、FY2021 以前は赤字に伴う営業キャッシュ・フローのマイナスを外部からの資金調達で補っている。</p>
+<p><img src="/2023/09/14/cf.png" alt="cf"></p>
+<p>典型的な米国の急成長企業では株式報酬が販管費の中で大きな割合を占めていることが多い。株式報酬は PL 上は費用になるのだが現金の支出がないからキャッシュ・フロー計算書上では営業キャッシュ・フローの減少を抑えているように見えるのだが、Instacart は販管費の中で株式報酬がそれほど大きくない。</p>
+<p>また、前述の通り売掛金の回収期間が長いので成長する局面ではキャッシュ・フローの減少要因になる。FY2020 では $405M、FY2021 では $318M が売掛金の増加によりキャッシュ・フローが減少した。</p>
+<p><img src="/2023/09/14/operating-cf.png" alt="operating-cf"></p>
+<p>売掛金が増加したのに減少というのは直感的に理解しがたいかもしれないが、これはキャッシュ・フロー計算書が PL 上の利益を出発点に当期の現預金の増減額を計算しようとしているからで、実際には増加した売掛金は後で現金として BS に入ってくる。黒字でも売上を回収できなかったら倒産する、という状況を思い浮かべていただくと分かりやすいかもしれない。</p>
+<h2 id="まとめ">まとめ</h2>
+<ul>
+<li>Instacart は米国で主に食料品をオンラインで購入できるサービスを提供しており、コロナ禍の影響で爆発的に取り扱い高が伸びた</li>
+<li>広告収益も伸びており、売上全体の 3 割程度を占めている</li>
+<li>AOV は一定の金額で安定しているが、顧客の購入頻度増加や新規顧客の流入で取引総額を成長させている</li>
+<li>FY2022 以降は安定して利益が出る収益構造となっている</li>
+</ul>
+<h2 id="その他">その他</h2>
+<p>財務諸表に関して追加で説明が必要そうな箇所や Form S-1 を読んでいて興味深かった箇所を掘り下げていく。</p>
+<h3 id="繰延税金資産-dta-deferred-tax-assets">繰延税金資産 DTA: Deferred tax assets</h3>
+<p>Instacart は FY2022 に PL 上で $428M の当期純利益を計上している。純利益を押し上げた原因の一つとして、繰延税金資産（DTA）の計上により法人税等調整額に対して $371M の純利益に対するプラスの効果があった。</p>
+<p>DTA は会計と税務の差異を一時的に資産計上する項目に過ぎず、事業を財務的に分析する上では重要ではない。しかし Instacart のような DTA は上場直前にありがちなパターンで、直前期の純利益に影響する場合があるので説明しておきたい。</p>
+<p>DTA の内訳は F-60 ページに記載されている。これによると、内訳の大部分は Net operating loss and tax credit carryforwards（繰延損失）と Capitalized research and development（資産化したソフトウェア開発費）の 2 つで構成されている。</p>
+<p><img src="/2023/09/14/dta.png" alt="dta"></p>
+<p>DTA は会計に関する仕事の経験がない人には馴染みが薄いかもしれない。一言で表現すると DTA は「会計上の資産と税務上の資産との差額」といえる。ここでは Instacart が計上している繰延損失を例に DTA について説明する。</p>
+<p>Instacart は FY2021 以前は毎期損失を計上していた。この損失は会計上は費用として計上され、純資産を減少させる。一方で税務上は課税所得がマイナスになるので、どれだけ赤字でも当期の法人税の計算には影響せず、この損失は繰り延べられ将来の法人税を減算する効果がある。</p>
+<p>つまり、税務的には繰延損失は将来の便益の源泉になると期待できるから資産とみなすことができる。申告書では資産として表記しないが、この資産による減税効果が財務会計上で開示されていない場合、法人税の金額が会計上の税引前利益に対して激しく上下しているように見えてしまうので投資家にとって分かりづらい。</p>
+<p>よって、財務会計の世界ではこの税務上の資産も会計上の資産として計上する。このように会計上の資産と税務上の資産を適切に期間配分することにより法人税等の金額と会計上の税引前利益を合理的に対応させることを財務会計の世界では「税効果会計」と呼ぶ。</p>
+<p>一方で、繰延損失が将来の法人税減算効果を持つのはあくまで「将来的にこの会社は法人税を計上する」という前提に立っているからであり、赤字続きの会社は法人税など払わないので利益を計上していない会社は DTA の計上が認められないことが多い。開示書類では DTA として計上し得る金額から引当金として控除し、結果として DTA が計上されないという形で開示される。</p>
+<p>これが上記の表でいう Less: valuation allowance である。これを避けて DTA を積むには将来の法人税減算効果の実現可能性が高くなる必要がある。例えば上場直前で黒字化している場合は利益が出ており法人税を払うのは明らかであるから、将来的な減算効果の実現性が高い。</p>
+<p>Instacart では FY2022 は Less: valuation allowance がないため、その分ほぼ全額の DTA を計上することができた。DTA を積むとその額だけ当期 PL の Provision for (benefit from) income taxes（法人税等調整額）が減少し Net income の増額に繋がる。</p>
+<p>このように、DTA は上場直前で事業が成長してきた段階で純利益に影響を与えることがある。</p>
+<h3 id="pepsico-inc-による第三者割当増資">PepsiCo, Inc. による第三者割当増資</h3>
+<p>19 ページより</p>
+<p>Form S-1 の冒頭では PepsiCo, Inc. が第三者割当増殖で $175M の株式を購入すると記載されている。この優先株式は新規公開価格と同額で普通株式に転換される。詳細な条件は Form S-1 の 287 ページ Series A Preferred Stock を参照。</p>
+<p>Instacart はさまざまな小売事業者やブランドパートナーと提携している。消費者は Instacart 上でパーソナライズされた購入体験を得ることができ、小売事業者やブランドパートナーは適切な商品を適切な場所で提供するために必要なデータや消費者との接触機会を得ることができ、売上の増加やマーケティングの ROI 向上につながる。PepsiCo のような CPG brands<sup><a href="#user-content-fn-6" id="user-content-fnref-6" data-footnote-ref="" aria-describedby="footnote-label">5</a></sup> にとっては自社でプラットフォームを作るよりも Instacart のプラットフォームに乗っかった方が早いのは明らかなので、双方にメリットがありそうだ。</p>
+<p>Instacart が引用しているマッキンゼーのレポートによれば米国の CPG brands は年間 $200B を自社製品の広告に費やしていて、そのうち 25% はオンライン広告だという。</p>
+<p>PepsiCo は直近の <a href="https://investors.pepsico.com/docs/default-source/investors/q2-2023/q2-2023-pep_transcript_raxqsyw7vb6ows8x.pdf">Q2 2023 Conference Call</a> でもデジタル化に投資していくことを述べているので、その一環かもしれない。Instacart にとっても PepsiCo のような大企業が資金を出してくれることは投資家へのアピールに繋がると考えられる。</p>
+<h3 id="legal-matters">Legal matters</h3>
+<p>F-46 ページより</p>
+<p>Instacart の流動負債の内訳を見ると、FY2022 時点で最も数字が大きいのは Accrued losses related to legal matters で $164M が計上されている。</p>
+<p><img src="/2023/09/14/current_liabilities.png" alt="current_liabilities"></p>
+<p>Instacart Marketplace においてはショッパーと呼ばれる個人事業主が商品の購入や配送などを代行している。</p>
+<p>同社は主に米国で事業を行っておりショッパーを非雇用の contructor として分類しているが、このような業態を労働者の雇用とみなし医療費補助や保険、最低限の収入保障など労働者の保護を義務化するような法令がある地域（例えばカリフォルニア州）があり、訴訟に直面している。</p>
+<p>このような法的課題について、裁判で確定済みの債務に加えて将来合理的に発生すると見積もった損失を引当金として計上している。</p>
+<h3 id="米国以外の売上">米国以外の売上</h3>
+<p>F-29 ページより</p>
+<p>Instacart の売上はほぼ全て米国内のもの。International と書かれているが、米国外の売上はカナダ・オーストラリア・中国のごく一部に限られている。</p>
+<p><img src="/2023/09/14/geographic.png" alt="geographic"></p>
+<h2 id="10x-について">10X について</h2>
+<p>日本では Instacart のような小売業者向け EC プラットフォームとして <a href="https://lp.stailer.jp/">Stailer</a> というサービスを運営している 10X という会社がある。その代表の方が書かれた Form S-1 の解説ブログがこちら。同業だけあって深い洞察がされている。</p>
+<ul>
+<li><a href="https://10x.co.jp/blog/10xblog/instacart_s1/">コロナ禍を経て大型 IPO。US 食品宅配「Instacart」S-1 を読み解く【10X 矢本】</a></li>
+</ul>
+<hr>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>GTV = <strong>Gross Transaction Value</strong>: Instacart 上で表示された価格に基づいて購入された商品の価格、適用される税金、デポジットや手数料、shopper に支払われるチップ、Instacart+ の会費などを含む取引総額。Instacart Marketplace と Instacart Enterprise Platform が含まれている。 <a href="#user-content-fnref-1" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p><a href="https://www.meti.go.jp/press/2022/08/20220812005/20220812005-h.pdf">経済産業省-電子商取引に関する市場調査報告書 令和 4 年 8 月</a> の 56 ページによると国内 BtoC-EC の市場規模は 2021 年で 2 兆 5,199 億円であり、対前年比で 14.10% 増加、EC 化率は 3.77%であった。 <a href="#user-content-fnref-2" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p>U.S. Bureau of Labor Statistics; based on consumer expenditures in 2021. <a href="#user-content-fnref-4" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-7">
+<p>U.S. Department of Agriculture Food and Nutrition Service, SNAP: Monthly Participation, Households, Benefits. <a href="#user-content-fnref-7" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+<li id="user-content-fn-6">
+<p>CPG = Consumer packaged goods(or brands): Instacart は消費者向けパッケージ商品を販売する企業が所有する特定の製品グループを CPG と呼んでいる。 <a href="#user-content-fnref-6" data-footnote-backref="" class="data-footnote-backref" aria-label="Back to content">↩</a></p>
+</li>
+</ol>
+</section>
+
+        </div>
+      </article>
+    </main>
+    <footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+  </body></html>
