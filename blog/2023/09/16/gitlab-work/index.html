@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja" class="astro-BVZIHDZO">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2023/09/16/gitlab-work/">
+
+<!-- Primary Meta Tags -->
+<title>GitLab に学ぶ世界最先端のリモート組織のつくりかたを読んだ話</title>
+<meta name="title" content="GitLab に学ぶ世界最先端のリモート組織のつくりかたを読んだ話">
+<meta name="description" content="GitLab のドキュメントかについて取り上げた本を読んで感想を書く記事です">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2023/09/16/gitlab-work/">
+<meta property="og:title" content="GitLab に学ぶ世界最先端のリモート組織のつくりかたを読んだ話">
+<meta property="og:description" content="GitLab のドキュメントかについて取り上げた本を読んで感想を書く記事です">
+<meta property="og:image" content="https://lyohe.github.io/2023/09/16/gitlab-book-obi.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2023/09/16/gitlab-work/">
+<meta property="twitter:title" content="GitLab に学ぶ世界最先端のリモート組織のつくりかたを読んだ話">
+<meta property="twitter:description" content="GitLab のドキュメントかについて取り上げた本を読んで感想を書く記事です">
+<meta property="twitter:image" content="https://lyohe.github.io/2023/09/16/gitlab-book-obi.png">
+    
+  <style type="text/css">:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a:where(.astro-EIMMU3LG){display:inline-block;text-decoration:none}a:where(.astro-EIMMU3LG).active{font-weight:bolder;text-decoration:underline}header:where(.astro-3EF6KSR2){margin:0;padding:0 1em;background:white;box-shadow:0 2px 8px rgba(var(--black),5%)}h2:where(.astro-3EF6KSR2){margin:0;font-size:1em}h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2),h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none}nav:where(.astro-3EF6KSR2){display:flex;align-items:center;justify-content:space-between}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none;border-bottom-color:var(--accent)}.social-links:where(.astro-3EF6KSR2),.social-links:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){display:flex}@media (max-width: 720px){.social-links:where(.astro-3EF6KSR2){display:none}}footer:where(.astro-SZ7XMLTE){padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links:where(.astro-SZ7XMLTE){display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE){text-decoration:none;color:rgb(var(--gray))}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE):hover{color:rgb(var(--gray-dark))}
+main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero-image:where(.astro-BVZIHDZO){width:100%}.hero-image:where(.astro-BVZIHDZO) img:where(.astro-BVZIHDZO){display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose:where(.astro-BVZIHDZO){width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title:where(.astro-BVZIHDZO){margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title:where(.astro-BVZIHDZO) h1:where(.astro-BVZIHDZO){margin:0 0 .5em}.date:where(.astro-BVZIHDZO){margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on:where(.astro-BVZIHDZO){font-style:italic}
+</style></head>
+
+  <body class="astro-BVZIHDZO">
+    <header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+    <main class="astro-BVZIHDZO">
+      <article class="astro-BVZIHDZO">
+        <div class="hero-image astro-BVZIHDZO">
+          <img width="1020" height="510" src="/2023/09/16/gitlab-book-obi.png" alt="" class="astro-BVZIHDZO">
+        </div>
+        <div class="prose astro-BVZIHDZO">
+          <div class="title astro-BVZIHDZO">
+            <div class="date astro-BVZIHDZO">
+              <time datetime="2023-09-15T15:00:00.000Z">
+  2023年9月16日
+</time>
+              
+            </div>
+            <h1 class="astro-BVZIHDZO">GitLab に学ぶ世界最先端のリモート組織のつくりかたを読んだ話</h1>
+            <hr class="astro-BVZIHDZO">
+          </div>
+          
+	<p>「GitLab に学ぶ世界最先端のリモート組織のつくりかた」という本（以下、本書と呼ぶ。）を読んだので要約と感想を書く記事です。ヘッダー画像は翔泳社の Web サイト からお借りしました。</p>
+<p><a href="https://www.shoeisha.co.jp/book/detail/9784798183916">https://www.shoeisha.co.jp/book/detail/9784798183916</a></p>
+<h2 id="章ごとの要約">章ごとの要約</h2>
+<p>本書は全 13 章で、大きく分けて 4 つの部分に分かれている。</p>
+<ul>
+<li>第 1 部: リモート組織のメリットを読み解く（第 1 ~ 2 章）</li>
+<li>第 2 部: 世界最先端のリモート組織へ移行するためのプロセス（第 3 ~ 4 章）</li>
+<li>第 3 部: GitLab が実践する組織を活性化させるカルチャー醸成法（第 5 ~ 8 章）</li>
+<li>第 4 部: GitLab が成果を出すために実践している人事制度や業務ルール（第 9 ~ 13 章）</li>
+</ul>
+<p>以下、章ごとの要約と本書を読み進める上で自分が付け加えた補足を書く。</p>
+<h3 id="第-1-章-世界最先端のリモート組織gitlab">第 1 章: 世界最先端のリモート組織「GitLab」</h3>
+<p>GitLab 社は何をしている会社なのか、世界最先端のリモート組織が実現できている状態とはどのようなものかについて書かれている。</p>
+<p>GitLab 社は <a href="https://ir.gitlab.com/static-files/a16df374-a0dc-4274-876c-a96867ae23b8">投資家向けのプレゼンテーション資料</a>によると 2023 年 7 月末時点で 60 か国以上にわたり 2,000 人以上の従業員がいるがオフィスは一箇所もない。</p>
+<p><img src="/2023/09/16/gitlab-july31-2023.png" alt="gitlab-july31-2031"></p>
+<p>オフィスを持たない GitLab は「all-remote」企業でありドキュメントやメール等を活用した非同期的なコミュニケーションが中心だが、同期的なコミュニケーションが全くないわけではない。</p>
+<p>例えば Coffee chat と呼ばれるメンバー間の雑談を毎週数時間行うことを推奨していたり、年に 1 度世界からメンバーが集まる「Gitlab Contributes」というイベントを開催しているそうだ。</p>
+<h4 id="補足">補足</h4>
+<p>なお Coffee chat がどのようなものかについては <a href="https://learn.gitlab.com/c/gitlab-presentation-developers-summit?x=JBqxmQ">GitLab で学んだ最高の働き方 - Developers Summit 2022-02-18</a> に、同期と非同期の使い分けについては <a href="https://learn.gitlab.com/effective-communication-for-autonomous-organization">組織の自律自走を促すコミュニケーション</a> というスライドに記載されている。この 2 つのスライドを作った伊藤氏と佐々木氏は本書の監修をされている。</p>
+<h3 id="第-2-章-リモート組織によって得られるメリット">第 2 章: リモート組織によって得られるメリット</h3>
+<p>GitLab においてリモート組織にどのようなメリットがあるかについて書かれている。</p>
+<ol>
+<li>高い透明性により従業員のエンゲージメントが高まる</li>
+<li>国や地域、働き方を問わず優秀な人材を採用、パフォーマンスを最大化できる</li>
+<li>成果にこだわる風土が形成される</li>
+<li>コストが効率化され、本質的な業務に集中することができる</li>
+</ol>
+<p><code>2.</code> についてはリモートで通勤がなくなるので国内外の優秀な人材を雇用できるほか、働く場所や時間が異なることを前提とした非同期なコミュニケーションが中心になるのでさまざまな働き方を実現できる。</p>
+<p><code>3.</code> については筆者による解説が非常に納得感があったので紹介したい。本書 49 ページより引用。</p>
+<blockquote>
+<p>リモート環境ではオフィスにいる必要がないため、必死に働いているふりをしても頑張っているから評価してくれる人は存在しません。そのため、周りにいるメンバーから評価されるためには何かしらの成果物を残したり、実際にチームにとって良い影響を与えたりと、目に見える成果を出さなくてはなりません。そうした目に見える成果を公正に評価するために、パフォーマンスを計測する必要性が出てきます。パフォーマンスが可視化されることによって、「何も成果を残せなかった」状況を避けるために、従業員は成果にフォーカスした行動を取るようになります。</p>
+</blockquote>
+<p><code>4.</code> については、オフィス賃料や通勤交通費のような直接的なコストがかからなくなるのに加えて、時間の使い方が効率化されるという面もある。all-remote な会社では役割分担を明確にしなければならず、かつドキュメント化が根づいているので無駄な会議が減る。</p>
+<p>このような仕組みはオフィス中心の会社であったとしても業務を効率化する上で参考になる。</p>
+<h4 id="補足-1">補足</h4>
+<p>GitLab はどのような identity を持つ人が働いているかの統計情報を公開している。</p>
+<p><a href="https://about.gitlab.com/company/culture/inclusion/identity-data/">https://about.gitlab.com/company/culture/inclusion/identity-data/</a></p>
+<h3 id="第-3-章-リモート組織を構築するためのプロセス">第 3 章: リモート組織を構築するためのプロセス</h3>
+<p>リモート組織を構築する上で GitLab が推奨しているアクションプランについて書かれている。</p>
+<p>以下のリストは本書 60 ページより引用。</p>
+<ol>
+<li>リモート組織に関する認識を改め明示する</li>
+<li>リモート責任者を任命する</li>
+<li>ハンドブックを制定する</li>
+<li>コミュニケーションガイドラインを明示する</li>
+<li>ツールの種類を最低限に抑える</li>
+<li>経営陣のデフォルトをリモートにする</li>
+<li>リモート作業環境を整備する</li>
+<li>インフォーマルコミュニケーションを設計する</li>
+</ol>
+<p><code>1.</code> はリモート組織に対する会社の考えについて全員の共通認識となるように誰もが見える場所に明示することの重要性を説明している。リモートワークをオフィスワークの補完的要素として捉えると（リモートワークに適した）非同期的な業務が整備されずリモートワーカーのパフォーマンスが低下しがちになる。</p>
+<p><code>3.</code> は GitLab Handbook のような「業務において SSOT: Single Source of Truth となる情報が集約される場所」の重要性を説明している。ドキュメント化には時間と労力を要するが、一度つくってしまえばそれ以降の質問-回答にかかる時間を大きく削減することができる。Handbook のテンプレとして GitLab の社員によって作られた <a href="https://about.gitlab.com/company/culture/all-remote/handbook-first-documentation/#suddenly-remote-quick-boot-handbook-guide">Suddenly Remote Handbook</a> が紹介されている。</p>
+<p><code>4.</code> については無自覚に誰かを傷つけてしまったり攻撃的なコミュニケーションが行われないように社内向けのコミュニケーションガイドラインが制定されており、その内容が解説されている。原文は Handbook の <a href="https://handbook.gitlab.com/handbook/communication/">Effective &#x26; responsible communication guidelines</a> を参照。</p>
+<p><code>6.</code> については経営陣が率先してリモートワークを行うことで全社に対して会社がリモートを推進するメッセージを伝えるとともに、意思決定プロセスをリモートワークに最適化するための課題に気づけるという点が説明されている。</p>
+<p><code>8.</code> については前述の Coffee chat 以外にもさまざまな informal communication が存在し、それらは Handbook の <a href="https://about.gitlab.com/company/culture/all-remote/informal-communication/">Informal Communication in an all-remote environment</a> で公開されている。</p>
+<h4 id="補足-2">補足</h4>
+<p>同期と非同期の使い分けについては本書の監修者である伊藤氏と佐々木氏による <a href="https://learn.gitlab.com/effective-communication-for-autonomous-organization">組織の自律自走を促すコミュニケーション</a> というスライドに記載されている。</p>
+<p><code>5.</code> で実際に GitLab で使われているツールについては「<a href="https://learn.gitlab.com/c/gitlab-presentation-developers-summit?x=JBqxmQ">GitLab で学んだ最高の働き方 - Developers Summit 2022-02-18</a>」の 19 ページ「コミュニケーション手段の使い分け」に記載されている。</p>
+<p><code>7.</code> については、リモート環境整備のために新入社員には $1,500 分だけ使えるバーチャルカードが提供される。備品を買い替えるための費用として入社後 1 年ごとに $500 が提供される（laptop の交換は別）。詳しくは Handbook の以下の箇所を参照。</p>
+<p><a href="https://about.gitlab.com/handbook/finance/expenses/#equipment">https://about.gitlab.com/handbook/finance/expenses/#equipment</a></p>
+<h3 id="第-4-章-リモートワークで発生する問題と対策">第 4 章: リモートワークで発生する問題と対策</h3>
+<p>リモートワークに共通して発生する課題について説明されている。本書で挙げられているのは以下の通り。</p>
+<ul>
+<li>作業が中断されないので働きすぎてしまう</li>
+<li>テキストベースのコミュニケーションが苦手な人に合わない</li>
+<li>業務時間中の雑談が発生しづらく孤独感を覚える</li>
+<li>仕事と生活の境目が曖昧になり疲弊する</li>
+<li>新入社員や異動したメンバーが新しいチームに馴染めない</li>
+<li>バーンアウトしてしまい、過度に落ち込んだり威圧的なコミュニケーションを取ったりする</li>
+</ul>
+<p>GitLab においてその対策としては</p>
+<ul>
+<li>丁寧なオンボーディングを行う</li>
+<li>（Coffee chat のような）インフォーマルコミュニケーションの施策を提供する</li>
+<li>外部のプロフェッショナルによるメンタルヘルスケアを福利厚生として従業員およびその家族に提供する</li>
+<li>積極的な休暇取得を推奨する</li>
+<li>コミュニケーションのガイドラインを制定する</li>
+</ul>
+<p>などがとられている。</p>
+<h4 id="補足-3">補足</h4>
+<p>GitLab のメンタルヘルスケアについては Handbook の <a href="https://about.gitlab.com/company/culture/all-remote/mental-health/">Combating burnout, isolation, and anxiety in the remote workplace</a> に詳しく記載されている。</p>
+<p>メンタルヘルスケアの福利厚生については Handbook の <a href="https://about.gitlab.com/handbook/total-rewards/benefits/modern-health/">Modern Health</a> を参照。</p>
+<h3 id="第-5-章-カルチャーはバリューによって醸成される">第 5 章: カルチャーはバリューによって醸成される</h3>
+<p>本書の中で個人的に最も好きなのがこの第 5 章。<a href="https://handbook.gitlab.com/handbook/values/">GitLab Values</a> の内容に加えて、どのように運用されているかが説明されている。</p>
+<p>まず、良いカルチャーを醸成するためには「カルチャーマッチではなくバリューマッチ（現在のカルチャーに沿った人材を採用するのではなく、それを継続的に改善するためにバリューを体現できる人物を採用する）」が重要という著者の分析が紹介されている。</p>
+<p>次に、GitLab における 6 つの Core Values（Collaboration, Results, Efficiency, Iteration, Diversity &#x26; Inclusion, Transparency）とそのヒエラルキー（Value 同士が衝突した際にどちらを優先すべきか）や、他にも多くのページを使って著者の経験や学術的な解説を交えて Values 自体や Values を浸透させる仕組みの説明がされている。これについては本書を買って読んでほしい。</p>
+<p><img src="/2023/09/16/values_hierarchy.png" alt="values_hierarchy"></p>
+<p>上図は Handbook の <a href="https://handbook.gitlab.com/handbook/values/#hierarchy">Hierarcnhy</a> から引用した。</p>
+<h4 id="補足-4">補足</h4>
+<p>GitLab の 6 つの Core Values の頭文字を取ると…</p>
+<p><strong>C</strong>ollaboration, <strong>R</strong>esults, <strong>E</strong>fficiency, <strong>D</strong>iversity &#x26; <strong>I</strong>nclusion, <strong>T</strong>ransparency</p>
+<p>で <em>CREDIT</em> となる。こういう覚えやすくする工夫は Values を浸透させる上で非常に重要だと思う。特に Values の数が多い場合…</p>
+<p>GitLab が Values を浸透させるにあたりどのような取り組みをしているかについては Handbook の <a href="https://handbook.gitlab.com/handbook/values/#how-do-we-reinforce-our-values">How do we reinforce our values</a> に記載されている。これ一つ一つは本当にちょっとしたことなのだが、繰り返す内に自然と業務で日常的に Value が口から出るようになり行動に繋がっていく。例えば自分が過去に働いていた会社では採用や評価に限らず、会議室の名前を Values から取ったり Values を刻んだグッズを作ったりさまざまな取り組みが行われていた。</p>
+<h3 id="第-6-章-コミュニケーションのルール">第 6 章: コミュニケーションのルール</h3>
+<p>GitLab が採用しているコミュニケーションに関するルールについて説明している。</p>
+<p>例えば SAFE フレームワークについて。GitLab では Transparency という Value があるように基本的にあらゆる情報が公開されているが、公開してはいけない情報もある。情報を非公開にするルールが明確に定義されていることで、それ以外を安心して公開することができるようになる。</p>
+<p>SAFE は Sensitive, Accurate, Financial, Effect の頭文字をとったもの。</p>
+<ul>
+<li><strong>S</strong>ensitive: 個人のパフォーマンス、入退社日、顧客または取引先の機密情報、投資家の投資判断にとって重要な情報（株式や社債発行や新製品の情報）、セキュリティに関する情報などは公開できない</li>
+<li><strong>A</strong>ccurate: 外部からの要求があった時にデータの正確性を検証できない情報や <a href="https://about.gitlab.com/handbook/people-group/directly-responsible-individuals/">DRI</a> の承認を得ていない情報は公開できない</li>
+<li><strong>F</strong>inancial: 将来の見通しや過去の実績のうち開示されていないもの、それらの算定根拠となり得るものは CFO の許可がなければ公開できない</li>
+<li><strong>E</strong>ffect: 公開される情報が会社にどのような影響を与えるか公開前に留意しなければならない</li>
+</ul>
+<p><img src="/2023/09/16/safe_flowchart.png" alt="safe_flowchart"></p>
+<p>上図は Handbook の <a href="https://about.gitlab.com/handbook/legal/safe-framework/">GitLab SAFE Framework</a> より引用した。</p>
+<h4 id="補足-5">補足</h4>
+<p>コミュニケーションのルールは Handbook の <a href="https://handbook.gitlab.com/handbook/communication/">GitLab Communication</a> に詳細な記載がある。</p>
+<p>なお、一般的なコミュニケーションガイドラインの他に障害対応時のコミュニケーションについて規定した <a href="https://about.gitlab.com/handbook/marketing/corporate-communications/incident-communications-plan/">Incident Communications Plan</a> や社外へのコミュニケーションについて規定した s <a href="https://about.gitlab.com/handbook/marketing/corporate-communications/incident-communications-plan/">Corporate Communications Handbook</a> がある。</p>
+<h3 id="第-7-章-リモート組織におけるオンボーディングの重要性">第 7 章: リモート組織におけるオンボーディングの重要性</h3>
+<p><a href="https://about.gitlab.com/handbook/people-group/general-onboarding/">GitLab で行われるオンボーディング</a>について説明している。</p>
+<p>新入社員は入社前に「TaNewKi（タヌキ） Welcome Call」というミーティングでオンボーディング手順の確認やチームメンバーへの紹介、質疑応答などを行う。</p>
+<p>オンボーディングでやることは以下の通り。</p>
+<ul>
+<li>1 日目: アカウント発行や作業環境の構築</li>
+<li>2 日目: リモートワークのベースと GitLab Values の確認</li>
+<li>3 日目: セキュリティ設定とコンプライアンスの確認</li>
+<li>4 日目: コミュニティと福祉構成の確認</li>
+<li>5 日目: Git の使い方</li>
+<li>2 週目~: 職種ごとの追加オンボーディング</li>
+</ul>
+<h4 id="補足-6">補足</h4>
+<p>新入社員がやるタスクは <a href="https://gitlab.com/gitlab-com/people-group/people-operations/employment-templates/-/blob/ba436009e4b29617ba2eb61ad45d5b4fec3d8fb0/.gitlab/issue_templates/onboarding.md">onboarding issue</a> にまとめられている。これは People Connect（オンボーディングに責任を持つ）チームの担当者によって作成される。issue は新入社員自身に dogfooding の一環としてアサインされ、入社後 2 週間以上をかけて完了させる。</p>
+<p>上記は全員向けのオンボーディングで、職種によって追加の手順がある。例えば開発者向けには開発フローを記した追加のオンボーディングドキュメントがある。</p>
+<p><a href="https://about.gitlab.com/handbook/developer-onboarding/">https://about.gitlab.com/handbook/developer-onboarding/</a></p>
+<h3 id="第-8-章-心理的安全性の醸成">第 8 章: 心理的安全性の醸成</h3>
+<p>GitLab Values を題材に心理的安全性について説明されている。</p>
+<p><a href="https://blog.jostle.me/blog/psychological-safety-at-work">https://blog.jostle.me/blog/psychological-safety-at-work</a></p>
+<h3 id="第-9-章-個人のパフォーマンスを引き出す">第 9 章: 個人のパフォーマンスを引き出す</h3>
+<p>GitLab が個人のパフォーマンスについてどのような思想を持っているかについて説明されている。</p>
+<p>個人のパフォーマンスの評価は「成果」と「行動」の 2 つの軸で考えられている。成果については定量的に計測可能だが、行動に関しては<a href="https://about.gitlab.com/handbook/competencies/">各 Core Values や職種、現在のグレード等さまざまな区分に応じたコンピテンシー</a>が制定されており、それを根拠にパフォーマンスを評価する。</p>
+<p>また、個人のパフォーマンスを引き出すための目標設定として <a href="https://handbook.gitlab.com/handbook/company/okrs/">GitLab の OKR</a> とノーススター KPI（全社員が注目すべき唯一の目標）について説明されている。なお、GitLab 社が重視する KPI は <a href="https://about.gitlab.com/company/kpis/">KPI</a> のページに記載されている。</p>
+<p>他には意思決定の 2 つのフェーズについて。GitLab では意思決定を「データ収集プロセス」と「意思決定フェーズ」の二つに分離し、意思決定のプロセスを遂行する責任および結果に対する責任は <a href="https://about.gitlab.com/handbook/people-group/directly-responsible-individuals/">DRI</a> が負う。DRI は意思決定の内容が周囲にどう受け止められるかの責任はない。</p>
+<p>DRI のような仕組みを用意する理由は GitLab が完全なコンセンサス（全員が納得するような決定をする）もしくはヒエラルキー（組織の上位者が決定する）アプローチはうまくいかないと考えているため（なぜなら、完全なコンセンサスを優先するとスピードが犠牲になり完全なヒエラルキーを優先すると貴重な意見を失うから）。</p>
+<p><a href="https://about.gitlab.com/handbook/leadership/making-decisions/">https://about.gitlab.com/handbook/leadership/making-decisions/</a></p>
+<h3 id="第-10-章-gitlab-value-に基づいた人事制度">第 10 章: GitLab Value に基づいた人事制度</h3>
+<p>GitLab が運用する等級制度、評価制度、報酬制度について解説されている。</p>
+<p>等級は職種（セールス、カスタマーサクセス、それ以外）ごとに定められており、Management と Individual Contributor の二つのテーブルに分かれている。</p>
+<p><a href="https://about.gitlab.com/handbook/total-rewards/compensation/compensation-calculator/#gitlab-job-grades">https://about.gitlab.com/handbook/total-rewards/compensation/compensation-calculator/#gitlab-job-grades</a></p>
+<p>各等級にどのような能力が要求されどのような責任があるかは Handbook の <a href="https://about.gitlab.com/company/team/structure/">Organizational Structure</a> で記載されている。</p>
+<p>評価制度の中心となる概念は 9 box と呼ばれていて、パフォーマンスと成長力それぞれ 3 段階で 3 x 3 = 9 box の matrix でどこに属するかで四半期ごとに評価を行う。詳しくは Handbook の <a href="https://about.gitlab.com/handbook/people-group/talent-assessment/#the-performancegrowth-potential-matrix">The Performance/Growth Potential Matrix</a> を参照。</p>
+<p>パフォーマンスは過去および現在において目標に貢献する成果を出しており GitLab の Core Values を体現しており将来の成長につながる行動をしているかどうかを評価する。成長力は未来においてパフォーマンスを発揮できるかどうかを <a href="https://about.gitlab.com/handbook/people-group/talent-assessment/#measuring-growth-potential">Growth Potential Pillar</a> に沿った行動をしているかどうかで評価する。</p>
+<p>報酬の計算方法も Handbook の <a href="https://about.gitlab.com/handbook/total-rewards/compensation/compensation-calculator/">The Compensation Calculator</a> で計算式が公開されている。報酬は以下の 4 つを乗じた金額となる。</p>
+<ol>
+<li>SF benchmark: サンフランシスコにおけるその職務の相場となる報酬</li>
+<li>Location Factor: 地域ごとに労働市場のコストをサンフランシスコと比較した割合（例えば東京ではサンフランシスコの半額で同等の職務の労働者を半額で雇用できる場合、Location Factor = 0.5 となる）</li>
+<li>Level Factor: 職務を遂行するレベルに応じて報酬を加算・減算する割合（例えばジュニアは 0.8 倍、シニアは 1.2 倍）</li>
+<li>Exchange Rate: 為替レート</li>
+</ol>
+<h4 id="補足-7">補足</h4>
+<p>評価制度については Handbook の <a href="https://about.gitlab.com/handbook/people-group/talent-assessment/">Talent Assessment</a> のページに詳しく記載されている。</p>
+<p>なお、GitLab で報酬の計算に使われる為替レートは 12 月 1 日 と 6 月 1 日 の年 2 回で固定される。例えば 2023 年 9 月 17 日時点の日本円は 1 ドルあたり 147 ~ 148 円だが、GitLab のレートでは 6 月 1 日時点のレートが使われるので 138 円となっている。</p>
+<p><a href="https://about.gitlab.com/handbook/total-rewards/compensation/#exchange-rates">https://about.gitlab.com/handbook/total-rewards/compensation/#exchange-rates</a></p>
+<p>場合によっては現地通貨ではなくユーロやドルで受け取ることも可能なようだ。</p>
+<p>昇進や異動については <a href="https://about.gitlab.com/handbook/people-group/promotions-transfers/">Promotions and Transfers</a> が参考になりそう。</p>
+<h3 id="第-11-章-マネージャーの役割とマネジメントを支援するための仕組み">第 11 章: マネージャーの役割とマネジメントを支援するための仕組み</h3>
+<p>チームのパフォーマンスを向上させるためにマネージャーがどのように行動すべきかを説明している。</p>
+<p>まずは目標設定について。GitLab ではチームの目標はマネージャーによって設定される。目標は <strong>S</strong>pecific（具体的）, <strong>M</strong>easurable（計測可能）, <strong>A</strong>chievable（達成可能）, <strong>R</strong>elated（経営目標との連結）, <strong>T</strong>ime-bound（時間制約がある） を満たす “SMART” であることが求められる。</p>
+<p>フィードバックに関しては <a href="https://about.gitlab.com/handbook/leadership/crucial-conversations/">Crucial Conversations</a> というやり方が重視されている。</p>
+<p>パフォーマンスが出ない人への対応については、そのパフォーマンス低下の原因がどのようなものかを分析した上でどうしたらパフォーマンスを改善できるかを計画（<a href="https://about.gitlab.com/handbook/leadership/underperformance/#performance-improvement-plan-pip">PIP: Performance Improvement Plan</a>）する。</p>
+<p><a href="https://about.gitlab.com/handbook/leadership/underperformance/">https://about.gitlab.com/handbook/leadership/underperformance/</a></p>
+<p>マネージャーのコンピテンシーとしては以下の 5 つが挙げられている。</p>
+<ul>
+<li>Emotional intelligence: 感情をコントロールする</li>
+<li>Conflict resolution: メンバー間の意見の衝突を建設的に解決できる環境を作る</li>
+<li>Modeling culture of feedback: メンバーへリアルタイムにフィードバックを提供し、メンバー間のフィードバックを促す</li>
+<li>Building high performing teams: 効率的な意思決定や実行を通じてチーム全体に結果責任を負わせる（行動と結果の関連性をわかりやすいようにするという意味？）</li>
+<li>Coaching: チームメンバーが内面と向き合い強みを自覚しより成長できるよう助ける</li>
+</ul>
+<p><img src="/2023/09/16/competencies-graphic.png" alt="competencies-graphic"></p>
+<p>上図は <a href="https://about.gitlab.com/handbook/competencies/#manager-and-leadership-competencies">Competencies の Manager and Leadership Competencies</a> より引用。本書には著者による日本語への翻訳が載っています。</p>
+<h4 id="補足-8">補足</h4>
+<p>GitLab がパフォーマンスの高いチームを作るために行っていることについて詳しくは Handbook の <a href="https://about.gitlab.com/handbook/leadership/build-high-performing-teams/">Building High Performing Teams</a> を参照。</p>
+<p>新入社員と同じように、新しくマネージャーとなった場合も <a href="https://gitlab.com/gitlab-com/people-group/Training/-/blob/4f9d7584a9260bfe31926855e83c33b0e26f1500/.gitlab/issue_templates/becoming-a-gitlab-manager.md">onboarding issue</a> が作られる。三ヶ月かけてマネージャーに必要なドキュメントを読んだりメンバーと話したりするようだ。</p>
+<h3 id="第-12-章-コンディショニングを実現する">第 12 章: コンディショニングを実現する</h3>
+<p>有給休暇を取る。適度な運動をする。</p>
+<p><a href="https://about.gitlab.com/handbook/paid-time-off/">https://about.gitlab.com/handbook/paid-time-off/</a></p>
+<p>有給休暇を取らないことは GitLab では「<strong>自分の役割に対する謙虚さに欠ける</strong>」とされている。上記のページより引用。</p>
+<blockquote>
+<p>Not taking time off is viewed as a weakness and people shouldn’t boast about it. It is viewed as a lack of humility about your role, not fostering collaboration in training others in your job, and not being able to document and explain your work. You are doing the company a disservice by being a single point of failure. The company must be able to go for long periods without you. We don’t want to lose you permanently by you burning yourself out by not taking regular time off.</p>
+</blockquote>
+<h3 id="第-13-章-ld-を活用してパフォーマンスとエンゲージメントを向上させる">第 13 章: L&#x26;D を活用してパフォーマンスとエンゲージメントを向上させる</h3>
+<p>L&#x26;D（Learning &#x26; Development）つまり能力開発について説明されている。</p>
+<p>GitLab では一人一人が自分の将来の目標やキャリアを <a href="https://about.gitlab.com/handbook/people-group/learning-and-development/career-development/igp-guide/">IGP: Individual Growth Plan として作成</a>し、自分の計画に基づいてコミットした行動を実行していく。</p>
+<p>IGP の実行にあたっては <a href="https://about.gitlab.com/handbook/people-group/360-feedback/">360 度評価</a>による周囲のサポートや、学習にかかる費用や資格取得費など（Udemy や Coursera のようなオンライン講座や大学・大学院の学費、ビジネスコーチの費用など）のサポートがある。</p>
+<p>なお、360 度評価は主として能力開発によって使われるもので、パフォーマンスの評価には重要視されなさそう（<a href="https://about.gitlab.com/handbook/people-group/360-feedback/#guidance-for-managers">参考: 360 Feedback - Guidance for Managers</a>）。</p>
+<h2 id="本書を読んだ感想">本書を読んだ感想</h2>
+<p>著者は GitLab の従業員ではないが、GitLab 社の従業員による監修が行われているので内容の正確性については問題なさそう。私自身も GitLab Handbook を読むことはあるのだが、とにかく量が膨大（2,700 以上のページがあり、監修者の言によると GitLab 社員ですら全て把握するのは難しい）なのでこのような本で全体像を提供してくれるのはありがたい。</p>
+<p>本書の特徴として、著者が長く人事の仕事をしてきた経験や学術的な背景などを交えながら GitLab の先進的な取り組みを紹介してくれるという点がある。GitLab が all-remote な会社であることもあってリモートワークを中心に取り上げているが、オフィスワーク中心であっても非同期的に仕事をすることは多いので参考になる部分はあろうかと思う。個人的には</p>
+<p>気になった点として、GitLab Handbook を引用する箇所で引用のリンクがない箇所がある。例えば、第 3 章で『GitLab が公開している「より良いリモート組織のための 12 ステップ」というチェックリストも紹介します。』という文があり、続けて <a href="https://about.gitlab.com/company/culture/all-remote/the-gitlab-test-remote-work/">The GitLab Test - 12 Steps to Better Remote</a> を日本語に要約したリストが並んでいるのだが、引用元が提示されていない。</p>
+<p>自分で調べればどこから引用しているかは分かるのだが、より詳しく知りたいと思ったときリンク先が明示されている方が辿りやすいので引用元を書いて欲しい。本書を監修した伊藤氏と佐々木氏のスライド <a href="https://learn.gitlab.com/c/gitlab-presentation-developers-summit?x=JBqxmQ">GitLab で学んだ最高の働き方 - Developers Summit 2022-02-18</a> および <a href="https://learn.gitlab.com/effective-communication-for-autonomous-organization">組織の自律自走を促すコミュニケーション</a> については Handbook からの引用は全て引用元がリンク等で明示されている。</p>
+<p>しかしながら、これが本書の価値を損ねるとは思わない。何か意図があるかもしれない（例えば、GitLab の Handbook には handbook.gitlab.com から about.gitlab.com に移行中のものがあり URL は変わるかもしれない）し、あくまで個人的意見です。</p>
+<p>リモートワーク中心の会社は買って読んで損はない（たった 1,800 円+税！！）し、オフィスワーク中心の会社はこれを買ってリモートワークの良い箇所だけを取り入れるのがいいと思う。</p>
+<h2 id="おまけ-gitlab-の売上">おまけ: GitLab の売上</h2>
+<p><a href="https://ir.gitlab.com/static-files/a16df374-a0dc-4274-876c-a96867ae23b8">Investor Presentation - Second Quarter Fiscal Year 2024</a> によると Run-Rate Revenue は $558M で、YoY +38% 成長している。</p>
+<p><img src="/2023/09/16/gitlab-financials.png" alt="gitlab-financials"></p>
+<p>GitLab の上場時に Form S-1 を読んだのだが、2021 年 7 月末時点での Run-Rate Revenue は $233M なので、2 年で 2 倍以上になっている。</p>
+<ul>
+<li><a href="https://lyohe.github.io/blog/2021/09/26/gitlab-ipo/">GitLab が上場するので Form S-1 を読んだ話</a></li>
+</ul>
+<p><img src="/2023/09/16/gitlab-kpi-ipo.png" alt="gitlab-ipo"></p>
+
+        </div>
+      </article>
+    </main>
+    <footer class="astro-SZ7XMLTE">
+	&copy; 2023 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+  </body></html>
