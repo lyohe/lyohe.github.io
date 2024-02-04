@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja" class="astro-BVZIHDZO">
+  <head>
+    <!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Astro v2.10.14">
+
+<!-- Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+<!-- Font preloads -->
+<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://lyohe.github.io/blog/2024/02/04/hello-world/">
+
+<!-- Primary Meta Tags -->
+<title>Go で Hello, World! する</title>
+<meta name="title" content="Go で Hello, World! する">
+<meta name="description" content="Go でハロワした話です">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyohe.github.io/blog/2024/02/04/hello-world/">
+<meta property="og:title" content="Go で Hello, World! する">
+<meta property="og:description" content="Go でハロワした話です">
+<meta property="og:image" content="https://lyohe.github.io/2024/02/04/helloworld.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://lyohe.github.io/blog/2024/02/04/hello-world/">
+<meta property="twitter:title" content="Go で Hello, World! する">
+<meta property="twitter:description" content="Go でハロワした話です">
+<meta property="twitter:image" content="https://lyohe.github.io/2024/02/04/helloworld.png">
+    
+  <style type="text/css">:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a:where(.astro-EIMMU3LG){display:inline-block;text-decoration:none}a:where(.astro-EIMMU3LG).active{font-weight:bolder;text-decoration:underline}header:where(.astro-3EF6KSR2){margin:0;padding:0 1em;background:white;box-shadow:0 2px 8px rgba(var(--black),5%)}h2:where(.astro-3EF6KSR2){margin:0;font-size:1em}h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2),h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none}nav:where(.astro-3EF6KSR2){display:flex;align-items:center;justify-content:space-between}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none;border-bottom-color:var(--accent)}.social-links:where(.astro-3EF6KSR2),.social-links:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){display:flex}@media (max-width: 720px){.social-links:where(.astro-3EF6KSR2){display:none}}footer:where(.astro-SZ7XMLTE){padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links:where(.astro-SZ7XMLTE){display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE){text-decoration:none;color:rgb(var(--gray))}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE):hover{color:rgb(var(--gray-dark))}
+main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero-image:where(.astro-BVZIHDZO){width:100%}.hero-image:where(.astro-BVZIHDZO) img:where(.astro-BVZIHDZO){display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose:where(.astro-BVZIHDZO){width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title:where(.astro-BVZIHDZO){margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title:where(.astro-BVZIHDZO) h1:where(.astro-BVZIHDZO){margin:0 0 .5em}.date:where(.astro-BVZIHDZO){margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on:where(.astro-BVZIHDZO){font-style:italic}
+</style></head>
+
+  <body class="astro-BVZIHDZO">
+    <header class="astro-3EF6KSR2">
+	<nav class="astro-3EF6KSR2">
+		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
+		<div class="internal-links astro-3EF6KSR2">
+			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Home
+</a>
+			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	Blog
+</a>
+			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
+	About
+</a>
+		</div>
+		<div class="social-links astro-3EF6KSR2">
+			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
+				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
+				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
+			</a>
+		</div>
+	</nav>
+</header>
+    <main class="astro-BVZIHDZO">
+      <article class="astro-BVZIHDZO">
+        <div class="hero-image astro-BVZIHDZO">
+          <img width="1020" height="510" src="/2024/02/04/helloworld.png" alt="" class="astro-BVZIHDZO">
+        </div>
+        <div class="prose astro-BVZIHDZO">
+          <div class="title astro-BVZIHDZO">
+            <div class="date astro-BVZIHDZO">
+              <time datetime="2024-02-03T15:00:00.000Z">
+  2024年2月4日
+</time>
+              
+            </div>
+            <h1 class="astro-BVZIHDZO">Go で Hello, World! する</h1>
+            <hr class="astro-BVZIHDZO">
+          </div>
+          
+	<p>これは Go で <code>Hello, World!</code> という文字列を出力する方法について調べた記事です。M1 Macbook で Go 1.21.6 を使用しています。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">$ go version</span></span>
+<span class="line"><span style="color: #e1e4e8">go version go1.21.6 darwin/arm64</span></span></code></pre>
+<h2 id="hello-world">Hello, World!</h2>
+<p><code>Hello, World!</code> という文字列を標準出力するプログラムは以下の通り。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">fmt</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span><span style="color: #E1E4E8">() {</span></span>
+<span class="line"><span style="color: #E1E4E8">	fmt.</span><span style="color: #79B8FF">Println</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"Hello, World!"</span><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<p>これを main.go のような名前で保存して <code>go run main.go</code> すると…</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">$ go run main.go</span></span>
+<span class="line"><span style="color: #e1e4e8"></span></span>
+<span class="line"><span style="color: #e1e4e8">Hello, World!</span></span></code></pre>
+<p><code>Hello, World!</code> を出力することができた。次は <a href="https://code.visualstudio.com/docs/editor/debugging">Visual Studio Code のデバッグ機能</a>を使ってプログラムが何をしているかを見ていく。</p>
+<h2 id="デバッグ機能を使う">デバッグ機能を使う</h2>
+<p>Visual Studio Code を開いてコード上で Breakpoint を指定してデバッグを実行する。“Step Over” と “Step Into” を繰り返すことで <code>fmt.Println()</code> が何を呼び出しているのかを調べる。</p>
+<p><img src="/2024/02/04/debug.png" alt="debug"></p>
+<p><code>Step Over</code> は現在の行を実行し次の行に移動する。このとき、現在の行で呼び出される関数やメソッドの内部にはジャンプせず、その呼び出しを一つの step として扱う。基本的には、ある行が期待通りに動作していることを前提としてその行をスキップするのに使う。</p>
+<p><code>Step Into</code> は現在の行で呼び出される関数やメソッドに飛ぶ。基本的には、関数やメソッド内部の動作を理解したい場合に使う。</p>
+<h2 id="fmtprintln-は何をしているのか">fmt.Println() は何をしているのか</h2>
+<p><a href="https://pkg.go.dev/fmt">fmt</a> は Go の標準パッケージで、フォーマットされた I/O を提供する。C 言語の printf や scanf のように使うことができる。</p>
+<p>まず main 関数から <code>fmt.Println("Hello, World!")</code> の行に step into すると、Fprintln に <code>os.Stdout</code>（標準出力）を与えて呼び出していることが分かる。</p>
+<p><img src="/2024/02/04/1.fmt.Println.png" alt="fmt.Println"></p>
+<p>次は Fprintln() の行に step into する。</p>
+<h3 id="fmtfprintln">fmt.Fprintln()</h3>
+<p>Fprintln() は <code>io.Writer</code> を満たす <code>w</code>を受け取り、その Write メソッドを呼び出す。os.Stdout は io.Writer を満たしているので問題ない。ここでは Write の引数として p.buf を与えているが、これは newPrinter() という関数で生成された構造体のメンバーで、中身は単なる<code>[]byte</code> である。</p>
+<p><img src="/2024/02/04/2.fmt.Fprintln.png" alt="fmt.Fprintln"></p>
+<p>次は step over で Write(p.buf) の行まで進んで step into する。</p>
+<h3 id="osfile-で-write">os.File で Write()</h3>
+<p>この Write() メソッドはポインタレシーバを使用して実装されており、os.File 型の値に <code>[]byte</code> を書き込む。<code>os.Stdout</code> は os.File 型なのでこれを使うことができる。これを使って標準出力にバイト列を書き込んでいるようだ。書き込む前に f.checkValid という関数を読んでいるが、これは f が nil のときだけエラーを返す。</p>
+<p><img src="/2024/02/04/3.os.(*File).Write.png" alt="(*File).Write"></p>
+<p>次は f.write(b) の行に step into する。</p>
+<h3 id="osfile-で-write-1">os.File で write()</h3>
+<p>write() は先頭が小文字、つまり外部に公開されていない <code>f.pfd.Write()</code> を呼び出している。</p>
+<p><img src="/2024/02/04/4.write.png" alt="write"></p>
+<p><code>os.File</code> 型は <code>file</code> 型へのポインタを持つ。<code>file</code> 型は OS によってその中身が異なっているが、pfd に入るのがファイルディスクリプタを示す構造体であることは共通している。</p>
+<p>参考: <a href="https://cs.opensource.google/go/go/+/release-branch.go1.21:src/os/file_unix.go;l=54-65;drc=a6fb97b6a7f42b8d4cbd8890672ccbf3cf0a929a">Unix</a>, <a href="https://cs.opensource.google/go/go/+/release-branch.go1.21:src/os/file_windows.go;l=20-29;drc=7c97cc7d979a918b8d60081794a846b50f6a7bbe">Windows</a></p>
+<p>その後で return する前に <a href="https://pkg.go.dev/runtime#KeepAlive">runtime.KeepAlive</a> しているが、これはファイル操作を完了した後で結果を返すまでの期間に、何らかの理由で引数の f がガベージコレクタによって回収されることを防ぐためと考えられる。</p>
+<p>次は f.pfd.Write(b) の行に step into する。</p>
+<h3 id="fd-で-write">FD で Write()</h3>
+<p>前 step の f.pfd は internal パッケージの FD 型（ファイルディスクリプタの略）で、この FD のポインタレシーバを使って Write 関数が実装されている。</p>
+<p>まずは（並列で同時に書き込みが行われないように）ファイルディスクリプタをロックしたり状態をチェックし、問題なければ for ループ内でファイルに書き込む。全てのデータが書き込まれる（nn == len(p)）か、再試行可能なエラーが発生する（err == syscall.EAGAIN &#x26;&#x26;…）か、書き込みが 0 バイトで返ってきた（n == 0）場合に処理を終了する。</p>
+<p><img src="/2024/02/04/5.os.(*File).pfd.Write.png" alt="pfd.Write"></p>
+<p>Windows では<a href="https://cs.opensource.google/go/go/+/release-branch.go1.21:src/internal/poll/fd_windows.go;l=652-704;drc=aa4d5e739f32397969fd5c33cbc95d316686039f">別の Write() メソッド</a>が呼ばれる。Windows と Unix ではファイルシステムや I/O を操作するための API が根本的に異なるはずだが、開発者がその違いを詳細に意識しなくてもファイルを扱うコードを書けるのは大変よい。</p>
+<p>次は ignoringEINTRIO(syscall.Write, …) の行に step into する。</p>
+<h3 id="システムコールを呼ぶ">システムコールを呼ぶ</h3>
+<p>ignoringEINTRIO は第一引数として渡されていた関数を呼び、syscall.EINTR 以外のエラーが返ってきたときに結果を返す関数だ。EINTR はシステムコールが中断された（Interrupted）ときのエラーだが、これ以外のエラーが生じたときは for ループを中断して結果を返す。EINTR が生じたときは単に for ループでシステムコールが再試行される。</p>
+<p><img src="/2024/02/04/6.ignoringEINTRIO.png" alt="ignoringEINTRIO"></p>
+<p>次は fn(fd, p) に step into する。これは第一引数として与えられた syscall.Write() を呼んでいる。これは、それぞれ引数として受け取ったファイルディスクリプタに <code>[]byte</code> を書き込む。</p>
+<p><img src="/2024/02/04/7.syscall.Write.png" alt="syscall.Write"></p>
+<p>次は write() 関数に step into する。<code>libc_write_trampoline</code> を介して C 言語の標準ライブラリ関数（libc）を通じて write を呼んでいるようだ。ここでは <code>//go:cgo_import_dynamic libc_write write "/usr/lib/libSystem.B.dylib"</code> からインポートしている。</p>
+<p><img src="/2024/02/04/8.syscall_darwin_arm64.write.png" alt="syscall_darwin_arm64.write"></p>
+<p>最後に syscall の行に step into する。引数を使って libcCall() でシステムコールを実行している。</p>
+<p><img src="/2024/02/04/9.syscall_syscall.png" alt="syscall_syscall"></p>
+<p>libSystem.B.dylib は macOS のダイナミックライブラリの一種で、アプリケーションが OS の機能にアクセスするためのシステムコールのラッパーや C 標準ライブラリなどを提供する。実行時に（macOS では .dylib, Windows では .dll を通じて）必要な関数やデータをロードするので、コンパイル時の実行ファイルには組み込まれない。</p>
+<p>Go のバイナリに <code>nm</code> コマンドを使うと、他にも libc の trampoline 関数（Go の実行環境から libc の関数を呼ぶための中継点となる関数）があるようだった。なお、<code>GOOS</code> を <code>linux</code>, <code>GOARCH</code> を <code>amd64</code> にしたらこのコマンドの出力結果は空だったので、macOS だけ libc を介してシステムコールを呼び出すようになっているのかもしれない。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">$ nm main | grep -i libc</span></span>
+<span class="line"><span style="color: #e1e4e8">000000010004da00 t _runtime.libcCall</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072b50 t _syscall.libc_close_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072b60 t _syscall.libc_closedir_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072b70 t _syscall.libc_dup2_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072c00 t _syscall.libc_execve_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072b40 t _syscall.libc_fcntl_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072c30 t _syscall.libc_fstat_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072c20 t _syscall.libc_getcwd_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072b80 t _syscall.libc_getrlimit_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072bb0 t _syscall.libc_lseek_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072be0 t _syscall.libc_mmap_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072bf0 t _syscall.libc_munmap_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072b90 t _syscall.libc_open_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072ba0 t _syscall.libc_read_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072bc0 t _syscall.libc_setrlimit_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072c40 t _syscall.libc_stat_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072c10 t _syscall.libc_sysctl_trampoline.abi0</span></span>
+<span class="line"><span style="color: #e1e4e8">0000000100072bd0 t _syscall.libc_write_trampoline.abi0</span></span></code></pre>
+<p>ここまで Go が fmt.Println からシステムコールを呼んで OS の機能を使う流れを見てきた。</p>
+<h2 id="おまけ-go-build-でコンパイルしたバイナリを読む読めない">おまけ: <code>go build</code> でコンパイルしたバイナリを読む（読めない）</h2>
+<p><code>Hello, World!</code> を標準出力するプログラムを <code>go build</code> でコンパイルすることで、実行ファイルを生成できる。筆者の環境だとファイルサイズが 1.9MB もあるのだが、この中には何が含まれているのだろうか？</p>
+<p>VS Code の拡張機能として <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.hexeditor">Hex Editor</a> をインストールした上で、<code>go build</code> で生成したバイナリを読んでみる。まずはどこから何を読んでいいのか分からないので、とりあえずデコードされた文字列で Hello, World! を探してその周辺の文字列を読もうと試みた。</p>
+<p><img src="/2024/02/04/hex_editor.png" alt="hex_editor"></p>
+<p>文字列が並んでいるが、自分の今の知識では何が書かれているのか分からなかった。</p>
+<p>バイナリファイルには Go を実行するために必要なファイルやデータ（例えば標準ライブラリなど）が全て含まれている。そのため、実行時には Python のようにインタープリタは必要なく、バイナリをそのまま実行できる。</p>
+<p>ただし OS や CPU アーキテクチャによってシステムコールのインターフェイスが異なるから、従って必要なバイナリも異なる。Go ではコンパイル時に <code>GOOS</code> や <code>GOARCH</code> 環境変数でターゲットを指定できる。</p>
+<h3 id="アセンブリを読む">アセンブリを読む</h3>
+<p>分からないなりにいろいろ調べていたら DQNEO さんのスライドが出てきた。自分が Visual Studio Code を使ってやっていたことは strace と gdb を使うと同じことができそう。</p>
+<p><a href="https://speakerdeck.com/dqneo/introduction-to-low-level-programming-in-go">https://speakerdeck.com/dqneo/introduction-to-low-level-programming-in-go</a></p>
+<p>macOS で Go が作るアセンブリのコードを表示する方法を調べていたら以下の Issue を見つけた。</p>
+<p><a href="https://github.com/golang/go/issues/58629">https://github.com/golang/go/issues/58629</a></p>
+<p><code>go build -gcflags=-S main.go</code> する。最初の TEXT 命令がエントリーポイントになってそうだ。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8"># command-line-arguments</span></span>
+<span class="line"><span style="color: #e1e4e8">main.main STEXT size=112 args=0x0 locals=0x48 funcid=0x0 align=0x0</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0000 00000  TEXT    main.main(SB), ABIInternal, $80-0</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0000 00000  MOVD    16(g), R16</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0004 00004  PCDATA  $0, $-2</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0004 00004  CMP     R16, RSP</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0008 00008  BLS     96</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x000c 00012  PCDATA  $0, $-1</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x000c 00012  MOVD.W  R30, -80(RSP)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0010 00016  MOVD    R29, -8(RSP)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0014 00020  SUB     $8, RSP, R29</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0018 00024  FUNCDATA        $0, gclocals·g2BeySu+wFnoycgXfElmcg==(SB)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0018 00024  FUNCDATA        $1, gclocals·EaPwxsZ75yY1hHMVZLmk6g==(SB)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0018 00024  FUNCDATA        $2, main.main.stkobj(SB)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0018 00024  STP     (ZR, ZR), main..autotmp_8-16(SP)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x001c 00028  MOVD    $type:string(SB), R5</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0024 00036  MOVD    R5, main..autotmp_8-16(SP)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0028 00040  MOVD    $main..stmp_0(SB), R5</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0030 00048  MOVD    R5, main..autotmp_8-8(SP)</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0034 00052  PCDATA  $0, $-3</span></span>
+<span class="line"><span style="color: #e1e4e8">...（中略）...</span></span></code></pre>
+<p>以下の箇所でメモリに Hello, World! を格納している。“Hello, World!” は 13 バイトで、先ほど Hex Editor で見た通り 16 進数では <code>48 65 6c 6c 6f 2c 20 57 6f 72 6c 64 21</code> だ。</p>
+<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">go:string."Hello, World!" SRODATA dupok size=13</span></span>
+<span class="line"><span style="color: #e1e4e8">        0x0000 48 65 6c 6c 6f 2c 20 57 6f 72 6c 64 21           Hello, World!</span></span></code></pre>
+<p>今回見てきたのは Hello, World! という文字列を出力するだけのプログラムだが、OS の違いに伴うシステムコールのインターフェイスの違いを吸収したり必要に応じて各段階でエラー処理をしたり、調べると様々な仕組みを知ることができて楽しかった。</p>
+<p>情報系の大学生はこういうのをやってきているんだろうな…</p>
+
+        </div>
+      </article>
+    </main>
+    <footer class="astro-SZ7XMLTE">
+	&copy; 2024 Ryohei Tsuda. All rights reserved.
+	<div class="social-links astro-SZ7XMLTE">
+		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
+			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
+			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
+		</a>
+	</div>
+</footer>
+  </body></html>
