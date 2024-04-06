@@ -1,0 +1,110 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v4.4.11"><!-- Favicon --><link rel="icon" href="/favicon.ico" type="image/x-icon"><!-- Font preloads --><link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://lyohe.github.io/blog/2024/04/06/point/"><!-- Primary Meta Tags --><title>「ポイント」の分別管理における落とし穴</title><meta name="title" content="「ポイント」の分別管理における落とし穴"><meta name="description" content="いわゆる「ポイント」機能のデータ設計の難しさについて"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://lyohe.github.io/blog/2024/04/06/point/"><meta property="og:title" content="「ポイント」の分別管理における落とし穴"><meta property="og:description" content="いわゆる「ポイント」機能のデータ設計の難しさについて"><meta property="og:image" content="https://lyohe.github.io/2024/04/06/myn.png"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://lyohe.github.io/blog/2024/04/06/point/"><meta property="twitter:title" content="「ポイント」の分別管理における落とし穴"><meta property="twitter:description" content="いわゆる「ポイント」機能のデータ設計の難しさについて"><meta property="twitter:image" content="https://lyohe.github.io/2024/04/06/myn.png"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media (max-width: 720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}
+main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.hero-image[data-astro-cid-bvzihdzo]{width:100%}.hero-image[data-astro-cid-bvzihdzo] img[data-astro-cid-bvzihdzo]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-bvzihdzo]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}
+</style></head> <body data-astro-cid-bvzihdzo> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>ここにかく</a></h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> Blog </a>  <a href="/about" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> About </a>  </div> <div class="social-links" data-astro-cid-3ef6ksr2> <a href="https://twitter.com/rtsudal" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Follow me on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-3ef6ksr2></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-3ef6ksr2></path></svg> </a> </div> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo> <img width="1020" height="510" src="/2024/04/06/myn.png" alt="" data-astro-cid-bvzihdzo> </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2024-04-05T15:00:00.000Z"> 2024年4月6日 </time>  </div> <h1 data-astro-cid-bvzihdzo>「ポイント」の分別管理における落とし穴</h1> <hr data-astro-cid-bvzihdzo> </div>  <p>以下の記事を読んで「ポイント」の分別管理について思うところがあったので書き残す。</p>
+<p><a href="https://toyokeizai.net/articles/-/745062">東洋経済 - マイナポイント｢使われすぎ｣､セブン銀行の悲鳴</a></p>
+<p>東洋経済の記事の内容を要約すると以下の通り。</p>
+<ol>
+<li>マイナポイント事業に参加した会社が付与するポイントは、政府による補助金で補填される</li>
+<li>事業者が付与するポイントには「失効」がありえるので、付与額と同額を補助金として支給すると失効分だけ事業者が利益を得る計算になる</li>
+<li>マイナポイント制度では、過去の失効率実績をもとに付与額から割り引いた消費予測額を補助金として支給するという仕組みになっていた</li>
+<li>セブンカードはマイナポイント制度で付与したポイントの失効率が予想を下回ったことで、当初の見込みから追加で 12 億円の費用を計上した</li>
+</ol>
+<h2 id="本記事の目的">本記事の目的</h2>
+<p>この記事ではセブンカードの事件について概要を説明した上で、以下について自分の考えを整理することを目的とする。</p>
+<ul>
+<li>ポイントの分別管理が必要になる背景</li>
+<li>分別管理するとしたら、どのようなデータ構造にするか</li>
+</ul>
+<p>書いたことは自分の個人的な意見であり、絶対の正解とは考えていない。</p>
+<h2 id="マイナポイント制度によるセブンカードの損失">マイナポイント制度によるセブンカードの損失</h2>
+<p>以下の画像はセブンカード<a href="https://contents.xj-storage.jp/xcontents/AS96633/99f53f67/6f87/4e51/90d9/58c184ab221a/140120240208530773.pdf">2024 年 3 月期 第 3 四半期 決算説明資料</a>より引用する。セブンカードは今期損失を計上する見込みで、12 億円の損失は大きな影響を及ぼしている。</p>
+<p><img src="/2024/04/06/seven_card.png" alt="seven_card"></p>
+<p><img src="/2024/04/06/topics.png" alt="topics"></p>
+<p>このスライドの内容については決算説明会の文字起こし（<a href="https://finance.logmi.jp/articles/379079">logmi</a>）に詳しい説明がある。</p>
+<blockquote>
+<p>マイナポイントは国の事業であり、その原資は基本的に国が負担します。ただし、このようなポイントは、一定比率が失効するのが通例のため、国から補助金は出るものの、過去の「nanaco ポイント」の失効率実績をもとに、失効すると見込まれる金額を差し引いて交付されることになります。</p>
+</blockquote>
+<blockquote>
+<p>現在、どのようなことが起きているかといいますと、補助金が出た際の算定の根拠になった失効率を下回るかたち、要はどんどん使われているかたちで進捗しています。すると、補助金以上にポイントの利用が進んでいる状況になるため、それが我々の費用負担となり、セブンカードの利益を圧迫してしまうという状況になります。</p>
+</blockquote>
+<p>今後もさらに損失は膨らむようだ。</p>
+<h3 id="事後精算できないのか">事後精算できないのか？</h3>
+<p>ここで不思議なのが「失効率を（過去の実績から）見積もって差し引いた上で交付する」というマイナポイント事業の仕組みだ。実際に失効したポイントを計算して有効期限が到来した後に精算すれば、事業者には利益も損失も出ないと考えられる。</p>
+<p>しかし、冒頭に挙げた東洋経済の記事によると（マイナポイント事業としては）例外的に事後精算をすることもできたようだが、セブンカードのシステムの都合で断念したとされている。</p>
+<blockquote>
+<p>実は、事業者の公募要項にはポイントの利用状況が「精緻に計測可能な場合」、例外的に補助金額の事後精算を容認する、との記載がある。事後精算であれば、失効率が想定と異なる事態は生じない。</p>
+</blockquote>
+<blockquote>
+<p>この点、決済サービスコンサルティングの宮居雅宣代表は、事後精算の規定をこう指摘する。「通常の買い物で付与されたポイントと、マイナポイント事業で付与されたポイントとを別々に管理する必要がある。場合によっては大規模なシステム改修が必要となる」。</p>
+</blockquote>
+<blockquote>
+<p>別の関係者によれば、セブンカードは両ポイントの切り分けがシステム上困難だとして、事後精算を選択しなかったという。</p>
+</blockquote>
+<p>つまり、セブンカードのデータとしてはマイナポイント制度によって付与されたポイント(X)と事業で日常的に付与されるポイント(Y)が区別されておらず、X の失効額を正確に計算することができないので過去の失効率実績を基に補助金を計算したが、実際には X の方が Y より遥かに失効率が低かった（より多く消費された）ために損失を計上することになった。</p>
+<h2 id="分別管理が必要になる理由">分別管理が必要になる理由</h2>
+<p>記事によると、セブンカードのポイント（<a href="https://www.nanaco-net.jp/how-to/save_point/">nanaco ポイント</a>）では分別管理が行われていなかった。マイナポイントで付与を受けるユーザーはポイントを消費するために面倒な手続きをしているのだから、通常のポイントより消費率は高いと考えられる。よって、分別管理をしていれば事後精算を選択しただろうと推測できる。</p>
+<p>一般的に、ポイントの付与原因による分別管理が必要になる理由は以下のようなものがある。</p>
+<ol>
+<li>販促目的で付与したポイントについて費用対効果を計測する</li>
+<li>消費額を付与原因に応じて会計税務で異なる取り扱いをする（nanaco ポイントのケース）</li>
+<li>ポイント残高に対して引当金を見積もるために予想消費額を算出する</li>
+</ol>
+<p>最後のポイント引当金については説明が必要なので、以下に整理する。</p>
+<h3 id="ポイント引当金">ポイント引当金</h3>
+<p>日本の会計基準では（これに関しては US GAAP も IFRS もほぼ変わらないと思うが）引当金の 4 要件というものがあり、これに該当するものを負債として計上しなければならない。</p>
+<ol>
+<li>将来の特定の費用又は損失であること</li>
+<li>その費用又は損失が当期以前の事象に起因して発生するものであること</li>
+<li>発生の可能性が高いこと</li>
+<li>その金額を合理的に見積ることができること</li>
+</ol>
+<p>参考: <a href="https://www.ey.com/ja_jp/corporate-accounting/commentary/reserve/commentary-reserve-2017-08-10">https://www.ey.com/ja_jp/corporate-accounting/commentary/reserve/commentary-reserve-2017-08-10</a></p>
+<p>ポイント残高はこれらの条件に該当するので、原則的には引当金を積む必要がある。具体的には、期末時点で積み上がっているポイント残高について「将来利用されるであろう金額」を見積もって引当金を計上することになる。基本的には過去の実績を使えば「合理的な見積もり」と言えるだろうが、複数の原因でポイントを付与していると実績の計算が面倒になる。</p>
+<p>例えば、コーヒー豆を売る EC サイトを例に考えてみる。この EC サイトでは、ユーザーがコーヒーを購入すると購入額の 5% をポイントとして還元しており、その 80% が消費され残り 20% が失効している。ある決算期 N 期末時点でポイント残高が 1,000 万円分あると仮定すると、この 1,000 万円は将来 800 万円分が消費されると合理的に見積もることができる。この費用は当期の費用に計上される。法人税の計算では損金不算入となる。</p>
+<p>さらに次の N + 1 期で新たに「最後の購入から半年経過したユーザーに 500 円分のポイントを付与する」販売促進の施策を行い、2,000 万円分のポイントを付与した。さて、N + 1 期末のポイント残高が「購入時の 5% 付与 1,000 万円 + 新規施策の 2,000 万円 = 3,000 万円」だったとき、この 3,000 万円に対する引当金としてはいくらが合理的と言えるだろうか。</p>
+<p>過去の実績から言えばポイントの失効率は 20% なので、期末残高の 80% が消費されると仮定すると 3,000 万円 * 80% = 2,400 万円となる。しかし、内 2,000 万円分を最後の購入から半年経過したユーザーに付与しているということは、当該ユーザーはすでにこの EC サイトを日常的には利用していないだろうから、多くのポイントは失効すると推測できる。</p>
+<p>仮に実際の失効率が 90% とすると、最終的には 10% しか使われない。この場合、通常のポイントの 80% と合わせて 1,000 万円 * 80% + 2,000 万円 * 10% = 1,000 万円が合理的な引当金額と言えるだろう。もちろん、この失効率 90% という数字はその施策で配ったポイントの有効期限が来るまで最終的には不明な状態であるから、それが判明するまでは他の施策をもとに失効率を低く見積もってしまっても非合理的とまでは言えないかもしれない。</p>
+<p>全てまとめて失効率 20% と想定した場合の予測消費額と実際に消費された額には 1,400 万円の差がある。仮に引当金を 2,400 万円積んでいて実際に 1,000 万円しか使われなかったとすると、翌期に引当金を取り崩すので 1,400 万円分だけ利益にプラスのインパクトがある。実際には見積もりを誤っただけなのだが、これにより損益が乱高下してしまうと将来の利益予測が立てづらくなる。</p>
+<p>これを正しく計算するには発行額・消費額・失効額のそれぞれを異なる付与原因別に追跡できていなければならない。つまり、分別管理ができていない状態で複数の経路でポイントを付与すると、ポイント引当金を正確に見積もることができず、会社の損益予測の正確性に負の影響を与えてしまう可能性があると言える。</p>
+<p>セブンカードはこれまでも複数の原因で nanaco ポイントを付与しているが、おそらくは nanaco 支払いやクレジットカードの利用によるポイント付与が大部分を占めておりこの失効率が一定だったので、ポイント失効率の差が損益に与える影響は大きくなかったのだろう。</p>
+<h2 id="ポイントの基本的性質">「ポイント」の基本的性質</h2>
+<p>まず、一口に「ポイント」と言ってもその性質は事業者によって異なる。詳しくは各社の利用規約を読むことになるのだが、ここでは以下の性質を持つと想定する。</p>
+<ol>
+<li>事業者が一定の条件でユーザーに付与する</li>
+<li>ユーザーはポイントをサービスの対価として事業者のサービス内で利用できる</li>
+<li>ユーザーはポイントの残高、付与および利用履歴を確認できる</li>
+<li>ポイントには有効期限があり、それを超えると失効する</li>
+<li>ポイントを利用したのちサービスを受ける前にキャンセルすると、ポイントは返還される。このとき、有効期限が近いまたは過ぎている場合は延長した上で再付与する</li>
+<li>事業者はポイントの付与額、利用額、返還額、失効額を集計できる</li>
+</ol>
+<h2 id="素朴なデータ構造">素朴なデータ構造</h2>
+<p>付与理由別にポイント付与、消費、失効額を分別管理する場合、素朴に考えると以下のようなデータ構造になる。</p>
+<p><img src="/2024/04/06/point_balance.png" alt="point_balance"></p>
+<ul>
+<li>ポイントを付与する理由が新しく生まれる場合は、PointReason に追加する</li>
+<li>ポイントを付与する場合は、対象者の customerID や pointReasonID、発行額、有効期限などを決めて PointBalance と PointHistory に追加する</li>
+<li>ポイントを消費する場合は、有効期限が近い順に使うなど特定のロジックに基づいて PointBalance の残高を減らしつつ、PointHistory に追加する</li>
+<li>ポイントを消費した transaction をキャンセルした場合は、キャンセル額だけ PointBalance の残高を増やして再付与額を PointHistory に追加する
+<ul>
+<li>有効期限が既に到来しており有効期限を延長して再付与する場合は、新たな PointBalance を追加する</li>
+</ul>
+</li>
+<li>有効期限が到来した場合、PointHistory に失効額を追加し PointBalance から残高を差し引く</li>
+<li>特定の Customer が今つかえるポイントを取得する場合は、customerID ごとに有効期限別に PointBalance を集計する</li>
+<li>ポイント付与理由別の残高や消費額を集計する場合は、PointHistory に PointBalance を JOIN して pointReasonID で GROUP BY して集計する
+<ul>
+<li>会計上は取引の進行状況に応じて Transaction を JOIN する必要がありそう</li>
+</ul>
+</li>
+</ul>
+<p>ここでは特定の条件でのみ使用可能なポイントは考慮していない。例えば割引クーポンと併用できないとか、特定の商品やサービスの購入には使えないとか。</p>
+<h2 id="最後に">最後に</h2>
+<p>長々と書いてきたが、ポイントを分別管理できていないからといってサービスが運営できなかったり法令に触れたりするわけではない（実際に nanaco ポイントは分別管理していない）。顧客はポイントを使えればよいのであって、裏側のデータ構造は気にしない。</p>
+<p>ただし、マイナポイント制度に伴う補助金の受け取りのように、特定の付与原因を持つポイントの消費額や失効額を特別扱いしなければいけなかったりポイント残高に対する引当金を正確に見積もるには、分別管理をしなければならない。</p>
+<p>将来にわたってあらゆる需要に応えられる完璧なデータ構造などというものは存在しないので最初からポイントを分別管理できるように設計する必要は薄いかもしれないが、このような落とし穴があるということを知っておくに越したことはない。</p>
+<p>ポイントのデータ構造設計については令和トラベルさんの記事も大変面白いのでぜひ読んでほしい。</p>
+<ul>
+<li><a href="https://engineering.reiwatravel.co.jp/blog/newt-point-immutable-data-model">実践イミュータブルデータモデル — NEWT ポイント機能の設計</a></li>
+</ul>  </div> </article> </main> <footer data-astro-cid-sz7xmlte>
+&copy; 2024 Ryohei Tsuda. All rights reserved.
+<div class="social-links" data-astro-cid-sz7xmlte> <a href="https://twitter.com/rtsudal" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Follow me on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" data-astro-cid-sz7xmlte><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-sz7xmlte></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" data-astro-cid-sz7xmlte><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-sz7xmlte></path></svg> </a> </div> </footer>  </body></html>

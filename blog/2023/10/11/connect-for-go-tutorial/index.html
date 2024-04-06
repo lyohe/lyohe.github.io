@@ -1,88 +1,6 @@
-<!DOCTYPE html>
-<html lang="ja" class="astro-BVZIHDZO">
-  <head>
-    <!-- Global Metadata --><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="generator" content="Astro v2.10.14">
-
-<!-- Favicon -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
-
-<!-- Font preloads -->
-<link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin>
-
-<!-- Canonical URL -->
-<link rel="canonical" href="https://lyohe.github.io/blog/2023/10/11/connect-for-go-tutorial/">
-
-<!-- Primary Meta Tags -->
-<title>Connect for Go のチュートリアルをやりつつ何をしているのか調べた話</title>
-<meta name="title" content="Connect for Go のチュートリアルをやりつつ何をしているのか調べた話">
-<meta name="description" content="gRPC compatible な API を構築するためのライブラリである Connect のチュートリアルの裏側で何をしているのか調べた話です">
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://lyohe.github.io/blog/2023/10/11/connect-for-go-tutorial/">
-<meta property="og:title" content="Connect for Go のチュートリアルをやりつつ何をしているのか調べた話">
-<meta property="og:description" content="gRPC compatible な API を構築するためのライブラリである Connect のチュートリアルの裏側で何をしているのか調べた話です">
-<meta property="og:image" content="https://lyohe.github.io/2023/10/11/connect-top.png">
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://lyohe.github.io/blog/2023/10/11/connect-for-go-tutorial/">
-<meta property="twitter:title" content="Connect for Go のチュートリアルをやりつつ何をしているのか調べた話">
-<meta property="twitter:description" content="gRPC compatible な API を構築するためのライブラリである Connect のチュートリアルの裏側で何をしているのか調べた話です">
-<meta property="twitter:image" content="https://lyohe.github.io/2023/10/11/connect-top.png">
-    
-  <style type="text/css">:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a:where(.astro-EIMMU3LG){display:inline-block;text-decoration:none}a:where(.astro-EIMMU3LG).active{font-weight:bolder;text-decoration:underline}header:where(.astro-3EF6KSR2){margin:0;padding:0 1em;background:white;box-shadow:0 2px 8px rgba(var(--black),5%)}h2:where(.astro-3EF6KSR2){margin:0;font-size:1em}h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2),h2:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none}nav:where(.astro-3EF6KSR2){display:flex;align-items:center;justify-content:space-between}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2).active{text-decoration:none;border-bottom-color:var(--accent)}.social-links:where(.astro-3EF6KSR2),.social-links:where(.astro-3EF6KSR2) a:where(.astro-3EF6KSR2){display:flex}@media (max-width: 720px){.social-links:where(.astro-3EF6KSR2){display:none}}footer:where(.astro-SZ7XMLTE){padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links:where(.astro-SZ7XMLTE){display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE){text-decoration:none;color:rgb(var(--gray))}.social-links:where(.astro-SZ7XMLTE) a:where(.astro-SZ7XMLTE):hover{color:rgb(var(--gray-dark))}
-main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero-image:where(.astro-BVZIHDZO){width:100%}.hero-image:where(.astro-BVZIHDZO) img:where(.astro-BVZIHDZO){display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose:where(.astro-BVZIHDZO){width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title:where(.astro-BVZIHDZO){margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title:where(.astro-BVZIHDZO) h1:where(.astro-BVZIHDZO){margin:0 0 .5em}.date:where(.astro-BVZIHDZO){margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on:where(.astro-BVZIHDZO){font-style:italic}
-</style></head>
-
-  <body class="astro-BVZIHDZO">
-    <header class="astro-3EF6KSR2">
-	<nav class="astro-3EF6KSR2">
-		<h2 class="astro-3EF6KSR2"><a href="/" class="astro-3EF6KSR2">ここにかく</a></h2>
-		<div class="internal-links astro-3EF6KSR2">
-			<a href="/" class="astro-3EF6KSR2 astro-EIMMU3LG">
-	Home
-</a>
-			<a href="/blog" class="astro-3EF6KSR2 astro-EIMMU3LG">
-	Blog
-</a>
-			<a href="/about" class="astro-3EF6KSR2 astro-EIMMU3LG">
-	About
-</a>
-		</div>
-		<div class="social-links astro-3EF6KSR2">
-			<a href="https://twitter.com/rtsudal" target="_blank" class="astro-3EF6KSR2">
-				<span class="sr-only astro-3EF6KSR2">Follow me on Twitter</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-3EF6KSR2"></path></svg>
-			</a>
-			<a href="https://github.com/lyohe" target="_blank" class="astro-3EF6KSR2">
-				<span class="sr-only astro-3EF6KSR2">Go to my GitHub repo</span>
-				<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" class="astro-3EF6KSR2"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-3EF6KSR2"></path></svg>
-			</a>
-		</div>
-	</nav>
-</header>
-    <main class="astro-BVZIHDZO">
-      <article class="astro-BVZIHDZO">
-        <div class="hero-image astro-BVZIHDZO">
-          <img width="1020" height="510" src="/2023/10/11/connect-top.png" alt="" class="astro-BVZIHDZO">
-        </div>
-        <div class="prose astro-BVZIHDZO">
-          <div class="title astro-BVZIHDZO">
-            <div class="date astro-BVZIHDZO">
-              <time datetime="2023-10-10T15:00:00.000Z">
-  2023年10月11日
-</time>
-              
-            </div>
-            <h1 class="astro-BVZIHDZO">Connect for Go のチュートリアルをやりつつ何をしているのか調べた話</h1>
-            <hr class="astro-BVZIHDZO">
-          </div>
-          
-	<p>この記事は私が gRPC API を作るためのライブラリである <a href="https://github.com/connectrpc/connect-go">Connect for Go</a> の <a href="https://connectrpc.com/docs/go/getting-started">Getting Started</a> をやって疑問に感じたことをメモしていく記事です。</p>
+<!DOCTYPE html><html lang="ja" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v4.4.11"><!-- Favicon --><link rel="icon" href="/favicon.ico" type="image/x-icon"><!-- Font preloads --><link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://lyohe.github.io/blog/2023/10/11/connect-for-go-tutorial/"><!-- Primary Meta Tags --><title>Connect for Go のチュートリアルをやりつつ何をしているのか調べた話</title><meta name="title" content="Connect for Go のチュートリアルをやりつつ何をしているのか調べた話"><meta name="description" content="gRPC compatible な API を構築するためのライブラリである Connect のチュートリアルの裏側で何をしているのか調べた話です"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://lyohe.github.io/blog/2023/10/11/connect-for-go-tutorial/"><meta property="og:title" content="Connect for Go のチュートリアルをやりつつ何をしているのか調べた話"><meta property="og:description" content="gRPC compatible な API を構築するためのライブラリである Connect のチュートリアルの裏側で何をしているのか調べた話です"><meta property="og:image" content="https://lyohe.github.io/2023/10/11/connect-top.png"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://lyohe.github.io/blog/2023/10/11/connect-for-go-tutorial/"><meta property="twitter:title" content="Connect for Go のチュートリアルをやりつつ何をしているのか調べた話"><meta property="twitter:description" content="gRPC compatible な API を構築するためのライブラリである Connect のチュートリアルの裏側で何をしているのか調べた話です"><meta property="twitter:image" content="https://lyohe.github.io/2023/10/11/connect-top.png"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media (max-width: 720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}
+main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.hero-image[data-astro-cid-bvzihdzo]{width:100%}.hero-image[data-astro-cid-bvzihdzo] img[data-astro-cid-bvzihdzo]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-bvzihdzo]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}
+</style></head> <body data-astro-cid-bvzihdzo> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>ここにかく</a></h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> Blog </a>  <a href="/about" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> About </a>  </div> <div class="social-links" data-astro-cid-3ef6ksr2> <a href="https://twitter.com/rtsudal" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Follow me on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-3ef6ksr2></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-3ef6ksr2></path></svg> </a> </div> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo> <img width="1020" height="510" src="/2023/10/11/connect-top.png" alt="" data-astro-cid-bvzihdzo> </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2023-10-10T15:00:00.000Z"> 2023年10月11日 </time>  </div> <h1 data-astro-cid-bvzihdzo>Connect for Go のチュートリアルをやりつつ何をしているのか調べた話</h1> <hr data-astro-cid-bvzihdzo> </div>  <p>この記事は私が gRPC API を作るためのライブラリである <a href="https://github.com/connectrpc/connect-go">Connect for Go</a> の <a href="https://connectrpc.com/docs/go/getting-started">Getting Started</a> をやって疑問に感じたことをメモしていく記事です。</p>
 <h2 id="grpc-とは">gRPC とは</h2>
 <p><a href="https://grpc.io/docs/what-is-grpc/introduction/">https://grpc.io/docs/what-is-grpc/introduction/</a></p>
 <p>gRPC は RPC（Remote Procedure Call）の一種で、インターフェイスの定義やメッセージのシリアライズに Protocol buffers を使う。実際の通信では HTTP/2 の POST リクエストのヘッダやボディにメソッド名や RPC に使う引数などを詰めて送る。ボディは HTTP/2 のデータフレームを通じて送られる。仕様は以下の通り。</p>
@@ -123,180 +41,180 @@ main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero
 <li><a href="https://github.com/connectrpc/connect-go">connectrpc.com/connect/cmd/protoc-gen-connect-go</a></li>
 </ul>
 <p>進める前にインストールしたツールが PATH 上にあるかを下記のコマンドで確認しておく。なければ追加する必要がある。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">$ which buf grpcurl protoc-gen-go protoc-gen-connect-go</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>$ which buf grpcurl protoc-gen-go protoc-gen-connect-go</span></span></code></pre>
 <h3 id="2-define-a-service">2. <a href="https://connectrpc.com/docs/go/getting-started/#define-a-service">Define a service</a></h3>
 <p>次に protobuf でサービスを定義していく。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">syntax</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"proto3"</span><span style="color: #E1E4E8">;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">syntax</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "proto3"</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">greet.v1</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">package</span><span style="color:#9ECBFF"> greet.v1</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">option</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">go_package</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"example/gen/greet/v1;greetv1"</span><span style="color: #E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">option</span><span style="color:#79B8FF"> go_package</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> "example/gen/greet/v1;greetv1"</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">message</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">GreetRequest</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> name </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">;</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">message</span><span style="color:#B392F0"> GreetRequest</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  string</span><span style="color:#E1E4E8"> name </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">message</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">GreetResponse</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">string</span><span style="color: #E1E4E8"> greeting </span><span style="color: #F97583">=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">1</span><span style="color: #E1E4E8">;</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">message</span><span style="color:#B392F0"> GreetResponse</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  string</span><span style="color:#E1E4E8"> greeting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">service</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">GreetService</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #F97583">rpc</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">Greet</span><span style="color: #E1E4E8">(</span><span style="color: #B392F0">GreetRequest</span><span style="color: #E1E4E8">) </span><span style="color: #F97583">returns</span><span style="color: #E1E4E8"> (</span><span style="color: #B392F0">GreetResponse</span><span style="color: #E1E4E8">) {}</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<span class="line"><span style="color:#F97583">service</span><span style="color:#B392F0"> GreetService</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  rpc</span><span style="color:#B392F0"> Greet</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">GreetRequest</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">returns</span><span style="color:#E1E4E8"> (</span><span style="color:#B392F0">GreetResponse</span><span style="color:#E1E4E8">) {}</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p><code>message</code> は protobuf で扱うデータ構造の定義で、Go の世界における構造体のようなもの。<code>service</code> は RPC のインターフェイスを定義するための仕組みで、ここで定義した rpc をクライアントから呼び出すことでサーバー側で実装された処理を行うことができる。</p>
 <h3 id="3-generate-code">3. <a href="https://connectrpc.com/docs/go/getting-started/#generate-code">Generate code</a></h3>
 <p>protobuf をコンパイルして Go のコードを自動生成する。</p>
 <p><code>buf mod init</code> コマンドで <a href="https://buf.build/docs/configuration/v1/buf-yaml">buf.yaml</a> を生成できる。buf コマンドはこのファイルがあるディレクトリより下で .proto ファイルを探す。</p>
 <p>buf.yaml では <code>lint</code> オプションで <a href="https://buf.build/docs/lint/rules">.proto ファイルを lint する際のルール</a> を設定できる。また <code>breaking</code> オプションで破壊的変更の検知ルールを設定できたりする。ここで設定したルールは <a href="https://buf.build/docs/reference/cli/buf/breaking#usage">buf breaking</a> コマンドの実行時に使われる。</p>
 <p><code>buf</code> コマンドのオプションを設定するためのファイルは 4 種類（buf.yaml, buf.lock, buf.gen.yaml, buf.work.yaml）あるが、基本的にはこれと次の buf.gen.yaml を覚えておけばよさそう。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #85E89D">version</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">v1</span></span>
-<span class="line"><span style="color: #85E89D">breaking</span><span style="color: #E1E4E8">:</span></span>
-<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #85E89D">use</span><span style="color: #E1E4E8">:</span></span>
-<span class="line"><span style="color: #E1E4E8">    - </span><span style="color: #9ECBFF">FILE</span></span>
-<span class="line"><span style="color: #85E89D">lint</span><span style="color: #E1E4E8">:</span></span>
-<span class="line"><span style="color: #E1E4E8">  </span><span style="color: #85E89D">use</span><span style="color: #E1E4E8">:</span></span>
-<span class="line"><span style="color: #E1E4E8">    - </span><span style="color: #9ECBFF">DEFAULT</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#85E89D">version</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">v1</span></span>
+<span class="line"><span style="color:#85E89D">breaking</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">  use</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">FILE</span></span>
+<span class="line"><span style="color:#85E89D">lint</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#85E89D">  use</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">    - </span><span style="color:#9ECBFF">DEFAULT</span></span></code></pre>
 <p>次に <a href="https://buf.build/docs/configuration/v1/buf-gen-yaml">buf.gen.yaml</a> で .proto ファイルから生成するファイルの設定をする。以下では <a href="https://buf.build/docs/configuration/v1/buf-gen-yaml#plugin">plugin</a> や出力先ディレクトリの設定を行なっている。</p>
 <p>plugin はいわゆる protoc プラグインで、protobuf からのコード生成をカスタマイズ（例えば .proto の message に対応する特別なバリデーションルールを追加したり API ドキュメントを自動生成したり）できる。plugin にはローカルとリモートの 2 種類あり、リモート plugin は Buf が別途提供する Buf Schema Registry で使うことができる。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #85E89D">version</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">v1</span></span>
-<span class="line"><span style="color: #85E89D">plugins</span><span style="color: #E1E4E8">:</span></span>
-<span class="line"><span style="color: #E1E4E8">  - </span><span style="color: #85E89D">plugin</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">go</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #85E89D">out</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">gen</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #85E89D">opt</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">paths=source_relative</span></span>
-<span class="line"><span style="color: #E1E4E8">  - </span><span style="color: #85E89D">plugin</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">connect-go</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #85E89D">out</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">gen</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #85E89D">opt</span><span style="color: #E1E4E8">: </span><span style="color: #9ECBFF">paths=source_relative</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#85E89D">version</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">v1</span></span>
+<span class="line"><span style="color:#85E89D">plugins</span><span style="color:#E1E4E8">:</span></span>
+<span class="line"><span style="color:#E1E4E8">  - </span><span style="color:#85E89D">plugin</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">go</span></span>
+<span class="line"><span style="color:#85E89D">    out</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">gen</span></span>
+<span class="line"><span style="color:#85E89D">    opt</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">paths=source_relative</span></span>
+<span class="line"><span style="color:#E1E4E8">  - </span><span style="color:#85E89D">plugin</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">connect-go</span></span>
+<span class="line"><span style="color:#85E89D">    out</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">gen</span></span>
+<span class="line"><span style="color:#85E89D">    opt</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">paths=source_relative</span></span></code></pre>
 <p>これができたら <code>buf generate</code> コマンドで Go のコードを自動生成できる。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">.</span></span>
-<span class="line"><span style="color: #e1e4e8">├── buf.gen.yaml</span></span>
-<span class="line"><span style="color: #e1e4e8">├── buf.yaml</span></span>
-<span class="line"><span style="color: #e1e4e8">├── gen</span></span>
-<span class="line"><span style="color: #e1e4e8">│   └── greet</span></span>
-<span class="line"><span style="color: #e1e4e8">│       └── v1</span></span>
-<span class="line"><span style="color: #e1e4e8">│           ├── greet.pb.go</span></span>
-<span class="line"><span style="color: #e1e4e8">│           └── greetv1connect</span></span>
-<span class="line"><span style="color: #e1e4e8">│               └── greet.connect.go</span></span>
-<span class="line"><span style="color: #e1e4e8">├── go.mod</span></span>
-<span class="line"><span style="color: #e1e4e8">└── greet</span></span>
-<span class="line"><span style="color: #e1e4e8">    └── v1</span></span>
-<span class="line"><span style="color: #e1e4e8">        └── greet.proto</span></span>
-<span class="line"><span style="color: #e1e4e8"></span></span>
-<span class="line"><span style="color: #e1e4e8">7 directories, 6 files</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>.</span></span>
+<span class="line"><span>├── buf.gen.yaml</span></span>
+<span class="line"><span>├── buf.yaml</span></span>
+<span class="line"><span>├── gen</span></span>
+<span class="line"><span>│   └── greet</span></span>
+<span class="line"><span>│       └── v1</span></span>
+<span class="line"><span>│           ├── greet.pb.go</span></span>
+<span class="line"><span>│           └── greetv1connect</span></span>
+<span class="line"><span>│               └── greet.connect.go</span></span>
+<span class="line"><span>├── go.mod</span></span>
+<span class="line"><span>└── greet</span></span>
+<span class="line"><span>    └── v1</span></span>
+<span class="line"><span>        └── greet.proto</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>7 directories, 6 files</span></span></code></pre>
 <p><code>greet.pb.go</code> は gRPC のクライアントとサーバーのスタブが含まれており、これを使って通信の実装ができる。protobuf から生成した構造体も入っている。</p>
 <p><code>greet.connect.go</code> は Connect プロトコル用にスタブを提供する。</p>
 <h3 id="4-implement-handler">4. <a href="https://connectrpc.com/docs/go/getting-started/#implement-handler">Implement handler</a></h3>
 <p><code>.proto</code> から生成したメソッドを使ってサーバー側のロジックを実装する。今回はクライアントから <code>name</code> を受け取ってそれを入れたレスポンスを返すだけ。コードは Getting Started からそのまま引用したが、コメントは筆者が挿入した。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">package</span><span style="color:#B392F0"> main</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> (</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">context</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">fmt</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">log</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">net/http</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">context</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">fmt</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">log</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">net/http</span><span style="color:#9ECBFF">"</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">connectrpc.com/connect</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">golang.org/x/net/http2</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">golang.org/x/net/http2/h2c</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">connectrpc.com/connect</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">golang.org/x/net/http2</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">golang.org/x/net/http2/h2c</span><span style="color:#9ECBFF">"</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">greetv1</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">example/gen/greet/v1</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">example/gen/greet/v1/greetv1connect</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color:#E1E4E8">    greetv1 </span><span style="color:#9ECBFF">"</span><span style="color:#B392F0">example/gen/greet/v1</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">example/gen/greet/v1/greetv1connect</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">type</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">GreetServer</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">struct</span><span style="color: #E1E4E8">{}</span></span>
+<span class="line"><span style="color:#F97583">type</span><span style="color:#B392F0"> GreetServer</span><span style="color:#F97583"> struct</span><span style="color:#E1E4E8">{}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> (s </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">GreetServer) </span><span style="color: #B392F0">Greet</span><span style="color: #E1E4E8">(</span></span>
-<span class="line"><span style="color: #E1E4E8">    ctx context.Context,</span></span>
-<span class="line"><span style="color: #E1E4E8">    req </span><span style="color: #F97583">*</span><span style="color: #E1E4E8">connect.Request[greetv1.GreetRequest],</span></span>
-<span class="line"><span style="color: #E1E4E8">) (</span><span style="color: #F97583">*</span><span style="color: #E1E4E8">connect.Response[greetv1.GreetResponse], </span><span style="color: #F97583">error</span><span style="color: #E1E4E8">) {</span></span>
-<span class="line"><span style="color: #E1E4E8">    log.</span><span style="color: #79B8FF">Println</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"Request headers: "</span><span style="color: #E1E4E8">, req.</span><span style="color: #79B8FF">Header</span><span style="color: #E1E4E8">())</span></span>
-<span class="line"><span style="color: #E1E4E8">    res </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> connect.</span><span style="color: #79B8FF">NewResponse</span><span style="color: #E1E4E8">(</span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8">greetv1.GreetResponse{</span></span>
-<span class="line"><span style="color: #E1E4E8">        Greeting: fmt.</span><span style="color: #79B8FF">Sprintf</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"Hello, </span><span style="color: #79B8FF">%s</span><span style="color: #9ECBFF">!"</span><span style="color: #E1E4E8">, req.Msg.Name),</span></span>
-<span class="line"><span style="color: #E1E4E8">    })</span></span>
-<span class="line"><span style="color: #E1E4E8">    res.</span><span style="color: #79B8FF">Header</span><span style="color: #E1E4E8">().</span><span style="color: #79B8FF">Set</span><span style="color: #E1E4E8">(</span><span style="color: #9ECBFF">"Greet-Version"</span><span style="color: #E1E4E8">, </span><span style="color: #9ECBFF">"v1"</span><span style="color: #E1E4E8">)</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">return</span><span style="color: #E1E4E8"> res, </span><span style="color: #79B8FF">nil</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">func</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">s </span><span style="color:#F97583">*</span><span style="color:#B392F0">GreetServer</span><span style="color:#E1E4E8">) </span><span style="color:#B392F0">Greet</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#FFAB70">    ctx</span><span style="color:#B392F0"> context</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">Context</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    req</span><span style="color:#F97583"> *</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">Request</span><span style="color:#E1E4E8">[</span><span style="color:#B392F0">greetv1</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">GreetRequest</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#E1E4E8">) (</span><span style="color:#F97583">*</span><span style="color:#B392F0">connect</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">Response</span><span style="color:#E1E4E8">[</span><span style="color:#B392F0">greetv1</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">GreetResponse</span><span style="color:#E1E4E8">], </span><span style="color:#F97583">error</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#E1E4E8">    log.</span><span style="color:#B392F0">Println</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Request headers: "</span><span style="color:#E1E4E8">, req.</span><span style="color:#B392F0">Header</span><span style="color:#E1E4E8">())</span></span>
+<span class="line"><span style="color:#E1E4E8">    res </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> connect.</span><span style="color:#B392F0">NewResponse</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">&#x26;</span><span style="color:#B392F0">greetv1</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">GreetResponse</span><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#E1E4E8">        Greeting: fmt.</span><span style="color:#B392F0">Sprintf</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Hello, </span><span style="color:#79B8FF">%s</span><span style="color:#9ECBFF">!"</span><span style="color:#E1E4E8">, req.Msg.Name),</span></span>
+<span class="line"><span style="color:#E1E4E8">    })</span></span>
+<span class="line"><span style="color:#E1E4E8">    res.</span><span style="color:#B392F0">Header</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">Set</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Greet-Version"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"v1"</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> res, </span><span style="color:#79B8FF">nil</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span><span style="color: #E1E4E8">() {</span></span>
-<span class="line"><span style="color: #E1E4E8">    greeter </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> </span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8">GreetServer{}</span></span>
-<span class="line"><span style="color: #E1E4E8">    mux </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> http.</span><span style="color: #79B8FF">NewServeMux</span><span style="color: #E1E4E8">()</span></span>
-<span class="line"><span style="color: #E1E4E8">    path, handler </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> greetv1connect.</span><span style="color: #79B8FF">NewGreetServiceHandler</span><span style="color: #E1E4E8">(greeter)</span></span>
-<span class="line"><span style="color: #E1E4E8">    mux.</span><span style="color: #79B8FF">Handle</span><span style="color: #E1E4E8">(path, handler)</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// 1. localhost:8080 でクライアントからのリクエストを待つ</span></span>
-<span class="line"><span style="color: #E1E4E8">    http.</span><span style="color: #79B8FF">ListenAndServe</span><span style="color: #E1E4E8">(</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #9ECBFF">"localhost:8080"</span><span style="color: #E1E4E8">,</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #6A737D">// 2. Use h2c so we can serve HTTP/2 without TLS.</span></span>
-<span class="line"><span style="color: #E1E4E8">        h2c.</span><span style="color: #79B8FF">NewHandler</span><span style="color: #E1E4E8">(mux, </span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8">http2.Server{}),</span></span>
-<span class="line"><span style="color: #E1E4E8">    )</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<span class="line"><span style="color:#F97583">func</span><span style="color:#B392F0"> main</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#E1E4E8">    greeter </span><span style="color:#F97583">:=</span><span style="color:#F97583"> &#x26;</span><span style="color:#B392F0">GreetServer</span><span style="color:#E1E4E8">{}</span></span>
+<span class="line"><span style="color:#E1E4E8">    mux </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> http.</span><span style="color:#B392F0">NewServeMux</span><span style="color:#E1E4E8">()</span></span>
+<span class="line"><span style="color:#E1E4E8">    path, handler </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> greetv1connect.</span><span style="color:#B392F0">NewGreetServiceHandler</span><span style="color:#E1E4E8">(greeter)</span></span>
+<span class="line"><span style="color:#E1E4E8">    mux.</span><span style="color:#B392F0">Handle</span><span style="color:#E1E4E8">(path, handler)</span></span>
+<span class="line"><span style="color:#6A737D">    // 1. localhost:8080 でクライアントからのリクエストを待つ</span></span>
+<span class="line"><span style="color:#E1E4E8">    http.</span><span style="color:#B392F0">ListenAndServe</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#9ECBFF">        "localhost:8080"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#6A737D">        // 2. Use h2c so we can serve HTTP/2 without TLS.</span></span>
+<span class="line"><span style="color:#E1E4E8">        h2c.</span><span style="color:#B392F0">NewHandler</span><span style="color:#E1E4E8">(mux, </span><span style="color:#F97583">&#x26;</span><span style="color:#B392F0">http2</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">Server</span><span style="color:#E1E4E8">{}),</span></span>
+<span class="line"><span style="color:#E1E4E8">    )</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <h3 id="5-make-requests">5. <a href="https://connectrpc.com/docs/go/getting-started/#make-requests">Make requests</a></h3>
 <p>自動生成したコードを使うクライアントを書く。コメントは筆者が挿入した。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #F97583">package</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#F97583">package</span><span style="color:#B392F0"> main</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">import</span><span style="color: #E1E4E8"> (</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">context</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">log</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">net/http</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> (</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">context</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">log</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">net/http</span><span style="color:#9ECBFF">"</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #B392F0">greetv1</span><span style="color: #E1E4E8"> </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">example/gen/greet/v1</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">example/gen/greet/v1/greetv1connect</span><span style="color: #9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">    greetv1 </span><span style="color:#9ECBFF">"</span><span style="color:#B392F0">example/gen/greet/v1</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">example/gen/greet/v1/greetv1connect</span><span style="color:#9ECBFF">"</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #9ECBFF">"</span><span style="color: #B392F0">connectrpc.com/connect</span><span style="color: #9ECBFF">"</span></span>
-<span class="line"><span style="color: #E1E4E8">)</span></span>
+<span class="line"><span style="color:#9ECBFF">    "</span><span style="color:#B392F0">connectrpc.com/connect</span><span style="color:#9ECBFF">"</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #F97583">func</span><span style="color: #E1E4E8"> </span><span style="color: #B392F0">main</span><span style="color: #E1E4E8">() {</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// 1. greet.connect.go に自動生成されたメソッドでクライアントを作る</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #6A737D">// デフォルトで Connect プロトコルを使う</span></span>
-<span class="line"><span style="color: #E1E4E8">    client </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> greetv1connect.</span><span style="color: #79B8FF">NewGreetServiceClient</span><span style="color: #E1E4E8">(</span></span>
-<span class="line"><span style="color: #E1E4E8">        http.DefaultClient,</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #9ECBFF">"http://localhost:8080"</span><span style="color: #E1E4E8">,</span></span>
-<span class="line"><span style="color: #E1E4E8">    )</span></span>
-<span class="line"><span style="color: #E1E4E8">    res, err </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> client.</span><span style="color: #79B8FF">Greet</span><span style="color: #E1E4E8">(</span></span>
-<span class="line"><span style="color: #E1E4E8">        context.</span><span style="color: #79B8FF">Background</span><span style="color: #E1E4E8">(),</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #6A737D">// 2. greet.pb.go に自動生成された構造体を詰めて connect の API でリクエストを送る</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #6A737D">// 詳細は　https://pkg.go.dev/connectrpc.com/connect を参照</span></span>
-<span class="line"><span style="color: #E1E4E8">        connect.</span><span style="color: #79B8FF">NewRequest</span><span style="color: #E1E4E8">(</span><span style="color: #F97583">&#x26;</span><span style="color: #E1E4E8">greetv1.GreetRequest{Name: </span><span style="color: #9ECBFF">"Jane"</span><span style="color: #E1E4E8">}),</span></span>
-<span class="line"><span style="color: #E1E4E8">    )</span></span>
-<span class="line"><span style="color: #E1E4E8">    </span><span style="color: #F97583">if</span><span style="color: #E1E4E8"> err </span><span style="color: #F97583">!=</span><span style="color: #E1E4E8"> </span><span style="color: #79B8FF">nil</span><span style="color: #E1E4E8"> {</span></span>
-<span class="line"><span style="color: #E1E4E8">        log.</span><span style="color: #79B8FF">Println</span><span style="color: #E1E4E8">(err)</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #F97583">return</span></span>
-<span class="line"><span style="color: #E1E4E8">    }</span></span>
-<span class="line"><span style="color: #E1E4E8">    log.</span><span style="color: #79B8FF">Println</span><span style="color: #E1E4E8">(res.Msg.Greeting)</span></span>
-<span class="line"><span style="color: #E1E4E8">}</span></span></code></pre>
+<span class="line"><span style="color:#F97583">func</span><span style="color:#B392F0"> main</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">    // 1. greet.connect.go に自動生成されたメソッドでクライアントを作る</span></span>
+<span class="line"><span style="color:#6A737D">    // デフォルトで Connect プロトコルを使う</span></span>
+<span class="line"><span style="color:#E1E4E8">    client </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> greetv1connect.</span><span style="color:#B392F0">NewGreetServiceClient</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">        http.DefaultClient,</span></span>
+<span class="line"><span style="color:#9ECBFF">        "http://localhost:8080"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">    )</span></span>
+<span class="line"><span style="color:#E1E4E8">    res, err </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> client.</span><span style="color:#B392F0">Greet</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">        context.</span><span style="color:#B392F0">Background</span><span style="color:#E1E4E8">(),</span></span>
+<span class="line"><span style="color:#6A737D">        // 2. greet.pb.go に自動生成された構造体を詰めて connect の API でリクエストを送る</span></span>
+<span class="line"><span style="color:#6A737D">        // 詳細は　https://pkg.go.dev/connectrpc.com/connect を参照</span></span>
+<span class="line"><span style="color:#E1E4E8">        connect.</span><span style="color:#B392F0">NewRequest</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">&#x26;</span><span style="color:#B392F0">greetv1</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">GreetRequest</span><span style="color:#E1E4E8">{Name: </span><span style="color:#9ECBFF">"Jane"</span><span style="color:#E1E4E8">}),</span></span>
+<span class="line"><span style="color:#E1E4E8">    )</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> err </span><span style="color:#F97583">!=</span><span style="color:#79B8FF"> nil</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">        log.</span><span style="color:#B392F0">Println</span><span style="color:#E1E4E8">(err)</span></span>
+<span class="line"><span style="color:#F97583">        return</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">    log.</span><span style="color:#B392F0">Println</span><span style="color:#E1E4E8">(res.Msg.Greeting)</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>Getting Started の最終的なディレクトリ構成は以下のようになる。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">.</span></span>
-<span class="line"><span style="color: #e1e4e8">├── buf.gen.yaml</span></span>
-<span class="line"><span style="color: #e1e4e8">├── buf.yaml</span></span>
-<span class="line"><span style="color: #e1e4e8">├── cmd</span></span>
-<span class="line"><span style="color: #e1e4e8">│   ├── client</span></span>
-<span class="line"><span style="color: #e1e4e8">│   │   └── main.go</span></span>
-<span class="line"><span style="color: #e1e4e8">│   └── server</span></span>
-<span class="line"><span style="color: #e1e4e8">│       └── main.go</span></span>
-<span class="line"><span style="color: #e1e4e8">├── gen</span></span>
-<span class="line"><span style="color: #e1e4e8">│   └── greet</span></span>
-<span class="line"><span style="color: #e1e4e8">│       └── v1</span></span>
-<span class="line"><span style="color: #e1e4e8">│           ├── greet.pb.go</span></span>
-<span class="line"><span style="color: #e1e4e8">│           └── greetv1connect</span></span>
-<span class="line"><span style="color: #e1e4e8">│               └── greet.connect.go</span></span>
-<span class="line"><span style="color: #e1e4e8">├── go.mod</span></span>
-<span class="line"><span style="color: #e1e4e8">├── go.sum</span></span>
-<span class="line"><span style="color: #e1e4e8">└── greet</span></span>
-<span class="line"><span style="color: #e1e4e8">    └── v1</span></span>
-<span class="line"><span style="color: #e1e4e8">        └── greet.proto</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>.</span></span>
+<span class="line"><span>├── buf.gen.yaml</span></span>
+<span class="line"><span>├── buf.yaml</span></span>
+<span class="line"><span>├── cmd</span></span>
+<span class="line"><span>│   ├── client</span></span>
+<span class="line"><span>│   │   └── main.go</span></span>
+<span class="line"><span>│   └── server</span></span>
+<span class="line"><span>│       └── main.go</span></span>
+<span class="line"><span>├── gen</span></span>
+<span class="line"><span>│   └── greet</span></span>
+<span class="line"><span>│       └── v1</span></span>
+<span class="line"><span>│           ├── greet.pb.go</span></span>
+<span class="line"><span>│           └── greetv1connect</span></span>
+<span class="line"><span>│               └── greet.connect.go</span></span>
+<span class="line"><span>├── go.mod</span></span>
+<span class="line"><span>├── go.sum</span></span>
+<span class="line"><span>└── greet</span></span>
+<span class="line"><span>    └── v1</span></span>
+<span class="line"><span>        └── greet.proto</span></span></code></pre>
 <h3 id="6-use-the-grpc-protocol-instead-of-the-connect-protocol">6. <a href="https://connectrpc.com/docs/go/getting-started/#use-the-grpc-protocol-instead-of-the-connect-protocol">Use the gRPC protocol instead of the Connect protocol</a></h3>
 <p>connect-go クライアントはデフォルトで Connect プロトコルを使用するが、gRPC または gRPC-Web プロトコルを使用するよう変更することもできる。</p>
 <p>Connect はデフォルトで JSON とバイナリエンコードされた protobuf がサポートされていて gRPC/gRPC-Web と互換性がある。Getting Started の例では client/main.go で <code>connect.WithGRPC()</code> を使うと gRPC を使うようにクライアントを設定できる。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #E1E4E8">    client </span><span style="color: #F97583">:=</span><span style="color: #E1E4E8"> greetv1connect.</span><span style="color: #79B8FF">NewGreetServiceClient</span><span style="color: #E1E4E8">(</span></span>
-<span class="line"><span style="color: #E1E4E8">        http.DefaultClient,</span></span>
-<span class="line"><span style="color: #E1E4E8">        </span><span style="color: #9ECBFF">"http://localhost:8080"</span><span style="color: #E1E4E8">,</span></span>
-<span class="line"><span style="color: #E1E4E8">        connect.</span><span style="color: #79B8FF">WithGRPC</span><span style="color: #E1E4E8">(),</span></span>
-<span class="line"><span style="color: #E1E4E8">    )</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">    client </span><span style="color:#F97583">:=</span><span style="color:#E1E4E8"> greetv1connect.</span><span style="color:#B392F0">NewGreetServiceClient</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">        http.DefaultClient,</span></span>
+<span class="line"><span style="color:#9ECBFF">        "http://localhost:8080"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        connect.</span><span style="color:#B392F0">WithGRPC</span><span style="color:#E1E4E8">(),</span></span>
+<span class="line"><span style="color:#E1E4E8">    )</span></span></code></pre>
 <h3 id="ktr0731evans-を使う"><a href="https://github.com/ktr0731/evans">ktr0731/evans</a> を使う</h3>
 <ul>
 <li><a href="https://engineering.mercari.com/blog/entry/grpc_and_evans/">mercari engineering: gRPC と gRPC クライアントツール Evans</a></li>
 </ul>
 <p>evans は REPL や CLI から使える gRPC のクライアント。上記の Getting Started ではクライアントのコードを Go で書いたが、開発中に手軽に試したい場合は REPL を使いたい。REPL では賢く補完してくれてとても便利。</p>
 <p>brew install して以下のコマンドで起動できる（詳しくは README 参照）。</p>
-<pre is:raw="" class="astro-code github-dark" style="background-color: #24292e; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color: #e1e4e8">$ evans --proto greet/v1/greet.proto repl</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>$ evans --proto greet/v1/greet.proto repl</span></span></code></pre>
 <p>.sproto の定義を引っ張ってきて <code>show service</code> で service を、<code>show message</code> で message を表示できる。</p>
 <p><img src="/2023/10/11/show.png" alt="show"></p>
 <p><code>call</code> で RPC を呼び出すことができる。下記のように補完してくれて入力しやすい。</p>
@@ -335,22 +253,6 @@ main:where(.astro-BVZIHDZO){width:calc(100% - 2em);max-width:100%;margin:0}.hero
 <li><a href="https://future-architect.github.io/articles/20220623a/">gRPC の Go 実装の新星、Connect - Future Tech Blog</a></li>
 <li><a href="https://tech.layerx.co.jp/entry/2023/07/18/173901">connect-go による複数サービスの開発とユニバーサルバイナリによる改善 - LayerX Engineer Blog</a></li>
 <li><a href="https://tech.layerx.co.jp/entry/decoupling-a-service-from-monolith-with-Protocol-buffers-and-connect-go">Decoupling a service from monolith with Protocol buffers and connect-go - LayerX Engineering Blog</a></li>
-</ul>
-
-        </div>
-      </article>
-    </main>
-    <footer class="astro-SZ7XMLTE">
-	&copy; 2024 Ryohei Tsuda. All rights reserved.
-	<div class="social-links astro-SZ7XMLTE">
-		<a href="https://twitter.com/rtsudal" target="_blank" class="astro-SZ7XMLTE">
-			<span class="sr-only astro-SZ7XMLTE">Follow me on Twitter</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" class="astro-SZ7XMLTE"><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" class="astro-SZ7XMLTE"></path></svg>
-		</a>
-		<a href="https://github.com/lyohe" target="_blank" class="astro-SZ7XMLTE">
-			<span class="sr-only astro-SZ7XMLTE">Go to my GitHub repo</span>
-			<svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" class="astro-SZ7XMLTE"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" class="astro-SZ7XMLTE"></path></svg>
-		</a>
-	</div>
-</footer>
-  </body></html>
+</ul>  </div> </article> </main> <footer data-astro-cid-sz7xmlte>
+&copy; 2024 Ryohei Tsuda. All rights reserved.
+<div class="social-links" data-astro-cid-sz7xmlte> <a href="https://twitter.com/rtsudal" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Follow me on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" data-astro-cid-sz7xmlte><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-sz7xmlte></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" data-astro-cid-sz7xmlte><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-sz7xmlte></path></svg> </a> </div> </footer>  </body></html>
