@@ -1,0 +1,125 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v4.4.11"><!-- Favicon --><link rel="icon" href="/favicon.ico" type="image/x-icon"><!-- Font preloads --><link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://lyohe.github.io/blog/2024/12/31/accounting-event-sourcing/"><!-- Primary Meta Tags --><title>Event Sourcing としての会計</title><meta name="title" content="Event Sourcing としての会計"><meta name="description" content="会計をイベントソーシングとして捉え、ソフトウェア開発者にとって分かりやすく紹介したい記事"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://lyohe.github.io/blog/2024/12/31/accounting-event-sourcing/"><meta property="og:title" content="Event Sourcing としての会計"><meta property="og:description" content="会計をイベントソーシングとして捉え、ソフトウェア開発者にとって分かりやすく紹介したい記事"><meta property="og:image" content="https://lyohe.github.io/2024/12/31/bs-1kagetsu.png"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://lyohe.github.io/blog/2024/12/31/accounting-event-sourcing/"><meta property="twitter:title" content="Event Sourcing としての会計"><meta property="twitter:description" content="会計をイベントソーシングとして捉え、ソフトウェア開発者にとって分かりやすく紹介したい記事"><meta property="twitter:image" content="https://lyohe.github.io/2024/12/31/bs-1kagetsu.png"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media (max-width: 720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}
+main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.hero-image[data-astro-cid-bvzihdzo]{width:100%}.hero-image[data-astro-cid-bvzihdzo] img[data-astro-cid-bvzihdzo]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-bvzihdzo]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em;color:rgb(var(--gray-dark))}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}
+</style></head> <body data-astro-cid-bvzihdzo> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>ここにかく</a></h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> Blog </a>  <a href="/about" data-astro-cid-3ef6ksr2 data-astro-cid-eimmu3lg> About </a>  </div> <div class="social-links" data-astro-cid-3ef6ksr2> <a href="https://twitter.com/rtsudal" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Follow me on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-3ef6ksr2></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-3ef6ksr2></path></svg> </a> </div> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo> <img width="1020" height="510" src="/2024/12/31/bs-1kagetsu.png" alt="" data-astro-cid-bvzihdzo> </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2024-12-30T15:00:00.000Z"> 2024年12月31日 </time>  </div> <h1 data-astro-cid-bvzihdzo>Event Sourcing としての会計</h1> <hr data-astro-cid-bvzihdzo> </div>  <p>ソフトウェア開発者にとって分かりやすく「会計」とは何か紹介したい。会計は典型的な <a href="https://martinfowler.com/eaaDev/EventSourcing.html">Event Sourcing</a> なので、以下の観点から説明したら分かりやすいと考えた。</p>
+<ul>
+<li>会計とは何を目的にした活動なのか</li>
+<li>会計はどのような状態として表現できるか</li>
+<li>状態の遷移にどのような制約があるか</li>
+</ul>
+<p>コードは 1 行も出てきません。</p>
+<h2 id="概要">概要</h2>
+<p>会計とは、<strong>複式簿記</strong>の体系に従って作成された<strong>仕訳</strong>と呼ばれるイベントの集積によって<strong>財政状態の遷移</strong>を表現し<strong>利害関係者</strong>に情報を提供する活動である。</p>
+<h2 id="会計の利害関係者">会計の利害関係者</h2>
+<p>「会計」と呼ばれる活動は一般的に以下の 3 種類に分けられる。</p>
+<ol>
+<li><strong>財務会計</strong>: 投資家や債権者などの利害関係者に企業の財務状況を報告する</li>
+<li><strong>管理会計</strong>: 社内の経営意思決定を支援する</li>
+<li><strong>税務会計</strong>: 法人税など税金を計算する</li>
+</ol>
+<p>なぜ 3 つに分かれているかというと、会計情報を必要としている利害関係者によって関心が異なるため。会計情報の利用者は以下の 3 種類に分けられる。</p>
+<ol>
+<li>財務会計 → 投資家や債権者</li>
+<li>管理会計 → 会社の経営陣や管理者</li>
+<li>税務会計 → 税務当局</li>
+</ol>
+<p>財務会計は投資家や債権者が報告の対象で、会社が保有している経済的な資源やそれを引き渡す義務に関心がある。管理会計は会社の経営陣が対象で、事業を成長させるために必要な収益・費用構造の可視化や改善のための分析に関心がある。税務会計は税務署が対象で、税金を計算するためのルール<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>に従っているかに関心がある。</p>
+<p>実際には管理会計や税務会計は基本的に財務会計を基盤としていることが多いが（財務会計に使用するデータを元データとしたり、結果を財務会計と突合する）、異なる切り口から集計や報告を行う。</p>
+<p><img src="/2024/12/31/fin.png" alt="fin"></p>
+<p>ここからは例として Datainu 社という架空の上場企業を題材にそれぞれの違いを説明してみる。Datainu 社の顧客はクラウドアプリケーションを提供する企業である。事業としては、ログを統合しそのパフォーマンスやインフラストラクチャをモニタリングするための SaaS プラットフォームや関連ツールを提供している（実在の会社とは一切関係ありません）。</p>
+<h3 id="1-財務会計">1. 財務会計</h3>
+<p>Datainu 社に資金を提供している投資家や債権者は、同社の事業を支える財政状態（後述）に関心がある。売上は毎年成長しているようだが、利益は出ているのだろうか？売上の何 % をマーケティングに投下しているのだろうか？会社の口座には事業を成長させるために十分な資金があるだろうか？</p>
+<p>財務会計では「会計基準<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>」と呼ばれる一定の規則に従って財政状態を表現する。財政状態とその変動内訳は「財務諸表」と呼ばれる形式で提供される。財務諸表は貸借対照表(BS)、損益計算書(PL, IS)、キャッシュ・フロー計算書(CF)の 3 種類がある。</p>
+<p>貸借対照表は<strong>特定時点の財政状態のスナップショット</strong>を表す。n-1 期末から n 期末までの間には、資産や負債が増減したり事業で利益や損失があり、その度に財政状態が変化する。</p>
+<p><img src="/2024/12/31/bs.png" alt="bs"></p>
+<p>損益計算書とキャッシュ・フロー計算書は貸借対照表の一部項目（損益計算書は利益剰余金、キャッシュ・フロー計算書は現金やその同等物）の<strong>特定期間を通じた変動内訳</strong>を示す。</p>
+<p><img src="/2024/12/31/bs-is-cf.png" alt="bs-is-cf"></p>
+<p>財務会計では、上記のように財政状態の構造と変動内訳、およびその詳細を投資家や債権者向けに開示する。</p>
+<h3 id="2-管理会計">2. 管理会計</h3>
+<p>Datainu 社の経営陣は、将来的な事業の成長に向けて経営が投資意思決定を行うための情報を必要としている。例えば、今後どのような機能や製品を開発していくか決定するために、契約月別や製品別・プラン別に顧客の支払額を見たくなるかもしれない。</p>
+<p>また、Datainu 社の収益性を向上させるために、サービスをホスティングしているクラウドインフラの費用を顧客別・製品別・機能別・契約プラン別に分けたくなったり、売上に対する人件費の割合をコントロールしたくなるかもしれない。</p>
+<p>管理会計では財務会計における会計基準のような統一されたルールは存在せず、各社が投資意思決定に必要な情報を自由に集計・報告している。</p>
+<h3 id="3-税務会計">3. 税務会計</h3>
+<p>Datainu 社は、法人税やその他税金の申告を行うため税務当局が定めたルールに従って課税対象額を計算する必要がある。</p>
+<p>会計上の収益や費用と税務上の益金や損金にはさまざまな差が生じる。理由としては、税金を計算するルールが企業間の公平性や経済的な中立性、政策的配慮など財務会計とは異なるルールに基づいて作られているため。</p>
+<p>例えば、Datainu 社は買収した子会社の株主として配当金を受け取っており財務会計上の収益として計上しているが、これは（配当が行われる前に法人税が課税されているから）Datainu 社の課税所得計算上は益金不算入となる。</p>
+<p><img src="/2024/12/31/ekikin.png" alt="ekikin"></p>
+<p>また、Datainu 社はさまざまなソフトウェアを開発しており、開発者の給与や株式報酬などの人件費を費用として計上しているが、税務上は一部を資産化しなければならない場合がある。こういった費用は損金不算入として加算される。</p>
+<p><img src="/2024/12/31/sonkin.png" alt="sonkin"></p>
+<p>このように、財務会計上の収益や費用から加減算して課税所得が計算される。</p>
+<p><img src="/2024/12/31/kazei.png" alt="kazei"></p>
+<h2 id="財政状態と複式簿記と仕訳">財政状態と複式簿記と仕訳</h2>
+<p>管理会計や税務会計は基本的に財務会計を基礎としており、一定期間にわたる「財政状態」の遷移を切り取って社内向けもしくは税務当局向けに報告する。</p>
+<p>つまり、すべての基礎となるのは財務会計で表現される財政状態といえる。ここで「財政状態」とは何かについて説明したい。</p>
+<h3 id="財政状態とは">「財政状態」とは</h3>
+<p>財務会計では企業の財政状態を「資産」や「負債」や「純資産」と呼ばれる概念で分割しており、財務諸表を構成する勘定科目は全てこのいずれかの内訳となる。例えば、損益計算書の項目は全て純資産の変動内訳である。</p>
+<p>これら概念の定義は会計基準ごとに存在する「概念フレームワーク（Conceptual Framework）」と呼ばれる文書に記載されている。概念フレームワークは過去の会計慣行から基礎的な概念を体系的に要約・整理し将来の会計基準検討に役立てるための資料であり、それ自体になんらかの拘束力があるわけではない。</p>
+<p>例えば日本版の財務会計フレームワークには資産、負債、純資産の定義について以下のように書かれている。</p>
+<p>まずは「資産」について。</p>
+<blockquote>
+<p>資産とは、過去の取引または事象の結果として、報告主体(entity)が支配(control)している経済的資源(economic resources)、またはその同等物をいう。
+ここでいう支配とは、所有権の有無にかかわらず、報告主体が経済的資源を利用し、そこから生み出される便益を享受できる状態をいう。経済的資源とは、キャッシュの獲得に貢献する便益の集合体(benefits)をいう。これは市場での処分可能性(marketability)を有する場合もあれば、そうでない場合もある。なお、経済的資源の同等物とは、典型的には、将来において支配する可能性のある経済的資源をいう。</p>
+</blockquote>
+<p>次に「負債」について。</p>
+<blockquote>
+<p>負債とは、過去の取引または事象の結果として、報告主体が支配している経済的資源を放棄もしくは引き渡す義務、またはその同等物をいう。
+ここでいう義務の同等物には、法律上の義務に準じるものが含まれる。</p>
+</blockquote>
+<p>最後に「純資産」について。</p>
+<blockquote>
+<p>純資産とは、資産と負債の差額をいう。これは報告主体の所有者である株主（連結財務諸表の場合には親会社株主）に帰属する資本と、その他の要素に分けられる。その他の要素には、報告主体の所有者以外に帰属するものと、いずれにも帰属しないものが含まれる。
+その他の要素のうち、報告主体の所有者である株主以外に帰属するものには、少数株主 持分などが含まれる。他方、いずれにも帰属しないものには、リスクから解放されていない投資の成果などが含まれる。
+少数株主持分以外には、例えば、報告主体の将来の所有者となりうるオプションの所有者との取引によって発生した部分がある。</p>
+</blockquote>
+<p>定義上、純資産は資産と負債の差額なので、資産は負債と純資産の合計と一致する。</p>
+<p>「資産」は報告主体が支配する経済的資源で「負債」はそれを放棄もしくは外部に引き渡す義務、それを差し引きしたものが純資産であり、これは基本的に株主に帰属する。特定時点の経済的資源と、その金銭的価値が誰に帰属しているかを表す状態が会計で管理する財政状態である。</p>
+<p>財政状態の遷移は「仕訳」と呼ばれるイベントを通じて行う。</p>
+<h3 id="仕訳とは">「仕訳」とは</h3>
+<p>財政状態の遷移は必ず「仕訳」と呼ばれるイベントを介して記録される。</p>
+<p>一般的な企業会計では仕訳に「借方」と「貸方」と呼ばれる 2 つの項目があり、借方と貸方の金額は必ず一致する。この制約の下で会社の経済的活動を記録する方法を「複式簿記」と呼ぶ。</p>
+<p>ここで Datainu 社に再登場してもらう。同社は顧客に対して月額で利用料 12,000 円を請求しており、一年分だと 144,000 円となる。しかし、一年分を前払いすることで利用料を 120,000 円としている（実質 17% 程度の割引）。</p>
+<p>入金時には以下のような仕訳が記録される。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>(借方) 現預金  120,000</span></span>
+<span class="line"><span>(貸方) 負債    120,000</span></span></code></pre>
+<p>貸借対照表上は次のように表現される。</p>
+<p><img src="/2024/12/31/first-bs.png" alt="first-bs"></p>
+<p>受け取った 120,000 円は、その後一年間にわたって Datainu 社が顧客に対して契約に従って役務を提供することで収益として認識される。これは毎月以下のような仕訳として記録される。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0"><code><span class="line"><span>(借方) 負債  10,000</span></span>
+<span class="line"><span>(貸方) 売上  10,000</span></span></code></pre>
+<p><img src="/2024/12/31/bs-1kagetsu.png" alt="bs-1kagetsu"></p>
+<p>10,000 円分は履行義務が充足されたので、会社の収益になっている。この部分は損益計算書上は収益として、貸借対照表上は純資産として表現される。単純に考えると会社の財産の 10,000 円分が債権者から株主に移ったと考えることができる。</p>
+<p><img src="/2024/12/31/rikougimu.png" alt="rikougimu"></p>
+<p>12 月 31 日に前払い分を受け取ったと仮定すると翌年 6 月末時点では 6 ヶ月分の仕訳が記録され、およそ半分が収益として認識されている。</p>
+<p><img src="/2024/12/31/bs-tochu.png" alt="bs-tochu"></p>
+<h2 id="会計と-event-sourcing">会計と Event Sourcing</h2>
+<p>仕訳の集積によって財政状態を再現するという点で、会計は Event Sourcing といえる。</p>
+<h3 id="イベントから状態を再構築する">イベントから状態を再構築する</h3>
+<p>Event Sourcing では、アプリケーション内で起きたすべての変更（イベント）を時系列順に保存しておき、必要があればそれを最初からリプレイすることで現在の状態を復元する。これと同じように、会計では各取引を「仕訳」というイベントとして記録し、最終的な財政状態（貸借対照表や損益計算書など）は仕訳を集積して作られる。</p>
+<p>財政状態の更新は仕訳によってのみ行われ、過去の仕訳の集計をある時点までリプレイすると必ずその時点の財政状態に一致する。</p>
+<h3 id="状態遷移のルールとしての複式簿記">状態遷移のルールとしての「複式簿記」</h3>
+<p>複式簿記は「財政状態を遷移させる際に整合性を維持するための制約」と言える。</p>
+<p>ここでいう整合性とは「報告主体が支配する経済的資源（資産）が、必ずそれを引き渡すまたは放棄する義務（負債）と株主に帰属する価値（純資産）の合計額と一致する」という状態が保たれている状態を意味する。</p>
+<p>複式という形で借方と貸方を並べて書くのは、企業の支配する経済的資源が増減するとき単にその経済的資源が何に変わるのかを表しているだけ。</p>
+<p>例えば会社の銀行口座に現金が入ってきたとき、幾つかのパターンが考えられる。</p>
+<ul>
+<li>資産同士の交換（例: 他の銀行口座から資金を移動する）</li>
+<li>負債の増加（例: 顧客からの前払金を受け取り）</li>
+<li>純資産の増加（例: 株主からの増資）</li>
+</ul>
+<p>このように、経済的資源やそれを引き渡す義務の増減は必ず表裏一体になる。別の経済的資源から変わったものなのか、債権者のものなのか、出資した投資家のものなのか。財政状態の遷移にこのような制約を設けることで、報告主体が支配する経済的資源の価値とそれを債権者または株主に引き渡す義務の合計価値が均衡するようになっている。</p>
+<p>ソフトウェアエンジニアの目線で捉えると、「複式簿記」はイベントソーシングでいうところの完全なイベントログであり、再生性を高める仕組み（借方・貸方のバランス）を内包したものだと理解しやすくなります。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>会計は財政状態の遷移を表現するための Event Sourcing で、利害関係者の関心に応じて適切な情報を提供する活動である。Event は複式簿記の仕訳として記録され、整合性を担保したまま財政状態を遷移させることができる。</p>
+<p>財政状態は報告主体たる企業が支配する経済的資源およびそれを外部に引き渡す（または放棄する）義務の金銭的価値の均衡を表している。</p>
+<hr>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>法人税法や消費税法など。一般的に税の世界では課税の公平性・中立性を重視するため、会計と比べると報告主体の裁量に任されている部分が狭い。 <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>会計基準には日本基準、米国基準、IFRS（国際会計基準）などさまざまな種類があるが、本記事の範囲では大きな違いはない。 <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>  </div> </article> </main> <footer data-astro-cid-sz7xmlte>
+&copy; 2024 Ryohei Tsuda. All rights reserved.
+<div class="social-links" data-astro-cid-sz7xmlte> <a href="https://twitter.com/rtsudal" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Follow me on Twitter</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" data-astro-cid-sz7xmlte><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-sz7xmlte></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" data-astro-cid-sz7xmlte><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-sz7xmlte></path></svg> </a> </div> </footer>  </body></html>
