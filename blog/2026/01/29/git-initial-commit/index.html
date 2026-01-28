@@ -1,0 +1,652 @@
+<!DOCTYPE html><html lang="ja" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="generator" content="Astro v5.16.15"><!-- Favicon --><link rel="icon" href="/favicon.ico" type="image/x-icon"><!-- Font preloads --><link rel="preload" href="/fonts/NotoSansJP-Regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/NotoSansJP-Bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://lyohe.github.io/blog/2026/01/29/git-initial-commit/"><!-- Primary Meta Tags --><title>Git 最初のコミット e83c516331 を読む</title><meta name="title" content="Git 最初のコミット e83c516331 を読む"><meta name="description" content="2005年4月7日にされた Git 最初のコミットを読んで基本的な仕組みを調べる"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://lyohe.github.io/blog/2026/01/29/git-initial-commit/"><meta property="og:title" content="Git 最初のコミット e83c516331 を読む"><meta property="og:description" content="2005年4月7日にされた Git 最初のコミットを読んで基本的な仕組みを調べる"><meta property="og:image" content="https://lyohe.github.io/og/2026/01/29/git-initial-commit.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Git 最初のコミット e83c516331 を読む"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://lyohe.github.io/blog/2026/01/29/git-initial-commit/"><meta property="twitter:title" content="Git 最初のコミット e83c516331 を読む"><meta property="twitter:description" content="2005年4月7日にされた Git 最初のコミットを読んで基本的な仕組みを調べる"><meta property="twitter:image" content="https://lyohe.github.io/og/2026/01/29/git-initial-commit.png"><meta property="twitter:image:alt" content="Git 最初のコミット e83c516331 を読む"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Noto Sans JP;src:url(/fonts/NotoSansJP-Bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Noto Sans JP,sans-serif;margin:0;padding:0;text-align:left;background:linear-gradient(var(--gray-gradient)) no-repeat;background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:rgb(var(--gray-dark));font-size:16px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:0 0 .5rem;color:rgb(var(--black));line-height:1.2}h1{font-size:2em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.4em}h5{font-size:1.2em}strong,b{font-weight:700}a,a:hover{color:var(--accent)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:rgb(var(--gray-light));border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--accent);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid rgb(var(--gray-light))}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:#fff;box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--accent)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media (max-width: 720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}footer[data-astro-cid-sz7xmlte]{padding:2em 1em 6em;background:linear-gradient(var(--gray-gradient)) no-repeat;color:rgb(var(--gray));text-align:center}.social-links[data-astro-cid-sz7xmlte]{display:flex;justify-content:center;gap:1em;margin-top:1em}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]{text-decoration:none;color:rgb(var(--gray))}.social-links[data-astro-cid-sz7xmlte] a[data-astro-cid-sz7xmlte]:hover{color:rgb(var(--gray-dark))}
+.toc{font-size:.9em;line-height:1.4;padding:.5em 0 .5em 1em;border-left:1px solid rgb(var(--gray-light))}.toc-title{font-size:.75em;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgb(var(--gray));margin-bottom:.8em}.toc ol{list-style:none;margin:0;padding:0}.toc li{margin:.4em 0;list-style:none}.toc a{color:rgb(var(--gray-dark));text-decoration:none}.toc a:hover{color:var(--accent)}.toc .toc-depth-1>a,.toc .toc-depth-2>a{color:rgba(var(--gray-dark),.95)}.toc .toc-depth-3>a{color:rgba(var(--gray-dark),.8)}.toc .toc-depth-4>a{color:rgba(var(--gray-dark),.68)}.toc .toc-depth-5>a{color:rgba(var(--gray-dark),.6)}.toc ol ol{margin-top:.3em;margin-left:.2em;padding-left:.2em;border-left:1px solid rgb(var(--gray-light))}main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0 auto}.post-layout[data-astro-cid-bvzihdzo]{display:block}.post-article[data-astro-cid-bvzihdzo]{margin:0 auto;width:100%;max-width:720px}.hero-image[data-astro-cid-bvzihdzo]{width:100%}.hero-image[data-astro-cid-bvzihdzo] img[data-astro-cid-bvzihdzo]{display:block;margin:0 auto;border-radius:12px;box-shadow:var(--box-shadow)}.prose[data-astro-cid-bvzihdzo]{width:100%;margin:0;padding:1em;box-sizing:border-box;color:rgb(var(--gray-dark))}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;text-align:center;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:rgb(var(--gray))}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}.toc-wrapper[data-astro-cid-bvzihdzo]{display:none}.prose .anchor-heading{position:relative}.prose .anchor-heading .heading-anchor{align-items:center;background:none;border:0;color:rgba(var(--gray-dark),.7);cursor:pointer;display:inline-flex;height:1.3em;margin-left:.5em;opacity:0;padding:0;transition:opacity .15s ease,color .15s ease;width:1.3em}.prose h1.anchor-heading .heading-anchor{height:1.5em;width:1.5em}.prose h2.anchor-heading .heading-anchor{height:1.35em;width:1.35em}.prose .anchor-heading:hover .heading-anchor,.prose .anchor-heading:focus-within .heading-anchor{opacity:1}.prose .anchor-heading .heading-anchor:hover,.prose .anchor-heading .heading-anchor:focus-visible{color:rgb(var(--gray-dark));outline:none}.prose .anchor-heading .heading-anchor svg{display:block;height:100%;width:100%}.prose .anchor-heading .heading-anchor.is-copied{color:rgb(var(--gray-dark))}@media (min-width: 1024px){.post-layout[data-astro-cid-bvzihdzo]{display:flex;align-items:flex-start;justify-content:center;gap:2.5em}.post-article[data-astro-cid-bvzihdzo]{margin:0}.toc-wrapper[data-astro-cid-bvzihdzo]{display:block;flex:0 0 220px;position:sticky;top:6rem;align-self:flex-start}}
+</style></head> <body data-astro-cid-bvzihdzo> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2><a href="/" data-astro-cid-3ef6ksr2>ここにかく</a></h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Blog </a>  <a href="/about" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> About </a>  </div> <div class="social-links" data-astro-cid-3ef6ksr2> <a href="https://twitter.com/rtsudar" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Follow me on X(Formerly Twitter)</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-3ef6ksr2></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-3ef6ksr2> <span class="sr-only" data-astro-cid-3ef6ksr2>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-3ef6ksr2></path></svg> </a> </div> </nav> </header>  <main data-astro-cid-bvzihdzo> <div class="post-layout" data-astro-cid-bvzihdzo> <article class="post-article" data-astro-cid-bvzihdzo> <div class="hero-image" data-astro-cid-bvzihdzo>  </div> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <div class="date" data-astro-cid-bvzihdzo> <time datetime="2026-01-28T15:00:00.000Z"> 2026年1月29日 </time>  </div> <h1 data-astro-cid-bvzihdzo>Git 最初のコミット e83c516331 を読む</h1> <hr data-astro-cid-bvzihdzo> </div>  <p>Git は 2005 年 4 月 7 日に初めてコミットされ 2025 年で 20 周年を迎えた。</p>
+<p>今では巨大なコードベースになっている（v2.52.0 で約 157 万行）ものの、最初のコミット <a href="https://github.com/git/git/commit/e83c5163316f89bfbde7d9ab23ca2e25604af290">e83c516331</a> はたった <strong>1244 行</strong>しかない。</p>
+<p>ここに Git の本質が詰まっているので、基本的な仕組みを学ぶのにちょうど良いと考えられる。そこで、コード全体を読んで記録を残しておくことにした。</p>
+<h1 id="最初のコミットの全体像を掴む">最初のコミットの全体像を掴む</h1>
+<p>まずはコード全体を見渡し、手元で build して一通り動かした上で詳細な実装を読む。</p>
+<h2 id="コミットハッシュを特定する">コミットハッシュを特定する</h2>
+<p>最初のコミットは最も古いはずなので、以下のコマンドで取り出せる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> log</span><span style="color:#79B8FF"> --reverse</span><span style="color:#79B8FF"> --oneline</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> head</span><span style="color:#79B8FF"> -n</span><span style="color:#79B8FF"> 1</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>e83c516331 Initial revision of "git", the information manager from hell</span></span></code></pre>
+<p>最初は「親がないコミット」でも定まると考えて <code>git log --max-parents=0</code> したが、なんと 7 つも出てきた。これはよく考えてみれば当然で、例えば <a href="https://github.com/git/git/commit/cb07fc2a29c86d1bc11f5415368f778d25d3d20a">cb07fc2a29</a> のように異なる歴史を統合すると親がないコミットが追加される。親がない最新のコミットは 2009 年の <a href="https://github.com/git/git/commit/0ca71b3737cbb26fbf037aa15b3f58735785e6e3">0ca71b3737</a>。</p>
+<h2 id="コード全体を見渡す">コード全体を見渡す</h2>
+<p>ファイルごとの行数を数える。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> git</span><span style="color:#9ECBFF"> ls-files</span><span style="color:#79B8FF"> -z</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> xargs</span><span style="color:#79B8FF"> -0</span><span style="color:#9ECBFF"> wc</span><span style="color:#79B8FF"> -l</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">40</span><span style="color:#9ECBFF"> Makefile</span></span>
+<span class="line"><span style="color:#B392F0">168</span><span style="color:#9ECBFF"> README</span></span>
+<span class="line"><span style="color:#B392F0">93</span><span style="color:#9ECBFF"> cache.h</span></span>
+<span class="line"><span style="color:#B392F0">23</span><span style="color:#9ECBFF"> cat-file.c</span></span>
+<span class="line"><span style="color:#B392F0">172</span><span style="color:#9ECBFF"> commit-tree.c</span></span>
+<span class="line"><span style="color:#B392F0">51</span><span style="color:#9ECBFF"> init-db.c</span></span>
+<span class="line"><span style="color:#B392F0">259</span><span style="color:#9ECBFF"> read-cache.c</span></span>
+<span class="line"><span style="color:#B392F0">43</span><span style="color:#9ECBFF"> read-tree.c</span></span>
+<span class="line"><span style="color:#B392F0">81</span><span style="color:#9ECBFF"> show-diff.c</span></span>
+<span class="line"><span style="color:#B392F0">248</span><span style="color:#9ECBFF"> update-cache.c</span></span>
+<span class="line"><span style="color:#B392F0">66</span><span style="color:#9ECBFF"> write-tree.c</span></span>
+<span class="line"><span style="color:#B392F0">1244</span><span style="color:#9ECBFF"> total</span></span></code></pre>
+<p>現代の Git と同じく C 言語で書かれている。全体像を掴むために、まずは Makefile と README を読んでみるのが良さそうだ。</p>
+<h3 id="makefile">Makefile</h3>
+<p><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/Makefile">Makefile</a></p>
+<p><code>init-db</code> や <code>update-cache</code> などユーザーが使うコマンドがターゲットになっている。コマンドとファイルはほぼ 1:1 の対応関係にありそうだが、<code>read-cache.o</code> がさまざまなターゲットに登場するのでここに Git object を読む共通処理が書かれているように見える。</p>
+<p><code>make clean</code> で <code>temp_git_file_*</code> が削除されているのは、これが <code>cat-file</code> コマンドによって生成されるファイル名だから。<code>make backup</code> ではルートディレクトリの名前が <code>dir-cache</code> であることを前提に tar している。<code>git</code> ではない理由はおそらく開発者が元々 <code>dir-cache</code> という名前で開発していた名残りで、Git という名前は後から決まったものと考えられる。</p>
+<h3 id="readme">README</h3>
+<p><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README">README</a></p>
+<p>Git を構成する基本的な概念について詳しく書かれている。</p>
+<h4 id="git-という名前の由来">git という名前の由来</h4>
+<ul>
+<li>一般的な UNIX コマンドに存在しない適当な 3 文字の組み合わせ</li>
+<li>ばかげた, 単純な等のスラング</li>
+<li><code>global information tracker</code> の略</li>
+<li><code>goddamn idiotic truckload of sh*t</code> の略</li>
+</ul>
+<h4 id="git-が行う-2-つの抽象化">git が行う 2 つの抽象化</h4>
+<p>Git が directory content manager として機能するために、2 つの抽象的な概念を扱う。</p>
+<ul>
+<li><code>object database</code></li>
+<li><code>current directory cache</code></li>
+</ul>
+<h4 id="the-object-database-sha1_file_directory">The Object Database (SHA1_FILE_DIRECTORY)</h4>
+<p>環境変数 <code>SHA1_FILE_DIRECTORY</code> のパスに配置される content-addressable な object の集合。</p>
+<p>content-addressable とは、object 自身がその content（の SHA-1 ハッシュ）によって名付けられることを指す。全ての object は zlib で圧縮され、圧縮後の SHA-1 ハッシュで識別される。object には以下の 3 種類がある。</p>
+<ul>
+<li><code>blob</code>: バイナリデータの塊で、ファイルの内容を指す object</li>
+<li><code>tree</code>: パーミッション/ファイル・ディレクトリ名/blob または tree ハッシュ のリストで、ディレクトリ構造を指す object。これを再帰的に積み重ねることでリポジトリ全体の構造を示すことができる</li>
+<li><code>changeset</code>: 変更内容、親となる changeset、変更内容に対するコメントを示す object。README では changeset という名前だが実際には <code>commit</code> を意味している</li>
+</ul>
+<p>全ての object は SHA-1 でハッシュされているので壊れたり改竄されていないことを信頼できる。</p>
+<p>ここでいう「信頼」とは内容の完全性だけを示し、本当にその内容が信頼できるかは外部に依存している。つまり、Git のコミットが正しいかはファイルを圧縮して SHA-1 ハッシュし changeset(commit) のハッシュと突合することで検証可能だが、そのコミット自体が信頼できる人物によって作られたものかどうかは保証しない。</p>
+<h4 id="current-directory-cache-dircacheindex">Current Directory Cache (“.dircache/index”)</h4>
+<p>ある時点の仮想ディレクトリ状態を表す単純なバイナリで、コミット前に tree object を生成する際の元データとなる。</p>
+<p>名前・日付・パーミッション・内容（Blob）を関連付けた配列を保持し、常に名前順に並び、名前は一意となる。これにより、以下を効率的に行える。</p>
+<ul>
+<li><strong>再構成</strong>: キャッシュ状態（blob や tree）を完全に再生成できる</li>
+<li><strong>差分検出</strong>: 未コミットの tree と実際のディレクトリとの差分を効率的に検出できる</li>
+</ul>
+<p>cache は対応する tree の SHA-1 が分かれば復元でき、編集したファイルだけを部分的に更新できる。</p>
+<h2 id="build-して動かしてみる">build して動かしてみる</h2>
+<p>簡単なテキストファイルを使って最初の Git によるバージョン管理の流れを確認する。</p>
+<h3 id="環境構築">環境構築</h3>
+<p>Dockerfile を用意する。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="dockerfile"><code><span class="line"><span style="color:#6A737D"># syntax=docker/dockerfile:1</span></span>
+<span class="line"><span style="color:#F97583">FROM</span><span style="color:#E1E4E8"> ubuntu:22.04</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">ARG</span><span style="color:#E1E4E8"> GIT_COMMIT=e83c5163316f89bfbde7d9ab23ca2e25604af290</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">RUN</span><span style="color:#E1E4E8"> apt-get update &#x26;&#x26; apt-get install -y --no-install-recommends \</span></span>
+<span class="line"><span style="color:#E1E4E8">  build-essential \</span></span>
+<span class="line"><span style="color:#E1E4E8">  ca-certificates \</span></span>
+<span class="line"><span style="color:#E1E4E8">  curl \</span></span>
+<span class="line"><span style="color:#E1E4E8">  tar \</span></span>
+<span class="line"><span style="color:#E1E4E8">  bsdextrautils \</span></span>
+<span class="line"><span style="color:#E1E4E8">  libssl-dev \</span></span>
+<span class="line"><span style="color:#E1E4E8">  zlib1g-dev \</span></span>
+<span class="line"><span style="color:#E1E4E8">  diffutils \</span></span>
+<span class="line"><span style="color:#E1E4E8">  &#x26;&#x26; rm -rf /var/lib/apt/lists/*</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">WORKDIR</span><span style="color:#E1E4E8"> /opt/git-e83c516331</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">RUN</span><span style="color:#E1E4E8"> curl -L </span><span style="color:#9ECBFF">"https://kernel.googlesource.com/pub/scm/git/git/+archive/${GIT_COMMIT}.tar.gz"</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#E1E4E8">  | tar -xz</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">RUN</span><span style="color:#E1E4E8"> make \</span></span>
+<span class="line"><span style="color:#E1E4E8">  CFLAGS=</span><span style="color:#9ECBFF">"-g -std=gnu99 -fcommon"</span><span style="color:#E1E4E8"> \</span></span>
+<span class="line"><span style="color:#E1E4E8">  LIBS=</span><span style="color:#9ECBFF">"-lssl -lcrypto -lz"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">RUN</span><span style="color:#E1E4E8"> install -m 0755 \</span></span>
+<span class="line"><span style="color:#E1E4E8">  init-db update-cache write-tree commit-tree read-tree cat-file show-diff \</span></span>
+<span class="line"><span style="color:#E1E4E8">  /usr/local/bin/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">WORKDIR</span><span style="color:#E1E4E8"> /work</span></span>
+<span class="line"><span style="color:#F97583">CMD</span><span style="color:#E1E4E8"> [</span><span style="color:#9ECBFF">"/bin/bash"</span><span style="color:#E1E4E8">]</span></span>
+<span class="line"></span></code></pre>
+<p>ビルドしてコンテナに入る。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#6A737D"># Docker image をビルドする</span></span>
+<span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> docker</span><span style="color:#9ECBFF"> buildx</span><span style="color:#9ECBFF"> build</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> linux/amd64</span><span style="color:#79B8FF"> -t</span><span style="color:#9ECBFF"> git-e83c516331:dev</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 作業用ディレクトリを作る</span></span>
+<span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> mkdir</span><span style="color:#79B8FF"> -p</span><span style="color:#9ECBFF"> work</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># docker run でコンテナに入る</span></span>
+<span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> docker</span><span style="color:#9ECBFF"> run</span><span style="color:#79B8FF"> --rm</span><span style="color:#79B8FF"> -it</span><span style="color:#79B8FF"> --platform</span><span style="color:#9ECBFF"> linux/amd64</span><span style="color:#79B8FF"> --hostname</span><span style="color:#9ECBFF"> initial-git</span><span style="color:#79B8FF"> -v</span><span style="color:#9ECBFF"> "</span><span style="color:#E1E4E8">$PWD</span><span style="color:#9ECBFF">/work":/work</span><span style="color:#9ECBFF"> git-e83c516331:dev</span></span></code></pre>
+<h3 id="最初の-git-を使ってファイルをバージョン管理する">最初の Git を使ってファイルをバージョン管理する</h3>
+<p>まずはテスト用にバージョン管理対象となるテキストファイルを作る。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ echo "Hello,world!" > test.txt</span></span></code></pre>
+<p>最初は <code>init-db</code> で Git object を格納するデータベースとなるディレクトリを初期化する</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ init-db</span></span>
+<span class="line"><span>defaulting to private storage area</span></span></code></pre>
+<p><code>init-db</code> により <code>.dircache/objects/00..ff</code> が作られていることがわかる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ls .dircache/objects/</span></span>
+<span class="line"><span>00  0d  1a  27  34  41  4e  5b  68  75  82  8f  9c  a9  b6  c3  d0  dd  ea  f7</span></span>
+<span class="line"><span>01  0e  1b  28  35  42  4f  5c  69  76  83  90  9d  aa  b7  c4  d1  de  eb  f8</span></span>
+<span class="line"><span>02  0f  1c  29  36  43  50  5d  6a  77  84  91  9e  ab  b8  c5  d2  df  ec  f9</span></span>
+<span class="line"><span>03  10  1d  2a  37  44  51  5e  6b  78  85  92  9f  ac  b9  c6  d3  e0  ed  fa</span></span>
+<span class="line"><span>04  11  1e  2b  38  45  52  5f  6c  79  86  93  a0  ad  ba  c7  d4  e1  ee  fb</span></span>
+<span class="line"><span>05  12  1f  2c  39  46  53  60  6d  7a  87  94  a1  ae  bb  c8  d5  e2  ef  fc</span></span>
+<span class="line"><span>06  13  20  2d  3a  47  54  61  6e  7b  88  95  a2  af  bc  c9  d6  e3  f0  fd</span></span>
+<span class="line"><span>07  14  21  2e  3b  48  55  62  6f  7c  89  96  a3  b0  bd  ca  d7  e4  f1  fe</span></span>
+<span class="line"><span>08  15  22  2f  3c  49  56  63  70  7d  8a  97  a4  b1  be  cb  d8  e5  f2  ff</span></span>
+<span class="line"><span>09  16  23  30  3d  4a  57  64  71  7e  8b  98  a5  b2  bf  cc  d9  e6  f3</span></span>
+<span class="line"><span>0a  17  24  31  3e  4b  58  65  72  7f  8c  99  a6  b3  c0  cd  da  e7  f4</span></span>
+<span class="line"><span>0b  18  25  32  3f  4c  59  66  73  80  8d  9a  a7  b4  c1  ce  db  e8  f5</span></span>
+<span class="line"><span>0c  19  26  33  40  4d  5a  67  74  81  8e  9b  a8  b5  c2  cf  dc  e9  f6</span></span></code></pre>
+<p>次に、バージョン管理対象のファイルを <code>update-cache</code> で追加する。これは blob object の生成と index 登録を行うので、現代でいう <code>git add</code> に近い。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ update-cache test.txt</span></span></code></pre>
+<p><code>update-cache</code> により Git object の index が作られていることが分かる。個別の Git object は <code>.dircache/objects</code> 以下に追加される。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ ls -l .dircache/</span></span>
+<span class="line"><span>total 4</span></span>
+<span class="line"><span>-rw-------   1 root root  104 Dec 30 02:25 index</span></span>
+<span class="line"><span>drwx------ 258 root root 8256 Dec 30 02:25 objects</span></span></code></pre>
+<p>index はバイナリなので hexdump で出力してみる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ hexdump  -C .dircache/index | head -n 40</span></span>
+<span class="line"><span>00000000  43 52 49 44 01 00 00 00  01 00 00 00 74 ba ba 08  |CRID........t...|</span></span>
+<span class="line"><span>00000010  a7 df 41 b3 a7 16 c1 40  91 97 58 fb cd 57 35 08  |..A....@..X..W5.|</span></span>
+<span class="line"><span>00000020  ed 37 53 69 2c c1 11 09  ed 37 53 69 2c c1 11 09  |.7Si,....7Si,...|</span></span>
+<span class="line"><span>00000030  2b 00 00 00 3f 08 00 00  a4 81 00 00 00 00 00 00  |+...?...........|</span></span>
+<span class="line"><span>00000040  00 00 00 00 0d 00 00 00  87 6b c5 78 8f 4e d7 e4  |.........k.x.N..|</span></span>
+<span class="line"><span>00000050  ac 29 83 3a a8 2a d2 94  6d a7 7c c3 08 00 74 65  |.).:.*..m.|...te|</span></span>
+<span class="line"><span>00000060  73 74 2e 74 78 74 00 00                           |st.txt..|</span></span>
+<span class="line"><span>00000068</span></span></code></pre>
+<p>これを読むには index のデータ構造（後述）を理解する必要があるが <code>87 6b c5 78 8f 4e ...</code> から始まる 20 bytes が先ほど追加した blob の SHA-1 である。</p>
+<p>先頭 1 バイトで fanout することを考えると、実体は <code>.dircache/objects/87/</code> のディレクトリに入っている。この blob object は zlib で圧縮されているので、そのまま hexdump しても読めない。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ hexdump -C .dircache/objects/87/6bc5788f4ed7e4ac29833aa82ad2946da77cc3</span></span>
+<span class="line"><span>00000000  78 da 4b ca c9 4f 52 30  34 66 f0 48 cd c9 c9 d7  |x.K..OR04f.H....|</span></span>
+<span class="line"><span>00000010  29 cf 2f ca 49 51 e4 02  00 49 a1 06 97           |)./.IQ...I...|</span></span>
+<span class="line"><span>0000001d</span></span></code></pre>
+<p>しかし <code>cat-file</code> に Git object の SHA-1 を渡すと、ファイルとして書き出すことができる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat-file 876bc5788f4ed7e4ac29833aa82ad2946da77cc3</span></span>
+<span class="line"><span>temp_git_file_950z9I: blob</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat temp_git_file_950z9I</span></span>
+<span class="line"><span>Hello,world!</span></span></code></pre>
+<p>その時点の index を元に <code>write-tree</code> で tree object を生成することができる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ write-tree</span></span>
+<span class="line"><span>dd6ccb42609c049bc68a40d2a97b31a366831962</span></span></code></pre>
+<p>生成された tree の SHA-1 を <code>read-tree</code> に渡すと tree を読める。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ read-tree dd6ccb42609c049bc68a40d2a97b31a366831962</span></span>
+<span class="line"><span>100644 test.txt (876bc5788f4ed7e4ac29833aa82ad2946da77cc3)</span></span></code></pre>
+<p><code>commit-tree</code> に tree の SHA-1 を渡すとようやく commit することができる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ echo "initial commit\n" | commit-tree dd6ccb42609c049bc68a40d2a97b31a366831962</span></span>
+<span class="line"><span>Committing initial tree dd6ccb42609c049bc68a40d2a97b31a366831962</span></span>
+<span class="line"><span>dda2d9190efec7068da2bd7cd124f8f553f7d482</span></span></code></pre>
+<p>commit も Git object なので <code>cat-file</code> でファイルに出力できる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat-file dda2d9190efec7068da2bd7cd124f8f553f7d482</span></span>
+<span class="line"><span>temp_git_file_3n7qJS: commit</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat temp_git_file_3n7qJS</span></span>
+<span class="line"><span>tree dd6ccb42609c049bc68a40d2a97b31a366831962</span></span>
+<span class="line"><span>author root &#x3C;root@initial-git> Tue Dec 30 02:29:00 2025</span></span>
+<span class="line"><span>committer root &#x3C;root@initial-git> Tue Dec 30 02:29:00 2025</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>initial commit\n</span></span></code></pre>
+<p>ここで差分の管理を試すために test.txt を書き換えてみる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ echo "hogehoge" > test.txt</span></span></code></pre>
+<p><code>show-diff</code> で現在の作業ディレクトリのファイルと <code>.dircache/index</code> との差分を表示することができる。現代の Git でいうと <code>git diff</code> の引数なし挙動に近い。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ show-diff</span></span>
+<span class="line"><span>test.txt:  876bc5788f4ed7e4ac29833aa82ad2946da77cc3</span></span>
+<span class="line"><span>--- -	2025-12-30 02:38:59.670802971 +0000</span></span>
+<span class="line"><span>+++ test.txt	2025-12-30 02:38:58.392672326 +0000</span></span>
+<span class="line"><span>@@ -1 +1 @@</span></span>
+<span class="line"><span>-Hello,world!</span></span>
+<span class="line"><span>+hogehoge</span></span></code></pre>
+<p>先ほどと同じように <code>update-cache</code> して <code>write-tree</code> で得た SHA-1 を <code>commit-tree</code> に渡すことでコミットできる。このとき、前のコミットに繋げたいときは <code>-p</code> オプションで親コミットを直接指定しなければならない。指定しない場合、別の root コミットが生成される。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ write-tree</span></span>
+<span class="line"><span>e0dc3bcc02fd47bd3e3473fd7837c4ac004ed3a0</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ echo "second commit\n" | commit-tree e0dc3bcc02fd47bd3e3473fd7837c4ac004ed3a0 -p dda2d9190efec7068da2bd7cd124f8f553f7d482</span></span>
+<span class="line"><span>33dcc9880a7aa3da98e833a2ca7376472a02b19e</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat-file 33dcc9880a7aa3da98e833a2ca7376472a02b19e</span></span>
+<span class="line"><span>temp_git_file_cEwQj4: commit</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ cat temp_git_file_cEwQj4</span></span>
+<span class="line"><span>tree e0dc3bcc02fd47bd3e3473fd7837c4ac004ed3a0</span></span>
+<span class="line"><span>parent dda2d9190efec7068da2bd7cd124f8f553f7d482</span></span>
+<span class="line"><span>author root &#x3C;root@initial-git> Tue Dec 30 02:44:11 2025</span></span>
+<span class="line"><span>committer root &#x3C;root@initial-git> Tue Dec 30 02:44:11 2025</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>second commit\n</span></span></code></pre>
+<p>これでようやく 2 つの commit をつなげることができた。</p>
+<p>この 2 つの commit の差分を見たいときはどうすれば良いだろうか？<code>show-diff</code> コマンドは前述の通り現在の作業ディレクトリと index を比較するコマンドなので commit 間の差分を出すことはできない。</p>
+<p>思い出してみると commit は tree への参照、tree は blob への参照を持っていた。つまり、2 つの commit object の tree を <code>read-tree</code> で出して blob の SHA-1 が変わっているものを拾い上げ、<code>cat-file</code> で blob の SHA-1 を指定して通常の <code>diff</code> コマンド等で差分を見ることができる。</p>
+<p>まずは <code>read-tree</code> で 2 つの commit が指し示す tree の SHA-1 から blob の SHA-1 を引き出す。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ read-tree e0dc3bcc02fd47bd3e3473fd7837c4ac004ed3a0</span></span>
+<span class="line"><span>100644 test.txt (7000b81673e954b5c9ec92f5d3ccea84866bf16e)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ read-tree dd6ccb42609c049bc68a40d2a97b31a366831962</span></span>
+<span class="line"><span>100644 test.txt (876bc5788f4ed7e4ac29833aa82ad2946da77cc3)</span></span></code></pre>
+<p>blob の SHA-1 で <code>cat-file</code> して diff で比較する。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ cat-file 7000b81673e954b5c9ec92f5d3ccea84866bf16e</span></span>
+<span class="line"><span>temp_git_file_nqMogt: blob</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ cat-file 876bc5788f4ed7e4ac29833aa82ad2946da77cc3</span></span>
+<span class="line"><span>temp_git_file_QQ6qKF: blob</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>$ diff temp_git_file_nqMogt temp_git_file_QQ6qKF</span></span>
+<span class="line"><span>1c1</span></span>
+<span class="line"><span>&#x3C; hogehoge</span></span>
+<span class="line"><span>---</span></span>
+<span class="line"><span>> Hello,world!</span></span></code></pre>
+<p>これで 2 つの commit 間の差分を出すことができた。現代の Git なら <code>git diff</code> 一発で出せるのに、最初の Git ではこれだけの手間がかかる。</p>
+<h2 id="最初の-git-を使った開発まとめ">最初の Git を使った開発まとめ</h2>
+<p>最初のコミット時点の git の基本的なワークフローと用語を以下にまとめる。</p>
+<h3 id="基本的なワークフロー">基本的なワークフロー</h3>
+<ol>
+<li>作業ディレクトリで <code>init-db</code> を実行し object database を初期化する</li>
+<li>作業ディレクトリ配下にファイルを追加したり変更する</li>
+<li><code>update-cache</code> で作業ディレクトリから blob object と現在のディレクトリキャッシュ <code>.dircache/index</code> を生成する</li>
+<li><code>write-tree</code> で <code>.dircache/index</code> から tree object を生成する</li>
+<li><code>commit-tree</code> で tree object から commit object を生成する</li>
+</ol>
+<p>commit を繋げる際は 5. で親 commit object の SHA-1 を <code>-p</code> オプションで指定する。</p>
+<h4 id="git-object-とは">Git object とは</h4>
+<p>git が扱うデータは主に blob, tree, commit の 3 種類がある。</p>
+<ul>
+<li><code>blob</code>: git が管理するファイル本体を zlib 圧縮したもの（ファイル名や権限は含まない）</li>
+<li><code>tree</code>: ディレクトリ構造やファイル名、モード、blob/tree への参照</li>
+<li><code>commit</code>: tree への参照に author, 時刻, メッセージを付加した履歴データ</li>
+</ul>
+<h3 id="差分や-git-object-の内容確認">差分や Git object の内容確認</h3>
+<ul>
+<li><code>cat-file</code> は git object を一時ファイルに出力し、ファイル名と object 種別を標準出力する</li>
+<li><code>show-diff</code> は <code>.dircache/index</code> と現在の作業ディレクトリを比較し差分を標準出力する</li>
+<li><code>read-tree</code> は tree object の内容を標準出力する</li>
+</ul>
+<h1 id="ソースコードを読む">ソースコードを読む</h1>
+<p>詳細な仕様を知りたいので、ファイルごとに実装を読んでいく。</p>
+<h2 id="init-db">init-db</h2>
+<p>Git objects を保存するデータベースを初期化する。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/init-db.c">init-db.c</a></p>
+<ul>
+<li><code>.dircache/</code> というディレクトリを作る
+<ul>
+<li>今でいう <code>.git/</code> に該当する</li>
+<li>この時点の Git では refs や HEAD, logs などは存在せず index と objects を格納するためだけのディレクトリ</li>
+<li>既に <code>.dircache/</code> がある場合は失敗する</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/init-db.c#L13-L26">L13-L26</a>: コメントを読む限り環境変数 <code>SHA1_FILE_DIRECTORY</code> で共有ディレクトリを指定することで git objects を共有できそうに見える
+<ul>
+<li>ここでは既にディレクトリが存在することを想定しており新たにディレクトリは作らない</li>
+<li>…という意図がありそうだが、実際にはバグっており環境変数 <code>SHA1_FILE_DIRECTORY</code> を指定していると常に bad directory のメッセージが標準エラー出力され、デフォルト挙動にフォールバックする
+<ul>
+<li>なぜなら、<code>if (!stat(sha1_dir, &#x26;st) &#x3C; 0 &#x26;&#x26;</code> の箇所で stat が成功すると <code>if (1 &#x3C; 0 &#x26;&#x26; ...)</code>, 失敗すると <code>if (0 &#x3C; 0 &#x26;&#x26; ...</code> となり、if 文の条件を満たさないから</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/init-db.c#L22">ここ</a>は <code>if (stat(sha1_dir, &#x26;st) == 0 &#x26;&#x26;</code> が開発者の意図に沿っていそう</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/init-db.c#L27-L49">L27-L49</a>: デフォルト挙動では <code>DEFAULT_DB_ENVIRONMENT</code> が示すパス <code>.dircache/objects</code> 以下に git objects を格納するためのディレクトリを 256 個 <code>00</code> ~ <code>ff</code> 作る
+<ul>
+<li>git objects の SHA-1 ハッシュの先頭 2 桁によって格納先が <code>00</code> ~ <code>ff</code> に分かれ、一つのディレクトリに集中するのを防ぐ
+<ul>
+<li>例えば <code>e83c516331...</code> という object は <code>.dircache/objects/e8/</code> ディレクトリに格納される</li>
+<li>ファイル名は SHA-1 の残り部分で <code>3c516331...</code> となる</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>init-db で使われる環境変数は cache.h でマクロとして定義されている。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> DB_ENVIRONMENT</span><span style="color:#9ECBFF"> "SHA1_FILE_DIRECTORY"</span></span>
+<span class="line"><span style="color:#F97583">#define</span><span style="color:#B392F0"> DEFAULT_DB_ENVIRONMENT</span><span style="color:#9ECBFF"> ".dircache/objects"</span></span></code></pre>
+<p>mkdir や stat 等で POSIX に依存しているので Windows では動かなさそうだ。しかし、この時点では Linux カーネルの開発者のみが使う想定だったから特に問題はないと思われる。</p>
+<h2 id="update-cache">update-cache</h2>
+<p>バージョン管理対象となるファイルパスを受け取って blob object の生成と index への登録・更新・削除を行う。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c">update-cache.c</a></p>
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c#L222-L227">L222-L227</a>: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L205-L258">read_cache</a> で index の内部整合性を検証する
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L187-L204">verify_hdr</a> を使って index の cache_header を検証している</li>
+<li>index は固定長 cache_header と可変長 cache_entry で構成されるが、entry の内容はここでは検証していない</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c#L228-L232">L228-L232</a>: まず <code>.dircache/index</code> が存在していることを確かめ、ロック用の一時ファイル <code>.dircache/index.lock</code> を作成する
+<ul>
+<li>既に存在する場合はエラーになる</li>
+<li>そのため、複数のプロセスから一時ファイルが作られることはない</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c#L233-L243">L233-L243</a>: コマンドライン引数で与えられたパスを検証する
+<ul>
+<li>パスは複数同時に渡すことができる</li>
+<li>ドット（.）から始まるファイルは全て ignore される</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c#L119-L158">add_file_to_cache</a> でメモリ上に cache_entry を書き込み <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c#L76-L118">index_fd</a> でパスを元にファイルを圧縮して SHA-1 を計算し blob object を生成する</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c#L244-L245">L244-L255</a>: ファイルをキャッシュに追加する
+<ul>
+<li><code>active_nr</code> はグローバル変数で cache_entry のエントリ数</li>
+<li><code>active_cache</code> もグローバル変数で cache_entry を示すポインタ配列</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/update-cache.c#L159-L189">write_cache</a> で以下の処理を行う
+<ul>
+<li>cache_header と cache_entry から cache_header の sha1 フィールドに書き込むための SHA-1 を計算する</li>
+<li>キャッシュをロック用の一時ファイルに書き込み <code>.dircache/index</code> に rename して終了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>read_cache</code> は cache header しか検証していない。後述するが git の index は 2 つの構造体 cache_header と cache_entry で構成される。entry は検証しなくていいのだろうか？
+実は cache_header の sha1 フィールドには「header の sha1 フィールドの手前まで + 全ての cache_entry」を SHA-1 でハッシュした値が入る。これが一致していることを以て cache_entry が壊れていないと言える。</p>
+<p>あくまで index の cache_header がデータ構造に沿っているか、および cache_header と cache_entry 間の整合性を検証するだけで index と作業ディレクトリの整合性をチェックするわけではないが、シンプルかつ強力な仕組みだと思った。</p>
+<h3 id="index-のデータ構造">index のデータ構造</h3>
+<p><code>.dircache/index</code> のデータ構造は <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/cache.h#L16-L60">cache.h</a> で定義されており、固定長 <code>cache_header</code> と 可変長 <code>cache_entry</code> の組み合わせで表現されている。</p>
+<p><code>cache_entry</code> にはファイル名が含まれているので 1 件ごとにサイズが異なり、各エントリの境界は 8 bytes 単位で揃う。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>+------------------------------+</span></span>
+<span class="line"><span>| struct cache_header          |  固定長 32 bytes</span></span>
+<span class="line"><span>+------------------------------+</span></span>
+<span class="line"><span>| struct cache_entry #0        |  可変長</span></span>
+<span class="line"><span>+------------------------------+</span></span>
+<span class="line"><span>| struct cache_entry #1        |  可変長</span></span>
+<span class="line"><span>+------------------------------+</span></span>
+<span class="line"><span>| ...                          |</span></span>
+<span class="line"><span>+------------------------------+</span></span>
+<span class="line"><span>| struct cache_entry #(n-1)    |  可変長</span></span>
+<span class="line"><span>+------------------------------+</span></span></code></pre>
+<p><code>cache_header</code> は signature “DIRC”, version, entries でそれぞれ 4 bytes + sha1 の 20 bytes で合計 3 * 4 + 20 = 32 bytes となっている。ヘッダの sha1 は「ヘッダの sha1 フィールド手前 + 全ての <code>cache_entry</code>」を SHA‑1 でハッシュしたもので、整合性チェックに使われる。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">struct</span><span style="color:#E1E4E8"> cache_header {</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> signature;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> version;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> entries;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> char</span><span style="color:#FFAB70"> sha1</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<p><code>cache_entry</code> は stat(2) で取得できるファイル情報や blob の SHA-1 を格納する。</p>
+<p>ファイル名 name は namelen で長さを持つ。エントリの並び順はパス名の昇順。</p>
+<p>コードコメントにもある通り CPU ネイティブのバイトオーダーで保存されるため、ポータブルではない。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="c"><code><span class="line"><span style="color:#F97583">struct</span><span style="color:#E1E4E8"> cache_time {</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> sec;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> nsec;</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">struct</span><span style="color:#E1E4E8"> cache_entry {</span></span>
+<span class="line"><span style="color:#F97583">    struct</span><span style="color:#E1E4E8"> cache_time ctime;</span></span>
+<span class="line"><span style="color:#F97583">    struct</span><span style="color:#E1E4E8"> cache_time mtime;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> st_dev;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> st_ino;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> st_mode;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> st_uid;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> st_gid;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> st_size;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> char</span><span style="color:#FFAB70"> sha1</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> short</span><span style="color:#E1E4E8"> namelen;</span></span>
+<span class="line"><span style="color:#F97583">    unsigned</span><span style="color:#F97583"> char</span><span style="color:#FFAB70"> name</span><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">];</span></span>
+<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<p><code>cache_header</code> が 32 bytes で最初の <code>cache_entry</code> の <code>sha1</code> フィールド直前までが 40 bytes ある。つまり、最初の sha1 は 72 bytes の次から始まるという計算になる。先ほど “Hello,world!” と書かれた test.txt だけを index に書き込んで hexdump したが、これを見返すと最初の blob object の SHA-1 <code>876bc5788f4ed7e4ac29833aa82ad2946da77cc3</code> が 73 番目の byte から続いていることが見て取れる。</p>
+<p>その後の namelen は test.txt で 8 文字になるので <code>08 00</code> で name は <code>74 65 73 74 2e 74 78 74</code> であることが確認できる。末尾は 8 bytes の境界に丸められるので <code>00</code> で埋められている。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>$ hexdump  -C .dircache/index | head -n 40</span></span>
+<span class="line"><span>00000000  43 52 49 44 01 00 00 00  01 00 00 00 74 ba ba 08  |CRID........t...|</span></span>
+<span class="line"><span>00000010  a7 df 41 b3 a7 16 c1 40  91 97 58 fb cd 57 35 08  |..A....@..X..W5.|</span></span>
+<span class="line"><span>00000020  ed 37 53 69 2c c1 11 09  ed 37 53 69 2c c1 11 09  |.7Si,....7Si,...|</span></span>
+<span class="line"><span>00000030  2b 00 00 00 3f 08 00 00  a4 81 00 00 00 00 00 00  |+...?...........|</span></span>
+<span class="line"><span>00000040  00 00 00 00 0d 00 00 00  87 6b c5 78 8f 4e d7 e4  |.........k.x.N..|</span></span>
+<span class="line"><span>00000050  ac 29 83 3a a8 2a d2 94  6d a7 7c c3 08 00 74 65  |.).:.*..m.|...te|</span></span>
+<span class="line"><span>00000060  73 74 2e 74 78 74 00 00                           |st.txt..|</span></span>
+<span class="line"><span>00000068</span></span></code></pre>
+<h2 id="read-cachec">read-cache.c</h2>
+<p>read-cache という名前だが <code>.dircache/index</code> を読むだけでなく Git object のデータベース <code>.dircache/objects/</code> を読み書きするための共通ユーティリティ関数を集めたファイル。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c">read-cache.c</a></p>
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L24-L36">L24-L36</a> <code>get_sha1_hex</code>: 40 桁の 16 進文字列を 20 bytes の SHA‑1 バイナリに変換する
+<ul>
+<li>1 byte が 2 文字で表されているので、2 文字ずつポインタを移動しながら 20 回のループを実行する</li>
+<li><code>val = (hexval(hex[0]) &#x3C;&#x3C; 4) | hexval(hex[1]);</code> で上位 4 bit と下位 4 bit に分けて 1 byte 値（0x00 ~ 0xff）を作る</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L37-L51">L37-L51</a> <code>sha1_to_hex</code>: 20 bytes の SHA‑1 バイナリを 40 桁の 16 進文字列に変換する
+<ul>
+<li><code>get_sha1_hex</code> の逆の処理を行う</li>
+<li>1 byte ずつ <code>val >> 4</code> で上位 4 bit, <code>val &#x26; 0xf</code> で下位 4 bit を取り出す</li>
+<li>文字列を書き込むバッファは 50 文字分確保されているが、実際には 40 文字しか書き込まれない</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L52-L81">L52-L81</a> <code>sha1_file_name</code>: SHA‑1 から Git object ファイルのパス（xx/xxxx…）を生成する
+<ul>
+<li>デフォルトでは <code>.dircache/objects/</code> 以下に <code>00 ~ ff</code> のディレクトリが作られている</li>
+<li>SHA-1 の先頭 2 文字と残り 38 文字を分けて、ファイルパスを組み立てる
+<ul>
+<li>例えば <code>33dcc9880a7aa3da98e833a2ca7376472a02b19e</code> なら <code>.dircache/objects/33/dcc9880a7aa3da98e833a2ca7376472a02b19e</code></li>
+<li><code>base = malloc(len + 60);</code> で <code>./dircache/objects</code> の後に 60 bytes のメモリを確保しているが、実際に必要な長さは <code>/&#x3C;2 bytes>/&#x3C;38 bytes>&#x3C;NULL></code> で 43 bytes</li>
+</ul>
+</li>
+<li>init-db した後に環境変数 <code>DB_ENVIRONMENT</code> を変更しているとディレクトリが存在しないので失敗する</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L82-L132">L82-L132</a> <code>read_sha1_file</code>: SHA-1 を受け取って buffer に書き込んで返す
+<ul>
+<li><code>sha1_file_name</code> に SHA-1 を渡してファイルパスを取得する</li>
+<li>ファイルから zlib 圧縮されたバイト列を読み込んで mmap でメモリに乗せる</li>
+<li>inflate (zlib 展開) して、展開後のデータの先頭にあるヘッダ（type, size）を除いた内容部分をバッファに読み込んで返す
+<ul>
+<li>Git object の先頭には object の種別（blob, tree, commit）と展開後のファイルサイズが書き込まれている</li>
+<li>先頭部分を除外することでファイルの中身だけをバッファに読み込める</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L133-L167">L133-L167</a> <code>write_sha1_file</code>: データを圧縮し SHA-1 を計算して object として保存する
+<ul>
+<li><code>read_sha1_file</code> の逆の処理を行う</li>
+<li>ファイルを deflate (zlib 圧縮) し、SHA-1 を計算して <code>write_sha1_buffer</code> でファイルに書き込む</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L168-L180">L168-L180</a> <code>write_sha1_buffer</code>: 圧縮済みデータを object として保存する
+<ul>
+<li>SHA-1 から <code>sha1_file_name</code> でファイル名を取得してファイルディスクリプタを開く
+<ul>
+<li><code>O_WRONLY（書き込み専用） | O_CREAT（なければ作る） | O_EXCL（すでに同名ファイルが存在したら失敗）</code></li>
+<li>基本的には SHA-1 が衝突しない限り同じファイルは存在しないはずなので、存在していたら書き込み不要として問題ない
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L175">L175</a> で return 0 している</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>バイト列をファイルに書き込む</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L205-L258">L205-L258</a> <code>read_cache</code>: index ファイルを読んでグローバル変数に書き込む関数で、<code>.dircache/index</code> のデータをコマンド内で取り扱いたいときに呼び出す
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L217-L225">L217-L225</a>: <code>.dircache/index</code> と git object database にアクセスできるかを確認する</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L226-L237">L226-L237</a>: index のファイルを mmap でメモリにマッピングする</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L238-L251">L238-L251</a>: cache_header を検証して cache_entry のポインタ配列分のメモリを確保し <code>active_nr</code> にファイル数、<code>active_alloc</code> に要素数、 <code>active_cache</code> に cache_entry へのポインタ配列を格納する</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-cache.c#L252">L252</a>: <code>active_nr</code> を返す</li>
+</ul>
+</li>
+</ul>
+<h2 id="read-tree">read-tree</h2>
+<p>引数として tree object の SHA-1 を受け取り tree にあるファイル名やモードを標準出力する。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-tree.c">read-tree.c</a></p>
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-tree.c#L9-L13">L9-L13</a>: SHA-1 でファイルを読み、object 種別が tree であることを確かめる</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/read-tree.c#L14-L24">L14-L24</a>: tree object を 1 byte ずつ解析してフォーマットを組み立てて標準出力する
+<ul>
+<li>tree object は <code>&#x3C;mode> &#x3C;path>&#x3C;NUL(\0)>&#x3C;SHA-1></code> の繰り返しで表現されている
+<ul>
+<li>SHA-1 部分は 20 bytes のバイナリ表現</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>引数として与えられた SHA-1 が示す tree object の直下だけを取得し、再帰的な取得は行わない</li>
+</ul>
+<h2 id="write-tree">write-tree</h2>
+<p>ディレクトリのキャッシュ <code>.dircache/index</code> から tree object を作成する。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c">write-tree.c</a></p>
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L30">L30</a>, <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L33-L37">L33-L37</a>: <code>read_cache</code> で <code>.dircache/index</code> を読みこむ</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L38-L42">L38-L42</a>: 適当なサイズのバッファを準備する
+<ul>
+<li>tree object は <code>&#x3C;mode> &#x3C;path>&#x3C;NUL(\0)>&#x3C;SHA-1></code> でパスが可変なので、長いファイル名が多いとバッファが不足する可能性がある
+<ul>
+<li>SHA-1 部分は 20 bytes のバイナリ表現</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L47-L49">L47-L49</a>: 不足する場合は realloc で追加確保する</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L44-L46">L44-L46</a>: cache_entry が指す Git object が存在することを確認する</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L51-L55">L51-L55</a>: cache_entry から mode と name と SHA-1 を取り出し buffer に書き込みながら offset を進めていく</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L57-L63">L57-L63</a>: 先頭に <code>tree &#x3C;size>&#x3C;NUL(\0)></code> を書き込み、buffer/offset をヘッダ開始位置に合わせて調整する</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/write-tree.c#L64">L64</a>: <code>write_sha1_file</code> でメモリ上のバイト列を zlib 圧縮してファイルに書き込み tree object の SHA-1 を標準出力する</li>
+</ul>
+<h2 id="commit-tree">commit-tree</h2>
+<p>tree object と環境変数やシステムのユーザー情報から commit object を生成し object database に保存する。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c">commit-tree.c</a></p>
+<p>コミットメッセージは以下のように標準入力から受け取る必要がある。親コミットは最大 16 個まで指定できる（<a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L93-L102">L93-L102</a>）。</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> echo</span><span style="color:#9ECBFF"> "test commit message"</span><span style="color:#F97583"> |</span><span style="color:#B392F0"> commit-tree</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">tree</span><span style="color:#9ECBFF"> SHA-</span><span style="color:#F97583">1></span><span style="color:#79B8FF"> -p</span><span style="color:#F97583"> &#x3C;</span><span style="color:#9ECBFF">parent-commit</span><span style="color:#9ECBFF"> SHA-</span><span style="color:#F97583">1></span><span style="color:#9ECBFF"> ...</span></span></code></pre>
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L118-L129">L118-L129</a>: コマンドライン引数を解析して tree object と親 commit を取得する</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L130-L148">L130-L148</a>: 環境変数やシステムのユーザー情報から commit に記載するデータを取り出す</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L149-L159">L149-L169</a>: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L9-L22">init_buffer</a> で最初のバッファを確保し、<a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L23-L46">add_buffer</a> で commit object を構成するデータを書き込みながらバッファを追加で確保し、<a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L57-L74">finish_buffer</a> で先頭に object 種別（commit）と object のサイズを書き込む。</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/commit-tree.c#L170">L170</a>: <code>write_sha1_file</code> でメモリ上のバイト列を zlib 圧縮してファイルに書き込み commit object の SHA-1 を標準出力する</li>
+</ul>
+<h3 id="実際の-commit-object-の例">実際の commit object の例</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="plaintext"><code><span class="line"><span>tree dd6ccb42609c049bc68a40d2a97b31a366831962</span></span>
+<span class="line"><span>author root &#x3C;root@initial-git> Tue Dec 30 02:29:00 2025</span></span>
+<span class="line"><span>committer root &#x3C;root@initial-git> Tue Dec 30 02:29:00 2025</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>initial commit\n</span></span></code></pre>
+<h2 id="show-diff">show-diff</h2>
+<p>index に登録されているファイルと現在の作業ディレクトリのファイルとの差分を表示する。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/show-diff.c">show-diff.c</a></p>
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/show-diff.c#L47">L47</a>: <code>read_cache</code> で <code>.dircache/index</code> を読み込む</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/show-diff.c#L63-L66">L63-L66</a>: 作業ツリー上の同名ファイルを stat する</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/show-diff.c#L10-L32">L10-L32</a>: <code>match_stat</code> で index に保存されている cache_entry のメタデータと stat で得られた結果を比較して変化がありそうかを判定
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/show-diff.c#L68-L76">L68-L76</a>: 変化があれば、index が指す blob を <code>read_sha1_file</code> で取り出す</li>
+</ul>
+</li>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/show-diff.c#L33-L44">L33-L44</a>: <code>diff -u</code> で差分を表示する
+<ul>
+<li><code>diff</code> コマンドがない環境では動かないのと、ファイル名に特殊文字があると失敗しそう</li>
+</ul>
+</li>
+</ul>
+<h2 id="cat-file">cat-file</h2>
+<p>Git object の SHA-1 を引数として受け取り、内容を一時ファイルに書き込む。現代の <code>git cat-file</code> はファイルに書き込むのではなく標準出力する。</p>
+<p>source: <a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/cat-file.c">cat-file.c</a></p>
+<ul>
+<li>git object の SHA-1 を受け取り、その内容を <code>temp_git_file_XXXXXX</code> という名前のファイルに書き出す
+<ul>
+<li><a href="https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/cat-file.c#L17">L17</a>: mkstemp 関数にファイル名のテンプレートを渡している</li>
+<li><code>XXXXXX</code> 部分はランダムなので、同じ Git object であっても <code>cat-file</code> する度にファイル名が変わる</li>
+</ul>
+</li>
+<li>一時ファイルの生成と書き込みに成功すると、ファイル名と object 種別（blob, tree, commit）を標準出力する</li>
+</ul>
+<h1 id="現在の-git-と比較する">現在の Git と比較する</h1>
+<p>20 年が経った現代の Git とは大きな差があるが、特に印象的だったのは以下の点だ。</p>
+<h2 id="branch-が無い">branch が無い</h2>
+<p>現代の Git における branch は <code>refs/heads/*</code> に置かれる参照（ref）で、通常は commit を指す。基本的にこの参照先が commit 時の親になる。</p>
+<p>2005 年の最初のコミットではこのような機構は存在せず、<code>update-cache</code> で index にファイルを追加して <code>write-tree</code> から <code>commit-tree -p &#x3C;親コミットの SHA-1></code> する必要がある。</p>
+<p>git branch や git switch のような便利コマンドも無いので、どの commit を HEAD として扱うかを自分で管理する必要がある。例えばどこかにメモするか、参照として保存するなどひと手間がかかる。ちなみにこの時点では merge もまだ無かった。</p>
+<h2 id="remote-が無い">remote が無い</h2>
+<p>最初の Git には <code>remote</code> がなく、当然 <code>push</code> も <code>pull</code> も無い。</p>
+<p>しかし、最初のコミットから 10 日後には公開リポジトリから pull して merge する今では一般的な流れができるようになっていた。メーリングリストのアーカイブを見る限りでは、他の人と作業を共有する場合はそれぞれが git リポジトリを公開しておき、<code>rsync</code> で Git object や HEAD を取得してローカルでマージコミットを作成するといったワークフローをシェルで行っていた。</p>
+<p><a href="https://lore.kernel.org/git/Pine.LNX.4.58.0504171455070.7211@ppc970.osdl.org/">https://lore.kernel.org/git/Pine.LNX.4.58.0504171455070.7211@ppc970.osdl.org/</a></p>
+<h2 id="log-が無い">log が無い</h2>
+<p>最初の Git には log がないので parent を辿って過去のコミット一覧を表示するのにひと工夫が必要になる。</p>
+<p>その後数週間で <code>rev-list</code> が追加された。rev-list で Git object の SHA-1 配列を作ることができるので、それを比べるようなシェルスクリプトで現代の <code>git log</code> のようなものを作っていたようだ。</p>
+<h2 id="plumbing-と-porcelain">Plumbing と Porcelain</h2>
+<p>Git にはコマンドを分類する <a href="https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain">Plumbing（配管）と Porcelain（磁器）</a> という概念がある。前者は Git 内部のデータ視点で操作する単機能のコマンドで、後者はそれを組み合わせてユーザー視点で操作する高機能なコマンドを意味している。</p>
+<p>最初期のコマンドは全て plumbing なので Git の内部動作を理解していなければ使うことが難しい。一方で、基本的な仕組みさえわかれば入出力をパイプで繋ぎ合わせて自分用のツールを簡単に作ることができる。初期の Git では object の SHA-1 やそこから引き出せるファイルを各自がシェルスクリプトで処理していて、徐々にパフォーマンス向上のために C で書き直したりユーザー向けの porcelain を作るといった流れでコマンドが増えていった。</p>
+<p>本質的に Git は「<strong>ファイルの内容でアドレスが決まるファイルシステム</strong>」で、その上にさまざまなインターフェイスを被せてバージョン管理システムとして使われている。</p>
+<h2 id="いつ圧縮するか">いつ圧縮するか</h2>
+<p>初期 Git はこれまで見た通り object を示すバイト列を圧縮してから SHA-1 を計算している一方、現代の Git では type, size, content（非圧縮）で SHA-1 を計算してから content を保存時に圧縮する。</p>
+<p>zlib のバージョンや実装の差によって SHA-1 が変わるなど不便な点が多いので、確かに圧縮後に SHA-1 を計算するより非圧縮で SHA-1 を計算してから圧縮した方がいいという背景があったようだ。</p>
+<h1 id="読んだ感想">読んだ感想</h1>
+<p>全体で 1244 行しかなく単純な実装なので、それほど時間をかけずに読むことができた。今では当たり前に使われている branch も remote も log も存在しない「原始時代」の Git を体験できて楽しかった。本質的な仕組みは理解できたので、次は自分自身で再実装したい。</p>
+<p>Git の作者 Linus Torvalds といえば Linux を作った有名人で、私からすると雲の上の存在だ。一方で、原初の Git はエラー処理が適当だったり、単にバグってたり、エッジケースを無視したり、メモリ確保した後に解放してなかったり、詳細な部分が雑に作られているという印象を受けた。とても失礼な表現かもしれないが、すごく人間味を感じた。</p>
+<p>しかし、この Git 最初のコミットはカーネルのメーリングリスト（後述）を見る限り長く見積もっても 30 時間ほどで実装されている。それ以前からバージョン管理システムを使いその課題について考えていたとはいえ、もの凄いスピード感だ。</p>
+<p>Git を構成する概念は非常に単純で、圧縮したファイルから計算した SHA-1 をキーとする object database と作業ディレクトリのキャッシュ (index) のみでほぼ全ての実装を説明できる。最初のコミットは 1244 行あるが、object database のディレクトリ構造と index のデータ構造が分かっていればあとは単純なファイルやメモリを読み書きする繰り返しに過ぎない。</p>
+<p>これらの核となる概念は現代の Git にも受け継がれており、基礎的な内部構造は大きく変わっていない。長く使われる優れたソフトウェアを作るエンジニアはプログラミングが上手くて速いだけではなく、問題を解決するために核となるアイデアを考えるのが上手いのだと感じた。</p>
+<h1 id="小ネタ">小ネタ</h1>
+<p>Git について調べる中で、昔の話がわかる記事や動画を見つけたのでメモ。</p>
+<h2 id="gitlab---20-年にわたる-git-の歴史をたどる"><a href="https://about.gitlab.com/ja-jp/blog/journey-through-gits-20-year-history/">GitLab - 20 年にわたる Git の歴史をたどる</a></h2>
+<p>Git の 20 年の歴史をざっくり見る記事。</p>
+<h2 id="gitlab---celebrating-gits-20th-anniversary-with-creator-linus-torvalds"><a href="https://about.gitlab.com/blog/celebrating-gits-20th-anniversary-with-creator-linus-torvalds/">GitLab - Celebrating Git’s 20th anniversary with creator Linus Torvalds</a></h2>
+<p>GitLab 社による作者 Linus Torvalds へのインタビュー記事。</p>
+<ul>
+<li>Linux カーネルを開発する上で、Git を作るまでの数年にわたりバージョン管理システムを使っていた</li>
+<li>当時使っていた幾つかのバージョン管理システムが使いづらかったり、ライセンス上の問題で揉めていた</li>
+<li>OSS コミュニティから良いものが出てこなかったので自分で作った</li>
+<li>最初のバージョンは数日でできたが、コードを書くのは簡単だったし実装にかかった時間はさほど重要じゃない。重要なのは、それまでに問題について考えていたから核となる設計ができたということ</li>
+<li>主な目標は、分散型で高性能であること、そしてどんな破損もキャッチできる絶対的に信頼できるものであること</li>
+<li>バージョン管理システム自体に興味はなく、カーネル開発のために必要だからやっていた</li>
+<li>Git が（その 12 日後にリリースされた）Mercurial より人気が出たのは、カーネルや Ruby on Rails 等が使っていたことによるネットワーク効果によるものと考えている</li>
+<li>（<strong>今フルタイムで Git に取り組めるとしたら実装したいことはあるか？という質問に対して</strong>）何もない。自分にとって Git の使い方は限定的で、かなり早い段階で自分に必要なものを実現してくれたし、本当に大切にしているのはカーネルだけ</li>
+<li>（<strong>Git の設計上の決定で後悔していることは？という質問に対して</strong>）細部については別のやり方をしていたかもしれないが、大まかなデザインには満足している。設計の原動力となるコンセプト（Git でいえば object database、Unix でいえば「全てはファイルである」）を導くことが重要。コードの 99% はその概念を現実世界で使えるようにするために構築する醜い細部</li>
+<li>（<strong>カーネルのように Rust を Git の一部で使い始めることに意味があるか？という質問に対して</strong>）Git のコアとなったアイデアは単純なので一から実装するのが合理的だと思う。そして、Rust の利点が明らかだとは思わない。ネットワーク効果があるから Git を置き換えるには少し優れているのではなく非常に優れていなければならない</li>
+</ul>
+<h2 id="two-decades-of-git-a-conversation-with-creator-linus-torvalds"><a href="https://www.youtube.com/watch?v=sCr_gb8rdEI">Two decades of Git: A conversation with creator Linus Torvalds</a></h2>
+<p>GitHub 公式チャンネルが Git 20 周年記念で投稿した動画。Shorts で切り抜きがたくさんアップロードされている。</p>
+<p>書き起こしはこちら。</p>
+<p><a href="https://github.blog/open-source/git/git-turns-20-a-qa-with-linus-torvalds/">https://github.blog/open-source/git/git-turns-20-a-qa-with-linus-torvalds/</a></p>
+<h3 id="一週間で実装した話">一週間で実装した話</h3>
+<p><a href="https://youtu.be/sCr_gb8rdEI?si=7X7UYV7u5xmeH7Xf&#x26;t=112">01:52 ~</a></p>
+<p>Git は 1 週間で作られたという伝説がある。</p>
+<p>作者が「BitKeeper に代わるバージョン管理システムを見つける」という話をしたメールのアーカイブはこちら。</p>
+<p><a href="https://lore.kernel.org/all/Pine.LNX.4.58.0504060800280.2215@ppc970.osdl.org/">https://lore.kernel.org/all/Pine.LNX.4.58.0504060800280.2215@ppc970.osdl.org/</a></p>
+<p>メールのヘッダーを見ると日付は <code>Wed, 6 Apr 2005 08:42:08 -0700 (PDT)</code> とある。Git 最初のコミットは <code>Thu Apr 7 15:13:13 2005 -0700</code> に行われたので、およそ <strong>30 時間</strong>で作られた計算になる。</p>
+<p>作者によると、カーネルに使えるようになるまでには 10 日ほどかかったそうだ。カーネルが完全に Git で管理されるようになったのは Linux v2.6.12-rc3 からだった。</p>
+<p><a href="https://lore.kernel.org/all/Pine.LNX.4.58.0504201728110.2344@ppc970.osdl.org/">https://lore.kernel.org/all/Pine.LNX.4.58.0504201728110.2344@ppc970.osdl.org/</a></p>
+<p>Git の実装は上記のように短時間で行われていたが、作者曰く、その 4 ヶ月ほど前から前述の BitKeeper 問題があって解決策についてずっと考えていたらしい。</p>
+<h3 id="作者がよく使う-git-コマンド">作者がよく使う git コマンド</h3>
+<p><a href="https://youtu.be/sCr_gb8rdEI&#x26;t=1824">30:24 ~</a></p>
+<p>よく使うコマンドは <code>merge</code>, <code>blame</code>, <code>log</code>, <code>commit</code>, <code>pull</code> の 5 つ。この手の話題で <code>push</code> が入らない人は珍しい。</p>
+<h2 id="tech-talk-linus-torvalds-on-git"><a href="https://www.youtube.com/watch?v=4XpnKHJAok8">Tech Talk: Linus Torvalds on git</a></h2>
+<p>リリースから 2 年後の 2007 年に作者が Google で Git について喋っている動画（限定公開）。</p>
+<p>内容は分散バージョン管理の価値についてで Git の使い方や実装については一切説明していない。本人によると、使い方は Google で検索してマニュアルを読めばいいし実装はシンプルだからとのこと。
+Git が一般に普及したきっかけは Ruby on Rails の開発で使われていたことが大きく、2007 年時点では今のように広くは使われていなかったようだ。</p>
+<p>当時の Linux カーネルの開発では 22,000 のファイルがある。merge は一日あたり 4 ~ 5 件あって差分のダウンロードを除けば 1 秒以内に完了する。開発者は地理的に分散している。これだけパフォーマンスと信頼を兼ね備えた分散バージョン管理システムがあるのに何故 CVS や SVN を使うんだ？という話をしている。</p>
+<p>Git が当たり前になった現在では目新しい内容ではないが、当時の雰囲気を感じることができる貴重な映像といえそう。</p>  </div> </article> <aside class="toc-wrapper" data-astro-cid-bvzihdzo> <nav class="toc" aria-label="目次" data-astro-cid-xvrfupwn><div class="toc-title" data-astro-cid-xvrfupwn>目次</div><ol> <li class="toc-depth-1"> <a href="#最初のコミットの全体像を掴む">最初のコミットの全体像を掴む</a> <ol> <li class="toc-depth-2"> <a href="#コミットハッシュを特定する">コミットハッシュを特定する</a>  </li><li class="toc-depth-2"> <a href="#コード全体を見渡す">コード全体を見渡す</a>  </li><li class="toc-depth-2"> <a href="#build-して動かしてみる">build して動かしてみる</a>  </li><li class="toc-depth-2"> <a href="#最初の-git-を使った開発まとめ">最初の Git を使った開発まとめ</a>  </li> </ol> </li><li class="toc-depth-1"> <a href="#ソースコードを読む">ソースコードを読む</a> <ol> <li class="toc-depth-2"> <a href="#init-db">init-db</a>  </li><li class="toc-depth-2"> <a href="#update-cache">update-cache</a>  </li><li class="toc-depth-2"> <a href="#read-cachec">read-cache.c</a>  </li><li class="toc-depth-2"> <a href="#read-tree">read-tree</a>  </li><li class="toc-depth-2"> <a href="#write-tree">write-tree</a>  </li><li class="toc-depth-2"> <a href="#commit-tree">commit-tree</a>  </li><li class="toc-depth-2"> <a href="#show-diff">show-diff</a>  </li><li class="toc-depth-2"> <a href="#cat-file">cat-file</a>  </li> </ol> </li><li class="toc-depth-1"> <a href="#現在の-git-と比較する">現在の Git と比較する</a> <ol> <li class="toc-depth-2"> <a href="#branch-が無い">branch が無い</a>  </li><li class="toc-depth-2"> <a href="#remote-が無い">remote が無い</a>  </li><li class="toc-depth-2"> <a href="#log-が無い">log が無い</a>  </li><li class="toc-depth-2"> <a href="#plumbing-と-porcelain">Plumbing と Porcelain</a>  </li><li class="toc-depth-2"> <a href="#いつ圧縮するか">いつ圧縮するか</a>  </li> </ol> </li><li class="toc-depth-1"> <a href="#読んだ感想">読んだ感想</a>  </li><li class="toc-depth-1"> <a href="#小ネタ">小ネタ</a> <ol> <li class="toc-depth-2"> <a href="#gitlab---20-年にわたる-git-の歴史をたどる">GitLab - 20 年にわたる Git の歴史をたどる</a>  </li><li class="toc-depth-2"> <a href="#gitlab---celebrating-gits-20th-anniversary-with-creator-linus-torvalds">GitLab - Celebrating Git’s 20th anniversary with creator Linus Torvalds</a>  </li><li class="toc-depth-2"> <a href="#two-decades-of-git-a-conversation-with-creator-linus-torvalds">Two decades of Git: A conversation with creator Linus Torvalds</a>  </li><li class="toc-depth-2"> <a href="#tech-talk-linus-torvalds-on-git">Tech Talk: Linus Torvalds on git</a>  </li> </ol> </li> </ol></nav> </aside> </div> </main> <footer data-astro-cid-sz7xmlte>
+&copy; 2026 Ryohei Tsuda. All rights reserved.
+<div class="social-links" data-astro-cid-sz7xmlte> <a href="https://x.com/rtsudar" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Follow me on X(Formerly Twitter)</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/twitter" data-astro-cid-sz7xmlte><path fill="currentColor" d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" data-astro-cid-sz7xmlte></path></svg> </a> <a href="https://github.com/lyohe" target="_blank" data-astro-cid-sz7xmlte> <span class="sr-only" data-astro-cid-sz7xmlte>Go to my GitHub repo</span> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" astro-icon="social/github" data-astro-cid-sz7xmlte><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-sz7xmlte></path></svg> </a> </div> </footer>  <script>
+      const headingSelector =
+        '.prose h1[id], .prose h2[id], .prose h3[id], .prose h4[id], .prose h5[id], .prose h6[id]';
+
+      const copyText = async (text) => {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+          return;
+        }
+        const helper = document.createElement('textarea');
+        helper.value = text;
+        helper.setAttribute('readonly', '');
+        helper.style.position = 'absolute';
+        helper.style.left = '-9999px';
+        document.body.appendChild(helper);
+        helper.select();
+        document.execCommand('copy');
+        helper.remove();
+      };
+
+      document.querySelectorAll(headingSelector).forEach((heading) => {
+        if (heading.querySelector('.heading-anchor')) return;
+
+        heading.classList.add('anchor-heading');
+
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'heading-anchor';
+        button.setAttribute('aria-label', '見出しリンクをコピー');
+        button.innerHTML =
+          '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10.6 13.4a1 1 0 0 1 0-1.4l2-2a1 1 0 1 1 1.4 1.4l-2 2a1 1 0 0 1-1.4 0zm-2.9 2.9a3 3 0 0 1 0-4.2l3.5-3.5a3 3 0 1 1 4.2 4.2l-1.1 1.1a1 1 0 1 1-1.4-1.4l1.1-1.1a1 1 0 1 0-1.4-1.4l-3.5 3.5a1 1 0 1 0 1.4 1.4l.7-.7a1 1 0 1 1 1.4 1.4l-.7.7a3 3 0 0 1-4.2 0zm8.2-8.2a3 3 0 0 1 0 4.2l-3.5 3.5a3 3 0 1 1-4.2-4.2l1.1-1.1a1 1 0 1 1 1.4 1.4l-1.1 1.1a1 1 0 1 0 1.4 1.4l3.5-3.5a1 1 0 1 0-1.4-1.4l-.7.7a1 1 0 1 1-1.4-1.4l.7-.7a3 3 0 0 1 4.2 0z"/></svg>';
+
+        button.addEventListener('click', async (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          if (!heading.id) return;
+          const url = new URL(window.location.href);
+          url.hash = heading.id;
+          try {
+            await copyText(url.toString());
+            button.classList.add('is-copied');
+            window.setTimeout(() => {
+              button.classList.remove('is-copied');
+            }, 1200);
+          } catch {}
+        });
+
+        heading.appendChild(button);
+      });
+    </script> </body> </html>
